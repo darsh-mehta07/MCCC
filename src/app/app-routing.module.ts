@@ -1,7 +1,188 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
-const routes: Routes = [];
+import { LogoComponent } from './logo/logo.component';
+import { Splash1Component } from './splash/splash1/splash1.component';
+import { Splash2Component } from './splash/splash2/splash2.component';
+import { Splash3Component } from './splash/splash3/splash3.component';
+import { WelcomeComponent } from './welcome/welcome.component';
+import { SigninComponent } from './signin/signin.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { Signup1Component } from './signup/signup1/signup1.component'; 
+import { Signup2Component } from './signup/signup2/signup2.component';
+import { Signup3Component } from './signup/signup3/signup3.component';
+import { Signup4Component } from './signup/signup4/signup4.component';
+import { Signup5Component } from './signup/signup5/signup5.component';
+import { Signup6Component } from './signup/signup6/signup6.component';
+import { Signup7Component } from './signup/signup7/signup7.component';
+import { Signup8Component } from './signup/signup8/signup8.component';
+import { Signup9Component } from './signup/signup9/signup9.component';
+import { Signup10Component } from './signup/signup10/signup10.component';
+import { Signup11Component } from './signup/signup11/signup11.component';
+import { HomeComponent } from './home/home.component';
+import { ProfileFirstStepComponent } from './profile/profile-first-step/profile-first-step.component';
+import { ProfileSecondStepComponent } from './profile/profile-second-step/profile-second-step.component';
+import { ProfileFinalStepComponent } from './profile/profile-final-step/profile-final-step.component';
+import { ThankyouComponent } from './profile/thankyou/thankyou.component';
+import { AuthGuard } from './_helpers/auth.guard';
+import { CastingInnerComponent } from './casting/casting-inner/casting-inner.component';
+import { CastingAllComponent } from './casting/casting-all/casting-all.component';
+import { ApplyCastingComponent } from './casting/apply-casting/apply-casting.component';
+import { ThankyouCastingComponent } from './casting/thankyou-casting/thankyou-casting.component';
+import { MyApplicationComponent } from './my-application/my-application.component';
+import { ApplicationConfirmCastingComponent } from './casting/application-confirm-casting/application-confirm-casting.component';
+import { EditProfileComponent } from './profile/edit-profile/edit-profile.component';
+import { MyCastingInnerComponent } from './my-application/my-casting-inner/my-casting-inner.component';
+import { BtsVideosComponent } from './bts-videos/bts-videos.component';
+import { BtsInnerComponent } from './bts-videos/bts-inner/bts-inner.component';
+import { BtsVideoViewComponent } from './bts-videos/bts-video-view/bts-video-view.component';
+const routes: Routes = [
+  {    
+    path: '',    
+    redirectTo: 'logo',    
+    pathMatch: 'full',    
+  },    
+  {    
+    path: 'logo',component: LogoComponent,    
+    data: {title: 'Logo Page'}    
+  },    
+  {    
+    path: 'splash1',component: Splash1Component,    
+    data: {title: 'Casting Page'}    
+  }, 
+  {    
+    path: 'splash2',component: Splash2Component,    
+    data: {title: 'Traning Page'}    
+  },
+  {    
+    path: 'splash3',component: Splash3Component,    
+    data: {title: 'Events Page'}    
+  },
+  {    
+    path: 'welcome',component: WelcomeComponent,    
+    data: {title: 'Welcome Page'}    
+  },
+  {    
+    path: 'signin',component: SigninComponent,    
+    data: {title: 'Signin Page'}    
+  },
+  {    
+    path: 'forgot-password',component: ForgotPasswordComponent,    
+    data: {title: 'Forgot Password Page'}    
+  },
+  {    
+    path: 'reset-password/:token',component: ResetPasswordComponent,    
+    data: {title: 'Reset Password Page'}    
+  },
+  {    
+    path: 'signup-name',component: Signup1Component,    
+    data: {title: 'Name Page'}    
+  },
+  {    
+    path: 'signup-email',component: Signup2Component,    
+    data: {title: 'Email Page'}    
+  },
+  {    
+    path: 'signup-phone',component: Signup3Component,    
+    data: {title: 'Phone Page'}    
+  },
+  {    
+    path: 'signup-otp',component: Signup4Component,    
+    data: {title: 'OTP Page'}    
+  },
+  {    
+    path: 'signup-gendar',component: Signup5Component,    
+    data: {title: 'Gendar Page'}    
+  },
+  {    
+    path: 'signup-dob',component: Signup6Component,    
+    data: {title: 'Date of Birth Page'}    
+  },
+  {    
+    path: 'signup-state-city',component: Signup7Component,    
+    data: {title: 'Signup State & City Page'}    
+  },
+  {    
+    path: 'signup-password',component: Signup8Component,    
+    data: {title: 'Signup Password Page'}    
+  },
+  {    
+    path: 'signup-confirm-password',component: Signup9Component,    
+    data: {title: 'Signup Confirm Password Page'}    
+  },
+  {    
+    path: 'signup-terms',component: Signup10Component,    
+    data: {title: 'Signup Terms And Condition Page'}    
+  },
+  {    
+    path: 'signup-success',component: Signup11Component,    
+    data: {title: 'Signup Success Page'}    
+  },
+  {    
+    path: 'home',component: HomeComponent, canActivate: [AuthGuard],   
+    data: {title: 'Home Page'}    
+  },
+  {    
+    path: 'profile_first_step',component: ProfileFirstStepComponent, canActivate: [AuthGuard],   
+    data: {title: 'Upload Image Page'}    
+  },
+  {    
+    path: 'profile_second_step',component: ProfileSecondStepComponent, canActivate: [AuthGuard],   
+    data: {title: 'Upload Video Page'}    
+  },
+  {    
+    path: 'profile_final_step',component: ProfileFinalStepComponent,canActivate: [AuthGuard],
+    data: {title: 'Final Step Page'}    
+  },
+  {    
+    path: 'thankyou',component: ThankyouComponent,canActivate: [AuthGuard],  
+    data: {title: 'Thank You Page'}    
+  },
+  {    
+    path: 'casting-inner/:id',component: CastingInnerComponent,canActivate: [AuthGuard],    
+    data: {title: 'Casting Inner Page'}    
+  },
+  {    
+    path: 'casting-all/:id',component: CastingAllComponent,canActivate: [AuthGuard],    
+    data: {title: 'Casting All Page'}    
+  },
+  {    
+    path: 'apply-casting/:id',component: ApplyCastingComponent,canActivate: [AuthGuard],    
+    data: {title: 'Apply Casting Page'}    
+  },
+  {    
+    path: 'casting-confirm/:id',component: ApplicationConfirmCastingComponent,canActivate: [AuthGuard],    
+    data: {title: 'Confirmation Casting Page'}    
+  },
+  {    
+    path: 'thank-casting/:application_no',component: ThankyouCastingComponent,canActivate: [AuthGuard],    
+    data: {title: 'Thankyou Casting Page'}    
+  },
+  {    
+    path: 'my-aaplication',component: MyApplicationComponent,canActivate: [AuthGuard],    
+    data: {title: 'My Application Page'}    
+  },
+  {    
+    path: 'edit-profile',component: EditProfileComponent,canActivate: [AuthGuard],    
+    data: {title: 'Edit Profile Page'}    
+  },
+  {    
+    path: 'my-casting/:id',component: MyCastingInnerComponent,canActivate: [AuthGuard],    
+    data: {title: 'My casting Page'}    
+  },
+  {    
+    path: 'bts-video',component: BtsVideosComponent,canActivate: [AuthGuard],    
+    data: {title: 'BTS Videos'}    
+  },
+  {    
+    path: 'bts-inner/:id',component: BtsInnerComponent,canActivate: [AuthGuard],    
+    data: {title: 'BTS Inner'}    
+  },
+  {    
+    path: 'bts-video-view/:id/:type',component: BtsVideoViewComponent,canActivate: [AuthGuard],    
+    data: {title: 'BTS Inner'}    
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

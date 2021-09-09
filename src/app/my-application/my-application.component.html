@@ -1,0 +1,24 @@
+<body class="hm_pg">
+    <div class="appli">
+      <img src="../../assets/img/application.png">
+      <div class="container">
+        <div class="header hd-icons">
+         <a href="casting_thnk.html"><img src="../../assets/img/back.png" /></a>
+          <a href="home-page.html"><img src="../../assets/img/home.png" /></a>
+        </div>
+        
+        <div class="form_areas">
+         <div class="appl">
+             <h3>My Application</h3>
+             <h5>Most Recent</h5>
+             <a [routerLink]="['/my-casting/'+application.casting_id]" *ngFor="let application of applications; let i=index;">
+                 <div class="appli-content">
+                 <h3>{{application.title | titlecase}}</h3>
+                 <p>{{application.short_description}}</p>
+             </div>
+             </a>
+         </div>
+        </div>
+      </div>
+    </div>
+</body>
