@@ -33,7 +33,9 @@ import { MyApplicationComponent } from './my-application/my-application.componen
 import { ApplicationConfirmCastingComponent } from './casting/application-confirm-casting/application-confirm-casting.component';
 import { EditProfileComponent } from './profile/edit-profile/edit-profile.component';
 import { MyCastingInnerComponent } from './my-application/my-casting-inner/my-casting-inner.component';
-
+import { BtsVideosComponent } from './bts-videos/bts-videos.component';
+import { BtsInnerComponent } from './bts-videos/bts-inner/bts-inner.component';
+import { BtsVideoViewComponent } from './bts-videos/bts-video-view/bts-video-view.component';
 const routes: Routes = [
   {    
     path: '',    
@@ -168,7 +170,18 @@ const routes: Routes = [
     path: 'my-casting/:id',component: MyCastingInnerComponent,canActivate: [AuthGuard],    
     data: {title: 'My casting Page'}    
   },
-  
+  {    
+    path: 'bts-video',component: BtsVideosComponent,canActivate: [AuthGuard],    
+    data: {title: 'BTS Videos'}    
+  },
+  {    
+    path: 'bts-inner/:id',component: BtsInnerComponent,canActivate: [AuthGuard],    
+    data: {title: 'BTS Inner'}    
+  },
+  {    
+    path: 'bts-video-view/:id/:type',component: BtsVideoViewComponent,canActivate: [AuthGuard],    
+    data: {title: 'BTS Inner'}    
+  },
 ];
 
 @NgModule({

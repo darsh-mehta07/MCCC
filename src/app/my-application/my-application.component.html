@@ -3,8 +3,13 @@
       <img src="../../assets/img/application.png">
       <div class="container">
         <div class="header hd-icons">
+<<<<<<< HEAD
          <a (click)="back()"><img src="../../assets/img/back.png" /></a>
           <a [routerLink]="['/home']"><img src="../../assets/img/home.png" /></a>
+=======
+         <a href="casting_thnk.html"><img src="../../assets/img/back.png" /></a>
+          <a href="home-page.html"><img src="../../assets/img/home.png" /></a>
+>>>>>>> 281c9245cccc6c6b311f1ebcba43433e0f7ac375
         </div>
         
         <div class="form_areas">
@@ -13,6 +18,7 @@
              <h5>Most Recent</h5>
              <a [routerLink]="['/my-casting/'+application.casting_id]" *ngFor="let application of applications; let i=index;">
                  <div class="appli-content">
+<<<<<<< HEAD
                  <h3>{{application.get_user_casting_model.title | titlecase}}</h3>
                  <p>{{application.get_user_casting_model.short_description}}</p>
              </div>
@@ -42,6 +48,12 @@
                 </div>
               </a>
             </div> -->
+=======
+                 <h3>{{application.title | titlecase}}</h3>
+                 <p>{{application.short_description}}</p>
+             </div>
+             </a>
+>>>>>>> 281c9245cccc6c6b311f1ebcba43433e0f7ac375
          </div>
         </div>
       </div>

@@ -51,7 +51,11 @@ import { ThankyouCastingComponent } from './casting/thankyou-casting/thankyou-ca
 import { MyApplicationComponent } from './my-application/my-application.component';
 import { EditProfileComponent } from './profile/edit-profile/edit-profile.component';
 import { MyCastingInnerComponent } from './my-application/my-casting-inner/my-casting-inner.component';
-
+import { BtsVideosComponent } from './bts-videos/bts-videos.component';
+import { BtsInnerComponent } from './bts-videos/bts-inner/bts-inner.component';
+import { BtsVideoViewComponent } from './bts-videos/bts-video-view/bts-video-view.component';
+import { SafePipe } from './_config/safe.pipe';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 @NgModule({
   declarations: [
     AppComponent,
@@ -89,6 +93,10 @@ import { MyCastingInnerComponent } from './my-application/my-casting-inner/my-ca
     MyApplicationComponent,
     EditProfileComponent,
     MyCastingInnerComponent,
+    BtsVideosComponent,
+    BtsInnerComponent,
+    BtsVideoViewComponent,
+    SafePipe,
   ],
   imports: [
     BrowserModule,
@@ -103,7 +111,8 @@ import { MyCastingInnerComponent } from './my-application/my-casting-inner/my-ca
     // NgHttpLoaderModule.forRoot(),
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    SlickCarouselModule
+    SlickCarouselModule,
+    NgxSkeletonLoaderModule.forRoot()
   ],
   providers: [
     {

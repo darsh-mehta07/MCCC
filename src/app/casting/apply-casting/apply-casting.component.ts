@@ -14,7 +14,6 @@ import { base64ToFile, Dimensions, ImageCroppedEvent, ImageTransform } from 'ngx
   templateUrl: './apply-casting.component.html',
   styleUrls: ['./apply-casting.component.css']
 })
-
 export class ApplyCastingComponent implements OnInit {
   loading = false;
   castingId:any;
