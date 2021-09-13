@@ -37,7 +37,7 @@ import { ProfileFinalStepComponent } from './profile/profile-final-step/profile-
 import { ThankyouComponent } from './profile/thankyou/thankyou.component';
 import { ImageCropperModule } from 'ngx-image-cropper';
 import { AlertComponent } from './_components/alert/alert.component';
-import { NgHttpLoaderModule } from 'ng-http-loader';
+// import { NgHttpLoaderModule } from 'ng-http-loader';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
@@ -100,7 +100,7 @@ import { MyCastingInnerComponent } from './my-application/my-casting-inner/my-ca
     NgbModule,
     NiceSelectModule,
     ImageCropperModule,
-    NgHttpLoaderModule.forRoot(),
+    // NgHttpLoaderModule.forRoot(),
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     SlickCarouselModule
