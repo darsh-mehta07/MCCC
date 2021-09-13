@@ -1,0 +1,39 @@
+<div class="wrapper">
+    <div class="complete_profile video_upload">
+        <div class="top_part">
+            <div class="header">
+                <a href='profile_first_step'><img src="https://img.icons8.com/material-rounded/30/000000/back--v1.png" /></a>
+                <a hrtef = "home"><img src="https://img.icons8.com/material-outlined/25/000000/home--v2.png" /></a>
+            </div>
+            <div class="logo">
+                <img src="../../../assets/img/logo.png" alt="logo">
+            </div>
+            <div class="form_area">
+                <h2>Complete Your Profile</h2>
+                <form [formGroup]="form" (ngSubmit)="submit()">
+                    <div class="progressbar">
+                        <span class='active'>1</span>
+                        <span>2</span>
+                        <span>3</span>
+                    </div>
+                    <div class="content">
+                        <p>Upload a videos</p>
+                    </div>                
+                    <div class="input_file">
+                        <label class="uploadBtnWrap" for="files">
+                            <input type="file" id="files" formControlName="files" (change)="onFileChange($event)"/>
+                            <span class="btn">Choose</span>
+                            <span id="fileName">No file Selected</span>
+                        </label>
+                    </div>
+                    <div class="btom_file">
+                        <div class="profileImg_area">
+                            <video [src]="url" *ngIf="format==='video' && url" height="200" controls></video>
+                        </div>
+                        <button *ngIf="format==='video'" class="next_btn">Next </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,80 @@
+.upload-options {
+    z-index: 1;
+    position: relative;
+    height: 110px;
+    cursor: pointer;
+    overflow: hidden;
+    text-align: center;
+    transition: background-color ease-in-out 150ms;
+    bottom: 110px;
+}
+.upload-options input {
+    height: 110px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+}
+.multi-field button.close {
+    font-size: 13px;
+    position: relative;
+    right: 5px;
+    top: 5px;
+}
+.box {
+    display: block;
+    min-width: 85px;
+    height: 110px;
+    margin: 10px 2px;
+    background-color: hsl(0deg 0% 100%);
+    width: 30%;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgb(0 0 0 / 12%), 0 1px 2px rgb(0 0 0 / 24%);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    overflow: hidden;
+}
+.upload-img {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+.pht, .vdi {
+    margin-bottom: 30px;
+    margin-top: 20px;
+}
+.close {
+    float: right;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    opacity: .5;
+}
+button.close {
+    padding: 0;
+    background-color: transparent;
+    border: 0;
+    -webkit-appearance: none;
+}
+.apply-btn button {
+    width: 122px;
+    background: #ff6e61;
+    border-radius: 25px;
+    color: #fff !IMPORTANT;
+    text-align: center;
+    padding: 8px 10px;
+    text-transform: uppercase;
+    font-size: 14px;
+    border: 0;
+}
+/* .upload-video {
+    display: block;
+    justify-content: space-evenly;
+}
+.apply-btn {
+    display: block;
+    justify-content: space-between;
+} */

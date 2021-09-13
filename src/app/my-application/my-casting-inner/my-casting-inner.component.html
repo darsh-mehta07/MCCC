@@ -1,0 +1,31 @@
+<body class="hm_pg inner">
+    <div class="casting-inner">
+      <img src="../../../assets/img/Casting-Inner.png" class="hd-img">
+      <div class="container">
+        <div class="header hd-icons">
+          <a (click)="back()"><img src="../../../assets/img/back2.png" /></a>
+          <a [routerLink]="['/home']"><img src="../../../assets/img/home2.png" class="home2"/></a>
+        </div>
+        <div class="inner-content">
+          <img src="../../../assets/img/cam.png">
+          <h2>Casting <br>Call<hr></h2>
+          <h3>Looking <br>for male<br> actors<br>pan india</h3>
+        </div>
+        
+        <div class="form_inner">
+          <div [innerHTML]="long_description"></div>
+          <div class="card-txt">
+              <p>Apply Date: {{applyDate | date:'mediumDate'}}</p>
+              <p>Apllication No: {{applicationId}}</p>
+          </div>
+         <div class="card-icons">
+            <i onclick="changeColor(this)" class="fa fa-bookmark-o" aria-hidden="true"></i>
+            <i class="fa fa-share-alt" aria-hidden="true"></i>
+          </div>
+          <div class="inner-btn">
+            <a> Shortlisted / Decline</a>
+          </div>
+        </div>
+      </div>
+    </div>
+</body>

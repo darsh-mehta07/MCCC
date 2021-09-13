@@ -1,0 +1,913 @@
+<body class="hm_pg">
+  <div class="top-header">
+    <div class="container">
+      <div class="main">
+        <div id="mySidenav" class="sidenav menu">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+          <div class="Profile">
+            <img src="../../../assets/img/profile.svg">
+            <a href="#">Hello {{userName}}</a>
+          </div>
+          <div class="menu-nav">
+            <img src="../../../assets/img/application.svg">
+            <a href="#">Your Application</a>
+          </div>
+          <div class="menu-nav">
+            <img src="../../../assets/img/notify.svg">
+            <a href="#">Notification</a>
+          </div>
+          <div class="menu-nav">
+            <img src="../../../assets/img/upcoming.svg">
+            <a href="#">Upcoming Events</a>
+          </div>
+          <div class="menu-nav">
+            <img src="../../../assets/img/traing.svg">
+            <a href="#">Training Session</a>
+          </div>
+          <div class="menu-nav">
+            <img src="../../../assets/img/shortlist.svg">
+            <a href="#">Shortlisted</a>
+          </div>
+          <div class="menu-nav">
+            <img src="../../../assets/img/bts.svg">
+            <a href="#">BTS</a>
+          </div>
+          <div class="menu-nav">
+            <img src="../../../assets/img/">
+            <a href="#">Your Drafts</a>
+          </div>
+          <div class="menu-nav">
+            <img src="../../../assets/img/game.svg">
+            <a href="#">Games</a>
+          </div>
+          <div class="menu-nav">
+            <img src="../../../assets/img/">
+            <a href="#">Classified</a>
+          </div>
+          <div class="menu-nav">
+            <img src="../../../assets/img/about-mccc.svg">
+            <a href="#">About MCCC</a>
+          </div>
+          <div class="menu-nav">
+            <img src="../../../assets/img/faq.svg">
+            <a href="#">FAQ's</a>
+          </div>
+          <div class="menu-nav">
+            <img src="../../../assets/img/help.svg">
+            <a href="#">Helps</a>
+          </div>
+          <div class="menu-nav">
+            <img src="../../../assets/img/help.svg">
+            <a (click)="logout()">Logout</a>
+          </div>
+
+        </div>
+        <span onclick="openNav()"><img src="../../../assets/img/Menu.png" class="menu-img"></span>
+        <div class="logo">
+          <img src="../../../assets/img/logo-2.png">
+        </div>
+        <div class="search">
+          <img src="../../../assets/img/search.png">
+        </div>
+        <div class="notify">
+          <img src="../../../assets/img/notification.png">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="icons-tabs sticky">
+    <div class="container">
+      <div class="main-tab">
+        <div class="tbs">
+          <a [routerLink]="['/casting-all/1']">
+            <img src="../../../assets/img/casting.png">
+            <h5>Casting</h5>
+          </a>
+        </div>
+        <div class="tbs">
+          <a>
+            <img src="../../../assets/img/event.png">
+            <h5>Events</h5>
+          </a>
+        </div>
+        <div class="tbs">
+          <a>
+            <img src="../../../assets/img/bts.png">
+            <h5>BTS</h5>
+          </a>
+        </div>
+        <div class="tbs">
+          <a>
+            <img src="../../../assets/img/traing.png">
+            <h5>Training</h5>
+          </a>
+        </div>
+        <div class="tbs">
+          <a>
+            <img src="../../../assets/img/Classified.png">
+            <h5>Classified</h5>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="banner">
+    <div class="container">
+      <ngx-slick-carousel class="carousel slick_sliders" #slickModal="slick-carousel" [config]="slideConfig"
+        (init)="slickInit($event)" (breakpoint)="breakpoint($event)" (afterChange)="afterChange($event)"
+        (beforeChange)="beforeChange($event)">
+        <div ngxSlickItem *ngFor="let slide of slides" class="slide">
+          <img src="{{ baseUrl+slide.banner_image_path+slide.casting_banner_image }}" alt="" width="100%">
+          <div class="container">
+            <div class="content">
+              <h1>Casting Call</h1>
+              <p>Lorem Ipsum is simply<br> dummy text </p>
+            </div>
+          </div>
+        </div>
+      </ngx-slick-carousel>
+    </div>
+  </div>
+
+  <div class="required-tbs" *ngIf="!nonewcall">
+    <div class="container">
+      <div class="tabs">
+        <h2>New Casting Calls
+          <hr class="on">
+          <hr class="tw">
+        </h2>
+        <a [routerLink]="['/casting-all/1']">View All</a>
+      </div>
+      <div class="card-tbs" *ngFor="let casting of newCasting; let i=index;">
+        <div class='dt-tabs'>
+          <div class="show-hidden-menu" (click)="clickEvent(casting.id)">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div class="hidden-menu" *ngIf="status && casting.id == cardnum ? 'active':''">
+            <div class="arrow">
+              <i class="fa fa-caret-up" aria-hidden="true"></i>
+          </div>
+            <ul>
+              <li (click)="bookmarkCasting(casting.id)">Save</li>
+              <li>Share</li>
+            </ul>
+          </div>
+        </div>        
+        <h3>{{casting.title | titlecase}}</h3>
+        <p class="toggle-sec">{{casting.short_description}}
+          <a (click)="castingInner(casting.id)">Read more</a>
+        </p>
+        <div class="details">
+          <div class="details-icons">
+            <i class="fa fa-transgender-alt" aria-hidden="true"></i>
+            <h4>{{casting.gender}}</h4>
+          </div>
+          <div class="details-icons">
+            <i class="fa fa-clock-o" aria-hidden="true"></i>
+            <h4>{{casting.created_at | date:'mediumDate'}}</h4>
+          </div>
+          <div class="details-icons">
+            <i class="fa fa-map-marker" aria-hidden="true"></i>
+            <h4>{{casting.location}}</h4>
+          </div>
+        </div>
+
+        <div class="card-btn">
+          <div class="slide-btn" *ngFor="let tag of casting.tags;">
+            <a>{{tag}}</a>
+          </div>         
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="recommended-tbs" *ngIf="!norecomended">
+    <div class="container">
+      <div class="tabs">
+        <h2>Recommended Calls
+          <hr class="on">
+          <hr class="tw">
+        </h2>
+        <a [routerLink]="['/casting-all/2']" >View All</a>
+      </div>
+      <div class="card-tbs" *ngFor="let casting of recomended; let i=index;">
+        <div class="more">
+          <button id="more-btn" class="more-btn">
+            <span class="more-dot"></span>
+            <span class="more-dot"></span>
+            <span class="more-dot"></span>
+          </button>
+          <div class="more-menu">
+            <div class="more-menu-caret">
+              <div class="more-menu-caret-outer"></div>
+              <div class="more-menu-caret-inner"></div>
+            </div>
+            <ul class="more-menu-items" tabindex="-1" role="menu" aria-labelledby="more-btn" aria-hidden="true">
+              <li class="more-menu-item" role="presentation">
+                <button type="button" class="more-menu-btn" role="menuitem">Save</button>
+              </li>
+              <li class="more-menu-item" role="presentation">
+                <button type="button" class="more-menu-btn" role="menuitem">Share</button>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <h3 class="grn">{{casting.title}}</h3>
+        <p class="toggle-sec">{{casting.short_description}}
+          <a (click)="castingInner(casting.id)">Read more</a>
+          <div class="details">
+            <div class="details-icons">
+              <i class="fa fa-transgender-alt" aria-hidden="true"></i>
+              <h4>{{casting.gender}}</h4>
+            </div>
+            <div class="details-icons">
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              <h4>{{casting.created_at | date:'mediumDate'}}</h4>
+            </div>
+            <div class="details-icons">
+              <i class="fa fa-map-marker" aria-hidden="true"></i>
+              <h4>{{casting.location}}</h4>
+            </div>
+          </div>  
+          <div class="card-btn">
+            <div class="slide-btn" *ngFor="let tag of casting.tags;">
+              <a>{{tag}}</a>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="call-ending-tbs" *ngIf="!nocallend">
+    <div class="container">
+      <div class="tabs">
+        <h2>Call Ending Soon
+          <hr class="on">
+          <hr class="tw">
+        </h2>
+        <a [routerLink]="['/casting-all/3']">View All</a>
+      </div>
+      <div class="card-tbs" *ngFor="let casting of callEnding; let i=index;">
+        <div class="more">
+          <button id="more-btn" class="more-btn" (click)="clickEvent(casting.id)">
+            <span class="more-dot"></span>
+            <span class="more-dot"></span>
+            <span class="more-dot"></span>
+          </button>
+          <div class="more-menu" *ngIf="status && casting.id == cardnum ? 'active':''">
+            <div class="more-menu-caret">
+              <div class="more-menu-caret-outer"></div>
+              <div class="more-menu-caret-inner"></div>
+            </div>
+            <ul class="more-menu-items" tabindex="-1" role="menu" aria-labelledby="more-btn" aria-hidden="true">
+              <li class="more-menu-item" role="presentation" (click)="bookmarkCasting(casting.id)">
+                <button type="button" class="more-menu-btn" role="menuitem">Save</button>
+              </li>
+              <li class="more-menu-item" role="presentation">
+                <button type="button" class="more-menu-btn" role="menuitem">Share</button>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <h3 class="yto">{{casting.title | titlecase}}</h3>
+        <p class="toggle-sec">{{casting.short_description}}
+          <a (click)="castingInner(casting.id)">Read more</a>
+        </p>
+        <div class="details">
+          <div class="details-icons">
+            <i class="fa fa-transgender-alt" aria-hidden="true"></i>
+            <h4>{{casting.gender}}</h4>
+          </div>
+          <div class="details-icons">
+            <i class="fa fa-clock-o" aria-hidden="true"></i>
+            <h4>{{casting.created_at | date:'mediumDate'}}</h4>
+          </div>
+          <div class="details-icons">
+            <i class="fa fa-map-marker" aria-hidden="true"></i>
+            <h4>{{casting.location}}</h4>
+          </div>
+        </div>
+
+        <div class="card-btn">
+          <div class="slide-btn" *ngFor="let tag of casting.tags;">
+            <a>{{tag}}</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="events-banner">
+    <div class="container">
+      <div class="evnts_sliders">
+        <div class="slider">
+          <img src="../../../assets/img/event-pop.png">
+        </div>
+
+        <div class="slider">
+          <img src="../../../assets/img/event-pop.png">
+        </div>
+
+        <div class="slider">
+          <img src="../../../assets/img/event-pop.png">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="upcoming-events-tbs">
+    <div class="container">
+      <div class="tabs">
+        <h2>Upcoming events
+          <hr class="on">
+          <hr class="tw">
+        </h2>
+        <a href="#">View All</a>
+      </div>
+      <div class="card-tbs">
+        <div class="more">
+          <button id="more-btn" class="more-btn">
+            <span class="more-dot"></span>
+            <span class="more-dot"></span>
+            <span class="more-dot"></span>
+          </button>
+          <div class="more-menu">
+            <div class="more-menu-caret">
+              <div class="more-menu-caret-outer"></div>
+              <div class="more-menu-caret-inner"></div>
+            </div>
+            <ul class="more-menu-items" tabindex="-1" role="menu" aria-labelledby="more-btn" aria-hidden="true">
+              <li class="more-menu-item" role="presentation">
+                <button type="button" class="more-menu-btn" role="menuitem">Save</button>
+              </li>
+              <li class="more-menu-item" role="presentation">
+                <button type="button" class="more-menu-btn" role="menuitem">Share</button>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <h3>Title: Lorem ipsum dolor</h3>
+        <p class="toggle-sec">10 days Acting Workshop in Lucknow...
+          <a href="#">Read more</a>
+        </p>
+        <div class="details">
+          <div class="details-icons">
+            <i class="fa fa-map-marker" aria-hidden="true"></i>
+            <h4>Loation</h4>
+          </div>
+          <div class="details-icons">
+            <i class="fa fa-clock-o" aria-hidden="true"></i>
+            <h4>12th Aug, 2021</h4>
+          </div>
+          <div class="details-icons">
+            <i class="fa fa-clock-o" aria-hidden="true"></i>
+            <h4>8:00am</h4>
+          </div>
+        </div>
+      </div>
+      <div class="card-tbs">
+        <div class="more">
+          <button id="more-btn" class="more-btn">
+            <span class="more-dot"></span>
+            <span class="more-dot"></span>
+            <span class="more-dot"></span>
+          </button>
+          <div class="more-menu">
+            <div class="more-menu-caret">
+              <div class="more-menu-caret-outer"></div>
+              <div class="more-menu-caret-inner"></div>
+            </div>
+            <ul class="more-menu-items" tabindex="-1" role="menu" aria-labelledby="more-btn" aria-hidden="true">
+              <li class="more-menu-item" role="presentation">
+                <button type="button" class="more-menu-btn" role="menuitem">Save</button>
+              </li>
+              <li class="more-menu-item" role="presentation">
+                <button type="button" class="more-menu-btn" role="menuitem">Share</button>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <h3>Title: Lorem ipsum dolor</h3>
+        <p class="toggle-sec">10 days Acting Workshop in Lucknow...
+          <a href="#">Read more</a>
+        </p>
+        <div class="details">
+          <div class="details-icons">
+            <i class="fa fa-map-marker" aria-hidden="true"></i>
+            <h4>Loation</h4>
+          </div>
+          <div class="details-icons">
+            <i class="fa fa-clock-o" aria-hidden="true"></i>
+            <h4>12th Aug, 2021</h4>
+          </div>
+          <div class="details-icons">
+            <i class="fa fa-clock-o" aria-hidden="true"></i>
+            <h4>8:00am</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="events-tbs">
+    <div class="container">
+      <div class="tabs">
+        <h2>Events for You
+          <hr class="on">
+          <hr class="tw">
+        </h2>
+        <a href="#">View All</a>
+      </div>
+      <div class="card-tbs">
+        <div class="more">
+          <button id="more-btn" class="more-btn">
+            <span class="more-dot"></span>
+            <span class="more-dot"></span>
+            <span class="more-dot"></span>
+          </button>
+          <div class="more-menu">
+            <div class="more-menu-caret">
+              <div class="more-menu-caret-outer"></div>
+              <div class="more-menu-caret-inner"></div>
+            </div>
+            <ul class="more-menu-items" tabindex="-1" role="menu" aria-labelledby="more-btn" aria-hidden="true">
+              <li class="more-menu-item" role="presentation">
+                <button type="button" class="more-menu-btn" role="menuitem">Save</button>
+              </li>
+              <li class="more-menu-item" role="presentation">
+                <button type="button" class="more-menu-btn" role="menuitem">Share</button>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <h3 class="yto">Title: Lorem ipsum dolor</h3>
+        <p class="toggle-sec">10 days Acting Workshop in Lucknow...
+          <a href="#">Read more</a>
+        </p>
+        <div class="details">
+          <div class="details-icons">
+            <i class="fa fa-map-marker" aria-hidden="true"></i>
+            <h4>Loation</h4>
+          </div>
+          <div class="details-icons">
+            <i class="fa fa-clock-o" aria-hidden="true"></i>
+            <h4>12th Aug, 2021</h4>
+          </div>
+          <div class="details-icons">
+            <i class="fa fa-clock-o" aria-hidden="true"></i>
+            <h4>8:00am</h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-tbs">
+        <div class="more">
+          <button id="more-btn" class="more-btn">
+            <span class="more-dot"></span>
+            <span class="more-dot"></span>
+            <span class="more-dot"></span>
+          </button>
+          <div class="more-menu">
+            <div class="more-menu-caret">
+              <div class="more-menu-caret-outer"></div>
+              <div class="more-menu-caret-inner"></div>
+            </div>
+            <ul class="more-menu-items" tabindex="-1" role="menu" aria-labelledby="more-btn" aria-hidden="true">
+              <li class="more-menu-item" role="presentation">
+                <button type="button" class="more-menu-btn" role="menuitem">Save</button>
+              </li>
+              <li class="more-menu-item" role="presentation">
+                <button type="button" class="more-menu-btn" role="menuitem">Share</button>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <h3 class="yto">Title: Lorem ipsum dolor</h3>
+        <p class="toggle-sec">10 days Acting Workshop in Lucknow...
+          <a href="#">Read more</a>
+        </p>
+        <div class="details">
+          <div class="details-icons">
+            <i class="fa fa-map-marker" aria-hidden="true"></i>
+            <h4>Loation</h4>
+          </div>
+          <div class="details-icons">
+            <i class="fa fa-clock-o" aria-hidden="true"></i>
+            <h4>12th Aug, 2021</h4>
+          </div>
+          <div class="details-icons">
+            <i class="fa fa-clock-o" aria-hidden="true"></i>
+            <h4>8:00am</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="behinde_screen">
+    <div class="container">
+
+      <img src="../../../assets/img/bts1.png" class="logo">
+      <div class="tabs behinde">
+        <h2>Popular BTS </h2>
+        <a href="#">View All</a>
+      </div>
+      <ngx-slick-carousel class="carousel behinde-screen_sliders" #slickModal="slick-carousel" [config]="trns_sliders"
+        (init)="slickInit($event)" (breakpoint)="breakpoint($event)" (afterChange)="afterChange($event)"
+        (beforeChange)="beforeChange($event)">
+        <div ngxSlickItem class="slider">
+          <img src="../../../assets/img/bts2.png">
+        </div>
+
+        <div ngxSlickItem class="slider">
+          <img src="../../../assets/img/bts3.png">
+        </div>
+
+        <div ngxSlickItem class="slider">
+          <img src="../../../assets/img/bts4.png">
+        </div>
+        <div ngxSlickItem class="slider">
+          <img src="../../../assets/img/bts2.png">
+        </div>
+
+        <div ngxSlickItem class="slider">
+          <img src="../../../assets/img/bts3.png">
+        </div>
+
+        <div ngxSlickItem class="slider">
+          <img src="../../../assets/img/bts4.png">
+        </div>
+      </ngx-slick-carousel>
+      <div class="video-img">
+        <div class="video-txt">
+          <h2>Top BTS</h2>
+          <a href="#">View All</a>
+        </div>
+        <img src="../../../assets/img/video1.png">
+        <img src="../../../assets/img/video2.png">
+      </div>
+
+      <div class="video-opt">
+        <div class="slide-hd">
+          <h2>Watch more videos</h2>
+          <a href="#">View All</a>
+        </div>
+        <ngx-slick-carousel class="carousel video_slider" #slickModal="slick-carousel" [config]="trns_sliders"
+          (init)="slickInit($event)" (breakpoint)="breakpoint($event)" (afterChange)="afterChange($event)"
+          (beforeChange)="beforeChange($event)">
+          <div ngxSlickItem class="slider vide1 vdSliderTxt">
+            <h3>Movies</h3>
+          </div>
+          <div ngxSlickItem class="slider vide2 vdSliderTxt">
+            <h3>Web Series</h3>
+          </div>
+          <div ngxSlickItem class="slider vide3 vdSliderTxt">
+            <h3>Celebrity Video</h3>
+          </div>
+          <div ngxSlickItem class="slider vide4 vdSliderTxt">
+            <h3>Short Film</h3>
+          </div>
+          <div ngxSlickItem class="slider vide1 vdSliderTxt">
+            <h3>Movies</h3>
+          </div>
+          <div ngxSlickItem class="slider vide2 vdSliderTxt">
+            <h3>Web Series</h3>
+          </div>
+          <div ngxSlickItem class="slider vide3 vdSliderTxt">
+            <h3>Celebrity Video</h3>
+          </div>
+          <div ngxSlickItem class="slider vide4 vdSliderTxt">
+            <h3>Short Film</h3>
+          </div>
+        </ngx-slick-carousel>
+      </div>
+    </div>
+  </div>
+
+  <div class="training-slide">
+    <div class="container">
+      <ngx-slick-carousel class="carousel training_sliders" #slickModal="slick-carousel" [config]="slideConfig"
+        (init)="slickInit($event)" (breakpoint)="breakpoint($event)" (afterChange)="afterChange($event)"
+        (beforeChange)="beforeChange($event)">
+        <div ngxSlickItem class="slider">
+          <img src="../../../assets/img/traning1.png">
+        </div>
+
+        <div ngxSlickItem class="slider">
+          <img src="../../../assets/img/traning1.png">
+        </div>
+
+        <div ngxSlickItem class="slider">
+          <img src="../../../assets/img/traning1.png">
+        </div>
+      </ngx-slick-carousel>
+    </div>
+  </div>
+
+  <div class="upcoming-workshop-tbs">
+    <div class="container">
+      <div class="tabs">
+        <h2>Upcoming Workshops
+          <hr class="on">
+          <hr class="tw">
+        </h2>
+        <a href="#">View All</a>
+      </div>
+      <div class="card-tbs">
+        <div class='tabs'>
+          <div class="show-hidden-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div class="hidden-menu" style="display: none;">
+            <ul>
+              <li>Save</li>
+              <li>Share</li>
+            </ul>
+          </div>
+        </div>
+        <h3>Title: Lorem ipsum dolor</h3>
+        <p class="toggle-sec">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eleifend, magna quis
+          cursus...
+          <a href="#">Read more</a>
+        </p>
+      </div>
+
+      <div class="card-tbs">
+        <div class="more">
+          <button id="more-btn" class="more-btn">
+            <span class="more-dot"></span>
+            <span class="more-dot"></span>
+            <span class="more-dot"></span>
+          </button>
+          <div class="more-menu">
+            <ul class="more-menu-items">
+              <li class="more-menu-item">
+                <button type="button" class="more-menu-btn">Save</button>
+              </li>
+              <li class="more-menu-item">
+                <button type="button" class="more-menu-btn">Share</button>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <h3>Title: Lorem ipsum dolor</h3>
+        <p class="toggle-sec">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eleifend, magna quis
+          cursus...
+          <a href="#">Read more</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="workshop-ending-tbs">
+    <div class="container">
+      <div class="tabs">
+        <h2>Workshop Ending Soon
+          <hr class="on">
+          <hr class="tw">
+        </h2>
+        <a href="#">View All</a>
+      </div>
+      <div class="card-tbs">
+        <div class="more">
+          <button id="more-btn" class="more-btn">
+            <span class="more-dot"></span>
+            <span class="more-dot"></span>
+            <span class="more-dot"></span>
+          </button>
+          <div class="more-menu">
+            <div class="more-menu-caret">
+              <div class="more-menu-caret-outer"></div>
+              <div class="more-menu-caret-inner"></div>
+            </div>
+            <ul class="more-menu-items" tabindex="-1" role="menu" aria-labelledby="more-btn" aria-hidden="true">
+              <li class="more-menu-item" role="presentation">
+                <button type="button" class="more-menu-btn" role="menuitem">Save</button>
+              </li>
+              <li class="more-menu-item" role="presentation">
+                <button type="button" class="more-menu-btn" role="menuitem">Share</button>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <h3 class="grn">Title: Lorem ipsum dolor</h3>
+        <p class="toggle-sec">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eleifend, magna quis
+          cursus...
+          <a href="#">Read more</a>
+        </p>
+      </div>
+      <div class="card-tbs">
+        <div class="more">
+          <button id="more-btn" class="more-btn">
+            <span class="more-dot"></span>
+            <span class="more-dot"></span>
+            <span class="more-dot"></span>
+          </button>
+          <div class="more-menu">
+            <div class="more-menu-caret">
+              <div class="more-menu-caret-outer"></div>
+              <div class="more-menu-caret-inner"></div>
+            </div>
+            <ul class="more-menu-items" tabindex="-1" role="menu" aria-labelledby="more-btn" aria-hidden="true">
+              <li class="more-menu-item" role="presentation">
+                <button type="button" class="more-menu-btn" role="menuitem">Save</button>
+              </li>
+              <li class="more-menu-item" role="presentation">
+                <button type="button" class="more-menu-btn" role="menuitem">Share</button>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <h3 class="grn">Title: Lorem ipsum dolor</h3>
+        <p class="toggle-sec">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eleifend, magna quis
+          cursus...
+          <a href="#">Read more</a>
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="Previous-workshops-tbs">
+    <div class="container">
+      <div class="tabs">
+        <h2>Previous Workshops
+          <hr class="on">
+          <hr class="tw">
+        </h2>
+        <a href="#">View All</a>
+      </div>
+      <div class="card-tbs">
+        <div class='tabs'>
+          <div class="show-hidden-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div class="hidden-menu" style="display: none;">
+            <ul>
+              <li>Save</li>
+              <li>Share</li>
+            </ul>
+          </div>
+        </div>
+
+
+      </div>
+      <h3 class="yto">Title: Lorem ipsum dolor</h3>
+      <p class="toggle-sec">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eleifend, magna quis
+        cursus...
+        <a href="#">Read more</a>
+      </p>
+    </div>
+
+    <div class="card-tbs">
+      <div class="more">
+        <button id="more-btn" class="more-btn">
+          <span class="more-dot"></span>
+          <span class="more-dot"></span>
+          <span class="more-dot"></span>
+        </button>
+        <div class="more-menu">
+          <div class="more-menu-caret">
+            <div class="more-menu-caret-outer"></div>
+            <div class="more-menu-caret-inner"></div>
+          </div>
+          <ul class="more-menu-items" tabindex="-1" role="menu" aria-labelledby="more-btn" aria-hidden="true">
+            <li class="more-menu-item" role="presentation">
+              <button type="button" class="more-menu-btn" role="menuitem">Save</button>
+            </li>
+            <li class="more-menu-item" role="presentation">
+              <button type="button" class="more-menu-btn" role="menuitem">Share</button>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <h3 class="yto">Title: Lorem ipsum dolor</h3>
+      <p class="toggle-sec">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eleifend, magna quis
+        cursus...
+        <a href="#">Read more</a>
+      </p>
+    </div>
+  </div>
+
+  <div class="train-banner">
+    <div class="container">
+      <img src="../../../assets/img/train3.png">
+      <div class="traine-txt">
+        <h2>Workshop <br><span class="tr-hd">BY Mukesh</span></h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="trner">
+    <div class="container">
+      <ngx-slick-carousel class="carousel trns_sliders" #slickModal="slick-carousel" [config]="trns_sliders"
+        (init)="slickInit($event)" (breakpoint)="breakpoint($event)" (afterChange)="afterChange($event)"
+        (beforeChange)="beforeChange($event)">
+        <div ngxSlickItem class="slider">
+          <div class="vdo-slide">
+            <img src="../../../assets/img/trainer1.png">
+            <div class="slider-txt hv1">
+              <h3>Anupam Kher</h3>
+            </div>
+          </div>
+        </div>
+        <div ngxSlickItem class="slider">
+          <div class="vdo-slide">
+            <img src="../../../assets/img/trainer2.png">
+            <div class="slider-txt hv2">
+              <h3>Sunu Sood</h3>
+            </div>
+          </div>
+        </div>
+        <div ngxSlickItem class="slider">
+          <div class="vdo-slide">
+            <img src="../../../assets/img/trainer3.png">
+            <div class="slider-txt hv3">
+              <h3>Mukesh Khanna</h3>
+            </div>
+          </div>
+        </div>
+        <div ngxSlickItem class="slider">
+          <div class="vdo-slide">
+            <img src="../../../assets/img/trainer4.png">
+            <div class="slider-txt hv4">
+              <h3>Amitabh Bacchan</h3>
+            </div>
+          </div>
+        </div>
+        <div ngxSlickItem class="slider">
+          <div class="vdo-slide">
+            <img src="../../../assets/img/trainer1.png">
+            <div class="slider-txt hv1">
+              <h3>Anupam Kher</h3>
+            </div>
+          </div>
+        </div>
+        <div ngxSlickItem class="slider">
+          <div class="vdo-slide">
+            <img src="../../../assets/img/trainer2.png">
+            <div class="slider-txt hv2">
+              <h3>Sunu Sood</h3>
+            </div>
+          </div>
+        </div>
+        <div ngxSlickItem class="slider">
+          <div class="vdo-slide">
+            <img src="../../../assets/img/trainer3.png">
+            <div class="slider-txt hv3">
+              <h3>Mukesh Khanna</h3>
+            </div>
+          </div>
+        </div>
+        <div ngxSlickItem class="slider">
+          <div class="vdo-slide">
+            <img src="../../../assets/img/trainer4.png">
+            <div class="slider-txt hv4">
+              <h3>Anupam Kher</h3>
+            </div>
+          </div>
+        </div>
+      </ngx-slick-carousel>
+    </div>
+  </div>
+
+  <div class="footer hm-bg" id="footer">
+    <div class="container">
+      <div class="foot-tbs">
+        <a [routerLink]="['/home']" class="active">
+          <i class="fa fa-home" aria-hidden="true"></i>
+          <h5>Home</h5>
+        </a>
+      </div>
+      <div class="foot-tbs">
+        <a [routerLink]="['/my-aaplication']">
+          <i class="fa fa-calendar" aria-hidden="true"></i>
+          <h5>My Application</h5>
+        </a>
+      </div>
+      <div class="foot-tbs">
+        <a>
+          <i class="fa fa-comment" aria-hidden="true"></i>
+          <h5>Message</h5>
+        </a>
+      </div>
+      <div class="foot-tbs">
+        <a>
+          <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+          <h5>Profile</h5>
+        </a>
+      </div>
+    </div>
+  </div>
+</body>

@@ -1,0 +1,23 @@
+.complete_profile .top_part .form_area .btom_file .next_btn {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.complete_profile .top_part .form_area .btom_file .next_btn {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.complete_profile .top_part .form_area .btom_file .next_btn {
+    display: block;
+    width: 130px;
+    background: #a9cf7a;
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    height: 35px;
+    text-align: center;
+    line-height: 35px;
+    border-radius: 20px;
+    margin: 2rem auto 0;
+}

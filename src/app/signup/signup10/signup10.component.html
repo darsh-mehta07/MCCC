@@ -1,0 +1,55 @@
+<header>
+    <div class="sign_btn">
+      <i class="fa fa-angle-left" aria-hidden="true"></i>
+      <a href="signup-confirm-password">Back</a>
+    </div>        
+  </header>
+      
+        <div class="container">
+            <div class="sign-content">
+      <h2>Terms & condition </h2>     
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <div class="form-group">
+        <label>Accept Terms</label>
+        <div class="t_c">
+          <div class="checkbox_txt" *ngFor="let term of terms; let i=index;">
+            <input type="checkbox" formControlName="terms{{i}}"  [ngClass]="{ 'is-invalid': submitted && f.terms1.errors }">
+            <label>
+              <strong>{{term.title}}</strong><br>
+              {{ (term.description.length>70)? (term.description | slice:0:70)+'..':(term.description)}}             
+            </label>            
+            <div *ngIf="submitted && f.terms1.errors" class="invalid-feedback">
+              <div *ngIf="f.terms1.errors.required">Terms {{i+1}} is required</div>
+            </div>
+          </div> 
+          <button type="button" class="btn btn-primary" (click)="openModal(modalData)">View More</button>
+        </div>        
+      </div>
+      <button class="fw-btn proceed">PROCEED </button>
+    </form>
+        </div>
+        </div>
+            <ng-template #modalData let-modal>
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Terms and Conditions</h5>
+              </div>
+              <div class="modal-body">
+                <div class="t_c">
+        
+                  <div class="checkbox_txt" *ngFor="let term of all_terms.allTerms; let i=index;">
+                    <!-- <input type="checkbox" name="" placeholder=""> -->
+                    <label>
+                      <strong>{{term.title}}</strong><br>
+                      {{term.description}} 
+                    </label>
+                  </div>
+      
+                  
+                </div>
+                <button type="button" class="btn btn-secondary">
+                <input type="checkbox" name="" (click)="modal.close('Save click')">
+              <label>I agree to the Terms and Conditions</label>
+              </button>
+              </div>
+            </ng-template>

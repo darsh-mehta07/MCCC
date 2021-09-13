@@ -1,0 +1,49 @@
+<body class="hm_pg">
+    <div class="appli">
+      <img src="../../assets/img/application.png">
+      <div class="container">
+        <div class="header hd-icons">
+         <a (click)="back()"><img src="../../assets/img/back.png" /></a>
+          <a [routerLink]="['/home']"><img src="../../assets/img/home.png" /></a>
+        </div>
+        
+        <div class="form_areas">
+         <div class="appl">
+             <h3>My Application</h3>
+             <h5>Most Recent</h5>
+             <a [routerLink]="['/my-casting/'+application.casting_id]" *ngFor="let application of applications; let i=index;">
+                 <div class="appli-content">
+                 <h3>{{application.get_user_casting_model.title | titlecase}}</h3>
+                 <p>{{application.get_user_casting_model.short_description}}</p>
+             </div>
+             </a>
+             <!-- <div class="card-tbs" *ngFor="let casting of applications; let i=index;">
+              <a [routerLink]="['/my-casting/'+casting.get_user_casting_model.id]">
+                <h3 class="grn">{{casting.get_user_casting_model.title}}</h3>
+                <p class="toggle-sec">{{casting.get_user_casting_model.short_description}}</p>
+                <div class="details">
+                  <div class="details-icons">
+                    <i class="fa fa-transgender-alt" aria-hidden="true"></i>
+                    <h4>{{casting.get_user_casting_model.gender}}</h4>
+                  </div>
+                  <div class="details-icons">
+                    <i class="fa fa-clock-o" aria-hidden="true"></i>
+                    <h4>{{casting.get_user_casting_model.created_at | date:'mediumDate'}}</h4>
+                  </div>
+                  <div class="details-icons">
+                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                    <h4>{{casting.get_user_casting_model.location}}</h4>
+                  </div>
+                </div>  
+                <div class="card-btn">
+                  <div class="slide-btn" *ngFor="let tag of casting.get_user_casting_model.tags;">
+                    <a>{{tag}}</a>
+                  </div>
+                </div>
+              </a>
+            </div> -->
+         </div>
+        </div>
+      </div>
+    </div>
+</body>

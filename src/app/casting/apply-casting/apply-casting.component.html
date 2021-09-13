@@ -1,0 +1,161 @@
+<body class="hm_pg">
+    <div class="application">
+      <img src="../../../assets/img/apply.png">
+      <div class="container">
+        <div class="header hd-icons">
+          <a (click)="back()"><img src="../../../assets/img/back.png" /></a>
+          <a [routerLink]="['/home']"><img src="../../../assets/img/home.png" /></a>
+        </div>
+        <div class="upper-txt">
+          <h4>Submit Your Details</h4>
+          <h2>{{casting_title | titlecase}}</h2>
+          <h3>Date: {{casting_date | date:'mediumDate'}}</h3>
+        </div>
+        <div class="form_areas">
+          <form [formGroup]="form" >
+          <label>First Name<span class="text-danger">*</span></label>
+          <input type="text" formControlName="name" placeholder="type here" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" maxlength="28" readonly>
+  
+          <label>Age<span class="text-danger">*</span></label>
+          <input type="text" formControlName="age" placeholder="type here" [ngClass]="{ 'is-invalid': submitted && f.age.errors }" readonly>
+  
+          <label>Height<span class="text-danger">*</span></label>
+          <input type="text" formControlName="height" placeholder="type here" [ngClass]="{ 'is-invalid': submitted && f.height.errors }" readonly>
+  
+          <label>Contact Number<span class="text-danger">*</span></label>
+          <input type="tel" formControlName="phone" placeholder="type here" [ngClass]="{ 'is-invalid': submitted && f.phone.errors }" readonly>
+  
+          <label>Language<span class="text-danger">*</span></label>
+          <input type="text" formControlName="language" placeholder="type here" [ngClass]="{ 'is-invalid': submitted && f.language.errors }" readonly>
+  
+          <label>Current City<span class="text-danger">*</span></label>
+          <input type="text" formControlName="city" placeholder="type here" [ngClass]="{ 'is-invalid': submitted && f.city.errors }" readonly>
+  
+          <label>Home Town<span class="text-danger">*</span></label>
+          <input type="text" formControlName="home_town" placeholder="type here" [ngClass]="{ 'is-invalid': submitted && f.home_town.errors }" readonly>
+  
+          <label>Hobbies<span class="text-danger">*</span></label>
+          <input type="text" formControlName="hobbies" placeholder="type here" [ngClass]="{ 'is-invalid': submitted && f.hobbies.errors }" readonly>
+        
+          <div class="edit-profile">
+              <a [routerLink]="['/edit-profile']">
+              <i class="fa fa-pencil" aria-hidden="true"></i>
+              Edit Profile</a>
+          </div>          
+          <div class="pht">
+              <h3>Select Photos</h3>
+          <div class="upload-img">
+              <div class="box" *ngFor="let img of imgArray;let i=index;">
+                <img class="js--image-preview" src="{{imagePath+img.image}}"/> 
+                  <div class="upload-options">
+                    <div class='multi-field'>                      
+                      <button type="button" class="close" (click)="removePrimaryImage(i)">X</button>
+                    </div>
+                  </div>
+              </div>
+              <div class="box" *ngFor='let url of cropimages; let j=index;'>
+                <img class="js--image-preview" [src]="url"/> 
+                  <div class="upload-options">
+                    <div class='multi-field'>                      
+                      <button type="button" class="close" (click)="removeSelectedImage(url)">X</button>
+                    </div>
+                  </div>
+              </div>
+              <div class="error" *ngIf="threeimgerror">{{imageerror}}</div>
+          </div>          
+          <div class="pht-btn">
+            <i class="fa fa-plus-circle" aria-hidden="true"> </i>
+              <p (click)="open(content)">Select More Photos</p>
+          </div>
+          </div>
+          <div class="vdi">
+              <h3>Select Video</h3>
+          <div class="upload-video">
+              <div class="box">
+                <video class="js--image-preview" width="30%" height="110px" controls>
+                  <source src="{{videoPath+videoArray.videos}}" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+                  <div class="upload-options">
+                    <div class='multi-field'>                      
+                      <button type="button" class="close" (click)="removePrimaryVideo()">X</button>
+                    </div>
+                  </div>
+              </div>                            
+              <div class="box" *ngFor='let url of videos'>
+                <video class="js--image-preview" width="30%" height="110px" controls>
+                  <source src="{{url}}" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+                  <div class="upload-options">
+                    <div class='multi-field'>                      
+                      <button type="button" class="close" (click)="removeSelectedVideo(url)">X</button>
+                    </div>
+                  </div>
+              </div>
+              <div class="box" *ngIf="secvidbox"></div>
+              <div class="box" *ngIf="thrvidbox"></div> 
+              <div class="error" *ngIf="onevideoerror">{{videoerror}}</div>                         
+          </div>
+          <div class="vdi-btn">
+              <i class="fa fa-plus-circle" aria-hidden="true"> </i>
+              <p (click)="open(video)">Select More Videos</p>
+          </div>
+          </div>
+          <div class="apply-btn">
+            <button type="submit" (click)="submit()"> submit</button>
+            <button type="submit" (click)="save()"> save as draft</button>
+          </div>
+        </form>
+        </div>
+      </div>
+    </div>
+    <ng-template #content let-modal>      
+      <div class="modal-body">
+        <h4 class="modal-title" id="modal-basic-title">Crop Image</h4>
+        <button type="button" (click)="modal.close('Save click')">X</button>
+        <div *ngIf="cropimages.length > 0">
+        <h3>Croped Photos</h3>
+          <div class="upload-img">
+              <div class="box" *ngFor='let url of cropimages'>
+                <img class="js--image-preview" [src]="url"/> 
+                  <div class="upload-options">
+                    <div class='multi-field'>
+                      <input type="file" class="image-upload" accept="image/*">
+                      <button type="button" class="close">X</button>
+                    </div>
+                  </div>
+              </div>
+          </div>
+          <hr>
+        </div>
+        
+        <div *ngIf="cropimages.length < 3">
+          <div class="form-group">           
+            <div class="input-group">
+              <input type="file" name="file" class="form-control" (change)="fileChangeEvent($event)">
+            </div>
+          </div>                    
+          <image-cropper [imageChangedEvent]="imageChangedEvent" [maintainAspectRatio]="true"
+                                    [containWithinAspectRatio]="containWithinAspectRatio" [aspectRatio]="3 / 4"
+                                    [resizeToWidth]="256" [cropperMinWidth]="128" [onlyScaleDown]="true"
+                                    [roundCropper]="false" [canvasRotation]="canvasRotation" [transform]="transform"
+                                    [alignImage]="'left'" [style.display]="showCropper ? null : 'none'" format="png"
+                                    (imageCropped)="imageCropped($event)" (imageLoaded)="imageLoaded()"
+                                    (cropperReady)="cropperReady($event)" (loadImageFailed)="loadImageFailed()">
+                                </image-cropper>
+                                </div>
+      </div>      
+    </ng-template>
+    <ng-template #video let-modal>      
+      <div class="modal-body">
+        <h4 class="modal-title" id="modal-basic-title">Select Video</h4>
+        <button type="button" (click)="modal.close('Save click')">X</button>        
+          <div class="form-group">           
+            <div class="input-group">
+              <input type="file" formControlName="newvideofileSource" (change)="onVideoFileChange($event)"/>
+            </div>
+          </div>
+      </div>      
+    </ng-template>
+</body>

@@ -1,0 +1,53 @@
+<body class="hm_pg" *ngIf="dataLoad">
+    <div class="scrolling">
+        <div class="bts_video" style="">
+        <div class="top_txt">
+            <a [routerLink]="['/bts-video']"><img src="../assets/img/back2.png"></a>
+            <h3>Videos </h3>
+        </div>
+        <div class="video-play">
+            <iframe width="560" height="315" class="e2e-trusted-url"  [src]="vid | safe " title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+        </div>
+    </div>
+        <div class="upNext">
+        <div class="video-nt">
+        <div class="video-icons">
+                <!-- <p>{{desc}}</p> -->
+                <p  *ngIf="desc.length > 29 && expanded !=  this.BtsVideos[0].id">
+                    {{desc.substr(0, 29)}}
+                     <span (click)="expanded = this.BtsVideos[0].id"
+                       class="text-green"><b>{{expanded==  this.BtsVideos[0].id ?'View less':'View more'}}</b></span></p>
+                   <p  *ngIf="expanded ==  this.BtsVideos[0].id ">{{desc}}
+                     <span (click)="expanded = 0"
+                       class="text-green"><b>{{expanded==  this.BtsVideos[0].id ?'View less':'View more'}}</b></span></p>
+            </div>
+        <div class="nxt">
+            <p>Upnext</p>
+        </div>
+        <div class="more-video">
+            <ul>
+                <li *ngFor="let data of upNext">
+                    <iframe width="560" height="315" [src]="data.video_url | safe " title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+                    <div class="more-txt">
+                        <h3>{{data.title}}</h3>
+                        <!-- <p>{{data.description}}</p> -->
+                        <p  *ngIf="data.description.length > 29 && expanded !=  data.id">
+                            {{data.description.substr(0, 29)}}
+                             <span (click)="expanded = data.id"
+                               class="text-green"><b>{{expanded==  data.id ?'View less':'View more'}}</b></span></p>
+                           <p  *ngIf="expanded ==  data.id ">{{data.description}}
+                             <span (click)="expanded = 0"
+                               class="text-green"><b>{{expanded==  data.id ?'View less':'View more'}}</b></span></p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    </div>
+    </div>
+
+    <!-- <div class="item" *ngIf="!dataLoad">
+        <ngx-skeleton-loader count="5" appearance="circle"></ngx-skeleton-loader>
+        </div> -->
+
+    </body>

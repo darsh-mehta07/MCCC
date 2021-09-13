@@ -1,0 +1,31 @@
+<body class="hm_pg">
+	<div class="bts_inner" *ngIf="loadData">
+	     <div class="header hd-icons">
+            <a [routerLink]="['/bts-video']"><img src="../assets/img/back2.png" /></a>
+        </div>
+		<div class="hero__overlay">
+			<div class="hero__modal" *ngFor="let data of topBtsVideos">
+				<a class='img_link' [routerLink]="['/bts-video-view/',data.id,btsCategoryId]" >
+				    <img  src="{{hostUrl}}{{data.thumbnail_path}}{{data.thumbnail}}">
+					<div class="icon"><img  src="../../assets/img/play.png"></div>
+				</a>
+				<div class="hero__modal-content">
+					<!-- <p>{{data.description}}</p> -->
+					<p  *ngIf="data.description.length > 29 && expanded !=  data.id">
+                               {{data.description.substr(0, 29)}}
+                                <span (click)="expanded = data.id"
+                                  class="text-green"><b>{{expanded==  data.id ?'View less':'View more'}}</b></span></p>
+                              <p  *ngIf="expanded ==  data.id ">{{data.description}}
+                                <span (click)="expanded = 0"
+                                  class="text-green"><b>{{expanded==  data.id ?'View less':'View more'}}</b></span></p>
+					<h5>{{data.view_count}} views {{data.created_at | date:'mediumDate'}}</h5>
+				</div>
+			</div>	
+			
+		</div>
+		</div>
+		<div class="item" *ngIf="!loadData">
+			<ngx-skeleton-loader count="15"></ngx-skeleton-loader>
+		  </div>
+		  
+</body>
