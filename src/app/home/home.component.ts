@@ -18,7 +18,8 @@ import {BtsVideosService} from '../_service/bts-videos.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
+  pageName = 'home';
+  stickymenu = '';
   currentUser: User;
     users : any;
     user : any;

@@ -11,7 +11,8 @@ const pageName = 'casting';
   styleUrls: ['./casting-all.component.css']
 })
 export class CastingAllComponent implements OnInit {
-
+  pageName = 'casting';
+  stickymenu = 'casting';
   castingId:any;
   resData:any;
   castings:any;

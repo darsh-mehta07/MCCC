@@ -13,7 +13,7 @@ import { Location } from '@angular/common';
   styleUrls: ['./my-casting-inner.component.css']
 })
 export class MyCastingInnerComponent implements OnInit {
-
+  pageName="appliedcasting";
   loading = false;
   application:any;
   resData:any;

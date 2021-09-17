@@ -209,4 +209,6 @@ image-cropper {
     margin-top: 10px;
     height: 285px !important;
 }
-
+.form_areas {    
+    padding-bottom: 90px;
+}

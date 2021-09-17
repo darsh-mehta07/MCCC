@@ -6,7 +6,7 @@ import { Component, OnInit,Input } from '@angular/core';
   styleUrls: ['./sticky-menu.component.css']
 })
 export class StickyMenuComponent implements OnInit {
-// @Input = pageName;
+  @Input() stickymenu: any;
   constructor() { }
 
   ngOnInit(): void {
