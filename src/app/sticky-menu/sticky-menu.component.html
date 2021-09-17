@@ -1,25 +1,25 @@
 <div class="icons-tabs sticky">
     <div class="container">
       <div class="main-tab">
-        <div class="tbs">
+        <div class="tbs" [ngClass]="stickymenu == 'casting' ? 'active' : ''">
           <a [routerLink]="['/casting-all/1']">
             <img src="../../../assets/img/casting.png">
             <h5>Casting</h5>
           </a>
         </div>
-        <div class="tbs">
+        <div class="tbs" [ngClass]="stickymenu == 'events' ? 'active' : ''">
           <a>
             <img src="../../../assets/img/event.png">
             <h5>Events</h5>
           </a>
         </div>
-        <div class="tbs">
+        <div class="tbs" [ngClass]="stickymenu == 'bts' ? 'active' : ''">
           <a [routerLink]="['/bts-video']">
             <img src="../../../assets/img/bts.png">
             <h5>BTS</h5>
           </a>
         </div>
-        <div class="tbs">
+        <div class="tbs" [ngClass]="stickymenu == 'training' ? 'active' : ''">
           <a>
             <img src="../../../assets/img/traing.png">
             <h5>Training</h5>

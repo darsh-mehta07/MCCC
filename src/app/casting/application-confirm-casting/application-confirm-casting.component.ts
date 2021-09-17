@@ -15,7 +15,7 @@ import { NotificationService } from 'src/app/_service/notification.service';
   styleUrls: ['./application-confirm-casting.component.css']
 })
 export class ApplicationConfirmCastingComponent implements OnInit {
-
+  pageName='confirm-appl-casting';
   applicationId:any;
   resData:any;
   casting:any;

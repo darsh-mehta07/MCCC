@@ -1,6 +1,6 @@
 <body class="hm_pg">  
   <app-header></app-header>
-  <app-sticky-menu></app-sticky-menu>
+  <app-sticky-menu [stickymenu]='stickymenu'></app-sticky-menu>
   <div class="banner">
     <div class="container">
       <ngx-slick-carousel class="carousel slick_sliders" #slickModal="slick-carousel" [config]="slideConfig"
@@ -835,5 +835,5 @@
     </div>
   </div>
 
-  <app-footer></app-footer>
+  <app-footer [pageName]="pageName"></app-footer>
 </body>

@@ -15,6 +15,7 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
   styleUrls: ['./casting-inner.component.css']
 })
 export class CastingInnerComponent implements OnInit {
+  pageName="casting-inner";
   castingId:any;
   resData:any;
   casting:any;

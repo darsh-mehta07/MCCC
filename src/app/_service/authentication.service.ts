@@ -24,9 +24,11 @@ export class AuthenticationService {
 
     login(email_or_mobile: any, password: any) {
         return this.http.post<any>(`${Config.BasePath}/login`, { email_or_mobile, password })
-            .pipe(map(user => {
+            .pipe(map(user => {               
+                if(user.status != 'false'){
                 // store user details and jwt token in local storage to keep user logged in between page refreshes
                 localStorage.setItem('currentUser', JSON.stringify(user));
+                }
                 this.currentUserSubject.next(user);
                 return user;
             }));
@@ -34,7 +36,10 @@ export class AuthenticationService {
     social_login(data :any){
         return this.http.post<any>(`${Config.BasePath}/social_login`, data).pipe(map(user => {
             // store user details and jwt token in local storage to keep user logged in between page refreshes
-            localStorage.setItem('currentUser', JSON.stringify(user));
+            if(user.status != 'false'){
+                // store user details and jwt token in local storage to keep user logged in between page refreshes
+                localStorage.setItem('currentUser', JSON.stringify(user));
+                }
             this.currentUserSubject.next(user);
             return user;
         }));

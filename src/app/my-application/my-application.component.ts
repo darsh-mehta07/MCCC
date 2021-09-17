@@ -10,6 +10,7 @@ import { Location } from '@angular/common';
   styleUrls: ['./my-application.component.css']
 })
 export class MyApplicationComponent implements OnInit {
+  pageName='my-application';
   loading = false;
   applications:any;
   resData:any;

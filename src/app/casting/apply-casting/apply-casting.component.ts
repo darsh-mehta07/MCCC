@@ -16,6 +16,7 @@ import { NotificationService } from 'src/app/_service/notification.service';
   styleUrls: ['./apply-casting.component.css']
 })
 export class ApplyCastingComponent implements OnInit {
+  pageName = 'applycasting';
   loading = false;
   castingId:any;
   resData:any;
