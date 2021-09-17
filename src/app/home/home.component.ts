@@ -10,6 +10,7 @@ import { Config } from '../_config/config';
 import { DashboardService } from '../_service/dashboard.service';
 import{NotificationService} from '../_service/notification.service';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import {BtsVideosService} from '../_service/bts-videos.service';
 
 @Component({
   selector: 'app-home',
@@ -37,12 +38,16 @@ export class HomeComponent implements OnInit {
     loadingnc:boolean = false;
     loadingnr:boolean = false;
     loadingnce:boolean = false;
+    popularBtsVideos : any;
+    topBtsVideos: any;
+    hostUrl:string = Config.Host+'backend2/';
     constructor(
         private route:Router,
         private authenticationService: AuthenticationService,
         private userService: UserService,
         private notifyService : NotificationService,
         private dashboardService : DashboardService,
+        private btsVideosService: BtsVideosService
         
     ) {
       
@@ -84,6 +89,16 @@ export class HomeComponent implements OnInit {
     this.newCastingCallApi();
     this.getRecomendedData();
     this.callEndingSoonAPI();
+    this.btsVideosService.get_bts_videos({'limit': 10,'category_id':1}).subscribe(
+      data => { 
+          console.log(data);
+          this.popularBtsVideos = data.data;
+      });
+    this.btsVideosService.get_bts_videos({'limit': 2,'category_id':2}).subscribe(
+      data => { 
+          console.log(data.data);
+          this.topBtsVideos = data.data;
+      }); 
   }
   castingSliderApi(){
     this.dashboardService.castingSlider()

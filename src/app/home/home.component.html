@@ -418,41 +418,25 @@
       <img src="../../../assets/img/bts1.png" class="logo">
       <div class="tabs behinde">
         <h2>Popular BTS </h2>
-        <a href="#">View All</a>
+        <a [routerLink]="['/bts-inner/1']">View All</a>
       </div>
       <ngx-slick-carousel class="carousel behinde-screen_sliders" #slickModal="slick-carousel" [config]="trns_sliders"
         (init)="slickInit($event)" (breakpoint)="breakpoint($event)" (afterChange)="afterChange($event)"
         (beforeChange)="beforeChange($event)">
-        <div ngxSlickItem class="slider">
-          <img src="../../../assets/img/bts2.png">
-        </div>
-
-        <div ngxSlickItem class="slider">
-          <img src="../../../assets/img/bts3.png">
-        </div>
-
-        <div ngxSlickItem class="slider">
-          <img src="../../../assets/img/bts4.png">
-        </div>
-        <div ngxSlickItem class="slider">
-          <img src="../../../assets/img/bts2.png">
-        </div>
-
-        <div ngxSlickItem class="slider">
-          <img src="../../../assets/img/bts3.png">
-        </div>
-
-        <div ngxSlickItem class="slider">
-          <img src="../../../assets/img/bts4.png">
-        </div>
+          <div *ngFor = " let vid of popularBtsVideos" [routerLink]="['/bts-inner/1']"  ngxSlickItem class="slider">
+            <img  src="{{hostUrl}}{{vid.thumbnail_path}}{{vid.thumbnail}}">
+          </div>
       </ngx-slick-carousel>
       <div class="video-img">
         <div class="video-txt">
           <h2>Top BTS</h2>
-          <a href="#">View All</a>
+          <a [routerLink]="['/bts-inner/2']">View All</a>
         </div>
-        <img src="../../../assets/img/video1.png">
-        <img src="../../../assets/img/video2.png">
+        <div class="vd-icon" *ngFor="let vid of topBtsVideos">
+          <a class='img_link' [routerLink]="['/bts-inner/2']" ><img  src="{{hostUrl}}{{vid.thumbnail_path}}{{vid.thumbnail}}">
+            <div class="icon"><img  src="../../assets/img/play.png"></div>
+          </a>
+        </div>
       </div>
 
       <div class="video-opt">

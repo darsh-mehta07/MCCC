@@ -35,18 +35,16 @@ export class BtsVideosComponent implements OnInit {
    // console.log('beforeChange');
  } 
   ngOnInit(): void {
-    this.btsVideosService.get_bts_videos({'limit': 10,'category_id':1})
-            .subscribe(
-                data => { 
-                    console.log(data);
-                    this.popularBtsVideos = data.data;
-                });
-this.btsVideosService.get_bts_videos({'limit': 2,'category_id':2})
-              .subscribe(
-                    data => { 
-                        console.log(data.data);
-                        this.topBtsVideos = data.data;
-                    });              
+              this.btsVideosService.get_bts_videos({'limit': 10,'category_id':1}).subscribe(
+                  data => { 
+                      console.log(data);
+                      this.popularBtsVideos = data.data;
+                  });
+              this.btsVideosService.get_bts_videos({'limit': 2,'category_id':2}).subscribe(
+                  data => { 
+                      console.log(data.data);
+                      this.topBtsVideos = data.data;
+                  });              
   }
 
 }

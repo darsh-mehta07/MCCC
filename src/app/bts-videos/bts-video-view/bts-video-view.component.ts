@@ -3,7 +3,7 @@ import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import {BtsVideosService} from '../../_service/bts-videos.service';
 import { SafePipe } from '../../_config/safe.pipe';
 import { DomSanitizer } from '@angular/platform-browser';
-
+import { Config } from '../../_config/config';
 @Component({
   selector: 'app-bts-video-view',
   templateUrl: './bts-video-view.component.html',
@@ -14,6 +14,7 @@ export class BtsVideoViewComponent implements OnInit {
   btsVideoId: any;
   dataLoad: any = false;
   expanded = 0;
+  hostUrl:string = Config.Host+'backend2/';
   constructor(private actRoute:ActivatedRoute,
     private route : Router,private btsVideosService: BtsVideosService,private dom:DomSanitizer) { }
     BtsVideos:any;
