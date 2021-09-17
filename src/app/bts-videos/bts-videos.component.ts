@@ -7,15 +7,15 @@ import { Config } from '../_config/config';
   styleUrls: ['./bts-videos.component.css']
 })
 export class BtsVideosComponent implements OnInit {
-
+  stickymenu = 'bts';
   constructor(private btsVideosService: BtsVideosService,) { }
-
+  loadData: any = false;
   popularBtsVideos : any;
   topBtsVideos: any;
   hostUrl:string = Config.Host+'backend2/';
  //-----slick slider------------//    
  slideConfig = {"slidesToShow": 1, "slidesToScroll": 1,"dots": true,};
- trns_sliders = {"slidesToShow": 4, "slidesToScroll": 4,"dots": false,};
+ trns_sliders = {"slidesToShow": 4, "slidesToScroll": 4,"dots": false,"infinite": false};
  // addSlide() {
  //   this.slides.push({img: "http://placehold.it/350x150/777777"})
  // }    
@@ -39,11 +39,13 @@ export class BtsVideosComponent implements OnInit {
                   data => { 
                       console.log(data);
                       this.popularBtsVideos = data.data;
+                      this.loadData = true;
                   });
               this.btsVideosService.get_bts_videos({'limit': 2,'category_id':2}).subscribe(
                   data => { 
                       console.log(data.data);
                       this.topBtsVideos = data.data;
+                      this.loadData = true;
                   });              
   }
 

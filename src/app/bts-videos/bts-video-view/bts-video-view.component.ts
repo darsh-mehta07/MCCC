@@ -16,7 +16,11 @@ export class BtsVideoViewComponent implements OnInit {
   expanded = 0;
   hostUrl:string = Config.Host+'backend2/';
   constructor(private actRoute:ActivatedRoute,
-    private route : Router,private btsVideosService: BtsVideosService,private dom:DomSanitizer) { }
+    private route : Router,private btsVideosService: BtsVideosService,private dom:DomSanitizer) {
+      this.actRoute.paramMap.subscribe((params: ParamMap) => {  
+        this.ngOnInit();
+      });
+     }
     BtsVideos:any;
     vid: any;
     desc: any;
@@ -30,6 +34,7 @@ export class BtsVideoViewComponent implements OnInit {
       this.btsVideoId = params.get('id');
       console.log(params );
       console.log( this.btsCategoryId );
+      // this.ngOnInit();
     });
 
     this.btsVideosService.bts_videos_by_id({'video_id': this.btsVideoId})

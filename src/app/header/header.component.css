@@ -1,3 +1,7 @@
 #mySidenav{
     width:300px;
 }
+
+.active h5 {
+    color: #78cfff;
+}

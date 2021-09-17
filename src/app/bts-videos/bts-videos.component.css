@@ -5,10 +5,10 @@
     justify-content: center;
     margin: 15px 0;
 }
-.behinde_screen {
+/* .behinde_screen {
     position: relative;
     top: 75px;
-}
+} */
 .tabs {
     display: flex;
     justify-content: space-between;
@@ -44,6 +44,10 @@
     border-radius: 5px;
     object-fit: cover;
 }
+/* .bts{
+    position: relative;
+    top: 75px;
+} */
 /* .vd-icon:before {
     content: '';
     position: absolute;
@@ -169,3 +173,9 @@ ngx-slick-carousel.carousel.behinde-screen_sliders.slick-initialized.slick-slide
 }
 img.v-icon {position: absolute;width: 15%;height: 15%;object-fit: contain;top: 50%;transform: translate(50%, -50%);left: 35%;}
 .bts_inner .hd-icons img {width: 10px!important;}
+.active h5 {
+    color: #78cfff;
+}
+.video-opt .video_slider  {
+    padding-bottom: 50px;
+}
