@@ -38,7 +38,7 @@ export class BtsVideosComponent implements OnInit {
     this.btsVideosService.get_bts_videos({'limit': 10,'category_id':1})
             .subscribe(
                 data => { 
-                    console.log(data.data);
+                    console.log(data);
                     this.popularBtsVideos = data.data;
                 });
 this.btsVideosService.get_bts_videos({'limit': 2,'category_id':2})
