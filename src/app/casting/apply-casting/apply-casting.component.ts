@@ -9,7 +9,7 @@ import { AbstractControl, FormGroup, FormBuilder, Validators } from '@angular/fo
 import { AlertService } from 'src/app/_service/alert.service';
 import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import { base64ToFile, Dimensions, ImageCroppedEvent, ImageTransform } from 'ngx-image-cropper';
-
+import { NotificationService } from 'src/app/_service/notification.service';
 @Component({
   selector: 'app-apply-casting',
   templateUrl: './apply-casting.component.html',
@@ -27,6 +27,7 @@ export class ApplyCastingComponent implements OnInit {
   submitted = false;
   age:any;
   images:any;
+  videos : string[] = [];
   imgArray:any;
   videoArray:any;
   casting_title:any;
@@ -47,6 +48,12 @@ export class ApplyCastingComponent implements OnInit {
     format : any;
     url : any;
     threeimgerror:boolean = false;
+    imageerror:any;
+    onevideoerror:boolean = false;
+    videoerror:any;
+    oldvideo:any;
+    secvidbox :boolean = true;
+    thrvidbox :boolean = true;
     
   constructor(
     private actRoute:ActivatedRoute,
@@ -56,7 +63,8 @@ export class ApplyCastingComponent implements OnInit {
     private location:Location,
     private formBuilder:FormBuilder,
     private alertService: AlertService,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    private notification : NotificationService,
     ) {
     } 
   ngOnInit(): void {    
@@ -66,7 +74,12 @@ export class ApplyCastingComponent implements OnInit {
     this.casting_title = sessionStorage.getItem('casting_title');
     this.casting_date = sessionStorage.getItem('casting_date');
     this.form = this.formBuilder.group({
-      fileSource : [''],
+      oldfileSource : [''],
+      newfileSource : [''],  
+      oldvideofileSource : [''],  
+      newvideofileSource : [''], 
+      saveAsDraft : [0], 
+      casting_id:[this.castingId],
       name : [sessionStorage.getItem('name'),Validators.required],
       age : [sessionStorage.getItem('age'),Validators.required],
       height : [sessionStorage.getItem('height'),Validators.required],
@@ -79,7 +92,7 @@ export class ApplyCastingComponent implements OnInit {
     let image:any = sessionStorage.getItem('images');
     this.imgArray =  JSON.parse(image); 
     let video:any = sessionStorage.getItem('videos'); 
-    this.videoArray = JSON.parse(video); 
+    this.videoArray = JSON.parse(video);     
   }
   get f(): { [key: string]: AbstractControl } {
     return this.form.controls;
@@ -90,25 +103,145 @@ export class ApplyCastingComponent implements OnInit {
       return;
     }else{
       let totalimg = this.imgArray.length+this.cropimages.length;
-      if(totalimg == 3){
-        this.loading = true;
-        this.route.navigate(['/casting-confirm/'+this.castingId]);
+      if(this.videoArray.videos != '' || this.videoArray.videos != null){
+        this.oldvideo = 1;
       }else{
+        this.oldvideo = 0;
+      }
+      let totalvideo = this.videos.length + this.oldvideo;   
+      if(totalimg == 3 && totalvideo == 1 && (this.videoArray.videos != '' || this.videoArray.videos != null)){
+        this.loading = true;
+        this.patchOldImageValues();
+        this.patchOldVideoValues(); 
+        this.dashboardService.applyForCasting(this.form.value)
+      .pipe(first())
+        .subscribe(res => {
+          this.resData = res;   
+          if(this.resData.data.image_1){
+          sessionStorage.setItem('image_1',this.resData.data.image_1);
+          }else{
+              sessionStorage.removeItem('image_1');
+          }
+          if(this.resData.data.image_2){
+          sessionStorage.setItem('image_2',this.resData.data.image_2);
+          }else{
+            sessionStorage.removeItem('image_2');
+          }
+          if(this.resData.data.image_3){
+          sessionStorage.setItem('image_3',this.resData.data.image_3);
+          }else{
+            sessionStorage.removeItem('image_3');
+          }
+          if(this.resData.data.image_4){
+          sessionStorage.setItem('image_4',this.resData.data.image_4);
+          }else{
+            sessionStorage.removeItem('image_4');
+          }
+          if(this.resData.data.image_5){
+          sessionStorage.setItem('image_5',this.resData.data.image_5);
+          }else{
+            sessionStorage.removeItem('image_5');
+          }
+          if(this.resData.data.image_6){
+          sessionStorage.setItem('image_6',this.resData.data.image_6);
+          }else{
+            sessionStorage.removeItem('image_6');
+          }
+          if(this.resData.data.video_1){
+          sessionStorage.setItem('video_1',this.resData.data.video_1);
+          }else{
+            sessionStorage.removeItem('video_1');
+          }
+          if(this.resData.data.video_2){
+          sessionStorage.setItem('video_2',this.resData.data.video_2);
+          }else{
+            sessionStorage.removeItem('video_2');
+          }
+          if(this.resData.data.video_3){
+          sessionStorage.setItem('video_3',this.resData.data.video_3);
+          }else{
+            sessionStorage.removeItem('video_3');
+          }
+          // this.notification.showSuccess('Casting call applied Successfully.','Success!');
+          this.route.navigate(['/casting-confirm/'+this.resData.data.id]);       
+        });
+        
+      }else{
+        console.log("image count :" + totalimg);
+        console.log("video count :" + totalvideo);
+        if(totalimg > 3){
+          this.imageerror = 'Please Select Only Three Photo';
         this.threeimgerror = true;
+        }else if(totalvideo > 1){
+          this.videoerror = 'Please Select Only One Video';
+        this.onevideoerror = true;
+        }
+        
       }
     }
   }  
+  save(){
+   
+    this.submitted = true;
+    if (this.form.invalid) {
+      return;
+    }else{
+      
+      let totalimg = this.imgArray.length+this.cropimages.length; 
+      if(this.videoArray.videos != '' || this.videoArray.videos != null){
+        this.oldvideo = 1;
+      }else{
+        this.oldvideo = 0;
+      }
+      let totalvideo = this.videos.length + this.oldvideo;
+
+      if(totalimg < 7 && totalvideo < 4){
+        this.loading = true;
+        this.patchOldImageValues();
+        this.patchOldVideoValues();
+        this.patchSaveValues();
+        this.dashboardService.applyForCasting(this.form.value)
+        .pipe(first())
+        .subscribe(res => {
+          this.notification.showSuccess('Casting call save Successfully.','Success!');
+          this.resData = res;   
+          this.route.navigate(['/home']);       
+        });
+      }else{        
+        if(totalimg > 7){
+          this.imageerror = 'Please Select Only Three Photo';
+        this.threeimgerror = true;
+        }else if(totalvideo > 4){
+          this.videoerror = 'Please Select Only One Video';
+        this.onevideoerror = true;
+        }
+      }
+    }
+  }
   back(): void {
     this.location.back()
   }  
+  closeimgmodel(content:any) {
+    this.cropimages = [];
+    this.modalService.dismissAll(content);
+  }
+  saveimgmodel(content:any) {
+    this.modalService.dismissAll(content);
+  }
+  closevideomodel(content:any) {
+    this.videos = [];
+    this.modalService.dismissAll(content);
+  }
+  savevideomodel(content:any) {
+    this.modalService.dismissAll(content);
+  }
   open(content:any) {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
     });
-  }
-  
+  }  
   private getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {
       return 'by pressing ESC';
@@ -118,6 +251,75 @@ export class ApplyCastingComponent implements OnInit {
       return `with: ${reason}`;
     }
   }
+  patchValues(){
+    this.form.patchValue({
+       newfileSource: this.cropimages,
+    });
+  }
+  patchSaveValues(){
+    this.form.patchValue({
+       saveAsDraft: 1,
+    });
+  }
+  patchOldImageValues(){
+    this.form.patchValue({
+      oldfileSource: this.imgArray,
+    });
+  }
+  patchOldVideoValues(){
+    this.form.patchValue({
+      oldvideofileSource: this.videoArray,
+    });
+  }
+
+  onVideoFileChange(event: any){
+      if (event.target.files && event.target.files[0]) {
+        const file = event.target.files && event.target.files[0];
+        var filesAmount = event.target.files.length;
+        for (let i = 0; i < filesAmount; i++) {
+          var reader = new FileReader();
+          if (file.type.indexOf('image') > -1) {
+            this.format = 'image';
+            this.alertService.error('please select mp4 video', true);
+          } else if (file.type.indexOf('video') > -1) {
+            this.format = 'video';
+          }
+          reader.onload = (event: any) => {
+            this.url = (<FileReader>event.target).result;
+            this.videos.push(event.target.result);
+            if(this.videos.length == 1){
+              this.secvidbox = false;
+            }
+            if(this.videos.length == 2){
+              this.thrvidbox = false;
+            }
+            this.form.patchValue({
+              newvideofileSource: this.videos
+            });           
+          }
+          reader.readAsDataURL(event.target.files[i]);
+        }
+      }
+    }
+  // Remove Image
+    removePrimaryImage(element: number) {
+      this.imgArray.forEach((value:any,index:any)=>{
+          if(index==element) this.imgArray.splice(index,1);
+          this.patchOldImageValues();
+      });
+    }
+    removeSelectedImage(url:any){    
+      this.cropimages = this.cropimages.filter(img => (img != url));
+      // this.patchValues();
+    }
+    removePrimaryVideo() {
+      console.log('removeprimaryvideo');
+      this.videoArray = '';
+      this.patchOldVideoValues();
+    }
+    removeSelectedVideo(url:any){
+      this.videos = this.videos.filter(img => (img != url));
+    }
   //--------image crop--------------//
   fileChangeEvent(event: any): void {
     this.imageChangedEvent = event;
@@ -223,22 +425,4 @@ updateRotation() {
         rotate: this.rotation
     };
 }
-patchValues(){
-  this.form.patchValue({
-     fileSource: this.cropimages,
-  });
-  console.log("cropimages Length :" + this.cropimages.length);
-  // this.imgArray.push(this.cropimages);
-}
-// Remove Image
-  removePrimaryImage(element: number) {
-    this.imgArray.forEach((value:any,index:any)=>{
-        if(index==element) this.imgArray.splice(index,1);
-        sessionStorage.setItem('images',JSON.stringify(this.imgArray));
-    });
-  }
-  removeSelectedImage(url:any){    
-    this.cropimages = this.cropimages.filter(img => (img != url));
-    // this.patchValues();
-  }
 }

@@ -3,8 +3,8 @@
       <img src="../../../assets/img/Casting-Inner.png" class="hd-img">
       <div class="container">
         <div class="header hd-icons">
-          <a href="home-page.html"><img src="../../../assets/img/back2.png" /></a>
-          <a href="home-page.html"><img src="../../../assets/img/home2.png" class="home2"/></a>
+          <a (click)="back()"><img src="../../../assets/img/back2.png" /></a>
+          <a [routerLink]="['/home']"><img src="../../../assets/img/home2.png" class="home2"/></a>
         </div>
         <div class="inner-content">
           <img src="../../../assets/img/cam.png">
@@ -23,7 +23,7 @@
             <i class="fa fa-share-alt" aria-hidden="true"></i>
           </div>
           <div class="inner-btn">
-            <a href="events.html"> Shortlisted / Decline</a>
+            <a> Shortlisted / Decline</a>
           </div>
         </div>
       </div>

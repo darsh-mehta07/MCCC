@@ -3,8 +3,8 @@
       <img src="../../../assets/img/details.png">
       <div class="container">
         <div class="header hd-icons">
-          <a href="casting-call.html"><img src="../../../assets/img/back.png" /></a>
-          <a href="home-page.html"><img src="../../../assets/img/home.png" /></a>
+          <a (click)="back()"><img src="../../../assets/img/back.png" /></a>
+          <a [routerLink]="['/home']"><img src="../../../assets/img/home.png" /></a>
         </div>
         
         <div class="form_areas">
@@ -37,10 +37,30 @@
           <input type="text" formControlName="hobbies" readonly>
           
                   <div class="pht">
-              <h3>Select Photos</h3>
+              <h3>Selected Photos</h3>
           <div class="upload-img">
-            <div class="box" *ngFor="let img of imgArray;let i=index;">
-                <img class="js--image-preview" src="{{imagePath+img.image}}"/> 
+            <div class="box" *ngIf="image_1">
+                <img class="js--image-preview" src="{{imagePath+image_1}}"/> 
+                  <div class="upload-options"></div>
+              </div>
+              <div class="box" *ngIf="image_2">
+                <img class="js--image-preview" src="{{imagePath+image_2}}"/> 
+                  <div class="upload-options"></div>
+              </div>
+              <div class="box" *ngIf="image_3">
+                <img class="js--image-preview" src="{{imagePath+image_3}}"/> 
+                  <div class="upload-options"></div>
+              </div>
+              <div class="box" *ngIf="image_4">
+                <img class="js--image-preview" src="{{imagePath+image_4}}"/> 
+                  <div class="upload-options"></div>
+              </div>
+              <div class="box" *ngIf="image_5">
+                <img class="js--image-preview" src="{{imagePath+image_5}}"/> 
+                  <div class="upload-options"></div>
+              </div>
+              <div class="box" *ngIf="image_6">
+                <img class="js--image-preview" src="{{imagePath+image_6}}"/> 
                   <div class="upload-options"></div>
               </div>
           </div>
@@ -49,13 +69,29 @@
           <div class="vdi">
               <h3>Select Video</h3>
           <div class="upload-video">
-            <div class="box" *ngFor="let vide of videoArray;let i=index;">
+            <div class="box" *ngIf="video_1">
                 <video class="js--image-preview" width="30%" height="110px" controls>
-                  <source src="{{videoPath+vide.videos}}" type="video/mp4">
+                  <source src="{{videoPath+video_1}}" type="video/mp4">
                   Your browser does not support the video tag.
                 </video>
                   <div class="upload-options"></div>
               </div>
+              <div class="box" *ngIf="video_2">
+                <video class="js--image-preview" width="30%" height="110px" controls>
+                  <source src="{{videoPath+video_2}}" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+                  <div class="upload-options"></div>
+              </div>
+              <div class="box" *ngIf="video_3">
+                <video class="js--image-preview" width="30%" height="110px" controls>
+                  <source src="{{videoPath+video_3}}" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+                  <div class="upload-options"></div>
+              </div>
+              <div class="box" *ngIf="secvidbox"></div>
+              <div class="box" *ngIf="thrvidbox"></div>
           </div>          
           </div>
           <div class="details-btn">

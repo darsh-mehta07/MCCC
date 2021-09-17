@@ -62,4 +62,9 @@ a.img_link {
     height: 40px;
     transform: translate(-50%, -50%);
 }
+.bts_inner .hd-icons {
+    position: sticky;
+    background: hsl(0deg 0% 100%);
+    padding: 15px;
+}
 /*bts-inner*/

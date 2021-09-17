@@ -134,14 +134,17 @@
                         </div>
                         <div class="input_group plus">
                             <div class="select">
-                                <select class='multiple' formControlName="language_id" multiple>
+                                <select required class='multiple' formControlName="language_id" multiple [ngClass]="{ 'is-invalid': submitted && f.language_id.errors }">
                                     <option value="" disabled>Language You Know</option>
                                     <option *ngFor="let language of languages;" value="{{language.id}}">{{language.name}}</option>
                                     
                                 </select>
-                                <div class="arrow_down">
-                                    <img src="https://img.icons8.com/material-rounded/20/000000/expand-arrow--v1.png" />
+                                <div *ngIf="submitted && f.language_id.errors" class="invalid-feedback">
+                                    <div *ngIf="f.language_id.errors.required">Language is required</div>
                                 </div>
+                                <!-- <div class="arrow_down">
+                                    <img src="https://img.icons8.com/material-rounded/20/000000/expand-arrow--v1.png" />
+                                </div> -->
                             </div>
                         </div>
                         <div class="input_group plus" id="add_social_links">
@@ -158,10 +161,12 @@
                             </div>
                         </div>
                     </div>
-                    <button type="submit">Next</button>
+                    <div class="profile_next_btn" style="" wfd-invisible="true"><button type="submit">Next</button></div>
+                    
                     <!-- <div class="save_btns"></div> -->
                 </form>
             </div>
         </div>
     </div>
 </div>
+<div class="loader_screen" *ngIf="uploading"></div>

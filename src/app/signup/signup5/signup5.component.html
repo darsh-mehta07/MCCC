@@ -13,13 +13,16 @@
       <label>This helps us find you more</label>
         <div class="form-group">
           <div class="radio-toolbar">
-            <input type="radio" formControlName="gender"  value="Female" >
+            <input type="radio" formControlName="gender"  value="Female" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }">
             <label>Female</label>
-            <input type="radio" formControlName="gender"  value="Male" checked>
+            <input type="radio" formControlName="gender"  value="Male" checked [ngClass]="{ 'is-invalid': submitted && f.gender.errors }">
             <label>Male</label>
-            <input type="radio" formControlName="gender"  value="Not To Disclose" >
+            <input type="radio" formControlName="gender"  value="Not To Disclose" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }">
             <label>Not To Disclose</label> 
-            <div *ngIf="submitted && f.gender.errors" class="invalid-feedback">Gender is required</div>            
+            <div *ngIf="submitted && f.gender.errors" class="invalid-feedback">
+              <div *ngIf="f.gender.errors.required">Gender is required</div>
+              
+            </div>            
           </div>
         </div>
         <div class="nt-btn gnfw-btn-top">

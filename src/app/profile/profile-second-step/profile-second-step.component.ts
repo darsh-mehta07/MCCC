@@ -20,6 +20,7 @@ export class ProfileSecondStepComponent implements OnInit {
   format: any;
   url: any;
   responseData: any;
+  uploading:boolean=false;
   constructor(
     private formBuilder: FormBuilder,
     private route: Router,
@@ -76,17 +77,21 @@ export class ProfileSecondStepComponent implements OnInit {
     }
   }
   submit() {
+    this.uploading = true;
     this.submitted = true;
     if (this.form.invalid) {
       return;
     } else {
       this.userService.upload_video(this.form.value).pipe(first()).subscribe(res => {
+        this.uploading = false;  
         this.responseData = res;
         if (this.responseData.status == 'true') {
           this.route.navigate(['/profile_final_step']);
         } else {
           this.alertService.success('File uploaded Successfully', true);
         }
+      },error=>{
+        this.uploading = false;
       });
     }
   }
