@@ -1,6 +1,7 @@
 <body class="hm_pg">
-
-    <div class="top-header">
+  <app-header></app-header>
+  <app-sticky-menu [stickymenu]='stickymenu'></app-sticky-menu>
+    <!-- <div class="top-header">
       <div class="container">
         <div class="main">
         <div id="mySidenav" class="sidenav menu">
@@ -98,36 +99,36 @@
               <h5>Training</h5>
             </a>
             </div>
-          <!--    <div class="tbs">-->
-          <!--  <a href="#" >-->
-          <!--    <img src="./img/Classified.png">-->
-          <!--    <h5>Classified</h5>-->
-          <!--  </a>-->
-          <!--</div>-->
+
           </div>
       </div>
     </div>
-    </div>
+    </div> -->
   
-    <div class="behinde_screen">
+    <div class="behinde_screen bts">
       <div class="container">
-  
-         <img src="../assets/img/bts1.png" class="logo">
-         <div class="tabs behinde">
+        <img src="../assets/img/bts1.png" class="logo">
+        <div class="tabs behinde">
           <h2>Popular BTS</h2>
           <a [routerLink]="['/bts-inner/1']">View All</a>
         </div>
 
-        <ngx-slick-carousel class="carousel behinde-screen_sliders" #slickModal="slick-carousel" [config]="trns_sliders"
+        <ngx-slick-carousel *ngIf="loadData" class="carousel behinde-screen_sliders" #slickModal="slick-carousel" [config]="trns_sliders"
         (init)="slickInit($event)" (breakpoint)="breakpoint($event)" (afterChange)="afterChange($event)"
         (beforeChange)="beforeChange($event)">
-
-        
           <div *ngFor = " let vid of popularBtsVideos" [routerLink]="['/bts-inner/1']"  ngxSlickItem class="slider">
             <img  src="{{hostUrl}}{{vid.thumbnail_path}}{{vid.thumbnail}}">
           </div>
+        </ngx-slick-carousel>
         
-      </ngx-slick-carousel>
+        <div class="item" *ngIf="!loadData">
+          <ngx-skeleton-loader count="4" appearance="circle" [theme]="{
+            width: '80px',
+            height: '85px',
+            'border-radius': '10px'
+          }">
+            </ngx-skeleton-loader>
+          </div>
         <div class="video-img">
           <div class="video-txt">
             <h2>Top BTS</h2>
@@ -176,11 +177,11 @@
       </div>
       </div>
     </div>
+    <app-footer></app-footer>
   
   
   
-  
-    <div class="footer hm-bg">
+    <!-- <div class="footer hm-bg">
       <div class="container foot">
         <div class="foot-tbs">
         <a href="home-page.html" >
@@ -207,5 +208,5 @@
         </a>
       </div>
     </div>
-    </div>
+    </div> -->
 </body>
