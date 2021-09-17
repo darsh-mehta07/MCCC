@@ -97,7 +97,9 @@ export class EditProfileComponent implements OnInit {
     if (this.form.invalid) {
       return;
     }else{
+      this.loading = true;
       this.dashboardService.editUserDetail(this.form.value).pipe(first()).subscribe(res=>{
+        this.loading = false;
         this.resData = res;
         this.age = this.resData.data.age; 
         this.userdetail = this.resData.data.user_details;
@@ -114,6 +116,8 @@ export class EditProfileComponent implements OnInit {
           sessionStorage.setItem('home_town',this.userdetail.home_town);
           sessionStorage.setItem('hobbies',this.userdetail.hobbies);
         this.notification.showSuccess('Profile Updated Successfully.','Success!');
+      },error=>{
+        this.loading = false;
       });
     }
   }

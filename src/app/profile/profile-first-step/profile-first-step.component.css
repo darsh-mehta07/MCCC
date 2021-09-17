@@ -19,5 +19,6 @@
     text-align: center;
     line-height: 35px;
     border-radius: 20px;
-    margin: 2rem auto 0;
+    margin:2rem auto 15px;
+    border:0;
 }

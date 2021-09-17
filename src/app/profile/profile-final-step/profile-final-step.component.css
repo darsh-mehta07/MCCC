@@ -26,6 +26,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     line-height: 35px;
     border-radius: 20px;
     margin: 2rem auto 0;
+    border:0;
 }
 .wrapper .profile_final_step .top_part .form_area .profile_content .input_group .input{
     display:block!important;

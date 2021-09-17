@@ -19,7 +19,7 @@ export class WelcomeComponent implements OnInit {
   socialUser: SocialUser | undefined;
   isLoggedin: boolean | undefined;
   socialLoginResponce : any;
-  localData : any;
+  localData : any;  
    constructor(
      private socialAuthService: SocialAuthService,
      private formBuilder: FormBuilder,
@@ -44,14 +44,14 @@ export class WelcomeComponent implements OnInit {
       this.isLoggedin = (user != null);
       console.log(this.socialUser.provider);      
       if(this.socialUser.provider === 'GOOGLE'){                
-        this.userService.social_login({
+        this.authenticationService.social_login({
           provider_name:this.socialUser.provider,
           client_id:this.socialUser.id,
           email:this.socialUser.email,
           name:this.socialUser.name}).pipe(first())
           .subscribe(res=>{
             this.socialLoginResponce = res;
-            if(this.socialLoginResponce.status === "true"){              
+            if(this.socialLoginResponce.status === "true"){               
               localStorage.setItem('currentUser', JSON.stringify(this.socialLoginResponce));
               if(this.socialLoginResponce.profileStatus === "true"){
                 this.route.navigate(['/home']);
@@ -71,7 +71,7 @@ export class WelcomeComponent implements OnInit {
           this.notification.showError(error,'Mccc');          
         });        
       }else if(this.socialUser.provider === 'FACEBOOK'){
-        this.userService.social_login({
+        this.authenticationService.social_login({
           provider_name:this.socialUser.provider,
           client_id:this.socialUser.id,
           email:this.socialUser.email,
@@ -96,7 +96,7 @@ export class WelcomeComponent implements OnInit {
         });
       }      
     });
-  }
+  } 
   
   loginWithGoogle(): void {
     this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID);

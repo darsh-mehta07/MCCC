@@ -28,8 +28,8 @@ export class DashboardService {
     bookmarkCasting(data:any){
       return this.http.post(`${Config.BasePath}/bookmark`,data);
     }
-    userDetails(){
-      return this.http.post(`${Config.BasePath}/user_details`,null);
+    userDetails(data:any){
+      return this.http.post(`${Config.BasePath}/user_details`,data);
     }
     editUserDetail(data:any){
       return this.http.post(`${Config.BasePath}/user_edit`,data);

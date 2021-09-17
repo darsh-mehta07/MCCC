@@ -22,6 +22,7 @@ export class Signup10Component implements OnInit {
   loading = false;
   all_terms : any;
   terms :any;
+  showViewMore:boolean = false;
   
   constructor(
     private formBuilder: FormBuilder,
@@ -43,7 +44,10 @@ export class Signup10Component implements OnInit {
     this.registerService.terms().pipe(first()).subscribe(
       data => {
         this.all_terms = data;
-        this.terms = this.all_terms.firstFourTerms;
+        this.terms = this.all_terms.firstFourTerms;  
+        // if(this.all_terms.length > 4){
+          this.showViewMore = true;
+        // }      
       },error => {
         this.alertService.error(error);
           this.loading = false;

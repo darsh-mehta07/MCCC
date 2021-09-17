@@ -32,7 +32,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     -moz-appearance: none;
     appearance: none;
     width: 100%;
-    height: 116px;
+    /* height: 116px; */
 }
 .select_div select option{
    margin:10px;

@@ -11,7 +11,7 @@
     <form [formGroup]="form" (ngSubmit)="submit()">
       <div class="form-group">
         <label>Phone Number</label>
-        <input autofocus formControlName="phone" id="phone" type="text" maxlength="10"class="form-control" placeholder="0 0 0 0 0 0 0 0 0 0 "
+        <input autofocus formControlName="phone" id="phone" type="text" maxlength="10"class="form-control" placeholder="0000000000"
           [ngClass]="{ 'is-invalid': submitted && f.phone.errors }">
         <div *ngIf="submitted && f.phone.errors" class="invalid-feedback">
           <div *ngIf="f.phone.errors.required">Phone is required</div>

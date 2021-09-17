@@ -6,6 +6,8 @@ import { AuthenticationService } from 'src/app/_service/authentication.service';
 import { DashboardService } from 'src/app/_service/dashboard.service';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Location } from '@angular/common';
+import { NotificationService } from 'src/app/_service/notification.service';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 
 @Component({
   selector: 'app-casting-inner',
@@ -23,13 +25,18 @@ export class CastingInnerComponent implements OnInit {
   age:any; 
   castingTitle:any;
   castingDate:any;
+  bookmarks:any;
+  bmkStatus:any;
+  loading:boolean = false;
   constructor(
     private actRoute:ActivatedRoute,
     private route : Router,
     private authenticationService: AuthenticationService,
     private dashboardService:DashboardService,
     private sanitizer:DomSanitizer,
-    private location:Location) {} 
+    private location:Location,
+    private notifyService : NotificationService,
+    ) {} 
   ngOnInit(): void {    
     this.actRoute.paramMap.subscribe((params: ParamMap) => {                 
       this.castingId = params.get('id');
@@ -42,16 +49,18 @@ export class CastingInnerComponent implements OnInit {
   getCastingData(){
     this.dashboardService.castingCall({casting_id:this.castingId}).pipe(first())
     .subscribe(res => {
+      this.loading = true;
       this.resData = res;   
-      this.casting = this.resData.data[0];
+      this.casting = this.resData.data;
       this.castingTitle =  this.casting.title;
+      this.bookmarks =  this.casting.bookmark_status;
       this.castingDate = this.casting.created_at;
       this.image = this.baseUrl+this.casting.banner_img_path+'/'+this.casting.banner_image;
       this.long_description = this.sanitizer.bypassSecurityTrustHtml(this.casting.long_description);
     });
   }
   applyCasting(){
-      this.dashboardService.userDetails()
+      this.dashboardService.userDetails({casting_id:this.castingId})
       .pipe(first())
         .subscribe(res => {
           this.resData = res;       
@@ -70,11 +79,28 @@ export class CastingInnerComponent implements OnInit {
           sessionStorage.setItem('home_town',this.userdetail.home_town);
           sessionStorage.setItem('hobbies',this.userdetail.hobbies);
           sessionStorage.setItem('images',JSON.stringify(this.userdetail.images));          
-          sessionStorage.setItem('videos',JSON.stringify(this.userdetail.video));
+          sessionStorage.setItem('videos',JSON.stringify(this.userdetail.videos));
           sessionStorage.setItem('casting_title',this.castingTitle);
           sessionStorage.setItem('casting_date',this.castingDate);
           this.route.navigate(['/apply-casting/'+this.castingId]);
-        });
+        });        
   }
+  bookmark(id:any){
+    this.dashboardService.bookmarkCasting({casting_card_id:id})
+    .pipe(first())
+      .subscribe(res => {
+        this.resData = res; 
+        this.bmkStatus = this.resData.data[0];
+        if(this.bmkStatus === 'Bookmark removed'){
+          this.bookmarks = 0;
 
+        }else if(this.bmkStatus === 'Bookmark Added'){
+          this.bookmarks = 1;
+        }
+        // this.showToasterSuccess();      
+      });
+  }
+  showToasterSuccess(){
+    this.notifyService.showSuccess("Data save successfully !!", "Mccc")
+}
 }

@@ -37,7 +37,7 @@ import { ProfileFinalStepComponent } from './profile/profile-final-step/profile-
 import { ThankyouComponent } from './profile/thankyou/thankyou.component';
 import { ImageCropperModule } from 'ngx-image-cropper';
 import { AlertComponent } from './_components/alert/alert.component';
-// import { NgHttpLoaderModule } from 'ng-http-loader';
+import { NgHttpLoaderModule } from 'ng-http-loader';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
@@ -56,6 +56,10 @@ import { BtsInnerComponent } from './bts-videos/bts-inner/bts-inner.component';
 import { BtsVideoViewComponent } from './bts-videos/bts-video-view/bts-video-view.component';
 import { SafePipe } from './_config/safe.pipe';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
+import { LeftSideMenuComponent } from './left-side-menu/left-side-menu.component';
+import { StickyMenuComponent } from './sticky-menu/sticky-menu.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -97,6 +101,10 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
     BtsInnerComponent,
     BtsVideoViewComponent,
     SafePipe,
+    HeaderComponent,
+    FooterComponent,
+    LeftSideMenuComponent,
+    StickyMenuComponent,
   ],
   imports: [
     BrowserModule,
@@ -108,7 +116,7 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
     NgbModule,
     NiceSelectModule,
     ImageCropperModule,
-    // NgHttpLoaderModule.forRoot(),
+    NgHttpLoaderModule.forRoot(),
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     SlickCarouselModule,

@@ -9,6 +9,7 @@ import { AbstractControl, FormGroup, FormBuilder, Validators } from '@angular/fo
 import { AlertService } from 'src/app/_service/alert.service';
 import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import { base64ToFile, Dimensions, ImageCroppedEvent, ImageTransform } from 'ngx-image-cropper';
+import { NotificationService } from 'src/app/_service/notification.service';
 @Component({
   selector: 'app-apply-casting',
   templateUrl: './apply-casting.component.html',
@@ -62,7 +63,8 @@ export class ApplyCastingComponent implements OnInit {
     private location:Location,
     private formBuilder:FormBuilder,
     private alertService: AlertService,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    private notification : NotificationService,
     ) {
     } 
   ngOnInit(): void {    
@@ -117,31 +119,50 @@ export class ApplyCastingComponent implements OnInit {
           this.resData = res;   
           if(this.resData.data.image_1){
           sessionStorage.setItem('image_1',this.resData.data.image_1);
+          }else{
+              sessionStorage.removeItem('image_1');
           }
           if(this.resData.data.image_2){
           sessionStorage.setItem('image_2',this.resData.data.image_2);
+          }else{
+            sessionStorage.removeItem('image_2');
           }
           if(this.resData.data.image_3){
           sessionStorage.setItem('image_3',this.resData.data.image_3);
+          }else{
+            sessionStorage.removeItem('image_3');
           }
           if(this.resData.data.image_4){
           sessionStorage.setItem('image_4',this.resData.data.image_4);
+          }else{
+            sessionStorage.removeItem('image_4');
           }
           if(this.resData.data.image_5){
           sessionStorage.setItem('image_5',this.resData.data.image_5);
+          }else{
+            sessionStorage.removeItem('image_5');
           }
           if(this.resData.data.image_6){
           sessionStorage.setItem('image_6',this.resData.data.image_6);
-          } 
+          }else{
+            sessionStorage.removeItem('image_6');
+          }
           if(this.resData.data.video_1){
           sessionStorage.setItem('video_1',this.resData.data.video_1);
+          }else{
+            sessionStorage.removeItem('video_1');
           }
           if(this.resData.data.video_2){
           sessionStorage.setItem('video_2',this.resData.data.video_2);
+          }else{
+            sessionStorage.removeItem('video_2');
           }
           if(this.resData.data.video_3){
           sessionStorage.setItem('video_3',this.resData.data.video_3);
+          }else{
+            sessionStorage.removeItem('video_3');
           }
+          // this.notification.showSuccess('Casting call applied Successfully.','Success!');
           this.route.navigate(['/casting-confirm/'+this.resData.data.id]);       
         });
         
@@ -160,12 +181,20 @@ export class ApplyCastingComponent implements OnInit {
     }
   }  
   save(){
+   
     this.submitted = true;
     if (this.form.invalid) {
       return;
     }else{
+      
       let totalimg = this.imgArray.length+this.cropimages.length; 
-      let totalvideo = this.videoArray.length+this.videos.length;     
+      if(this.videoArray.videos != '' || this.videoArray.videos != null){
+        this.oldvideo = 1;
+      }else{
+        this.oldvideo = 0;
+      }
+      let totalvideo = this.videos.length + this.oldvideo;
+
       if(totalimg < 7 && totalvideo < 4){
         this.loading = true;
         this.patchOldImageValues();
@@ -174,10 +203,11 @@ export class ApplyCastingComponent implements OnInit {
         this.dashboardService.applyForCasting(this.form.value)
         .pipe(first())
         .subscribe(res => {
+          this.notification.showSuccess('Casting call save Successfully.','Success!');
           this.resData = res;   
           this.route.navigate(['/home']);       
         });
-      }else{
+      }else{        
         if(totalimg > 7){
           this.imageerror = 'Please Select Only Three Photo';
         this.threeimgerror = true;
@@ -191,6 +221,20 @@ export class ApplyCastingComponent implements OnInit {
   back(): void {
     this.location.back()
   }  
+  closeimgmodel(content:any) {
+    this.cropimages = [];
+    this.modalService.dismissAll(content);
+  }
+  saveimgmodel(content:any) {
+    this.modalService.dismissAll(content);
+  }
+  closevideomodel(content:any) {
+    this.videos = [];
+    this.modalService.dismissAll(content);
+  }
+  savevideomodel(content:any) {
+    this.modalService.dismissAll(content);
+  }
   open(content:any) {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;

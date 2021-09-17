@@ -29,6 +29,7 @@ export class ProfileFinalStepComponent implements OnInit {
   languages: any;
   responseData: any;
   statesTrue = false;
+  uploading:boolean=false;
   constructor(private formBuilder: FormBuilder,
     private router: ActivatedRoute,
     private route: Router,
@@ -168,6 +169,7 @@ export class ProfileFinalStepComponent implements OnInit {
   get f() { return this.form?.controls; }
 
   onSubmit() {
+    this.uploading = true;
     this.submitted = true;
     // reset alerts on submit
     this.alertService.clear();
@@ -178,6 +180,7 @@ export class ProfileFinalStepComponent implements OnInit {
     this.loading = true;
     this.userService.profile_final_stap(this.form.value).pipe(first()).subscribe(
       data => {
+        this.uploading = false;
         this.responseData = data;
         if (this.responseData.status == "true") {
           this.route.navigate(['/thankyou']);
@@ -185,6 +188,7 @@ export class ProfileFinalStepComponent implements OnInit {
           this.alertService.success(this.responseData.data);
         }
       }, error => {
+        this.uploading = false;
         this.alertService.error(error);
         this.loading = false;
       });

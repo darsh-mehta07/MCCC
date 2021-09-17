@@ -7,6 +7,7 @@ import { DashboardService } from 'src/app/_service/dashboard.service';
 import { Location } from '@angular/common';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
+import { NotificationService } from 'src/app/_service/notification.service';
 
 @Component({
   selector: 'app-application-confirm-casting',
@@ -49,7 +50,9 @@ export class ApplicationConfirmCastingComponent implements OnInit {
     private dashboardService:DashboardService,
     private sanitizer:DomSanitizer,
     private location:Location,
-    private formBuilder:FormBuilder,) {} 
+    private formBuilder:FormBuilder,
+    private notification : NotificationService,
+    ) {} 
     ngOnInit(): void {    
       this.actRoute.paramMap.subscribe((params: ParamMap) => {                 
         this.applicationId = params.get('id');
@@ -117,6 +120,7 @@ export class ApplicationConfirmCastingComponent implements OnInit {
           sessionStorage.removeItem('video_3');
           sessionStorage.removeItem('videos');
           sessionStorage.removeItem('images');
+          this.notification.showSuccess('Casting call applied Successfully.','Success!');
           this.route.navigate(['/thank-casting/'+this.applicationNo]);       
         });
       }
