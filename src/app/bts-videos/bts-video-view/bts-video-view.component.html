@@ -20,6 +20,7 @@
                    <p  *ngIf="expanded ==  this.BtsVideos[0].id ">{{desc}}
                      <span (click)="expanded = 0"
                        class="text-green"><b>{{expanded==  this.BtsVideos[0].id ?'View less':'View more'}}</b></span></p>
+                       <span>{{BtsVideos[0].viewsCount}} views </span>
             </div>
         <div class="nxt">
             <p>Upnext</p>
@@ -28,7 +29,7 @@
             <ul>
                 <li *ngFor="let data of upNext">
                     <!-- <iframe width="560" height="315" [src]="data.video_url | safe " title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe> -->
-                    <a [routerLink]="['/bts-video-view/',data.id,btsCategoryId]" >
+                    <a class="next_vid_list" [routerLink]="['/bts-video-view/',data.id,btsCategoryId]" >
                         <img width="100" height="100"  src="{{hostUrl}}{{data.thumbnail_path}}{{data.thumbnail}}">
                     </a>
                     <div class="more-txt">

@@ -36,8 +36,7 @@ export class BtsVideoViewComponent implements OnInit {
       console.log( this.btsCategoryId );
       // this.ngOnInit();
     });
-
-    this.btsVideosService.bts_videos_by_id({'video_id': this.btsVideoId})
+ this.btsVideosService.bts_videos_by_id({'video_id': this.btsVideoId})
           .subscribe(
                     data => { 
                         console.log(data);
@@ -46,7 +45,7 @@ export class BtsVideoViewComponent implements OnInit {
                         // this.vid = this.dom.bypassSecurityTrustResourceUrl(this.BtsVideos[0].video_url); 
                         this.vid = this.BtsVideos[0].video_url;
                         this.desc = this.BtsVideos[0].description;
-                    }); 
+                      }); 
 
     this.btsVideosService.get_bts_videos({'limit': null,'category_id':this.btsCategoryId})
           .subscribe(
