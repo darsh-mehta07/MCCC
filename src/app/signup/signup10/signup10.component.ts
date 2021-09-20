@@ -82,16 +82,17 @@ export class Signup10Component implements OnInit {
         this.registerService.register(this.form.value)
             .pipe(first())
             .subscribe(
-                data => {                    
+                data => {             
+                  console.log(JSON.stringify(data));       
                   sessionStorage.removeItem('name');
-                  sessionStorage.removeItem('email');
+                  // sessionStorage.removeItem('email');
                   sessionStorage.removeItem('phone');
                   sessionStorage.removeItem('otp');
                   sessionStorage.removeItem('gender');
                   sessionStorage.removeItem('dob');
                   sessionStorage.removeItem('state');
                   sessionStorage.removeItem('city');
-                  sessionStorage.removeItem('password');
+                  // sessionStorage.removeItem('password');
                   sessionStorage.removeItem('confirm_password');
                     this.route.navigate(['/signup-success']);
                 },

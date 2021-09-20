@@ -15,7 +15,7 @@
           [ngClass]="{ 'is-invalid': submitted && f.phone.errors }">
         <div *ngIf="submitted && f.phone.errors" class="invalid-feedback">
           <div *ngIf="f.phone.errors.required">Phone is required</div>
-          <div *ngIf="f.phone.errors.pattern">Only 10 digits allow</div>
+          <div *ngIf="f.phone.errors.pattern">Please Enter 10 digit's mobile number</div>
           <div *ngIf="f.phone.errors.phoneTaken">Phone is already taken.</div>
         </div>
       </div>

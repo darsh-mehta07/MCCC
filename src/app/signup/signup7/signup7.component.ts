@@ -54,20 +54,20 @@ export class Signup7Component implements OnInit {
       city: [sessionStorage.getItem('city'),Validators.required]
     });
       
-      // if(sessionStorage.getItem('state') != undefined && sessionStorage.getItem('state') != ''){
-      //   this.registerService.cities({state_id:sessionStorage.getItem('state')}).pipe(first()).subscribe(res=>{
-      //     this.response = res;
-      //     if(this.response.data !== 'undefined' && this.response.data.length > 0){
-      //       this.dataTrue = true;
-      //       this.cities = this.response.data;  
-      //     }else{
-      //       this.dataTrue = false;
-      //     }        
-      //   },error=>{
-      //     this.alertService.error(error);
-      //     this.loading = false;
-      //   });
-      // }
+      if(sessionStorage.getItem('state') != undefined && sessionStorage.getItem('state') != ''){
+        this.registerService.cities({state_id:sessionStorage.getItem('state')}).pipe(first()).subscribe(res=>{
+          this.response = res;
+          if(this.response.data !== 'undefined' && this.response.data.length > 0){
+            this.dataTrue = true;
+            this.cities = this.response.data;  
+          }else{
+            this.dataTrue = false;
+          }        
+        },error=>{
+          this.alertService.error(error);
+          this.loading = false;
+        });
+      }
   }
   changeSuit(e:any) {
     if(e.target.value > 0){

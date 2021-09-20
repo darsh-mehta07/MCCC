@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import{ AgeBetween13To54 } from "../../_helpers/custom-DOB.validator"
+import{ AgeBetween13To54 } from "../../_helpers/custom-DOB.validator";
 import { AuthenticationService } from 'src/app/_service/authentication.service';
 import { Config } from 'src/app/_config/config';
 

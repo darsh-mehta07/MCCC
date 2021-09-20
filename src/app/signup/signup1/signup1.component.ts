@@ -22,7 +22,7 @@ export class Signup1Component implements OnInit {
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
-      name : [sessionStorage.getItem('name'),Validators.required]
+      name : [sessionStorage.getItem('name'),[Validators.required,Validators.pattern('^[a-zA-Z]{2,}(?: [a-zA-Z]+){0,2}$')]]
     });
   }
   get f(): { [key: string]: AbstractControl } {
