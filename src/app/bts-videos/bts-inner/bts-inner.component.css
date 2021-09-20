@@ -8,7 +8,8 @@
     z-index: 9;
 }
 .bts_inner .hd-icons img {
-    filter: brightness(0.5) invert(1);
+    /* filter: brightness(0.5) invert(1); */
+    color: black;
 }
 .hd-icons img {
     width: auto !important;
