@@ -16,7 +16,7 @@
           <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
             <div *ngIf="f.name.errors.required">Name is required</div>
           </div>
-          <label>Age<span class="text-danger">*</span></label>
+          <label>DOB<span class="text-danger">*</span></label>
           <input type="date" formControlName="dob" maxlength="10" [ngClass]="{ 'is-invalid': submitted && f.dob.errors }">
           <div *ngIf="submitted && f.dob.errors" class="invalid-feedback">
             <div *ngIf="f.dob.errors.required">Date of Birth is required</div>  
@@ -35,11 +35,15 @@
             <div *ngIf="f.phone.errors.pattern">Only 10 digits allow</div>
             <div *ngIf="f.phone.errors.phoneTaken">Phone is already taken.</div>
           </div>
-          <label>Language You Know<span class="text-danger">*</span></label>          
-        <select class='multiple' class="select" formControlName="language_id" multiple>
+          <label>Language You Know<span class="text-danger">*</span></label> 
+          <div class="select_div">
+        <select multiple class="select" formControlName="language_id" [(ngModel)]="language_ids" required [ngClass]="{ 'is-invalid': submitted && f.language_id.errors }">
             <option *ngFor="let language of languages;" value="{{language.id}}">{{language.name}}</option>            
         </select>
-          
+        <div *ngIf="submitted && f.language_id.errors" class="invalid-feedback">
+          <div *ngIf="f.language_id.errors.required">Language is required</div>
+      </div>
+      </div>         
           <label>State<span class="text-danger">*</span></label>          
           <div class="select_div">
             <select *ngIf="dataTrue" nice-select class="select" (change)="changeSuit($event)" formControlName="state" [ngClass]="{ 'is-invalid': submitted && f.state.errors }">
@@ -54,7 +58,10 @@
         </div>          
            
           <label>City<span class="text-danger">*</span></label>
-          <div class="select_div">
+          <div class="select_div" *ngIf="cityVisible">
+            <select *ngIf="dataTrue" nice-select class="select"><option>{{city}}</option></select>
+        </div>
+          <div class="select_div" *ngIf="!cityVisible">
             <select *ngIf="dataTrue" nice-select class="select" formControlName="select_city" [ngClass]="{ 'is-invalid': submitted && f.city.errors }">
                 <option selected disabled>City</option>
                 <option *ngFor="let city of cities" [value]="city.id">{{city.name}}</option>
@@ -82,4 +89,5 @@
         </div>
       </div>
     </div>
+    <div class="loader_screen" *ngIf="loading"></div>
 </body>

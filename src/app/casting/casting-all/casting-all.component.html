@@ -1,113 +1,6 @@
 <body class="hm_pg">
-    <div class="top-header">
-        <div class="container">
-            <div class="main">
-                <div id="mySidenav" class="sidenav menu">
-                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                    <div class="Profile">
-                        <img src="../../../assets/img/profile.svg">
-                        <a href="#">Hello Ritesh</a>
-                    </div>
-                    <div class="menu-nav">
-                        <img src="../../../assets/img/application.svg">
-                        <a href="#">Your Application</a>
-                    </div>
-                    <div class="menu-nav">
-                        <img src="../../../assets/img/notify.svg">
-                        <a href="#">Notification</a>
-                    </div>
-                    <div class="menu-nav">
-                        <img src="../../../assets/img/upcoming.svg">
-                        <a href="#">Upcoming Events</a>
-                    </div>
-                    <div class="menu-nav">
-                        <img src="../../../assets/img/traing.svg">
-                        <a href="#">Training Session</a>
-                    </div>
-                    <div class="menu-nav">
-                        <img src="../../../assets/img/shortlist.svg">
-                        <a href="#">Shortlisted</a>
-                    </div>
-                    <div class="menu-nav">
-                        <img src="../../../assets/img/bts.svg">
-                        <a href="#">BTS</a>
-                    </div>
-                    <div class="menu-nav">
-                        <img src="../../../assets/img/draft.png">
-                        <a href="#">Your Drafts</a>
-                    </div>
-                    <div class="menu-nav">
-                        <img src="../../../assets/img/game.svg">
-                        <a href="#">Games</a>
-                    </div>
-                    <div class="menu-nav">
-                        <img src="../../../assets/img/classif.png">
-                        <a href="#">Classified</a>
-                    </div>
-                    <div class="menu-nav">
-                        <img src="../../../assets/img/about-mccc.svg">
-                        <a href="#">About MCCC</a>
-                    </div>
-                    <div class="menu-nav">
-                        <img src="../../../assets/img/faq.svg">
-                        <a href="#">FAQ's</a>
-                    </div>
-                    <div class="menu-nav">
-                        <img src="../../../assets/img/help.svg">
-                        <a href="#">Helps</a>
-                    </div>
-
-                </div>
-                <span onclick="openNav()"><img src="../../../assets/img/Menu.png" class="menu-img"></span>
-                <div class="logo">
-                    <img src="../../../assets/img/logo-2.png">
-                </div>
-                <div class="search">
-                    <img src="../../../assets/img/search.png">
-                </div>
-                <div class="notify">
-                    <img src="../../../assets/img/notification.png">
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="icons-tabs sticky">
-        <div class="container">
-            <div class="main-tab">
-                <div class="tbs">
-                    <a [routerLink]="['/casting-all/1']">
-                        <img src="../../../assets/img/casting.png">
-                        <h5>Casting</h5>
-                    </a>
-                </div>
-                <div class="tbs">
-                    <a href="event.html">
-                        <img src="../../../assets/img/event.png">
-                        <h5>Events</h5>
-                    </a>
-                </div>
-                <div class="tbs">
-                    <a href="bts.html">
-                        <img src="../../../assets/img/bts.png">
-                        <h5>BTS</h5>
-                    </a>
-                </div>
-                <div class="tbs">
-                    <a href="training.html">
-                        <img src="../../../assets/img/traing.png">
-                        <h5>Training</h5>
-                    </a>
-                </div>
-                <!--    <div class="tbs">-->
-                <!--  <a href="#" >-->
-                <!--    <img src="../../../assets/img/Classified.png">-->
-                <!--    <h5>Classified</h5>-->
-                <!--  </a>-->
-                <!--</div>-->
-            </div>
-        </div>
-    </div>
+    <app-header></app-header>
+<app-sticky-menu [stickymenu]='stickymenu'></app-sticky-menu>
     <div id="exTab1" class="inner-tabs">
         <ul class="nav nav-pills">
             <li [ngClass]="catId == 1 ? 'active':''" id="tb1"><a (click)="tab(1)"data-toggle="tab" [ngClass]="catId == 1 ? 'active':''">New </a></li>
@@ -141,7 +34,7 @@
                     </div>
                     <h3>{{casting.title | titlecase}}</h3>
                     <p class="toggle-sec">{{casting.short_description}}
-                      <a (click)="castingInner(casting.id)">Read more</a>
+                      <a (click)="castingInner(casting.id)" class="read-more">More...</a>
                     </p>
                     <div class="details">
                       <div class="details-icons">
@@ -163,6 +56,9 @@
                         <a href="#">{{tag}}</a>
                       </div>         
                     </div>
+                  </div>
+                  <div class="item" *ngIf="!loading">
+                    <ngx-skeleton-loader count="15"></ngx-skeleton-loader>
                   </div>
             </div>
         </div>
@@ -199,7 +95,7 @@
                     </div>
                     <h3 class="grn">{{rcasting.title}}</h3>
                     <p class="toggle-sec">{{rcasting.short_description}}
-                        <a (click)="castingInner(rcasting.id)">Read more</a>
+                      <a (click)="castingInner(rcasting.id)" class="read-more">More...</a>
                     <div class="details">
                         <div class="details-icons">
                             <i class="fa fa-transgender-alt" aria-hidden="true"></i>
@@ -220,7 +116,9 @@
                         </div>
                     </div>
                 </div>
-                
+                <div class="item" *ngIf="!loading">
+                    <ngx-skeleton-loader count="15"></ngx-skeleton-loader>
+                  </div>
             </div>
         </div>
 
@@ -249,7 +147,7 @@
                     </div>
                     <h3>{{casting.title | titlecase}}</h3>
                     <p class="toggle-sec">{{casting.short_description}}
-                      <a (click)="castingInner(casting.id)">Read more</a>
+                      <a (click)="castingInner(casting.id)" class="read-more">More...</a>
                     </p>
                     <div class="details">
                       <div class="details-icons">
@@ -272,35 +170,11 @@
                       </div>         
                     </div>
                   </div>
+                  <div class="item" *ngIf="!loading">
+                    <ngx-skeleton-loader count="15"></ngx-skeleton-loader>
+                  </div>
             </div>
         </div>
     </div>
-    <div class="footer hm-bg">
-        <div class="container foot">
-            <div class="foot-tbs">
-                <a [routerLink]="['/home']">
-                    <i class="fa fa-home" aria-hidden="true"></i>
-                    <h5>Home</h5>
-                </a>
-            </div>
-            <div class="foot-tbs">
-                <a href="#">
-                    <i class="fa fa-calendar" aria-hidden="true"></i>
-                    <h5>My Application</h5>
-                </a>
-            </div>
-            <div class="foot-tbs">
-                <a href="#">
-                    <i class="fa fa-comment" aria-hidden="true"></i>
-                    <h5>Message</h5>
-                </a>
-            </div>
-            <div class="foot-tbs">
-                <a href="#">
-                    <i class="fa fa-user-circle-o" aria-hidden="true"></i>
-                    <h5>Profile</h5>
-                </a>
-            </div>
-        </div>
-    </div>
+    <app-footer [pageName]="pageName"></app-footer>   
 </body>

@@ -13,9 +13,10 @@
       <label>Email address</label>
       <input autofocus formControlName="email" id="email" type="email" class="form-control" placeholder="name@company.com" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
       <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
-        <div *ngIf="f.email.errors.required">Email is required</div>
-        <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+        <div *ngIf="f.email.errors.required">Email is required.</div>
+        <div *ngIf="f.email.errors.email">Email must be a valid email address.</div>
         <div *ngIf="f.email.errors.emailTaken">Email is already taken.</div>
+        <div *ngIf="f.email.errors.pattern">Email must be a valid email address.</div>
       </div>
     </div>
     <div class="nt-btn">

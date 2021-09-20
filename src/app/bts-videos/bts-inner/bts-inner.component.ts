@@ -27,7 +27,9 @@ export class BtsInnerComponent implements OnInit {
                         console.log(data.data);
                         this.topBtsVideos = data.data;
                         this.loadData = true;
+                       
                     }); 
+                    
     });
   }
 

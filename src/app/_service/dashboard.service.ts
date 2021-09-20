@@ -28,14 +28,20 @@ export class DashboardService {
     bookmarkCasting(data:any){
       return this.http.post(`${Config.BasePath}/bookmark`,data);
     }
-    userDetails(){
-      return this.http.post(`${Config.BasePath}/user_details`,null);
+    userDetails(data:any){
+      return this.http.post(`${Config.BasePath}/user_details`,data);
     }
     editUserDetail(data:any){
       return this.http.post(`${Config.BasePath}/user_edit`,data);
     }
     applyForCasting(data:any){
       return this.http.post(`${Config.BasePath}/user_applied_castings`,data);
+    }
+    confirmCasting(data:any){
+      return this.http.post(`${Config.BasePath}/confirm_casting_application`,data);
+    }
+    getconfirmCasting(data:any){
+      return this.http.post(`${Config.BasePath}/get_confirm_casting_application`,data);
     }
     myApplication(data:any){
       return this.http.post(`${Config.BasePath}/get_user_applied_casting`,data);

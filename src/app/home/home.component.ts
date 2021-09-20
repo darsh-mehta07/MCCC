@@ -9,6 +9,8 @@ import { Router } from '@angular/router';
 import { Config } from '../_config/config';
 import { DashboardService } from '../_service/dashboard.service';
 import{NotificationService} from '../_service/notification.service';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import {BtsVideosService} from '../_service/bts-videos.service';
 
 @Component({
   selector: 'app-home',
@@ -16,7 +18,8 @@ import{NotificationService} from '../_service/notification.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
+  pageName = 'home';
+  stickymenu = '';
   currentUser: User;
     users : any;
     user : any;
@@ -32,18 +35,27 @@ export class HomeComponent implements OnInit {
     norecomended:boolean = false;
     nonewcall:boolean = false;
     nocallend:boolean = false;
+    loading:boolean = false;
+    loadingnc:boolean = false;
+    loadingnr:boolean = false;
+    loadingnce:boolean = false;
+    popularBtsVideos : any;
+    topBtsVideos: any;
+    hostUrl:string = Config.Host+'backend2/';
     constructor(
         private route:Router,
         private authenticationService: AuthenticationService,
         private userService: UserService,
         private notifyService : NotificationService,
-        private dashboardService : DashboardService
+        private dashboardService : DashboardService,
+        private btsVideosService: BtsVideosService
+        
     ) {
       
        // redirect to home if already logged in
-      if (this.authenticationService.currentUserValue) {
-        if(sessionStorage.getItem('profile_status') === 'false'){
-          this.route.navigate(['/profile_first_step']);
+        if(this.authenticationService.currentUserValue) {
+            if(sessionStorage.getItem('profile_status') === 'false'){
+              this.route.navigate(['/profile_first_step']);
             }          
         }else{
           this.route.navigate(['/signin']);
@@ -78,11 +90,22 @@ export class HomeComponent implements OnInit {
     this.newCastingCallApi();
     this.getRecomendedData();
     this.callEndingSoonAPI();
+    this.btsVideosService.get_bts_videos({'limit': 10,'category_id':1}).subscribe(
+      data => { 
+          console.log(data);
+          this.popularBtsVideos = data.data;
+      });
+    this.btsVideosService.get_bts_videos({'limit': 2,'category_id':2}).subscribe(
+      data => { 
+          console.log(data.data);
+          this.topBtsVideos = data.data;
+      }); 
   }
   castingSliderApi(){
     this.dashboardService.castingSlider()
     .pipe(first())
       .subscribe(res => {
+        this.loading = true;
         this.resData = res;
         if(this.resData.data.length > 0){
           this.slides = this.resData.data;          
@@ -99,6 +122,7 @@ export class HomeComponent implements OnInit {
     this.dashboardService.castingCall({limit:5})
     .pipe(first())
       .subscribe(res => {
+        this.loadingnc = true;
         this.resData = res;        
         this.newCasting = this.resData.data; 
         if(this.newCasting == 'No Record Found'){
@@ -110,6 +134,7 @@ export class HomeComponent implements OnInit {
     this.dashboardService.callEndingSoon({limit:5})
     .pipe(first())
       .subscribe(res => {
+        this.loadingnce = true;
         this.resData = res;        
         this.callEnding = this.resData.data; 
         if(this.callEnding == 'No Record Found'){
@@ -121,6 +146,7 @@ export class HomeComponent implements OnInit {
     this.dashboardService.recomendedCasting({limit:5})
     .pipe(first())
       .subscribe(res => {
+        this.loadingnr = true;
         this.resData = res;        
         this.recomended = this.resData.data; 
         if(this.recomended == 'No Record Found'){
@@ -145,7 +171,8 @@ export class HomeComponent implements OnInit {
     .pipe(first())
       .subscribe(res => {
         this.resData = res;        
-        this.callEnding = this.resData.data;       
+        this.callEnding = this.resData.data; 
+        this.showToasterSuccess();      
       });
   }
   deleteUser(id: number) {
@@ -162,12 +189,9 @@ private loadAllUsers() {
         // console.log("Users ",this.user);
       });
 }
-  logout(){
-    this.authenticationService.logout();
-    this.route.navigate(['/signin']);
-  }
+  
   showToasterSuccess(){
-    this.notifyService.showSuccess("Data shown successfully !!", "tutsmake.com")
+    this.notifyService.showSuccess("Data save successfully !!", "Mccc")
 }
  
 showToasterError(){

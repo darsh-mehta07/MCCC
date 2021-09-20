@@ -22,6 +22,7 @@ export class Signup10Component implements OnInit {
   loading = false;
   all_terms : any;
   terms :any;
+  showViewMore:boolean = false;
   
   constructor(
     private formBuilder: FormBuilder,
@@ -43,7 +44,10 @@ export class Signup10Component implements OnInit {
     this.registerService.terms().pipe(first()).subscribe(
       data => {
         this.all_terms = data;
-        this.terms = this.all_terms.firstFourTerms;
+        this.terms = this.all_terms.firstFourTerms;  
+        // if(this.all_terms.length > 4){
+          this.showViewMore = true;
+        // }      
       },error => {
         this.alertService.error(error);
           this.loading = false;
@@ -79,6 +83,16 @@ export class Signup10Component implements OnInit {
             .pipe(first())
             .subscribe(
                 data => {                    
+                  sessionStorage.removeItem('name');
+                  sessionStorage.removeItem('email');
+                  sessionStorage.removeItem('phone');
+                  sessionStorage.removeItem('otp');
+                  sessionStorage.removeItem('gender');
+                  sessionStorage.removeItem('dob');
+                  sessionStorage.removeItem('state');
+                  sessionStorage.removeItem('city');
+                  sessionStorage.removeItem('password');
+                  sessionStorage.removeItem('confirm_password');
                     this.route.navigate(['/signup-success']);
                 },
                 error => {

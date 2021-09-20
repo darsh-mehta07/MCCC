@@ -1,0 +1,76 @@
+<div class="top-header">
+    <div class="container">
+      <div class="main">
+        <div id="mySidenav" class="sidenav menu" *ngIf="openMenu">
+          <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
+          <div class="Profile">
+            <img src="../../../assets/img/profile.svg">
+            <a >Hello {{currentUser.userDetails.name}}</a>
+          </div>
+          <div class="menu-nav">
+            <img src="../../../assets/img/application.svg">
+            <a >Your Application</a>
+          </div>
+          <div class="menu-nav">
+            <img src="../../../assets/img/notify.svg">
+            <a >Notification</a>
+          </div>
+          <div class="menu-nav">
+            <img src="../../../assets/img/upcoming.svg">
+            <a >Upcoming Events</a>
+          </div>
+          <div class="menu-nav">
+            <img src="../../../assets/img/traing.svg">
+            <a >Training Session</a>
+          </div>
+          <div class="menu-nav">
+            <img src="../../../assets/img/shortlist.svg">
+            <a >Shortlisted</a>
+          </div>
+          <div class="menu-nav">
+            <img src="../../../assets/img/bts.svg">
+            <a [routerLink]="['/bts-video']">BTS</a>
+          </div>
+          <div class="menu-nav">
+            <img src="../../../assets/img/draft.png">
+            <a >Your Drafts</a>
+          </div>
+          <div class="menu-nav">
+            <img src="../../../assets/img/game.svg">
+            <a >Games</a>
+          </div>
+          <div class="menu-nav">
+            <img src="../../../assets/img/classif.png">
+            <a >Classified</a>
+          </div>
+          <div class="menu-nav">
+            <img src="../../../assets/img/about-mccc.svg">
+            <a >About MCCC</a>
+          </div>
+          <div class="menu-nav">
+            <img src="../../../assets/img/faq.svg">
+            <a >FAQ's</a>
+          </div>
+          <div class="menu-nav">
+            <img src="../../../assets/img/help.svg">
+            <a >Helps</a>
+          </div>
+          <div class="menu-nav">
+            <img src="../../../assets/img/help.svg">
+            <a (click)="logout()">Logout</a>
+          </div>
+
+        </div>
+        <span (click)="openNav()"><img src="../../../assets/img/Menu.png" class="menu-img"></span>
+        <div class="logo">
+          <img src="../../../assets/img/logo-2.png">
+        </div>
+        <div class="search">
+          <img src="../../../assets/img/search.png">
+        </div>
+        <div class="notify">
+          <img src="../../../assets/img/notification.png">
+        </div>
+      </div>
+    </div>
+  </div>
