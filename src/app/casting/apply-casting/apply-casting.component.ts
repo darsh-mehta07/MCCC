@@ -221,7 +221,8 @@ export class ApplyCastingComponent implements OnInit {
     }
   }
   back(): void {
-    this.location.back()
+    // this.location.back()
+    window.history.back();
   }  
   closeimgmodel(content:any) {
     this.cropimages = [];

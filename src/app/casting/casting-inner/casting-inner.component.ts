@@ -45,9 +45,12 @@ export class CastingInnerComponent implements OnInit {
     this.getCastingData();
   }
   back(): void {
-    this.location.back()
+    // this.route.navigateByUrl('/casting-all/'+this.castingId);
+    // this.location.back();
+    window.history.back();
   }
   getCastingData(){
+    this.loading = false;
     this.dashboardService.castingCall({casting_id:this.castingId}).pipe(first())
     .subscribe(res => {
       this.loading = true;

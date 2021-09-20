@@ -60,6 +60,10 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { LeftSideMenuComponent } from './left-side-menu/left-side-menu.component';
 import { StickyMenuComponent } from './sticky-menu/sticky-menu.component';
+import { RouteReuseStrategy } from '@angular/router';
+import { CustomReuseStrategy } from './_service/custom_reuse_strategy';
+// import { RouteReuseService } from './_service/RouteReuseService';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -122,7 +126,11 @@ import { StickyMenuComponent } from './sticky-menu/sticky-menu.component';
     SlickCarouselModule,
     NgxSkeletonLoaderModule.forRoot()
   ],
-  providers: [
+  providers: [ 
+    {
+    provide: RouteReuseStrategy,
+    useClass: CustomReuseStrategy
+    },
     {
     provide: 'SocialAuthServiceConfig',
     useValue: {

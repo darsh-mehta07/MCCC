@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Config } from '../_config/config';
+import{MyApplication} from'../_models/my-application';
+import { shareReplay, map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -46,4 +49,8 @@ export class DashboardService {
     myApplication(data:any){
       return this.http.post(`${Config.BasePath}/get_user_applied_casting`,data);
     }
+    // myApplication(data:any):Observable<MyApplication[]>{
+    //   // return this.http.post(`${Config.BasePath}/get_user_applied_casting`,data);
+    //   return this.http.post<MyApplication[]>(`${Config.BasePath}/get_user_applied_casting`,data);
+    // }
 }
