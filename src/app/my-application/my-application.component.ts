@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DashboardService } from '../_service/dashboard.service';
 import { AlertService } from '../_service/alert.service';
 import { first } from 'rxjs/operators';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-my-application',
@@ -9,10 +10,11 @@ import { first } from 'rxjs/operators';
   styleUrls: ['./my-application.component.css']
 })
 export class MyApplicationComponent implements OnInit {
+  pageName='my-application';
   loading = false;
   applications:any;
   resData:any;
-  constructor(private dashboardService : DashboardService,private alertService:AlertService) { }
+  constructor(private location:Location,private dashboardService : DashboardService,private alertService:AlertService) { }
 
   ngOnInit(): void {
     this.getMyApplication();
@@ -28,5 +30,8 @@ export class MyApplicationComponent implements OnInit {
           this.alertService.error(error);
           this.loading = false;
         });
+  }
+  back(): void {
+    this.location.back()
   }
 }

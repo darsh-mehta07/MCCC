@@ -16,6 +16,7 @@
                         <input type="password" formControlName="password" placeholder="Password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" maxlength="8" minlength="6"/>    
                         <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
                             <div *ngIf="f.password.errors.required">Password is required</div>
+                            <div *ngIf="f.password.errors.incorrect">Email or Password is wrong</div>
                           </div>                   
                     </div> 
               <button type="submit" class="login-button">Log in</button>

@@ -33,6 +33,7 @@ export class ProfileFirstStepComponent implements OnInit {
     containWithinAspectRatio = false;
     transform: ImageTransform = {};
     cropedfile  :any;
+    uploading:boolean = false;
   
   constructor(
     private formBuilder: FormBuilder,
@@ -211,11 +212,13 @@ updateRotation() {
   }
 
   submit(){
+    this.uploading = true;
     this.submitted = true;
     if (this.form.invalid) {
       return;
     }else{      
-      this.userService.upload_image(this.form.value).pipe(first()).subscribe(res => {        
+      this.userService.upload_image(this.form.value).pipe(first()).subscribe(res => { 
+        this.uploading = false;       
         this.responseData = res;
         if(this.responseData.status == 'true'){
             this.route.navigate(['/profile_second_step']);
@@ -223,6 +226,8 @@ updateRotation() {
           this.alertService.success('File uploaded Successfully',true);
         }
         
+      },error=>{
+        this.uploading = false;
       });
     }
   }

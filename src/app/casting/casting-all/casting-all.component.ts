@@ -3,14 +3,16 @@ import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { first } from 'rxjs/operators';
 import { Config } from 'src/app/_config/config';
 import { DashboardService } from 'src/app/_service/dashboard.service';
-
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+const pageName = 'casting';
 @Component({
   selector: 'app-casting-all',
   templateUrl: './casting-all.component.html',
   styleUrls: ['./casting-all.component.css']
 })
 export class CastingAllComponent implements OnInit {
-
+  pageName = 'casting';
+  stickymenu = 'casting';
   castingId:any;
   resData:any;
   castings:any;
@@ -20,6 +22,7 @@ export class CastingAllComponent implements OnInit {
   catId:any;
   callEndingSoon:any;
   recomended:any;
+  loading = false;
   constructor(
     private actRoute:ActivatedRoute,
     private route : Router,
@@ -39,6 +42,7 @@ export class CastingAllComponent implements OnInit {
     this.dashboardService.castingCall(null)
     .pipe(first())
       .subscribe(res => {
+        this.loading = true;
         this.resData = res;        
         this.castings = this.resData.data;       
       });
@@ -47,6 +51,7 @@ export class CastingAllComponent implements OnInit {
     this.dashboardService.callEndingSoon(null)
     .pipe(first())
       .subscribe(res => {
+        this.loading = true;
         this.resData = res;        
         this.callEndingSoon = this.resData.data;       
       });
@@ -55,6 +60,7 @@ export class CastingAllComponent implements OnInit {
     this.dashboardService.recomendedCasting(null)
     .pipe(first())
       .subscribe(res => {
+        this.loading = true;
         this.resData = res;        
         this.recomended = this.resData.data;       
       });

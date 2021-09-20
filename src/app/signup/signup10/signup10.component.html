@@ -14,23 +14,28 @@
         <label>Accept Terms</label>
         <div class="t_c">
           <div class="checkbox_txt" *ngFor="let term of terms; let i=index;">
+            <!-- <div class="checkbox-content"> -->
             <input type="checkbox" formControlName="terms{{i}}"  [ngClass]="{ 'is-invalid': submitted && f.terms1.errors }">
             <label>
               <strong>{{term.title}}</strong><br>
               {{ (term.description.length>70)? (term.description | slice:0:70)+'..':(term.description)}}             
-            </label>            
+            </label> 
+          <!-- </div>-->
             <div *ngIf="submitted && f.terms1.errors" class="invalid-feedback">
               <div *ngIf="f.terms1.errors.required">Terms {{i+1}} is required</div>
-            </div>
+            </div>            
           </div> 
-          <button type="button" class="btn btn-primary" (click)="openModal(modalData)">View More</button>
+          <button *ngIf="showViewMore" type="button" class="btn btn-primary" (click)="openModal(modalData)">View More</button>
         </div>        
       </div>
-      <button class="fw-btn proceed">PROCEED </button>
+      <button class="fw-btn proceed signup-submit">PROCEED </button>
     </form>
         </div>
         </div>
+        
             <ng-template #modalData let-modal>
+
+              <div class="terms_modal">
               <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLongTitle">Terms and Conditions</h5>
               </div>
@@ -52,4 +57,5 @@
               <label>I agree to the Terms and Conditions</label>
               </button>
               </div>
+            </div>
             </ng-template>

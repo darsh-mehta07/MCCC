@@ -5,10 +5,7 @@ import { SafePipe } from '../../_config/safe.pipe';
 
 @NgModule({
     imports: [
-        SafePipe,
-      
+        SafePipe,      
     ],
     declarations: [SafePipe]
-  })
-
-  export class BtsVideoViewModule {}
+  })export class BtsVideoViewModule {}

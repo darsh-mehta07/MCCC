@@ -1,9 +1,9 @@
 .login-button{
     width: 100%;
     text-align: center;
-    height: 32px;
+    height: 45px;
     border: 0;
     background: #F57768;
     color: #fff;
-    border-radius: 3px;
+    border-radius: 5px;
 }

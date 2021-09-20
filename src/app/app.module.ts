@@ -56,6 +56,10 @@ import { BtsInnerComponent } from './bts-videos/bts-inner/bts-inner.component';
 import { BtsVideoViewComponent } from './bts-videos/bts-video-view/bts-video-view.component';
 import { SafePipe } from './_config/safe.pipe';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
+import { LeftSideMenuComponent } from './left-side-menu/left-side-menu.component';
+import { StickyMenuComponent } from './sticky-menu/sticky-menu.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -97,6 +101,10 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
     BtsInnerComponent,
     BtsVideoViewComponent,
     SafePipe,
+    HeaderComponent,
+    FooterComponent,
+    LeftSideMenuComponent,
+    StickyMenuComponent,
   ],
   imports: [
     BrowserModule,

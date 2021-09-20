@@ -9,7 +9,10 @@ export class NotificationService {
   constructor(private toastr: ToastrService) { }
    
   showSuccess(message:any, title:any){
-      this.toastr.success(message, title)
+      this.toastr.success(message, title,{
+        titleClass: "tostcenter",
+        messageClass: "tostcenter"
+      })
   }
    
   showError(message:any, title:any){

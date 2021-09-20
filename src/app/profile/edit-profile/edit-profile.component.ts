@@ -8,6 +8,7 @@ import { first } from 'rxjs/operators';
 import { AbstractControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AlertService } from 'src/app/_service/alert.service';
 import { RegisterService } from 'src/app/_service/register.service';
+import { NotificationService } from 'src/app/_service/notification.service';
 
 @Component({
   selector: 'app-edit-profile',
@@ -28,8 +29,11 @@ export class EditProfileComponent implements OnInit {
   response: any;
   states: any;
   cities: any;
+  city:any;
   languages: any;
   responseData: any;
+  cityVisible:boolean = true;
+  language_ids :any;
   constructor(
     private actRoute:ActivatedRoute,
     private route : Router,
@@ -38,7 +42,9 @@ export class EditProfileComponent implements OnInit {
     private location:Location,
     private alertService: AlertService,
     private registerService: RegisterService,
-    private formBuilder:FormBuilder,) {
+    private formBuilder:FormBuilder,
+    private notification:NotificationService
+    ) {
     } 
   ngOnInit(): void {    
     this.actRoute.paramMap.subscribe((params: ParamMap) => {                 
@@ -56,11 +62,14 @@ export class EditProfileComponent implements OnInit {
       this.alertService.error(error);
       this.loading = false;
     });
+    this.city = sessionStorage.getItem('city');    
     this.registerService.languages().pipe(first()).subscribe(res => {
       this.response = res;
       if (this.response.data !== 'undefined' && this.response.data.length > 0) {
         this.dataTrue = true;
         this.languages = this.response.data;
+        let lanstr:any = sessionStorage.getItem('language_id');
+        this.language_ids = lanstr.split(',');
       } else {
         this.dataTrue = false;
       }
@@ -70,11 +79,11 @@ export class EditProfileComponent implements OnInit {
     });
     this.form = this.formBuilder.group({
       name : [sessionStorage.getItem('name'),Validators.required],
-      dob : [sessionStorage.getItem('age'),Validators.required],
+      dob : [sessionStorage.getItem('dob'),Validators.required],
       height : [sessionStorage.getItem('height'),Validators.required],
       phone : [sessionStorage.getItem('phone'),Validators.required],
       state : [sessionStorage.getItem('state_id'),Validators.required],
-      language_id : [sessionStorage.getItem('language'),Validators.required],
+      language_id : [sessionStorage.getItem('language_id'),Validators.required],
       select_city : [sessionStorage.getItem('city_id'),Validators.required],
       home_town : [sessionStorage.getItem('home_town'),Validators.required],
       hobbies : [sessionStorage.getItem('hobbies'),Validators.required],
@@ -88,8 +97,27 @@ export class EditProfileComponent implements OnInit {
     if (this.form.invalid) {
       return;
     }else{
+      this.loading = true;
       this.dashboardService.editUserDetail(this.form.value).pipe(first()).subscribe(res=>{
-        console.log(res);
+        this.loading = false;
+        this.resData = res;
+        this.age = this.resData.data.age; 
+        this.userdetail = this.resData.data.user_details;
+          sessionStorage.setItem('name',this.userdetail.name);
+          sessionStorage.setItem('age',this.age);
+          sessionStorage.setItem('dob',this.userdetail.dob);
+          sessionStorage.setItem('height',this.userdetail.height);
+          sessionStorage.setItem('phone',this.userdetail.phone);
+          sessionStorage.setItem('language_id',this.userdetail.language_id);
+          sessionStorage.setItem('language',this.userdetail.language);
+          sessionStorage.setItem('city',this.userdetail.city_name);
+          sessionStorage.setItem('city_id',this.userdetail.city_id);
+          sessionStorage.setItem('state_id',this.userdetail.state_id);
+          sessionStorage.setItem('home_town',this.userdetail.home_town);
+          sessionStorage.setItem('hobbies',this.userdetail.hobbies);
+        this.notification.showSuccess('Profile Updated Successfully.','Success!');
+      },error=>{
+        this.loading = false;
       });
     }
   }
@@ -99,6 +127,7 @@ export class EditProfileComponent implements OnInit {
         this.response = res;
         if (this.response.data !== 'undefined' && this.response.data.length > 0) {
           this.dataTrue = true;
+          this.cityVisible = false;
           this.cities = this.response.data;
         } else {
           this.dataTrue = false;
