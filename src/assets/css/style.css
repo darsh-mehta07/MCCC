@@ -642,14 +642,14 @@ body {
     .inner .casting-inner {background: #fff; height: 100%;}
     .casting-inner .hd-icons img {width: 8px !IMPORTANT;}
     .casting-inner .hd-icons img.home2 {width: 18px !important;}
-    .form_inner { width: 100%; background: #f8f8f8; margin:  0;padding: 30px; border-radius: 20px;position: absolute;bottom: 0;height:60% !important; left: 0; right: 0; z-index:1; }
+    .form_inner { width: 100%; background: #f8f8f8; margin:  0;padding: 30px; border-radius: 20px;position: absolute;bottom: 0;height:50% !important; left: 0; right: 0; z-index:1; }
     img.hd-img { 
         height: calc(100% - 50%);
     width: 100%;}
     .inner .casting-inner {
         background: #fff;
-        height: 100%;
-        overflow: hidden;
+        height: auto;
+        overflow: scroll;
     }
     
     .inner-content { position: absolute; top: 55px; right: 18px;}

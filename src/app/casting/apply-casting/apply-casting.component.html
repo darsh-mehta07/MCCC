@@ -123,8 +123,15 @@
   <ng-template #content let-modal>
     <div class="crooping-modal"> 
       <div class="modal-header">
-      Select More Photo
-      <button class="close" (click)="closeimgmodel('close click')">X</button>
+        <h4 class="modal-title" id="modal-basic-title">Select More Photo</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+          <span aria-hidden="true">×</span>
+        </button>
+      <!-- Select More Photo
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">×</span>
+        </button> -->
+      <!-- <button class="close" (click)="closeimgmodel('close click')">X</button> -->
   </div>
     <div class="modal-body">
       <div class="form-group">
