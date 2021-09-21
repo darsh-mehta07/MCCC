@@ -14,4 +14,13 @@ export class BtsVideosService {
   bts_videos_by_id(data:any){
     return this.http.post<any>(Config.BasePath +'/bts_videos_by_id',data);
   }
+
+  views_count_update(data:any){
+    return this.http.post<any>(Config.BasePath +'/views_count',data);
+  }
+
+  get_categories(){
+    return this.http.post<any>(Config.BasePath +'/get_categories','');
+  }
+ 
 }

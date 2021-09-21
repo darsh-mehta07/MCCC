@@ -146,7 +146,7 @@ ngx-slick-carousel.carousel.behinde-screen_sliders.slick-initialized.slick-slide
 .vide1 {
     width: 75px !IMPORTANT;
     height: 75px;
-    background: hsl(7deg 88% 68%);
+    /* background: hsl(7deg 88% 68%); */
     border-radius: 50%;
     margin: 0 5px;
 }

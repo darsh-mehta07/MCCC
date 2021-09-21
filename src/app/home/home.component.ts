@@ -41,6 +41,8 @@ export class HomeComponent implements OnInit {
     loadingnce:boolean = false;
     popularBtsVideos : any;
     topBtsVideos: any;
+    categories: any;
+    category_color: any = ['hsl(7deg 88% 68%)','hsl(88deg 47% 64%)','hsl(42deg 76% 64%)','hsl(201deg 100% 73%)','hsl(7deg 88% 68%)','hsl(88deg 47% 64%)','hsl(42deg 76% 64%)','hsl(201deg 100% 73%)'];
     hostUrl:string = Config.Host+'backend2/';
     constructor(
         private route:Router,
@@ -100,6 +102,11 @@ export class HomeComponent implements OnInit {
           console.log(data.data);
           this.topBtsVideos = data.data;
       }); 
+    this.btsVideosService.get_categories().subscribe(
+        data => { 
+          console.log(this.category_color);
+          this.categories = data.data;
+      });   
   }
   castingSliderApi(){
     this.dashboardService.castingSlider()

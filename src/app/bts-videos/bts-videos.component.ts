@@ -12,7 +12,9 @@ export class BtsVideosComponent implements OnInit {
   loadData: any = false;
   popularBtsVideos : any;
   topBtsVideos: any;
+  categories : any;
   hostUrl:string = Config.Host+'backend2/';
+  category_color: any = ['hsl(7deg 88% 68%)','hsl(88deg 47% 64%)','hsl(42deg 76% 64%)','hsl(201deg 100% 73%)','hsl(7deg 88% 68%)','hsl(88deg 47% 64%)','hsl(42deg 76% 64%)','hsl(201deg 100% 73%)'];
  //-----slick slider------------//    
  slideConfig = {"slidesToShow": 1, "slidesToScroll": 1,"dots": true,};
  trns_sliders = {"slidesToShow": 4, "slidesToScroll": 4,"dots": false,"infinite": false};
@@ -37,16 +39,20 @@ export class BtsVideosComponent implements OnInit {
   ngOnInit(): void {
               this.btsVideosService.get_bts_videos({'limit': 10,'category_id':1}).subscribe(
                   data => { 
-                      console.log(data);
                       this.popularBtsVideos = data.data;
                       this.loadData = true;
                   });
               this.btsVideosService.get_bts_videos({'limit': 2,'category_id':2}).subscribe(
                   data => { 
-                      console.log(data.data);
                       this.topBtsVideos = data.data;
                       this.loadData = true;
-                  });              
+                  });    
+              this.btsVideosService.get_categories().subscribe(
+                data => { 
+                    this.categories = data.data;
+                    console.log(this.categories);
+                    this.loadData = true;
+                });              
   }
 
 }

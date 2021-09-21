@@ -19,7 +19,7 @@ export class BtsInnerComponent implements OnInit {
   ngOnInit(): void {
     this.actRoute.paramMap.subscribe((params: ParamMap) => {                 
       this.btsCategoryId = params.get('id');
-      // console.log(this.btsCategoryId + 'idd');
+      console.log(this.btsCategoryId + 'idd');
       console.log(this.expanded + ' expanded');
       this.btsVideosService.get_bts_videos({'limit': null,'category_id':this.btsCategoryId})
               .subscribe(
@@ -31,6 +31,16 @@ export class BtsInnerComponent implements OnInit {
                     }); 
                     
     });
+  }
+  videoClick(id: any){
+    console.log(id);
+    this.btsVideosService.views_count_update({'video_id': id})
+              .subscribe(
+                    data => { 
+                        console.log(data);
+                        
+                       
+                    }); 
   }
 
 }

@@ -10,6 +10,7 @@
 .bts_inner .hd-icons img {
     /* filter: brightness(0.5) invert(1); */
     color: black;
+    width: 10px!important;
 }
 .hd-icons img {
     width: auto !important;
@@ -64,8 +65,25 @@ a.img_link {
     transform: translate(-50%, -50%);
 }
 .bts_inner .hd-icons {
-    position: sticky;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     background: hsl(0deg 0% 100%);
-    padding: 15px;
+    position: relative;
+    padding: 8px 10px;
+}
+
+.bts_inner h6 {
+    margin: 0;
+    position: absolute;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+.bts_inner .hd-icons a{
+    z-index: 9999;
 }
 /*bts-inner*/
