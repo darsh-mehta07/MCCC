@@ -198,7 +198,7 @@ private loadAllUsers() {
 }
   
   showToasterSuccess(){
-    this.notifyService.showSuccess("Data save successfully !!", "Mccc")
+    this.notifyService.showSuccess("Data saved successfully !!", "Mccc")
 }
  
 showToasterError(){

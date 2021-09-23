@@ -108,7 +108,7 @@ a.img_link {
     object-fit: cover;
     object-position: center;
 }
-.video-opt {
+.opt {
     padding-bottom: 40px;
 }
 .slide-hd {
@@ -178,4 +178,7 @@ img.v-icon {position: absolute;width: 15%;height: 15%;object-fit: contain;top: 5
 }
 .video-opt .video_slider  {
     padding-bottom: 50px;
+}
+.behinde-screen_sliders {
+    margin-bottom: 30px;
 }
