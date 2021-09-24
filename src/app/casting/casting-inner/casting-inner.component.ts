@@ -105,6 +105,6 @@ export class CastingInnerComponent implements OnInit {
       });
   }
   showToasterSuccess(){
-    this.notifyService.showSuccess("Data save successfully !!", "Mccc")
+    this.notifyService.showSuccess("Data saved successfully !!", "Mccc")
 }
 }

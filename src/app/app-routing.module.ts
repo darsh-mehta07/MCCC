@@ -36,6 +36,9 @@ import { MyCastingInnerComponent } from './my-application/my-casting-inner/my-ca
 import { BtsVideosComponent } from './bts-videos/bts-videos.component';
 import { BtsInnerComponent } from './bts-videos/bts-inner/bts-inner.component';
 import { BtsVideoViewComponent } from './bts-videos/bts-video-view/bts-video-view.component';
+import { RouteReuseStrategy } from '@angular/router';
+import { CustomReuseStrategy } from './_service/custom_reuse_strategy';
+import {WorkshopComponent} from './workshop/workshop.component'
 const routes: Routes = [
   {    
     path: '',    
@@ -65,6 +68,22 @@ const routes: Routes = [
   {    
     path: 'signin',component: SigninComponent,    
     data: {storeRoute: true,title: 'Signin Page'}    
+  }, 
+  {    
+    path: 'splash2',component: Splash2Component,    
+    data: {storeRoute: true, title: 'Traning Page'}    
+  },
+  {    
+    path: 'splash3',component: Splash3Component,    
+    data: {storeRoute: true, title: 'Events Page'}    
+  },
+  {    
+    path: 'welcome',component: WelcomeComponent,    
+    data: {storeRoute: true, title: 'Welcome Page'}    
+  },
+  {    
+    path: 'signin',component: SigninComponent,    
+    data: {storeRoute: true, title: 'Signin Page'}    
   },
   {    
     path: 'forgot-password',component: ForgotPasswordComponent,    
@@ -148,7 +167,15 @@ const routes: Routes = [
   },
   {    
     path: 'apply-casting/:id',component: ApplyCastingComponent,canActivate: [AuthGuard],    
-    data: {storeRoute: true,title: 'Apply Casting Page'}    
+    data: {storeRoute: true,title: 'Apply Casting Page'}   
+  },
+  {    
+    path: 'casting-all/:id',component: CastingAllComponent,canActivate: [AuthGuard],    
+    data: {storeRoute: true, title: 'Casting All Page'}    
+  },
+  {    
+    path: 'apply-casting/:id',component: ApplyCastingComponent,canActivate: [AuthGuard],    
+    data: {storeRoute: true, title: 'Apply Casting Page'}    
   },
   {    
     path: 'casting-confirm/:id',component: ApplicationConfirmCastingComponent,canActivate: [AuthGuard],    
@@ -179,8 +206,20 @@ const routes: Routes = [
     data: {storeRoute: true,title: 'BTS Inner'}    
   },
   {    
+    path: 'bts-video',component: BtsVideosComponent,canActivate: [AuthGuard],    
+    data: {storeRoute: true, title: 'BTS Videos'}    
+  },
+  {    
+    path: 'bts-inner/:id',component: BtsInnerComponent,canActivate: [AuthGuard],    
+    data: {storeRoute: true, title: 'BTS Inner'}    
+  },
+  {    
     path: 'bts-video-view/:id/:type',component: BtsVideoViewComponent,canActivate: [AuthGuard],    
     data: {storeRoute: true,title: 'BTS Inner'}    
+  },
+  {    
+    path: 'workshop',component: WorkshopComponent,canActivate: [AuthGuard],    
+    data: {storeRoute: true,title: 'Workshop'}    
   },
 ];
 

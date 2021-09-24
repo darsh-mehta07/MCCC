@@ -76,3 +76,16 @@ a.img_link {
     border-radius: 5px;
     object-fit: cover;
 }
+
+.no-data {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+.no-data h2 {
+    font-size: 16px;
+}
+.behinde-screen_sliders {
+    margin-bottom: 30px;
+}

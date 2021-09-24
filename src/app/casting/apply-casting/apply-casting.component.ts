@@ -172,7 +172,7 @@ export class ApplyCastingComponent implements OnInit {
         console.log("image count :" + totalimg);
         console.log("video count :" + totalvideo);
         if(totalimg > 3){
-          this.imageerror = 'Please Select Only Three Photo';
+          this.imageerror = 'Please Select Only Three Photos';
         this.threeimgerror = true;
         }else if(totalvideo > 1){
           this.videoerror = 'Please Select Only One Video';

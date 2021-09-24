@@ -62,8 +62,7 @@ import { LeftSideMenuComponent } from './left-side-menu/left-side-menu.component
 import { StickyMenuComponent } from './sticky-menu/sticky-menu.component';
 import { RouteReuseStrategy } from '@angular/router';
 import { CustomReuseStrategy } from './_service/custom_reuse_strategy';
-// import { RouteReuseService } from './_service/RouteReuseService';
-
+import { WorkshopComponent } from './workshop/workshop.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -109,6 +108,7 @@ import { CustomReuseStrategy } from './_service/custom_reuse_strategy';
     FooterComponent,
     LeftSideMenuComponent,
     StickyMenuComponent,
+    WorkshopComponent,
   ],
   imports: [
     BrowserModule,
@@ -132,6 +132,11 @@ import { CustomReuseStrategy } from './_service/custom_reuse_strategy';
     useClass: CustomReuseStrategy
     },
     {
+      provide: RouteReuseStrategy,
+      useClass: CustomReuseStrategy
+      },
+    {
+      
     provide: 'SocialAuthServiceConfig',
     useValue: {
       autoLogin: false,

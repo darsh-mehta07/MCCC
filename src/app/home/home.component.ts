@@ -11,6 +11,7 @@ import { DashboardService } from '../_service/dashboard.service';
 import{NotificationService} from '../_service/notification.service';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import {BtsVideosService} from '../_service/bts-videos.service';
+import {WorkshopService} from '../_service/workshop.service';
 
 @Component({
   selector: 'app-home',
@@ -42,6 +43,10 @@ export class HomeComponent implements OnInit {
     popularBtsVideos : any;
     topBtsVideos: any;
     categories: any;
+    upcomingData: any;
+    endingsoonData: any;
+    previosData: any;
+    expanded = 0;
     category_color: any = ['hsl(7deg 88% 68%)','hsl(88deg 47% 64%)','hsl(42deg 76% 64%)','hsl(201deg 100% 73%)','hsl(7deg 88% 68%)','hsl(88deg 47% 64%)','hsl(42deg 76% 64%)','hsl(201deg 100% 73%)'];
     hostUrl:string = Config.Host+'backend2/';
     constructor(
@@ -50,7 +55,8 @@ export class HomeComponent implements OnInit {
         private userService: UserService,
         private notifyService : NotificationService,
         private dashboardService : DashboardService,
-        private btsVideosService: BtsVideosService
+        private btsVideosService: BtsVideosService,
+        private workshopService: WorkshopService
         
     ) {
       
@@ -104,9 +110,27 @@ export class HomeComponent implements OnInit {
       }); 
     this.btsVideosService.get_categories().subscribe(
         data => { 
-          console.log(this.category_color);
           this.categories = data.data;
       });   
+
+    this.workshopService.get_upcoming_workshop_data({'limit': 2}).subscribe(
+        data => { 
+          this.upcomingData = data.data;
+          console.log(this.upcomingData);
+      });  
+      
+    this.workshopService.get_endingsoon_workshop_data({'limit': 2}).subscribe(
+        data => { 
+          this.endingsoonData = data.data;
+          console.log(this.endingsoonData);
+      });
+    
+    this.workshopService.get_previous_workshop_data({'limit': 2}).subscribe(
+        data => { 
+          this.previosData = data.data;
+          
+          console.log(this.previosData);
+    }); 
   }
   castingSliderApi(){
     this.dashboardService.castingSlider()
@@ -191,7 +215,7 @@ private loadAllUsers() {
 }
   
   showToasterSuccess(){
-    this.notifyService.showSuccess("Data save successfully !!", "Mccc")
+    this.notifyService.showSuccess("Data saved successfully !!", "Mccc")
 }
  
 showToasterError(){
