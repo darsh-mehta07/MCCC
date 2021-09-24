@@ -13,20 +13,4 @@ export class EmailExistsValidator implements AsyncValidator{
       catchError(()=> of(null))
     );
   }
-
-  
 }
-
-// @Injectable({ providedIn: "root" })
-// export class EmailExistsValidator implements AsyncValidator {
-//   private apiKey?: string; // put your api key here
-//   constructor(private emailService: RegisterService) {}
-
-//   validate(ctrl: AbstractControl): Promise<ValidationErrors | null> {
-//     if (ctrl.value) {
-//       return this.emailService.isEmailTaken(ctrl.value);
-//     } else {
-//       return Promise.resolve({ invalid: true });
-//     }
-//   }
-// }
