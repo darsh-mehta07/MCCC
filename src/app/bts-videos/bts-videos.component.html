@@ -1,110 +1,7 @@
 <body class="hm_pg">
   <app-header></app-header>
   <app-sticky-menu [stickymenu]='stickymenu'></app-sticky-menu>
-    <!-- <div class="top-header">
-      <div class="container">
-        <div class="main">
-        <div id="mySidenav" class="sidenav menu">
-          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-          <div class="Profile">
-            <img src="../assets/img/profile.svg">
-            <a href="#">Hello Ritesh</a>
-          </div>
-          <div class="menu-nav">
-            <img src="../assets/img/application.svg">
-            <a href="#">Your Application</a>
-          </div>
-          <div class="menu-nav">
-            <img src="../assets/img/notify.svg">
-            <a href="#">Notification</a>
-          </div>
-          <div class="menu-nav">
-            <img src="../assets/img/upcoming.svg">
-            <a href="#">Upcoming Events</a>
-          </div>
-          <div class="menu-nav">
-            <img src="../assets/img/traing.svg">
-            <a href="#">Training Session</a>
-          </div>
-          <div class="menu-nav">
-            <img src="../assets/img/shortlist.svg">
-            <a href="#">Shortlisted</a>
-          </div>
-          <div class="menu-nav">
-            <img src="../assets/img/bts.svg">
-            <a href="#">BTS</a>
-          </div>
-          <div class="menu-nav">
-            <img src="../assets/img/draft.png">
-            <a href="#">Your Drafts</a>
-          </div>
-          <div class="menu-nav">
-            <img src="../assets/img/game.svg">
-            <a href="#">Games</a>
-          </div>
-          <div class="menu-nav">
-            <img src="../assets/img/classif.png">
-            <a href="#">Classified</a>
-          </div>
-          <div class="menu-nav">
-            <img src="../assets/img/about-mccc.svg">
-            <a href="#">About MCCC</a>
-          </div>
-          <div class="menu-nav">
-            <img src="../assets/img/faq.svg">
-            <a href="#">FAQ's</a>
-          </div>
-          <div class="menu-nav">
-            <img src="../assets/img/help.svg">
-            <a href="#">Helps</a>
-          </div>
-  
-        </div>
-        <span onclick="openNav()"><img src="../assets/img/Menu.png" class="menu-img"></span>
-        <div class="logo">
-          <img src="../assets/img/logo-2.png">
-        </div>
-        <div class="search">
-          <img src="../assets/img/search.png">
-        </div>
-        <div class="notify">
-          <img src="../assets/img/notification.png">
-        </div>
-      </div>
-      </div>
-      <div class="icons-tabs sticky">
-      <div class="container">
-          <div class="main-tab">
-            <div class="tbs">
-            <a [routerLink]="['/casting-all/1']">
-              <img src="../assets/img/casting.png">
-              <h5>Casting</h5>
-            </a>
-            </div>
-            <div class="tbs">
-            <a href="event.html" >
-              <img src="../assets/img/event.png">
-              <h5>Events</h5>
-            </a>
-            </div>
-            <div class="tbs">
-            <a [routerLink]="['/bts-video']">
-              <img src="../assets/img/bts.png">
-              <h5>BTS</h5>
-            </a>
-            </div>
-            <div class="tbs">
-            <a href="training.html" >
-              <img src="../assets/img/traing.png">
-              <h5>Training</h5>
-            </a>
-            </div>
-
-          </div>
-      </div>
-    </div>
-    </div> -->
-  
+   
     <div class="behinde_screen bts">
       <div class="container">
         <img src="../assets/img/bts1.png" class="logo">
@@ -116,7 +13,7 @@
         <ngx-slick-carousel *ngIf="loadData" class="carousel behinde-screen_sliders" #slickModal="slick-carousel" [config]="trns_sliders"
         (init)="slickInit($event)" (breakpoint)="breakpoint($event)" (afterChange)="afterChange($event)"
         (beforeChange)="beforeChange($event)">
-          <div *ngFor = " let vid of popularBtsVideos" [routerLink]="['/bts-inner/1']"  ngxSlickItem class="slider">
+          <div *ngFor = " let vid of popularBtsVideos" [routerLink]="['/bts-video-view/',vid.id,1]"  ngxSlickItem class="slider">
             <img  src="{{hostUrl}}{{vid.thumbnail_path}}{{vid.thumbnail}}">
           </div>
         </ngx-slick-carousel>
@@ -135,43 +32,22 @@
             <a [routerLink]="['/bts-inner/2']">View All</a>
           </div>
           <div class="vd-icon" *ngFor="let vid of topBtsVideos">
-            <a class='img_link' [routerLink]="['/bts-inner/2']" ><img  src="{{hostUrl}}{{vid.thumbnail_path}}{{vid.thumbnail}}">
+            <a class='img_link' [routerLink]="['/bts-video-view/',vid.id,2]" ><img  src="{{hostUrl}}{{vid.thumbnail_path}}{{vid.thumbnail}}">
               <div class="icon"><img  src="../../assets/img/play.png"></div>
             </a>
           </div>
-          </div>
+        </div>
   
         <div class="video-opt">
           <div class="slide-hd">
             <h2>Watch more videos</h2>
-            <a href="#">View All</a>
+            <!-- <a href="#">View All</a> -->
           </div>
           <ngx-slick-carousel class="carousel video_slider" #slickModal="slick-carousel" [config]="trns_sliders"
           (init)="slickInit($event)" (breakpoint)="breakpoint($event)" (afterChange)="afterChange($event)"
           (beforeChange)="beforeChange($event)">
-          <div ngxSlickItem class="slider vide1 vdSliderTxt">
-            <h3>Movies</h3>
-          </div>
-          <div ngxSlickItem class="slider vide2 vdSliderTxt">
-            <h3>Web Series</h3>
-          </div>
-          <div ngxSlickItem class="slider vide3 vdSliderTxt">
-            <h3>Celebrity Video</h3>
-          </div>
-          <div ngxSlickItem class="slider vide4 vdSliderTxt">
-            <h3>Short Film</h3>
-          </div>
-          <div ngxSlickItem class="slider vide1 vdSliderTxt">
-            <h3>Movies</h3>
-          </div>
-          <div ngxSlickItem class="slider vide2 vdSliderTxt">
-            <h3>Web Series</h3>
-          </div>
-          <div ngxSlickItem class="slider vide3 vdSliderTxt">
-            <h3>Celebrity Video</h3>
-          </div>
-          <div ngxSlickItem class="slider vide4 vdSliderTxt">
-            <h3>Short Film</h3>
+          <div *ngFor="let catg of categories; let i=index;" [routerLink]="['/bts-inner/',catg.id]" [ngStyle]="{'background': category_color[i]}" ngxSlickItem class="slider vide1 vdSliderTxt">
+            <h3>{{catg.category}}</h3>
           </div>
           </ngx-slick-carousel>
       </div>
@@ -180,33 +56,4 @@
     <app-footer></app-footer>
   
   
-  
-    <!-- <div class="footer hm-bg">
-      <div class="container foot">
-        <div class="foot-tbs">
-        <a href="home-page.html" >
-        <i class="fa fa-home" aria-hidden="true"></i>
-          <h5>Home</h5>
-        </a>
-      </div>
-      <div class="foot-tbs">
-        <a href="#" >
-        <i class="fa fa-calendar" aria-hidden="true"></i>
-          <h5>My Application</h5>
-        </a>
-      </div>
-      <div class="foot-tbs">
-        <a href="#" >
-        <i class="fa fa-comment" aria-hidden="true"></i>
-          <h5>Message</h5>
-        </a>
-      </div>
-      <div class="foot-tbs">
-        <a href="#" >
-      <i class="fa fa-user-circle-o" aria-hidden="true"></i>
-          <h5>Profile</h5>
-        </a>
-      </div>
-    </div>
-    </div> -->
 </body>

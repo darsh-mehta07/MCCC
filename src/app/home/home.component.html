@@ -423,7 +423,7 @@
       <ngx-slick-carousel class="carousel behinde-screen_sliders" #slickModal="slick-carousel" [config]="trns_sliders"
         (init)="slickInit($event)" (breakpoint)="breakpoint($event)" (afterChange)="afterChange($event)"
         (beforeChange)="beforeChange($event)">
-          <div *ngFor = " let vid of popularBtsVideos" [routerLink]="['/bts-inner/1']"  ngxSlickItem class="slider">
+          <div *ngFor = " let vid of popularBtsVideos" [routerLink]="['/bts-video-view/',vid.id,1]"  ngxSlickItem class="slider">
             <img  src="{{hostUrl}}{{vid.thumbnail_path}}{{vid.thumbnail}}">
           </div>
       </ngx-slick-carousel>
@@ -433,7 +433,7 @@
           <a [routerLink]="['/bts-inner/2']">View All</a>
         </div>
         <div class="vd-icon" *ngFor="let vid of topBtsVideos">
-          <a class='img_link' [routerLink]="['/bts-inner/2']" ><img  src="{{hostUrl}}{{vid.thumbnail_path}}{{vid.thumbnail}}">
+          <a class='img_link' [routerLink]="['/bts-video-view/',vid.id,2]" ><img  src="{{hostUrl}}{{vid.thumbnail_path}}{{vid.thumbnail}}">
             <div class="icon"><img  src="../../assets/img/play.png"></div>
           </a>
         </div>
@@ -442,35 +442,16 @@
       <div class="video-opt">
         <div class="slide-hd">
           <h2>Watch more videos</h2>
-          <a href="#">View All</a>
+          <!-- <a href="#">View All</a> -->
         </div>
         <ngx-slick-carousel class="carousel video_slider" #slickModal="slick-carousel" [config]="trns_sliders"
           (init)="slickInit($event)" (breakpoint)="breakpoint($event)" (afterChange)="afterChange($event)"
           (beforeChange)="beforeChange($event)">
-          <div ngxSlickItem class="slider vide1 vdSliderTxt">
-            <h3>Movies</h3>
+          <div *ngFor="let catg of categories; let i=index;" [routerLink]="['/bts-inner/',catg.id]" [ngStyle]="{'background': category_color[i]}" ngxSlickItem class="slider vide1 vdSliderTxt">
+            <h3>{{catg.category}}</h3>
           </div>
-          <div ngxSlickItem class="slider vide2 vdSliderTxt">
-            <h3>Web Series</h3>
-          </div>
-          <div ngxSlickItem class="slider vide3 vdSliderTxt">
-            <h3>Celebrity Video</h3>
-          </div>
-          <div ngxSlickItem class="slider vide4 vdSliderTxt">
-            <h3>Short Film</h3>
-          </div>
-          <div ngxSlickItem class="slider vide1 vdSliderTxt">
-            <h3>Movies</h3>
-          </div>
-          <div ngxSlickItem class="slider vide2 vdSliderTxt">
-            <h3>Web Series</h3>
-          </div>
-          <div ngxSlickItem class="slider vide3 vdSliderTxt">
-            <h3>Celebrity Video</h3>
-          </div>
-          <div ngxSlickItem class="slider vide4 vdSliderTxt">
-            <h3>Short Film</h3>
-          </div>
+          
+          
         </ngx-slick-carousel>
       </div>
     </div>
