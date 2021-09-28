@@ -63,6 +63,9 @@ import { StickyMenuComponent } from './sticky-menu/sticky-menu.component';
 import { RouteReuseStrategy } from '@angular/router';
 import { CustomReuseStrategy } from './_service/custom_reuse_strategy';
 import { WorkshopComponent } from './workshop/workshop.component';
+import { WorkshopRegistrationComponent } from './workshop/workshop-registration/workshop-registration.component';
+import { WorkshopRegistrationFormComponent } from './workshop/workshop-registration-form/workshop-registration-form.component';
+import { ThankYouPageComponent } from './workshop/thank-you-page/thank-you-page.component';
 // import { CustomReuseStrategy, Routing } from './shared/routing';
 @NgModule({
   declarations: [
@@ -110,6 +113,9 @@ import { WorkshopComponent } from './workshop/workshop.component';
     LeftSideMenuComponent,
     StickyMenuComponent,
     WorkshopComponent,
+    WorkshopRegistrationComponent,
+    WorkshopRegistrationFormComponent,
+    ThankYouPageComponent,
   ],
   imports: [
     BrowserModule,

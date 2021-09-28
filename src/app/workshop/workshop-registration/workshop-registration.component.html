@@ -1,0 +1,38 @@
+<body class="hm_pg inner">
+    <div class="training-inner" [style.background-image]="'url('+bgImage+')'">
+        <img src="../../assets/img/logo.png">
+        <!-- <img src="{{hostUrl}}{{workshopData.banner_img_path}}/{{workshopData.banner_image}}"> -->
+      <div class="container">
+        <div class="header hd-icons">
+          <a (click)="back()"><img src="../../assets/img/back2.png" /></a>
+          <a [routerLink]="['/home']"><img src="../../assets/img/home2.png" class="home2"/></a>
+        </div>
+        <div class="form_inner ">
+          <h2>{{workshopData.title}}       
+            <hr class="on">
+            <hr class="tw">
+          </h2>
+          <h5>{{workshopData.description}}</h5>
+          <p>
+             <i class="fa fa-calendar" aria-hidden="true"></i>
+             {{ workshopData.start_date | date :'mediumDate' }} - {{ workshopData.closing_date | date :'mediumDate' }} 
+          </p>
+          <p>
+             <i class="fa fa-clock-o" aria-hidden="true"></i>
+             {{workshopData.start_time}} - {{workshopData.end_time}}
+          </p>
+           <p>
+            <i class="fa fa-map-marker" aria-hidden="true"></i>
+            {{workshopData.location}}, {{workshopData.city_name}}, {{workshopData.state_name}}.
+          </p>
+  
+          <p>{{workshopData.more_details}}</p>
+          
+          <div class="training-btn">
+            <a [routerLink] = "['/workshop-registration-form/',workshopData.id]"> ENROLL NOW </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <app-footer></app-footer>
+</body>    

@@ -39,18 +39,18 @@
         </div>
   
         <div class="video-opt opt">
-          <div class="slide-hd">
-            <h2>Watch more videos</h2>
-            <!-- <a href="#">View All</a> -->
-          </div>
-          <ngx-slick-carousel class="carousel video_slider" #slickModal="slick-carousel" [config]="trns_sliders"
-          (init)="slickInit($event)" (breakpoint)="breakpoint($event)" (afterChange)="afterChange($event)"
-          (beforeChange)="beforeChange($event)">
-          <div *ngFor="let catg of categories; let i=index;" [routerLink]="['/bts-inner/',catg.id]" [ngStyle]="{'background': category_color[i]}" ngxSlickItem class="slider vide1 vdSliderTxt">
-            <h3>{{catg.category}}</h3>
-          </div>
-          </ngx-slick-carousel>
-      </div>
+            <div class="slide-hd">
+                <h2>Watch more videos</h2>
+              <!-- <a href="#">View All</a> -->
+            </div>
+            <ngx-slick-carousel class="carousel video_slider" #slickModal="slick-carousel" [config]="trns_sliders"
+            (init)="slickInit($event)" (breakpoint)="breakpoint($event)" (afterChange)="afterChange($event)"
+            (beforeChange)="beforeChange($event)">
+              <div *ngFor="let catg of categories; let i=index;" [routerLink]="['/bts-inner/',catg.id]" [ngStyle]="{'background': category_color[i]}" ngxSlickItem class="slider vide1 vdSliderTxt">
+                  <h3>{{catg.category}}</h3>
+              </div>
+            </ngx-slick-carousel>
+        </div>
       </div>
     </div>
     <app-footer></app-footer>

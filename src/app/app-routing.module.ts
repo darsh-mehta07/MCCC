@@ -39,6 +39,9 @@ import { BtsVideoViewComponent } from './bts-videos/bts-video-view/bts-video-vie
 import { RouteReuseStrategy } from '@angular/router';
 import { CustomReuseStrategy } from './_service/custom_reuse_strategy';
 import {WorkshopComponent} from './workshop/workshop.component'
+import { WorkshopRegistrationComponent } from './workshop/workshop-registration/workshop-registration.component';
+import { WorkshopRegistrationFormComponent } from './workshop/workshop-registration-form/workshop-registration-form.component';
+import { ThankYouPageComponent } from './workshop/thank-you-page/thank-you-page.component';
 const routes: Routes = [
   {    
     path: '',    
@@ -186,9 +189,22 @@ const routes: Routes = [
     data: {title: 'BTS Inner'}    
   },
   {    
-    path: 'workshop',component: WorkshopComponent,canActivate: [AuthGuard],    
+    path: 'workshop/:id',component: WorkshopComponent,canActivate: [AuthGuard],    
     data: {storeRoute: true,title: 'Workshop'}    
   },
+  {    
+    path: 'workshop-registration/:id',component: WorkshopRegistrationComponent,canActivate: [AuthGuard],    
+    data: {storeRoute: true,title: 'Workshop Registration'}    
+  },
+  {    
+    path: 'workshop-registration-form/:id',component: WorkshopRegistrationFormComponent,canActivate: [AuthGuard],    
+    data: {storeRoute: true,title: 'Workshop Registration Form'}    
+  },
+  {    
+    path: 'thank-you-workshop',component: ThankYouPageComponent,canActivate: [AuthGuard],    
+    data: {storeRoute: true,title: 'Workshop Registration Form'}    
+  },
+  
 ];
 
 @NgModule({
