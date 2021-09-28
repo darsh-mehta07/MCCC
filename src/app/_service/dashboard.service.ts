@@ -49,6 +49,12 @@ export class DashboardService {
     myApplication(data:any){
       return this.http.post(`${Config.BasePath}/get_user_applied_casting`,data);
     }
+    getEvents(){
+      return this.http.get(`${Config.BasePath}/events`);
+    }
+    innerEvents(data:any){
+      return this.http.post(`${Config.BasePath}/event_inner`,data);
+    }
     // myApplication(data:any):Observable<MyApplication[]>{
     //   // return this.http.post(`${Config.BasePath}/get_user_applied_casting`,data);
     //   return this.http.post<MyApplication[]>(`${Config.BasePath}/get_user_applied_casting`,data);

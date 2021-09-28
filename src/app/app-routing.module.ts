@@ -38,7 +38,11 @@ import { BtsInnerComponent } from './bts-videos/bts-inner/bts-inner.component';
 import { BtsVideoViewComponent } from './bts-videos/bts-video-view/bts-video-view.component';
 import { RouteReuseStrategy } from '@angular/router';
 import { CustomReuseStrategy } from './_service/custom_reuse_strategy';
-import {WorkshopComponent} from './workshop/workshop.component'
+import {WorkshopComponent} from './workshop/workshop.component';
+import { EventComponent } from './event/event/event.component';
+import { EventInnerComponent } from './event/event-inner/event-inner.component';
+import { EventApplyComponent } from './event/event-apply/event-apply.component';
+import { EventThankyouComponent } from './event/event-thankyou/event-thankyou.component';
 const routes: Routes = [
   {    
     path: '',    
@@ -220,6 +224,22 @@ const routes: Routes = [
   {    
     path: 'workshop',component: WorkshopComponent,canActivate: [AuthGuard],    
     data: {storeRoute: true,title: 'Workshop'}    
+  },
+  {    
+    path: 'event/:id',component: EventComponent,canActivate: [AuthGuard],    
+    data: {storeRoute: true,title: 'Event page'}    
+  },
+  {    
+    path: 'event-inner/:id',component: EventInnerComponent,canActivate: [AuthGuard],    
+    data: {storeRoute: true,title: 'Event Inner page'}    
+  },
+  {    
+    path: 'event-apply/:id',component: EventApplyComponent,canActivate: [AuthGuard],    
+    data: {storeRoute: true,title: 'Event Apply page'}    
+  },
+  {    
+    path: 'event-thankyou',component: EventThankyouComponent,canActivate: [AuthGuard],    
+    data: {storeRoute: true,title: 'Event Thankyou page'}    
   },
 ];
 

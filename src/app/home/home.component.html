@@ -48,7 +48,7 @@
             </ul>
           </div>
         </div>        
-        <h3>{{casting.title | titlecase}}</h3>
+        <h3 (click)="castingInner(casting.id)">{{casting.title | titlecase}}</h3>
         <p class="toggle-sec">{{casting.short_description}}
           <a (click)="castingInner(casting.id)" class="read-more">More...</a>
         </p>
@@ -57,9 +57,9 @@
             <i class="fa fa-transgender-alt" aria-hidden="true"></i>
             <h4>{{casting.gender}}</h4>
           </div>
-          <div class="details-icons">
+          <div class="details-icons" *ngIf="casting.closing_date != null">
             <i class="fa fa-clock-o" aria-hidden="true"></i>
-            <h4>{{casting.created_at | date:'mediumDate'}}</h4>
+            <h4>{{casting.closing_date}}</h4>
           </div>
           <div class="details-icons">
             <i class="fa fa-map-marker" aria-hidden="true"></i>
@@ -110,7 +110,7 @@
             </ul>
           </div>
         </div>
-        <h3 class="grn">{{casting.title}}</h3>
+        <h3 class="grn" (click)="castingInner(casting.id)">{{casting.title}}</h3>
         <p class="toggle-sec">{{casting.short_description}}
           <a (click)="castingInner(casting.id)" class="read-more">More...</a>
           <div class="details">
@@ -118,9 +118,9 @@
               <i class="fa fa-transgender-alt" aria-hidden="true"></i>
               <h4>{{casting.gender}}</h4>
             </div>
-            <div class="details-icons">
+            <div class="details-icons" *ngIf="casting.closing_date != null">
               <i class="fa fa-clock-o" aria-hidden="true"></i>
-              <h4>{{casting.created_at | date:'mediumDate'}}</h4>
+              <h4>{{casting.closing_date}}</h4>
             </div>
             <div class="details-icons">
               <i class="fa fa-map-marker" aria-hidden="true"></i>
@@ -170,7 +170,7 @@
             </ul>
           </div>
         </div>
-        <h3 class="yto">{{casting.title | titlecase}}</h3>
+        <h3 class="yto" (click)="castingInner(casting.id)">{{casting.title | titlecase}}</h3>
         <p class="toggle-sec">{{casting.short_description}}
           <a (click)="castingInner(casting.id)" class="read-more">More...</a>
         </p>
@@ -179,9 +179,9 @@
             <i class="fa fa-transgender-alt" aria-hidden="true"></i>
             <h4>{{casting.gender}}</h4>
           </div>
-          <div class="details-icons">
+          <div class="details-icons" *ngIf="casting.closing_date != null">
             <i class="fa fa-clock-o" aria-hidden="true"></i>
-            <h4>{{casting.created_at | date:'mediumDate'}}</h4>
+            <h4 >{{casting.closing_date}}</h4>
           </div>
           <div class="details-icons">
             <i class="fa fa-map-marker" aria-hidden="true"></i>

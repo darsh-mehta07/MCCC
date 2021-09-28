@@ -1,0 +1,43 @@
+<body class="hm_pg inner">
+      <div class="casting-inner">
+        <img *ngIf="Apiloading" src="../../../assets/img/mukesh-chhabra-image.png" class="hd-img">
+          <img *ngIf="!Apiloading" src="{{image}}" class="hd-img">
+          <div class="container" *ngIf="loading">
+            <div class="header hd-icons"> 
+              <a (click)="back()"><img src="../../../assets/img/back2.png" /></a>
+              <a [routerLink]="['/home']"><img src="../../../assets/img/home2.png" class="home2"/></a>
+            </div>      
+            <div class="form_inner">
+              <h2 class="event-h2">{{appEvents.title | titlecase}}
+                <hr class="on">
+                <hr class="tw">
+              </h2>
+              <h5>{{appEvents.description}}</h5>
+              <p>
+                 <i class="fa fa-calendar" aria-hidden="true"></i>
+                 {{eventDate}}
+              </p>
+              <p>
+                 <i class="fa fa-clock-o" aria-hidden="true"></i>
+                 {{appEvents.start_date | date:"h:mm a"}} - {{appEvents.end_date | date:"h:mm a"}}
+              </p>
+               <p>
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                 {{appEvents.address}}
+              </p>
+             <div class="card-icons">
+                <i (click)="bookmark(appEvents.id)" [ngClass]="bookmarks != '1'?'fa fa-bookmark-o':'fa fa-bookmark'" aria-hidden="true"></i>
+                <!-- <i class="fa fa-share-alt" aria-hidden="true"></i> -->
+              </div>
+              <div class="evt-btn">
+                <a [routerLink]="['/event-apply/1']">ENROLL NOW</a>
+              </div>
+              <h6>Enroll now to confirm your seat</h6>
+            </div>      
+          </div>
+          <div class="item" *ngIf="!loading">
+            <ngx-skeleton-loader count="12" ></ngx-skeleton-loader>
+          </div>
+        </div>
+        <app-footer [pageName]='pageName'></app-footer>
+      </body>

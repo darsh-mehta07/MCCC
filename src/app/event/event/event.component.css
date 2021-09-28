@@ -1,0 +1,26 @@
+.inner-tabs {
+    width: 100%;
+    overflow: scroll;
+    position: sticky;
+    top: 140px;
+    z-index: 99999 !important;
+}
+#tb4 a.active {
+    color: #A7D07A;
+    border-bottom: 1px solid #A7D07A;
+}
+#tb5 a.active {
+    color: hsl(6deg 88% 68%);
+    border-bottom: 1px solid hsl(6deg 88% 68%);    
+}
+#tb6 a.active{
+    color: hsl(43deg 86% 61%);
+    border-bottom: 1px solid hsl(43deg 86% 61%);
+}
+.inner-tabs ul.nav.nav-pills {
+    background: hsl(210deg 17% 98%);
+    width: 100%;
+    border: 1px solid hsl(0deg 6% 89%);
+    border-right: 0;
+    border-left: 0;
+}

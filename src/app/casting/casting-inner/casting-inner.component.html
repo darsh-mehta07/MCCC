@@ -1,6 +1,7 @@
 <body class="hm_pg inner">
 <div class="casting-inner">
-    <img src="../../../assets/img/inner.png" class="hd-img">
+  <img *ngIf="Apiloading" src="../../../assets/img/inner.png" class="hd-img">
+    <img *ngIf="!Apiloading" src="{{image}}" class="hd-img">
     <div class="container" *ngIf="loading">
       <div class="header hd-icons"> 
         <a (click)="back()"><img src="../../../assets/img/back2.png" /></a>

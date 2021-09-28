@@ -29,6 +29,7 @@ export class CastingInnerComponent implements OnInit {
   bookmarks:any;
   bmkStatus:any;
   loading:boolean = false;
+  Apiloading : boolean = false;
   constructor(
     private actRoute:ActivatedRoute,
     private route : Router,
@@ -46,21 +47,26 @@ export class CastingInnerComponent implements OnInit {
   }
   back(): void {
     // this.route.navigateByUrl('/casting-all/'+this.castingId);
-    // this.location.back();
-    window.history.back();
+    this.location.back();
+    // window.history.back();
   }
   getCastingData(){
+    this.Apiloading = true;
     this.loading = false;
     this.dashboardService.castingCall({casting_id:this.castingId}).pipe(first())
     .subscribe(res => {
+      this.Apiloading = false;
       this.loading = true;
       this.resData = res;   
       this.casting = this.resData.data;
       this.castingTitle =  this.casting.title;
       this.bookmarks =  this.casting.bookmark_status;
       this.castingDate = this.casting.created_at;
-      this.image = this.baseUrl+this.casting.banner_img_path+'/'+this.casting.banner_image;
+      this.image = this.baseUrl+'public/uploads/Admin/CastingImages/'+this.casting.banner_image;
       this.long_description = this.sanitizer.bypassSecurityTrustHtml(this.casting.long_description);
+    },error=>{
+      this.Apiloading = false;
+      this.loading = false;
     });
   }
   applyCasting(){

@@ -11,7 +11,7 @@
     <form [formGroup]="form" (ngSubmit)="submit()">
       <label>Enter Date of Birth</label>
         <div class="form-group">
-          <input placeholder="DD/MM/YYYY" autofocus type="text" onfocus="(this.type='date')" formControlName="dob" maxlength="10" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.dob.errors }"/>
+          <input placeholder="DD/MM/YYYY" autofocus type="date" formControlName="dob" maxlength="10" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.dob.errors }"/>
           <div *ngIf="submitted && f.dob.errors" class="invalid-feedback">
             <div *ngIf="f.dob.errors.required">Date of Birth is required</div>  
             <div *ngIf="f.dob.errors.lessthen13">Your age is bellow 13 years</div>

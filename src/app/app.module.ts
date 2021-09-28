@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { DatePipe } from '@angular/common';
 
 import { LogoComponent } from './logo/logo.component';
 import { Splash1Component } from './splash/splash1/splash1.component';
@@ -63,6 +64,11 @@ import { StickyMenuComponent } from './sticky-menu/sticky-menu.component';
 import { RouteReuseStrategy } from '@angular/router';
 import { CustomReuseStrategy } from './_service/custom_reuse_strategy';
 import { WorkshopComponent } from './workshop/workshop.component';
+// import { EventModule } from './event/event.module';
+import { EventComponent } from './event/event/event.component';
+import { EventInnerComponent } from './event/event-inner/event-inner.component';
+import { EventApplyComponent } from './event/event-apply/event-apply.component';
+import { EventThankyouComponent } from './event/event-thankyou/event-thankyou.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -109,6 +115,10 @@ import { WorkshopComponent } from './workshop/workshop.component';
     LeftSideMenuComponent,
     StickyMenuComponent,
     WorkshopComponent,
+    EventComponent,
+    EventInnerComponent,
+    EventApplyComponent,
+    EventThankyouComponent,
   ],
   imports: [
     BrowserModule,
@@ -124,17 +134,14 @@ import { WorkshopComponent } from './workshop/workshop.component';
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     SlickCarouselModule,
-    NgxSkeletonLoaderModule.forRoot()
+    NgxSkeletonLoaderModule.forRoot(), 
+    // EventModule,
   ],
-  providers: [ 
+  providers: [ DatePipe,
     {
     provide: RouteReuseStrategy,
     useClass: CustomReuseStrategy
-    },
-    {
-      provide: RouteReuseStrategy,
-      useClass: CustomReuseStrategy
-      },
+    },    
     {
       
     provide: 'SocialAuthServiceConfig',
@@ -144,12 +151,12 @@ import { WorkshopComponent } from './workshop/workshop.component';
         {
           id: GoogleLoginProvider.PROVIDER_ID,
           provider: new GoogleLoginProvider(
-            '522994670979-jpm3t03npd2b3qu65nnue9jg4moni22k.apps.googleusercontent.com'
+            '733441649382-gkoiqopf4lvf3edcdvjoj5jvhn9a0531.apps.googleusercontent.com'
           )
         },{
           id: FacebookLoginProvider.PROVIDER_ID,
           provider: new FacebookLoginProvider(
-            '3009977702583838'
+            '390016662788825'
           )
           // provider: new FacebookLoginProvider(
           //   '132519988987129'
