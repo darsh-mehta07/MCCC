@@ -603,7 +603,8 @@ body {
     .traine-txt p {font-size: 15px;color: #fff; width: 50%; line-height: 1.2; margin-bottom: 0;}
     .trns_sliders img {width: 90%;margin: 0 3px;}
     .train-banner {position: relative;}
-    .vide1 {width: 85px !IMPORTANT;height: 85px !IMPORTANT; background: #f57767; border-radius: 50%; margin: 0 5px;}
+    /* .vide1 {width: 85px !IMPORTANT;height: 85px !IMPORTANT; background: #f57767; border-radius: 50%; margin: 0 5px;} */
+    .vide1 {width: 85px !IMPORTANT;height: 85px !IMPORTANT; border-radius: 50%; margin: 0 5px;}
     .vide2 {width: 85px !IMPORTANT;height: 85px !IMPORTANT; background: #a7cf79; border-radius: 50%; margin: 0 5px;}
     .vide3 {width: 85px !IMPORTANT;height: 85px !IMPORTANT; background: #e9bf5b; border-radius: 50%; margin: 0 5px;}
     .vide4 {width: 85px !IMPORTANT;height: 85px !IMPORTANT; background: #77cfff; border-radius: 50%; margin: 0 5px;}
@@ -926,7 +927,8 @@ p.lht-txt {color: hsl(0deg 0% 66%);}
     .vide3 {width: 75px !IMPORTANT;height: 75px; background: #e9bf5b; border-radius: 50%; margin: 0 5px;}
     .vide4 {width: 75px !IMPORTANT;height: 75px; background: #77cfff; border-radius: 50%; margin: 0;}
     .inner-btn a {color: #000; background: #2196f3; padding: 8px 15px; border-radius: 25px; font-size: 15px; text-decoration: none;z-index: 1;}
-    .form_inner {height: 46% !important; padding: 20px;}
+    .form_inner {padding: 20px;}
+    /* .form_inner {height: 46% !important; padding: 20px;} */
     img.hd-img { width: 190px;}
     .inner-content {top: 45px;}
     .inner-content img {width: 65%; float: right;}

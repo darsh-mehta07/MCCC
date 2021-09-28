@@ -423,7 +423,7 @@
       <ngx-slick-carousel class="carousel behinde-screen_sliders" #slickModal="slick-carousel" [config]="trns_sliders"
         (init)="slickInit($event)" (breakpoint)="breakpoint($event)" (afterChange)="afterChange($event)"
         (beforeChange)="beforeChange($event)">
-          <div *ngFor = " let vid of popularBtsVideos" [routerLink]="['/bts-inner/1']"  ngxSlickItem class="slider">
+          <div *ngFor = " let vid of popularBtsVideos" [routerLink]="['/bts-video-view/',vid.id,1]"  ngxSlickItem class="slider">
             <img  src="{{hostUrl}}{{vid.thumbnail_path}}{{vid.thumbnail}}">
           </div>
       </ngx-slick-carousel>
@@ -433,7 +433,7 @@
           <a [routerLink]="['/bts-inner/2']">View All</a>
         </div>
         <div class="vd-icon" *ngFor="let vid of topBtsVideos">
-          <a class='img_link' [routerLink]="['/bts-inner/2']" ><img  src="{{hostUrl}}{{vid.thumbnail_path}}{{vid.thumbnail}}">
+          <a class='img_link' [routerLink]="['/bts-video-view/',vid.id,2]" ><img  src="{{hostUrl}}{{vid.thumbnail_path}}{{vid.thumbnail}}">
             <div class="icon"><img  src="../../assets/img/play.png"></div>
           </a>
         </div>
@@ -442,35 +442,16 @@
       <div class="video-opt">
         <div class="slide-hd">
           <h2>Watch more videos</h2>
-          <a href="#">View All</a>
+          <!-- <a href="#">View All</a> -->
         </div>
         <ngx-slick-carousel class="carousel video_slider" #slickModal="slick-carousel" [config]="trns_sliders"
           (init)="slickInit($event)" (breakpoint)="breakpoint($event)" (afterChange)="afterChange($event)"
           (beforeChange)="beforeChange($event)">
-          <div ngxSlickItem class="slider vide1 vdSliderTxt">
-            <h3>Movies</h3>
+          <div *ngFor="let catg of categories; let i=index;" [routerLink]="['/bts-inner/',catg.id]" [ngStyle]="{'background': category_color[i]}" ngxSlickItem class="slider vide1 vdSliderTxt">
+            <h3>{{catg.category}}</h3>
           </div>
-          <div ngxSlickItem class="slider vide2 vdSliderTxt">
-            <h3>Web Series</h3>
-          </div>
-          <div ngxSlickItem class="slider vide3 vdSliderTxt">
-            <h3>Celebrity Video</h3>
-          </div>
-          <div ngxSlickItem class="slider vide4 vdSliderTxt">
-            <h3>Short Film</h3>
-          </div>
-          <div ngxSlickItem class="slider vide1 vdSliderTxt">
-            <h3>Movies</h3>
-          </div>
-          <div ngxSlickItem class="slider vide2 vdSliderTxt">
-            <h3>Web Series</h3>
-          </div>
-          <div ngxSlickItem class="slider vide3 vdSliderTxt">
-            <h3>Celebrity Video</h3>
-          </div>
-          <div ngxSlickItem class="slider vide4 vdSliderTxt">
-            <h3>Short Film</h3>
-          </div>
+          
+          
         </ngx-slick-carousel>
       </div>
     </div>
@@ -503,9 +484,9 @@
           <hr class="on">
           <hr class="tw">
         </h2>
-        <a href="#">View All</a>
+        <a *ngIf="upcomingData != 'No Data' " [routerLink]="['/workshop/1']">View All</a>
       </div>
-      <div class="card-tbs">
+      <div class="card-tbs" *ngFor="let data of upcomingData">
         <div class='tabs'>
           <div class="show-hidden-menu">
             <span></span>
@@ -519,37 +500,19 @@
             </ul>
           </div>
         </div>
-        <h3>Title: Lorem ipsum dolor</h3>
-        <p class="toggle-sec">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eleifend, magna quis
-          cursus...
-          <a href="#">Read more</a>
-        </p>
+        <h3>{{data.title}}</h3>
+        <p  *ngIf="data.description.length > 70 && expanded !=  data.id">
+          {{data.description.substr(0, 70)}}
+           <span (click)="expanded = data.id"
+             class="text-green"><b>{{expanded==  data.id ?'View less':'View more'}}</b></span></p>
+         <p  *ngIf="expanded ==  data.id ">{{data.description}}
+           <span (click)="expanded = 0"
+             class="text-green"><b>{{expanded==  data.id ?'View less':'View more'}}</b></span></p>
       </div>
-
-      <div class="card-tbs">
-        <div class="more">
-          <button id="more-btn" class="more-btn">
-            <span class="more-dot"></span>
-            <span class="more-dot"></span>
-            <span class="more-dot"></span>
-          </button>
-          <div class="more-menu">
-            <ul class="more-menu-items">
-              <li class="more-menu-item">
-                <button type="button" class="more-menu-btn">Save</button>
-              </li>
-              <li class="more-menu-item">
-                <button type="button" class="more-menu-btn">Share</button>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <h3>Title: Lorem ipsum dolor</h3>
-        <p class="toggle-sec">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eleifend, magna quis
-          cursus...
-          <a href="#">Read more</a>
-        </p>
+      <div class="no-data" *ngIf="upcomingData == 'No Data' ">
+        <h2>No Data Available</h2>
       </div>
+      
     </div>
   </div>
 
@@ -560,9 +523,9 @@
           <hr class="on">
           <hr class="tw">
         </h2>
-        <a href="#">View All</a>
+        <a *ngIf="endingsoonData != 'No Data' " [routerLink]="['/workshop/2']">View All</a>
       </div>
-      <div class="card-tbs">
+      <div class="card-tbs" *ngFor="let data of endingsoonData">
         <div class="more">
           <button id="more-btn" class="more-btn">
             <span class="more-dot"></span>
@@ -584,108 +547,21 @@
             </ul>
           </div>
         </div>
-        <h3 class="grn">Title: Lorem ipsum dolor</h3>
-        <p class="toggle-sec">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eleifend, magna quis
-          cursus...
-          <a href="#">Read more</a>
-        </p>
+        <h3 class="grn">{{data.title}}</h3>
+        <p  *ngIf="data.description.length > 70 && expanded !=  data.id">
+          {{data.description.substr(0, 70)}}
+           <span (click)="expanded = data.id"
+             class="text-green"><b>{{expanded==  data.id ?'View less':'View more'}}</b></span></p>
+         <p  *ngIf="expanded ==  data.id ">{{data.description}}
+           <span (click)="expanded = 0"
+             class="text-green"><b>{{expanded==  data.id ?'View less':'View more'}}</b></span></p>
       </div>
-      <div class="card-tbs">
-        <div class="more">
-          <button id="more-btn" class="more-btn">
-            <span class="more-dot"></span>
-            <span class="more-dot"></span>
-            <span class="more-dot"></span>
-          </button>
-          <div class="more-menu">
-            <div class="more-menu-caret">
-              <div class="more-menu-caret-outer"></div>
-              <div class="more-menu-caret-inner"></div>
-            </div>
-            <ul class="more-menu-items" tabindex="-1" role="menu" aria-labelledby="more-btn" aria-hidden="true">
-              <li class="more-menu-item" role="presentation">
-                <button type="button" class="more-menu-btn" role="menuitem">Save</button>
-              </li>
-              <li class="more-menu-item" role="presentation">
-                <button type="button" class="more-menu-btn" role="menuitem">Share</button>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <h3 class="grn">Title: Lorem ipsum dolor</h3>
-        <p class="toggle-sec">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eleifend, magna quis
-          cursus...
-          <a href="#">Read more</a>
-        </p>
+      <div class="no-data" *ngIf="endingsoonData == 'No Data' ">
+        <h2>No Data Available</h2>
       </div>
 
     </div>
   </div>
-
-  <!-- <div class="Previous-workshops-tbs">
-    <div class="container">
-      <div class="tabs">
-        <h2>Previous Workshops
-          <hr class="on">
-          <hr class="tw">
-        </h2>
-        <a href="#">View All</a>
-      </div>
-      <div class="card-tbs">
-        <div class='tabs'>
-          <div class="show-hidden-menu">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-          <div class="hidden-menu" style="display: none;">
-            <ul>
-              <li>Save</li>
-              <li>Share</li>
-            </ul>
-          </div>
-        </div>
-
-
-      </div>
-      <h3 class="yto">Title: Lorem ipsum dolor</h3>
-      <p class="toggle-sec">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eleifend, magna quis
-        cursus...
-        <a href="#">Read more</a>
-      </p>
-    </div>
-
-    <div class="card-tbs">
-      <div class="more">
-        <button id="more-btn" class="more-btn">
-          <span class="more-dot"></span>
-          <span class="more-dot"></span>
-          <span class="more-dot"></span>
-        </button>
-        <div class="more-menu">
-          <div class="more-menu-caret">
-            <div class="more-menu-caret-outer"></div>
-            <div class="more-menu-caret-inner"></div>
-          </div>
-          <ul class="more-menu-items" tabindex="-1" role="menu" aria-labelledby="more-btn" aria-hidden="true">
-            <li class="more-menu-item" role="presentation">
-              <button type="button" class="more-menu-btn" role="menuitem">Save</button>
-            </li>
-            <li class="more-menu-item" role="presentation">
-              <button type="button" class="more-menu-btn" role="menuitem">Share</button>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <h3 class="yto">Title: Lorem ipsum dolor</h3>
-      <p class="toggle-sec">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eleifend, magna quis
-        cursus...
-        <a href="#">Read more</a>
-      </p>
-    </div>
-  </div> -->
-
-
   <div _ngcontent-xmm-c57="" class="Previous-workshops-tbs">
     <div _ngcontent-xmm-c57="" class="container">
         <div _ngcontent-xmm-c57="" class="tabs">
@@ -694,9 +570,9 @@
                 <hr _ngcontent-xmm-c57="" class="on" />
                 <hr _ngcontent-xmm-c57="" class="tw" />
             </h2>
-            <a _ngcontent-xmm-c57="" href="#">View All</a>
+            <a _ngcontent-xmm-c57="" *ngIf="previosData != 'No Data' " [routerLink]="['/workshop/3']">View All</a>
         </div>
-        <div _ngcontent-xmm-c57="" class="card-tbs">
+        <div _ngcontent-xmm-c57="" class="card-tbs" *ngFor="let data of previosData">
             <div _ngcontent-xmm-c57="" class="more">
                 <button _ngcontent-xmm-c57="" id="more-btn" class="more-btn">
                     <span ngcontent-xmm-c57="" class="more-dot"></span><span ngcontent-xmm-c57="" class="more-dot"></span><span _ngcontent-xmm-c57="" class="more-dot"></span>
@@ -712,28 +588,20 @@
                     </ul>
                 </div>
             </div>
-            <h3 _ngcontent-xmm-c57="" class="yto">Title: Lorem ipsum dolor</h3>
-            <p ngcontent-xmm-c57="" class="toggle-sec">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eleifend, magna quis cursus... <a ngcontent-xmm-c57="" href="#">Read more</a></p>
+            <h3 _ngcontent-xmm-c57="" class="yto">{{data.title}}</h3>
+            
+            <p ngcontent-xmm-c57="" class="toggle-sec" *ngIf="data.description.length > 70 && expanded !=  data.id">
+              {{data.description.substr(0, 70)}}
+               <span ngcontent-xmm-c57="" (click)="expanded = data.id"
+                 class="text-green"><b>{{expanded==  data.id ?'View less':'View more'}}</b></span></p>
+             <p  *ngIf="expanded ==  data.id ">{{data.description}}
+               <span ngcontent-xmm-c57="" (click)="expanded = 0"
+                 class="text-green"><b>{{expanded==  data.id ?'View less':'View more'}}</b></span></p>
         </div>
-        <div _ngcontent-xmm-c57="" class="card-tbs">
-            <div _ngcontent-xmm-c57="" class="more">
-                <button _ngcontent-xmm-c57="" id="more-btn" class="more-btn">
-                    <span ngcontent-xmm-c57="" class="more-dot"></span><span ngcontent-xmm-c57="" class="more-dot"></span><span _ngcontent-xmm-c57="" class="more-dot"></span>
-                </button>
-                <div _ngcontent-xmm-c57="" class="more-menu">
-                    <div _ngcontent-xmm-c57="" class="more-menu-caret">
-                        <div _ngcontent-xmm-c57="" class="more-menu-caret-outer"></div>
-                        <div _ngcontent-xmm-c57="" class="more-menu-caret-inner"></div>
-                    </div>
-                    <ul _ngcontent-xmm-c57="" tabindex="-1" role="menu" aria-labelledby="more-btn" aria-hidden="true" class="more-menu-items">
-                        <li ngcontent-xmm-c57="" role="presentation" class="more-menu-item"><button ngcontent-xmm-c57="" type="button" role="menuitem" class="more-menu-btn">Save</button></li>
-                        <li ngcontent-xmm-c57="" role="presentation" class="more-menu-item"><button ngcontent-xmm-c57="" type="button" role="menuitem" class="more-menu-btn">Share</button></li>
-                    </ul>
-                </div>
-            </div>
-            <h3 _ngcontent-xmm-c57="" class="yto">Title: Lorem ipsum dolor</h3>
-            <p ngcontent-xmm-c57="" class="toggle-sec">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eleifend, magna quis cursus... <a ngcontent-xmm-c57="" href="#">Read more</a></p>
+        <div class="no-data" *ngIf="previosData == 'No Data' ">
+          <h2>No Data Available</h2>
         </div>
+        
     </div>
 </div>
   <div class="train-banner">

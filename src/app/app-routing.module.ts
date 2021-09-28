@@ -36,6 +36,12 @@ import { MyCastingInnerComponent } from './my-application/my-casting-inner/my-ca
 import { BtsVideosComponent } from './bts-videos/bts-videos.component';
 import { BtsInnerComponent } from './bts-videos/bts-inner/bts-inner.component';
 import { BtsVideoViewComponent } from './bts-videos/bts-video-view/bts-video-view.component';
+import { RouteReuseStrategy } from '@angular/router';
+import { CustomReuseStrategy } from './_service/custom_reuse_strategy';
+import {WorkshopComponent} from './workshop/workshop.component'
+import { WorkshopRegistrationComponent } from './workshop/workshop-registration/workshop-registration.component';
+import { WorkshopRegistrationFormComponent } from './workshop/workshop-registration-form/workshop-registration-form.component';
+import { ThankYouPageComponent } from './workshop/thank-you-page/thank-you-page.component';
 const routes: Routes = [
   {    
     path: '',    
@@ -48,23 +54,23 @@ const routes: Routes = [
   },    
   {    
     path: 'splash1',component: Splash1Component,    
-    data: {title: 'Casting Page'}    
+    data: {storeRoute: true, title: 'Casting Page'}    
   }, 
   {    
     path: 'splash2',component: Splash2Component,    
-    data: {title: 'Traning Page'}    
+    data: {storeRoute: true, title: 'Traning Page'}    
   },
   {    
     path: 'splash3',component: Splash3Component,    
-    data: {title: 'Events Page'}    
+    data: {storeRoute: true, title: 'Events Page'}    
   },
   {    
     path: 'welcome',component: WelcomeComponent,    
-    data: {title: 'Welcome Page'}    
+    data: {storeRoute: true, title: 'Welcome Page'}    
   },
   {    
     path: 'signin',component: SigninComponent,    
-    data: {title: 'Signin Page'}    
+    data: {storeRoute: true, title: 'Signin Page'}    
   },
   {    
     path: 'forgot-password',component: ForgotPasswordComponent,    
@@ -120,7 +126,7 @@ const routes: Routes = [
   },
   {    
     path: 'home',component: HomeComponent, canActivate: [AuthGuard],   
-    data: {title: 'Home Page'}    
+    data: {storeRoute: true, title: 'Home Page' }   
   },
   {    
     path: 'profile_first_step',component: ProfileFirstStepComponent, canActivate: [AuthGuard],   
@@ -140,15 +146,15 @@ const routes: Routes = [
   },
   {    
     path: 'casting-inner/:id',component: CastingInnerComponent,canActivate: [AuthGuard],    
-    data: {title: 'Casting Inner Page'}    
+    data: {storeRoute: true, title: 'Casting Inner Page'}    
   },
   {    
     path: 'casting-all/:id',component: CastingAllComponent,canActivate: [AuthGuard],    
-    data: {title: 'Casting All Page'}    
+    data: {storeRoute: true, title: 'Casting All Page'}    
   },
   {    
     path: 'apply-casting/:id',component: ApplyCastingComponent,canActivate: [AuthGuard],    
-    data: {title: 'Apply Casting Page'}    
+    data: {storeRoute: true, title: 'Apply Casting Page'}    
   },
   {    
     path: 'casting-confirm/:id',component: ApplicationConfirmCastingComponent,canActivate: [AuthGuard],    
@@ -160,7 +166,7 @@ const routes: Routes = [
   },
   {    
     path: 'my-aaplication',component: MyApplicationComponent,canActivate: [AuthGuard],    
-    data: {title: 'My Application Page'}    
+    data: {storeRoute: true, title: 'My Application Page'}    
   },
   {    
     path: 'edit-profile',component: EditProfileComponent,canActivate: [AuthGuard],    
@@ -168,20 +174,37 @@ const routes: Routes = [
   },
   {    
     path: 'my-casting/:id',component: MyCastingInnerComponent,canActivate: [AuthGuard],    
-    data: {title: 'My casting Page'}    
+    data: {storeRoute: true, title: 'My casting Page'}    
   },
   {    
     path: 'bts-video',component: BtsVideosComponent,canActivate: [AuthGuard],    
-    data: {title: 'BTS Videos'}    
+    data: {storeRoute: true, title: 'BTS Videos'}    
   },
   {    
     path: 'bts-inner/:id',component: BtsInnerComponent,canActivate: [AuthGuard],    
-    data: {title: 'BTS Inner'}    
+    data: {storeRoute: true, title: 'BTS Inner'}    
   },
   {    
     path: 'bts-video-view/:id/:type',component: BtsVideoViewComponent,canActivate: [AuthGuard],    
     data: {title: 'BTS Inner'}    
   },
+  {    
+    path: 'workshop/:id',component: WorkshopComponent,canActivate: [AuthGuard],    
+    data: {storeRoute: true,title: 'Workshop'}    
+  },
+  {    
+    path: 'workshop-registration/:id',component: WorkshopRegistrationComponent,canActivate: [AuthGuard],    
+    data: {storeRoute: true,title: 'Workshop Registration'}    
+  },
+  {    
+    path: 'workshop-registration-form/:id',component: WorkshopRegistrationFormComponent,canActivate: [AuthGuard],    
+    data: {storeRoute: true,title: 'Workshop Registration Form'}    
+  },
+  {    
+    path: 'thank-you-workshop',component: ThankYouPageComponent,canActivate: [AuthGuard],    
+    data: {storeRoute: true,title: 'Workshop Registration Form'}    
+  },
+  
 ];
 
 @NgModule({
