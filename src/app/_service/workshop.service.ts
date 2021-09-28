@@ -18,4 +18,12 @@ export class WorkshopService {
   get_previous_workshop_data(data:any){
     return this.http.post<any>(Config.BasePath +'/get_previous_workshop_data',data);
   }
+
+  get_each_workshop_data(data:any){
+    return this.http.post<any>(Config.BasePath +'/get_each_workshop_data',data);
+  }
+
+  user_apply_for_workshop(data:any){
+    return this.http.post<any>(`${Config.BasePath}/user_apply_for_workshop`,data);
+  }
 }

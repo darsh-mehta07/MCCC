@@ -1,1 +1,210 @@
-<p>workshop works!</p>
+<body class="hm_pg">
+    <app-header></app-header>
+    <app-sticky-menu [stickymenu]='stickymenu'></app-sticky-menu>
+
+    <div id="exTab1" class="inner-tabs">	
+        <ul class="nav nav-pills">
+    		<li [ngClass]="catId == 1 ? 'active':''" id="tb1"><a (click)="tab(1)"data-toggle="tab" [ngClass]="catId == 1 ? 'active':''">Upcoming </a></li>
+    		<li [ngClass]="catId == 2 ? 'active':''" id="tb2"><a (click)="tab(2)" data-toggle="tab" [ngClass]="catId == 2 ? 'active':''">Ending Soon</a></li>
+    		<li [ngClass]="catId == 3 ? 'active':''" id="tb3"><a (click)="tab(3)"data-toggle="tab" [ngClass]="catId == 3 ? 'active':''">Previous </a></li>
+    	</ul>
+    </div>
+
+    <div class="tab-content clearfix">
+        <div class="upcoming-workshop-tbs tab-pane " [ngClass]="catId == 1 ? 'active':''" id="tab1">
+        <div class="container">
+          <div class="tabs">
+            <h2>Upcoming Workshops
+              <hr class="on">
+              <hr class="tw">
+            </h2>
+            <!--<a href="#">View All</a>-->
+          </div>
+          <div class="card-tbs" *ngFor="let data of upcomingData">
+              <div class='dt-tabs'>
+                    <div class="show-hidden-menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                      <div class="hidden-menu" style="display: none;">
+                        <div class="arrow">
+                            <i class="fa fa-caret-up" aria-hidden="true"></i>
+                        </div>
+                        <ul>
+                          <li>
+                            <a href="#">Save</a> 
+                          </li>
+                          <li>
+                              <a href="#">Share</a>
+                          </li>
+                        </ul>
+                    </div>
+                </div>
+            <h3>{{data.title}}</h3> 
+            <p class="toggle-sec">{{data.description.substr(0, 35)}}
+            <a [routerLink]="['/workshop-registration/',data.id]">More...</a></p>
+            <div class="details">
+               <div class="details-icons">
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                <h4>{{data.city_name}}</h4>
+              </div>
+              <div class="details-icons">
+                <i class="fa fa-calendar" aria-hidden="true"></i>
+                <h4>{{data.start_date | date :'mediumDate'}}</h4>
+              </div>
+              <div class="details-icons">
+               <i class="fa fa-clock-o" aria-hidden="true"></i>
+                <h4>{{data.start_time}}</h4>
+              </div>
+            </div>
+         </div>
+         <div class="no-data" *ngIf="upcomingData == 'No Data' ">
+            <h2>No Data Available</h2>
+          </div>
+        
+          
+        </div>
+      </div>
+        <div class="workshop-ending-tbs tab-pane " [ngClass]="catId == 2 ? 'active':''" id="tab2">
+        <div class="container">
+          <div class="tabs">
+            <h2>Workshop Ending Soon
+              <hr class="on">
+              <hr class="tw">
+            </h2>
+          </div>
+         <div class="card-tbs" *ngFor="let data of endingsoonData">
+             <div class='dt-tabs'>
+                    <div class="show-hidden-menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                      <div class="hidden-menu" style="display: none;">
+                        <div class="arrow">
+                            <i class="fa fa-caret-up" aria-hidden="true"></i>
+                        </div>
+                        <ul>
+                          <li>
+                            <a href="#">Save</a> 
+                          </li>
+                          <li>
+                              <a href="#">Share</a>
+                          </li>
+                        </ul>
+                    </div>
+                </div>
+            <h3 class="grn">{{data.title}}</h3> 
+            <p class="toggle-sec">{{data.description.substr(0, 35)}}
+            <a [routerLink]="['/workshop-registration/',data.id]">More...</a></p>
+            <div class="details">
+               <div class="details-icons">
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                <h4>{{data.city_name}}</h4>
+              </div>
+              <div class="details-icons">
+                <i class="fa fa-calendar" aria-hidden="true"></i>
+                <h4>{{data.start_date | date :'mediumDate'}}</h4>
+              </div>
+              <div class="details-icons">
+               <i class="fa fa-clock-o" aria-hidden="true"></i>
+                <h4>{{data.start_time}}</h4>
+              </div>
+            </div>
+         </div>
+         <div class="no-data" *ngIf="endingsoonData == 'No Data' ">
+            <h2>No Data Available</h2>
+          </div>
+        </div>
+      </div>
+        <div class="Previous-workshops-tbs tab-pane " [ngClass]="catId == 3 ? 'active':''" id="tab3">
+        <div class="container">
+          <div class="tabs">
+            <h2>Previous Workshops
+              <hr class="on">
+              <hr class="tw">
+            </h2>
+            <!--<a href="#">View All</a>-->
+          </div>
+          <div class="card-tbs" *ngFor="let data of previosData">
+              <div class='dt-tabs'>
+                    <div class="show-hidden-menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                      <div class="hidden-menu" style="display: none;">
+                        <div class="arrow">
+                            <i class="fa fa-caret-up" aria-hidden="true"></i>
+                        </div>
+                        <ul>
+                          <li>
+                            <a href="#">Save</a> 
+                          </li>
+                          <li>
+                              <a href="#">Share</a>
+                          </li>
+                        </ul>
+                    </div>
+                </div>
+            <h3 class="yto">{{data.title}}</h3> 
+            <p class="toggle-sec">{{data.description.substr(0, 35)}}
+            <a [routerLink]="['/workshop-registration/',data.id]">More...</a></p>
+            <div class="details">
+               <div class="details-icons">
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                <h4>{{data.city_name}}</h4>
+              </div>
+              <div class="details-icons">
+                <i class="fa fa-calendar" aria-hidden="true"></i>
+                <h4>{{data.start_date | date :'mediumDate'}}</h4>
+              </div>
+              <div class="details-icons">
+               <i class="fa fa-clock-o" aria-hidden="true"></i>
+                <h4>{{data.start_time}}</h4>
+              </div>
+            </div>
+         </div>
+         <div class="no-data" *ngIf="previosData == 'No Data' ">
+            <h2>No Data Available</h2>
+          </div>
+          </div>
+      </div>
+    <div class="train-banner">
+        <div class="container">
+            <img src="../../assets/img/train3.png">
+            <div class="traine-txt">
+                <h2>Workshop <br> <span class="tr-hd">BY Mukesh</span></h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+            </div>
+        </div>
+    </div>
+    <div class="trner">
+    <div class="container">
+        <ngx-slick-carousel class="carousel video_slider" #slickModal="slick-carousel" [config]="trns_sliders"
+          (init)="slickInit($event)" (breakpoint)="breakpoint($event)" (afterChange)="afterChange($event)"
+          (beforeChange)="beforeChange($event)">
+          <div class="slider">
+          <div class="vdo-slide">
+            <img src="../../assets/img/trainer1.png">
+            <div class="slider-txt hv1">
+              <h3>Anupam Kher</h3>
+            </div>
+          </div>
+            </div>
+            <div class="slider">
+            <div class="vdo-slide">
+                <img src="../../assets/img/trainer2.png">
+                <div class="slider-txt hv2">
+                <h3>Sonu Sood</h3>
+                </div>
+            </div>
+            </div>
+        </ngx-slick-carousel>
+      
+    </div>
+  </div>
+    </div>
+    <app-footer></app-footer>
+</body>    
