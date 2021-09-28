@@ -55,6 +55,7 @@ export class ApplyCastingComponent implements OnInit {
     oldvideo:any;
     secvidbox :boolean = true;
     thrvidbox :boolean = true;
+    saveCropImage : boolean = false;
     
   constructor(
     private actRoute:ActivatedRoute,
@@ -220,7 +221,8 @@ export class ApplyCastingComponent implements OnInit {
     }
   }
   back(): void {
-    this.location.back()
+    // this.location.back()
+    window.history.back();
   }  
   closeimgmodel(content:any) {
     this.cropimages = [];
@@ -327,8 +329,16 @@ export class ApplyCastingComponent implements OnInit {
 }
   imageCropped(event: ImageCroppedEvent) {
     this.croppedImage = event.base64;    
-    this.cropedfile = base64ToFile(this.croppedImage);    
-    const file = this.cropedfile;
+    this.cropedfile = base64ToFile(this.croppedImage);   
+    
+}
+saveImage(){     
+  this.patchValues();                     
+  this.saveimgmodel('save');
+  this.imageChangedEvent ='';                   
+}
+cropImage(){
+  const file = this.cropedfile;
     var filesAmount = 1;
           for (let i = 0; i < filesAmount; i++) {
                   var reader = new FileReader();  
@@ -343,6 +353,11 @@ export class ApplyCastingComponent implements OnInit {
                     if(this.cropimages.length < 3){
                      this.cropimages.push(event.target.result);    
                      this.patchValues();
+                     this.saveCropImage = true;
+                     if(this.cropimages.length == 3){
+                      this.saveimgmodel('save');
+                      this.imageChangedEvent ='';                     
+                     }
                     }
                   }  
                   reader.readAsDataURL(this.cropedfile);

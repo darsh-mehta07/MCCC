@@ -100,12 +100,12 @@ export class HomeComponent implements OnInit {
     this.callEndingSoonAPI();
     this.btsVideosService.get_bts_videos({'limit': 10,'category_id':1}).subscribe(
       data => { 
-          console.log(data);
+          // console.log(data);
           this.popularBtsVideos = data.data;
       });
     this.btsVideosService.get_bts_videos({'limit': 2,'category_id':2}).subscribe(
       data => { 
-          console.log(data.data);
+          // console.log(data.data);
           this.topBtsVideos = data.data;
       }); 
     this.btsVideosService.get_categories().subscribe(
@@ -134,7 +134,6 @@ export class HomeComponent implements OnInit {
   }
   castingSliderApi(){
     this.dashboardService.castingSlider()
-    .pipe(first())
       .subscribe(res => {
         this.loading = true;
         this.resData = res;
@@ -151,7 +150,6 @@ export class HomeComponent implements OnInit {
   }
   newCastingCallApi(){
     this.dashboardService.castingCall({limit:5})
-    .pipe(first())
       .subscribe(res => {
         this.loadingnc = true;
         this.resData = res;        
@@ -163,7 +161,6 @@ export class HomeComponent implements OnInit {
   }
   callEndingSoonAPI(){
     this.dashboardService.callEndingSoon({limit:5})
-    .pipe(first())
       .subscribe(res => {
         this.loadingnce = true;
         this.resData = res;        
@@ -175,7 +172,6 @@ export class HomeComponent implements OnInit {
   }
   getRecomendedData(){
     this.dashboardService.recomendedCasting({limit:5})
-    .pipe(first())
       .subscribe(res => {
         this.loadingnr = true;
         this.resData = res;        
@@ -199,7 +195,6 @@ export class HomeComponent implements OnInit {
   }
   bookmarkCasting(id:any){
     this.dashboardService.bookmarkCasting({casting_card_id:id})
-    .pipe(first())
       .subscribe(res => {
         this.resData = res;        
         this.callEnding = this.resData.data; 
@@ -208,12 +203,10 @@ export class HomeComponent implements OnInit {
   }
   deleteUser(id: number) {
     this.userService.delete(id)
-        .pipe(first())
         .subscribe(() => this.loadAllUsers());
   }
 private loadAllUsers() {
   this.userService.getAll()
-    .pipe(first())
       .subscribe(res => {
         this.user = res;
         this.userName = this.user.data.name;

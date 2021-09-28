@@ -16,32 +16,10 @@
                  <h3>{{application.get_user_casting_model.title | titlecase}}</h3>
                  <p>{{application.get_user_casting_model.short_description}}</p>
              </div>
-             </a>
-             <!-- <div class="card-tbs" *ngFor="let casting of applications; let i=index;">
-              <a [routerLink]="['/my-casting/'+casting.get_user_casting_model.id]">
-                <h3 class="grn">{{casting.get_user_casting_model.title}}</h3>
-                <p class="toggle-sec">{{casting.get_user_casting_model.short_description}}</p>
-                <div class="details">
-                  <div class="details-icons">
-                    <i class="fa fa-transgender-alt" aria-hidden="true"></i>
-                    <h4>{{casting.get_user_casting_model.gender}}</h4>
-                  </div>
-                  <div class="details-icons">
-                    <i class="fa fa-clock-o" aria-hidden="true"></i>
-                    <h4>{{casting.get_user_casting_model.created_at | date:'mediumDate'}}</h4>
-                  </div>
-                  <div class="details-icons">
-                    <i class="fa fa-map-marker" aria-hidden="true"></i>
-                    <h4>{{casting.get_user_casting_model.location}}</h4>
-                  </div>
-                </div>  
-                <div class="card-btn">
-                  <div class="slide-btn" *ngFor="let tag of casting.get_user_casting_model.tags;">
-                    <a>{{tag}}</a>
-                  </div>
-                </div>
-              </a>
-            </div> -->
+             </a>   
+             <div class="item" *ngIf="!loading">
+              <ngx-skeleton-loader count="6"></ngx-skeleton-loader>
+            </div>          
          </div>
         </div>
       </div>

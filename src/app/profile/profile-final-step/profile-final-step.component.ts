@@ -7,6 +7,8 @@ import { AlertService } from '../../_service/alert.service';
 import { Config } from '../../_config/config';
 import { UserService } from 'src/app/_service/user.service';
 import { RegisterService } from 'src/app/_service/register.service';
+import { PhoneExistsValidator } from 'src/app/_helpers/phone-exists-validator';
+import{ AgeBetween13To54 } from "../../_helpers/custom-DOB.validator";
 
 @Component({
   selector: 'app-profile-final-step',
@@ -37,6 +39,7 @@ export class ProfileFinalStepComponent implements OnInit {
     private alertService: AlertService,
     private userService: UserService,
     private registerService: RegisterService,
+    private phoneExists : PhoneExistsValidator,
   ) {
     // redirect to home if already logged in
     if (sessionStorage.getItem('social_login') === 'true') {
@@ -58,30 +61,32 @@ export class ProfileFinalStepComponent implements OnInit {
     if (sessionStorage.getItem('social_login')) {
       this.social_login = true;
       this.form = this.formBuilder.group({
-        phone: ['', Validators.required],
+        phone: ['', [Validators.required,Validators.pattern(/^-?(0|[1-9]{10}\d*)?$/)],this.phoneExists.validate.bind(this.phoneExists)],
         dob: ['', Validators.required],
         gender: ['', Validators.required],
         state: ['', Validators.required],
         city: ['', Validators.required],
-        tag_line: ['', Validators.required],
-        short_bio: ['', Validators.required],
-        work_experiences: this.formBuilder.array([this.createExperience()]),
-        qualifications: this.formBuilder.array([this.createQualification()]),
-        language_id: ['',Validators.required],
-        social_links: this.formBuilder.array([this.createSocialLinks()]),
-        skin_color:['',Validators.required],
-        height:['',Validators.required]
-      });
-    } else {
-      this.form = this.formBuilder.group({
-        tag_line: ['', Validators.required],
-        short_bio: ['', Validators.required],
+        tag_line: ['', [Validators.required,Validators.maxLength(50)]],
+        short_bio: ['', [Validators.required,Validators.maxLength(200)]],
         work_experiences: this.formBuilder.array([this.createExperience()]),
         qualifications: this.formBuilder.array([this.createQualification()]),
         language_id: [''],
         social_links: this.formBuilder.array([this.createSocialLinks()]),
         skin_color:['',Validators.required],
-        height:['',Validators.required]
+        height:['',[Validators.required,Validators.pattern("^[0-9]*$")]]
+      }, {
+        validator: AgeBetween13To54('dob')
+    });
+    } else {
+      this.form = this.formBuilder.group({
+        tag_line: ['', [Validators.required,Validators.maxLength(50)]],
+        short_bio: ['', [Validators.required,Validators.maxLength(200)]],
+        work_experiences: this.formBuilder.array([this.createExperience()]),
+        qualifications: this.formBuilder.array([this.createQualification()]),
+        language_id: [''],
+        social_links: this.formBuilder.array([this.createSocialLinks()]),
+        skin_color:['',Validators.required],
+        height:['',[Validators.required,Validators.pattern("^[0-9]*$")]]
       });
     }
     if (sessionStorage.getItem('social_login')) {
@@ -175,6 +180,7 @@ export class ProfileFinalStepComponent implements OnInit {
     this.alertService.clear();
     // stop here if form is invalid
     if (this.form?.invalid) {
+      this.uploading = false;
       return;
     }
     this.loading = true;

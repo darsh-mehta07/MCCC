@@ -123,7 +123,10 @@
   <ng-template #content let-modal>
     <div class="crooping-modal"> 
       <div class="modal-header">
-      Select More Photo
+        <h4 class="modal-title" id="modal-basic-title">Select More Photo</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+          <span aria-hidden="true">×</span>
+        </button>     
   </div>
     <div class="modal-body">
       <div class="form-group">
@@ -131,10 +134,11 @@
           <input type="file" name="file" class="form-control" (change)="fileChangeEvent($event)">          
         </div>
       </div>
+       <!-- [autoCrop]="false"  -->
       <image-cropper [imageChangedEvent]="imageChangedEvent" [maintainAspectRatio]="true"
         [containWithinAspectRatio]="containWithinAspectRatio" [aspectRatio]="3 / 4" [resizeToWidth]="256"
-        [cropperMinWidth]="128" [onlyScaleDown]="true" [roundCropper]="false" [canvasRotation]="canvasRotation"
-        [transform]="transform" [alignImage]="'left'" [style.display]="showCropper ? null : 'none'" format="png"
+        [cropperMinWidth]="128" [onlyScaleDown]="true" [roundCropper]="false" 
+        [transform]="transform" [alignImage]="'center'" [style.display]="showCropper ? null : 'none'" format="png"
         (imageCropped)="imageCropped($event)" (imageLoaded)="imageLoaded()" (cropperReady)="cropperReady($event)"
         (loadImageFailed)="loadImageFailed()">
       </image-cropper>
@@ -151,8 +155,8 @@
       </div>
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn btn-secondary" (click)="closeimgmodel('close click')">Close</button>
-      <button type="button" class="btn btn-primary" (click)="saveimgmodel('Save click')">Save changes</button>
+      <button type="button" class="btn btn-primary" (click)="cropImage()">Crop</button>
+      <button *ngIf="saveCropImage" type="button" class="btn btn-secondary" (click)="saveImage()">Save</button>
   </div>
 
 
@@ -163,7 +167,10 @@
   <ng-template #video let-modal>
     <div class="crooping-modal"> 
     <div class="modal-header">
-      Select More Video
+      <h4 class="modal-title" id="modal-basic-title">Select More Video</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+          <span aria-hidden="true">×</span>
+        </button>
   </div>
     <div class="modal-body">      
       <div class="form-group">

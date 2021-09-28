@@ -23,6 +23,7 @@ export class MyCastingInnerComponent implements OnInit {
   applicationId:any;
   applyDate:any;
   image:any;
+  Apiloading : boolean = false;
   constructor(
     private actRoute:ActivatedRoute,
     private dashboardService : DashboardService,
@@ -36,18 +37,23 @@ export class MyCastingInnerComponent implements OnInit {
     this.getMyApplication(this.castingId);
   }
   getMyApplication(id:any){
+    this.Apiloading = true;
+    this.loading = false;
     this.dashboardService.myApplication({casting_id:this.castingId}).pipe(first())
     .subscribe(
         res => {
+          this.Apiloading = false;
+          this.loading = true;
           this.resData = res;        
         this.application = this.resData.data[0]; 
-        this.image = this.baseUrl+this.application.banner_img_path+'/'+this.application.banner_image;
+        this.image = this.baseUrl+'public/uploads/Admin/CastingImages/'+this.application.banner_image;
       this.long_description = this.sanitizer.bypassSecurityTrustHtml(this.application.long_description);
       this.applicationId = this.application.application_id;
       this.applyDate = this.application.created_at;
         },
         error => {
           this.alertService.error(error);
+          this.Apiloading = false;
           this.loading = false;
         });
   }

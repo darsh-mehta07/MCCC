@@ -34,6 +34,8 @@ export class ProfileFirstStepComponent implements OnInit {
     transform: ImageTransform = {};
     cropedfile  :any;
     uploading:boolean = false;
+    cropperbutton:boolean = false;
+    cropperarea : boolean = true;
   
   constructor(
     private formBuilder: FormBuilder,
@@ -64,26 +66,7 @@ export class ProfileFirstStepComponent implements OnInit {
 
 imageCropped(event: ImageCroppedEvent) {
     this.croppedImage = event.base64;    
-    this.cropedfile = base64ToFile(this.croppedImage);    
-    const file = this.cropedfile;
-    var filesAmount = 1;
-          for (let i = 0; i < filesAmount; i++) {
-                  var reader = new FileReader();  
-                  if(file.type.indexOf('image')> -1){
-                    this.format = 'image';
-                  } else if(file.type.indexOf('video')> -1){
-                      this.alertService.error('please select image',true);
-                    this.format = 'video';
-                  } 
-                  reader.onload = (event:any) => {
-                    this.url = (<FileReader>event.target).result;
-                    if(this.images.length < 3){
-                     this.images.push(event.target.result);    
-                     this.patchValues();
-                    }
-                  }  
-                  reader.readAsDataURL(this.cropedfile);
-          }
+    this.cropedfile = base64ToFile(this.croppedImage);   
 }
 
 imageLoaded() {
@@ -92,6 +75,7 @@ imageLoaded() {
 }
 
 cropperReady(sourceImageDimensions: Dimensions) {  
+    this.cropperbutton = true;
     console.log('Cropper ready', sourceImageDimensions);
 }
 
@@ -167,6 +151,32 @@ updateRotation() {
         rotate: this.rotation
     };
 }
+saveImage(){
+  const file = this.cropedfile;
+    var filesAmount = 1;
+          for (let i = 0; i < filesAmount; i++) {
+                  var reader = new FileReader();  
+                  if(file.type.indexOf('image')> -1){
+                    this.format = 'image';
+                  } else if(file.type.indexOf('video')> -1){
+                      this.alertService.error('please select image',true);
+                    this.format = 'video';
+                  } 
+                  reader.onload = (event:any) => {
+                    this.url = (<FileReader>event.target).result;
+                    if(this.images.length < 3){
+                     this.images.push(event.target.result);    
+                     this.patchValues(); 
+                     if(this.images.length == 3){
+                     this.cropperbutton = false;  
+                     this.cropperarea = false; 
+                     this.imageChangedEvent = '';
+                     }                 
+                    }
+                  }  
+                  reader.readAsDataURL(this.cropedfile);
+          }
+}
   ngOnInit(): void {    
     this.form = this.formBuilder.group({
       files : ['',Validators.required],
@@ -206,8 +216,12 @@ updateRotation() {
   }
   // Remove Image
   removeImage(url:any){
-    console.log(this.images,url);
+    console.log(this.images,url);    
     this.images = this.images.filter(img => (img != url));
+    if(this.images.length < 3){
+      this.cropperbutton = true;  
+      this.cropperarea = true; 
+      } 
     // this.patchValues();
   }
 

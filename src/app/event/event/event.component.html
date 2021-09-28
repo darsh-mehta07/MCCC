@@ -1,0 +1,184 @@
+
+<app-header></app-header>
+<app-sticky-menu [stickymenu]='stickymenu'></app-sticky-menu>
+<div id="exTab1" class="inner-tabs">	
+    <ul class="nav nav-pills twtbs" >
+      <li [ngClass]="catId == 4 ? 'active':''" id="tb4"><a  (click)="tab(4)"data-toggle="tab" [ngClass]="catId == 4 ? 'active':''">On Going </a></li>
+		<li [ngClass]="catId == 5 ? 'active':''" id="tb5"><a  (click)="tab(5)"data-toggle="tab" [ngClass]="catId == 5 ? 'active':''">Upcoming </a></li>
+		<li [ngClass]="catId == 6 ? 'active':''" id="tb6"><a (click)="tab(6)"data-toggle="tab" [ngClass]="catId == 6 ? 'active':''">Events </a></li>
+	</ul>
+  </div>
+  
+  <div class="tab-content clearfix">
+    <div class="upcoming-events-tbs tab-pane" [ngClass]="catId == 4 ? 'active':''"  id="tab4">
+      <div class="container">
+        <div class="tabs">
+          <h2>On Going events
+            <hr class="on">
+            <hr class="tw">
+          </h2>
+        </div>
+        <div class="card-tbs" *ngFor="let onGoing of on_going;">
+          <div *ngIf="onGoing.noData">No Data Found</div>
+      <div *ngIf="!onGoing.noData">
+          <div class='dt-tabs'>
+                  <div class="show-hidden-menu">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                  </div>
+                    <div class="hidden-menu" style="display: none;">
+                      <div class="arrow">
+                          <i class="fa fa-caret-up" aria-hidden="true"></i>
+                      </div>
+                      <ul>
+                        <li>
+                          <a href="#">Save</a> 
+                        </li>
+                        <li>
+                            <a href="#">Share</a>
+                        </li>
+                      </ul>
+                  </div>
+              </div>
+          <h3 (click)="eventInner(onGoing.id)">Title: {{onGoing.title | titlecase}}</h3> 
+           <p class="toggle-sec" >{{onGoing.description}}
+            <a (click)="eventInner(onGoing.id)" class="read-more">More...</a>
+           </p>
+          <div class="details">
+             <div class="details-icons">
+              <i class="fa fa-map-marker" aria-hidden="true"></i>
+              <h4>{{onGoing.location | titlecase}}</h4>
+            </div>
+            <div class="details-icons">
+              <i class="fa fa-clock-o" aria-hidden="true"></i> 
+              <h4>{{onGoing.start_date | date: 'MMM d, y'}}</h4>
+            </div>
+            <div class="details-icons">
+             <i class="fa fa-clock-o" aria-hidden="true"></i>
+              <h4>{{onGoing.start_date | date:"h:mm a"}}</h4>
+            </div>
+            </div>
+            </div>
+            <div class="item" *ngIf="!on_going_loding">
+              <ngx-skeleton-loader count="12"></ngx-skeleton-loader>
+            </div>
+            </div>
+      </div>
+    </div>
+    <div class="upcoming-events-tbs tab-pane" [ngClass]="catId == 5 ? 'active':''"  id="tab5">
+  <div class="container">
+    <div class="tabs">
+      <h2>Upcoming events
+        <hr class="on">
+        <hr class="tw">
+      </h2>
+    </div>
+    <div class="card-tbs" *ngFor="let upcoming of upcomings;">
+      <div *ngIf="upcoming.noData">No Data Found</div>
+      <div *ngIf="!upcoming.noData">
+      <div class='dt-tabs'>
+              <div class="show-hidden-menu">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+              </div>
+                <div class="hidden-menu" style="display: none;">
+                  <div class="arrow">
+                      <i class="fa fa-caret-up" aria-hidden="true"></i>
+                  </div>
+                  <ul>
+                    <li>
+                      <a href="#">Save</a> 
+                    </li>
+                    <li>
+                        <a href="#">Share</a>
+                    </li>
+                  </ul>
+              </div>
+          </div>
+      <h3 (click)="eventInner(upcoming.id)">Title: {{upcoming.title | titlecase}}</h3> 
+       <p class="toggle-sec" >{{upcoming.description}}
+        <a (click)="eventInner(upcoming.id)" class="read-more">More...</a>
+       </p>
+      <div class="details">
+         <div class="details-icons">
+          <i class="fa fa-map-marker" aria-hidden="true"></i>
+          <h4>{{upcoming.location | titlecase}}</h4>
+        </div>
+        <div class="details-icons">
+          <i class="fa fa-clock-o" aria-hidden="true"></i> 
+          <h4>{{upcoming.start_date | date : "MMM,d,y"}}</h4>
+        </div>
+        <div class="details-icons">
+         <i class="fa fa-clock-o" aria-hidden="true"></i>
+          <h4>{{upcoming.start_date | date : "h:mm a"}}</h4>
+        </div>
+        </div>
+        </div>
+        <div class="item" *ngIf="!upcomings_loding">
+          <ngx-skeleton-loader count="12"></ngx-skeleton-loader>
+        </div>
+        </div>
+  </div>
+</div>
+    
+  <div class="events-tbs tab-pane " [ngClass]="catId == 6 ? 'active':''" id="tab6">
+  <div class="container">
+    <div class="tabs">
+      <h2>Events for You
+        <hr class="on">
+        <hr class="tw">
+      </h2>
+    </div>
+    <div class="card-tbs" *ngFor="let eventforu of event_for_u;">
+      <div *ngIf="eventforu.noData">No Data Found</div>
+      <div *ngIf="!eventforu.noData">
+        <div class='dt-tabs'>
+              <div class="show-hidden-menu">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+              </div>
+                <div class="hidden-menu" style="display: none;">
+                  <div class="arrow">
+                      <i class="fa fa-caret-up" aria-hidden="true"></i>
+                  </div>
+                  <ul>
+                    <li>
+                      <a href="#">Save</a> 
+                    </li>
+                    <li>
+                        <a href="#">Share</a>
+                    </li>
+                  </ul>
+              </div>
+          </div>
+         
+       <h3  class="yto" (click)="eventInner(eventforu.id)">Title: {{eventforu.title | titlecase}}</h3> 
+       <p  class="toggle-sec">{{eventforu.description}}
+        <a (click)="eventInner(eventforu.id)" class="read-more">More...</a>
+       </p>
+      <div class="details">
+         <div class="details-icons">
+          <i class="fa fa-map-marker" aria-hidden="true"></i>
+          <h4>{{eventforu.location | titlecase}}</h4>
+        </div>
+        <div class="details-icons">
+          <i class="fa fa-clock-o" aria-hidden="true"></i> 
+          <h4>{{eventforu.start_date | date:"MMM,d,y"}}</h4>
+        </div>
+        <div class="details-icons">
+         <i class="fa fa-clock-o" aria-hidden="true"></i>
+          <h4>{{eventforu.start_date | date:"h:mm a"}}</h4>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div class="item" *ngIf="!forU_loding">
+      <ngx-skeleton-loader count="12"></ngx-skeleton-loader>
+    </div>
+  </div>
+</div>
+</div>
+<app-footer [pageName]="pageName"></app-footer> 

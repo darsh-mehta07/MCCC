@@ -25,7 +25,7 @@ export class Signup3Component implements OnInit {
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
-      phone : [sessionStorage.getItem('phone'), [Validators.required,Validators.pattern(/^-?(0|[1-9]\d*)?$/)],this.phoneExists.validate.bind(this.phoneExists)]
+      phone : [sessionStorage.getItem('phone'), [Validators.required,Validators.pattern(/^-?(0|[1-9]{10}\d*)?$/)],this.phoneExists.validate.bind(this.phoneExists)]
     });
   }
   get f(): { [key: string]: AbstractControl } {
