@@ -1,5 +1,5 @@
 <body class="hm_pg inner">
-      <div class="casting-inner">
+      <div class="events-inner">
         <img *ngIf="Apiloading" src="../../../assets/img/mukesh-chhabra-image.png" class="hd-img">
           <img *ngIf="!Apiloading" src="{{image}}" class="hd-img">
           <div class="container" *ngIf="loading">
@@ -29,11 +29,14 @@
                 <i (click)="bookmark(appEvents.id)" [ngClass]="bookmarks != '1'?'fa fa-bookmark-o':'fa fa-bookmark'" aria-hidden="true"></i>
                 <!-- <i class="fa fa-share-alt" aria-hidden="true"></i> -->
               </div>
-              <div class="evt-btn">
-                <a [routerLink]="['/event-apply/1']">ENROLL NOW</a>
+              <div class="evt-btn" *ngIf="this.checkData.data == 'No Data' ">
+                <a [routerLink]="['/workshop-registration-form/',appEvents.id,1]">ENROLL NOW</a>
               </div>
               
-              <h6>Enroll now to confirm your seat</h6>
+              <div class="evt-btn" *ngIf="this.checkData.data !=  'No Data' ">
+                <a>ALREADY ENROLLED</a>
+              </div>
+              <h6 *ngIf="this.checkData.data == 'No Data' ">Enroll now to confirm your seat</h6>
             </div>      
           </div>
           <div class="item" *ngIf="!loading">
