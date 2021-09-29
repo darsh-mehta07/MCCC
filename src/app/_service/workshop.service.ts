@@ -26,4 +26,8 @@ export class WorkshopService {
   user_apply_for_workshop(data:any){
     return this.http.post<any>(`${Config.BasePath}/user_apply_for_workshop`,data);
   }
+  
+  check_for_apply(data:any){
+    return this.http.post<any>(`${Config.BasePath}/check_for_apply`,data);
+  }
 }

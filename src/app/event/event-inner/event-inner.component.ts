@@ -22,6 +22,7 @@ export class EventInnerComponent implements OnInit {
   eventDate :any;
   bookmarks:any;
   bmkStatus:any;
+  checkData: any;
   constructor(public datepipe: DatePipe,private actRoute:ActivatedRoute,
     private route : Router,private location:Location,private dashboardService : DashboardService) { }
 
@@ -30,15 +31,23 @@ export class EventInnerComponent implements OnInit {
       this.eventId = params.get('id');
     });
     this.getEventsData();
+    this.dashboardService.check_for_event_apply({'event_id': this.eventId}).subscribe(
+      data => { 
+        this.checkData = data;
+        console.log(this.checkData.data.length);
+    });
   }
   back(): void {
     this.location.back();
   }
+
+  
   getEventsData(){
     this.Apiloading = true;
     this.loading = false;
     this.dashboardService.innerEvents({id:this.eventId})
       .subscribe(res => {
+        console.log(res);
         this.loading = true;
         this.resData = res;     
         this.Apiloading = false;   
@@ -70,6 +79,7 @@ export class EventInnerComponent implements OnInit {
         // this.showToasterSuccess();      
       });
   }
+  
   
 isDatesEqual(date1:any, date2:any) {
   return date1.getFullYear() === date2.getFullYear() &&
