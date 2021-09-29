@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, OnInit } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
@@ -64,7 +64,7 @@ import { StickyMenuComponent } from './sticky-menu/sticky-menu.component';
 import { RouteReuseStrategy } from '@angular/router';
 import { CustomReuseStrategy } from './_service/custom_reuse_strategy';
 import { WorkshopComponent } from './workshop/workshop.component';
-
+import {ConnectionServiceModule} from 'ng-connection-service'; 
 // import { EventModule } from './event/event.module';
 import { EventComponent } from './event/event/event.component';
 import { EventInnerComponent } from './event/event-inner/event-inner.component';
@@ -74,6 +74,7 @@ import { EventThankyouComponent } from './event/event-thankyou/event-thankyou.co
 import { WorkshopRegistrationComponent } from './workshop/workshop-registration/workshop-registration.component';
 import { WorkshopRegistrationFormComponent } from './workshop/workshop-registration-form/workshop-registration-form.component';
 import { ThankYouPageComponent } from './workshop/thank-you-page/thank-you-page.component';
+import { NoInternetComponent } from './no-internet/no-internet.component';
 // import { CustomReuseStrategy, Routing } from './shared/routing';
 
 @NgModule({
@@ -131,6 +132,7 @@ import { ThankYouPageComponent } from './workshop/thank-you-page/thank-you-page.
     WorkshopRegistrationComponent,
     WorkshopRegistrationFormComponent,
     ThankYouPageComponent,
+    NoInternetComponent,
 
   ],
   imports: [
@@ -148,6 +150,7 @@ import { ThankYouPageComponent } from './workshop/thank-you-page/thank-you-page.
     ToastrModule.forRoot(),
     SlickCarouselModule,
     NgxSkeletonLoaderModule.forRoot(), 
+    ConnectionServiceModule,
     // EventModule,
   ],
   providers: [ DatePipe,
@@ -182,4 +185,9 @@ import { ThankYouPageComponent } from './workshop/thank-you-page/thank-you-page.
 ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule implements OnInit {
+  ngOnInit(): void {
+    
+  } 
+  
+}

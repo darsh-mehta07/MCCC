@@ -55,6 +55,13 @@ export class DashboardService {
     innerEvents(data:any){
       return this.http.post(`${Config.BasePath}/event_inner`,data);
     }
+    user_apply_for_events(data:any){
+      return this.http.post<any>(`${Config.BasePath}/user_apply_for_events`,data);
+    }
+    check_for_event_apply(data:any){
+      return this.http.post<any>(`${Config.BasePath}/check_for_event_apply`,data);
+    }
+    
     // myApplication(data:any):Observable<MyApplication[]>{
     //   // return this.http.post(`${Config.BasePath}/get_user_applied_casting`,data);
     //   return this.http.post<MyApplication[]>(`${Config.BasePath}/get_user_applied_casting`,data);

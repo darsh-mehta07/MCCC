@@ -14,6 +14,7 @@ export class WorkshopRegistrationComponent implements OnInit {
   bgImage: any;
   workshopData: any;
   hostUrl:string = Config.Host+'backend2/';
+  checkData: any;
   constructor(private location: Location,private workshopService: WorkshopService,
     private route:Router,private actRoute:ActivatedRoute) { }
 
@@ -27,6 +28,11 @@ export class WorkshopRegistrationComponent implements OnInit {
         this.workshopData = data.data[0];
         this.bgImage = this.hostUrl+this.workshopData.banner_img_path+'/'+this.workshopData.banner_image;
         console.log(this.workshopData);
+    });
+    this.workshopService.check_for_apply({'workshop_id': this.id}).subscribe(
+      data => { 
+        this.checkData = data;
+        console.log(this.checkData.data);
     });
   }
   back(): void {

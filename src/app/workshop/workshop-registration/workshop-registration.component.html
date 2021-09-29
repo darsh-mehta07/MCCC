@@ -28,9 +28,14 @@
   
           <p>{{workshopData.more_details}}</p>
           
-          <div class="training-btn">
-            <a [routerLink] = "['/workshop-registration-form/',workshopData.id]"> ENROLL NOW </a>
+          <div class="training-btn" *ngIf="this.checkData.data == 'No Data' ">
+            <a [routerLink] = "['/workshop-registration-form/',workshopData.id,2]"> ENROLL NOW </a>
           </div>
+
+          <div class="training-btn" *ngIf="this.checkData.data != 'No Data' ">
+            <a> ALREADY ENROLLED </a>
+          </div>
+
         </div>
       </div>
     </div>
