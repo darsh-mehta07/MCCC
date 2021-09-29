@@ -45,7 +45,8 @@ submit(){
   }else{   
     this.userService.forgot_password(this.form.value).pipe(first()).subscribe(res => {
      this.responceData = res;
-     if(this.responceData.status == 'true' && this.responceData.token != ''){       
+     if(this.responceData.status == 'true' && this.responceData.token != ''){   
+      sessionStorage.setItem('rotp',this.responceData.otp);    
         this.route.navigate(['/reset-password',this.responceData.token]);
      }else{
       console.log('Hello forgot');
