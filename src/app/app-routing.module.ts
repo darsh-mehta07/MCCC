@@ -38,11 +38,19 @@ import { BtsInnerComponent } from './bts-videos/bts-inner/bts-inner.component';
 import { BtsVideoViewComponent } from './bts-videos/bts-video-view/bts-video-view.component';
 import { RouteReuseStrategy } from '@angular/router';
 import { CustomReuseStrategy } from './_service/custom_reuse_strategy';
+
 import {WorkshopComponent} from './workshop/workshop.component';
 import { EventComponent } from './event/event/event.component';
 import { EventInnerComponent } from './event/event-inner/event-inner.component';
 import { EventApplyComponent } from './event/event-apply/event-apply.component';
 import { EventThankyouComponent } from './event/event-thankyou/event-thankyou.component';
+
+import {WorkshopComponent} from './workshop/workshop.component'
+import { WorkshopRegistrationComponent } from './workshop/workshop-registration/workshop-registration.component';
+import { WorkshopRegistrationFormComponent } from './workshop/workshop-registration-form/workshop-registration-form.component';
+import { ThankYouPageComponent } from './workshop/thank-you-page/thank-you-page.component';
+
+
 const routes: Routes = [
   {    
     path: '',    
@@ -222,10 +230,11 @@ const routes: Routes = [
     data: {storeRoute: true,title: 'BTS Inner'}    
   },
   {    
-    path: 'workshop',component: WorkshopComponent,canActivate: [AuthGuard],    
+    path: 'workshop/:id',component: WorkshopComponent,canActivate: [AuthGuard],    
     data: {storeRoute: true,title: 'Workshop'}    
   },
   {    
+
     path: 'event/:id',component: EventComponent,canActivate: [AuthGuard],    
     data: {storeRoute: true,title: 'Event page'}    
   },
@@ -241,6 +250,20 @@ const routes: Routes = [
     path: 'event-thankyou',component: EventThankyouComponent,canActivate: [AuthGuard],    
     data: {storeRoute: true,title: 'Event Thankyou page'}    
   },
+
+    path: 'workshop-registration/:id',component: WorkshopRegistrationComponent,canActivate: [AuthGuard],    
+    data: {storeRoute: true,title: 'Workshop Registration'}    
+  },
+  {    
+    path: 'workshop-registration-form/:id',component: WorkshopRegistrationFormComponent,canActivate: [AuthGuard],    
+    data: {storeRoute: true,title: 'Workshop Registration Form'}    
+  },
+  {    
+    path: 'thank-you-workshop',component: ThankYouPageComponent,canActivate: [AuthGuard],    
+    data: {storeRoute: true,title: 'Workshop Registration Form'}    
+  },
+  
+
 ];
 
 @NgModule({

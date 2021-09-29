@@ -1,0 +1,107 @@
+<body class="hm_pg">
+    <div class="event-regist">
+      <img src="../../assets/img/apply.png">
+      <div class="container">
+        <div class="header hd-icons">
+          <a (click)="back()"><img src="../../assets/img/back2.png" /></a>
+        </div>
+        <div class="form_areas">
+            <form [formGroup]="form">
+            <h1>{{workshopData.title}}</h1>
+            <p>{{workshopData.description}}</p>
+            <p>The name and photo associated with your in App account will be recorded when you upload file and submit this form</p>
+            <h4><span>*</span>Required</h4>
+            
+          <label>First Name<span class="text-danger">*</span></label>
+          <input type="text" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" maxlength="28" formControlName="name" value="{{currentUser.userDetails.name}}" placeholder="type here">
+          <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+            <div *ngIf="f.name.errors.required">Name is required</div>
+          </div>
+
+          <label>Age<span class="text-danger">*</span></label>
+          <input type="text" formControlName="age" value="{{userData.data.age}}" [ngClass]="{ 'is-invalid': submitted && f.age.errors }" placeholder="type here">
+          <div *ngIf="submitted && f.age.errors" class="invalid-feedback">
+            <div *ngIf="f.age.errors.required">Age is required</div>
+          </div>
+
+          <label>Sex<span class="text-danger">*</span></label>
+          <input type="text" formControlName="gender" value="{{currentUser.userDetails.gender}}" placeholder="type here" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }">
+          <div *ngIf="submitted && f.gender.errors" class="invalid-feedback">
+            <div *ngIf="f.gender.errors.required">Gender is required</div>
+          </div>
+
+          <label>Date of Birth<span class="text-danger">*</span></label>
+          <input type="tel" formControlName="dob" value="{{currentUser.userDetails.dob}}" placeholder="type here" [ngClass]="{ 'is-invalid': submitted && f.dob.errors }">
+          <div *ngIf="submitted && f.dob.errors" class="invalid-feedback">
+            <div *ngIf="f.dob.errors.required">Date of birth is required</div>
+          </div>
+
+          <label>Email Id<span class="text-danger">*</span></label>
+          <input type="text" formControlName="email" value="{{currentUser.userDetails.email}}" placeholder="type here" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+          <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+            <div *ngIf="f.email.errors.required">Email Id is required</div>
+          </div>
+
+          <label>Contact Number<span class="text-danger">*</span></label>
+          <input type="text" formControlName="phone" value="{{currentUser.userDetails.phone}}" placeholder="type here" [ngClass]="{ 'is-invalid': submitted && f.phone.errors }">
+          <div *ngIf="submitted && f.phone.errors" class="invalid-feedback">
+            <div *ngIf="f.phone.errors.required">Contact No. is required</div>
+          </div>
+
+          <label>Emergency Contact<span class="text-danger">*</span></label>
+          <input type="text" formControlName="sos_phone" value="" placeholder="type here" [ngClass]="{ 'is-invalid': submitted && f.sos_phone.errors }">
+          <div *ngIf="submitted && f.sos_phone.errors" class="invalid-feedback">
+            <div *ngIf="f.sos_phone.errors.required">Please provide Emergency Contact No. in case your Default number is not reachable.</div>
+          </div>
+          <label>School/College<span class="text-danger">*</span></label>
+          <input type="text" formControlName="edu_details" value="Bechelor's in Theater from NSD" placeholder="type here" >
+          
+          <label>Address<span class="text-danger">*</span></label>
+          <textarea placeholder="type here" formControlName="address">35/2 Aram Nagar, Part 2, D-mart lane, Versova, Andheri(West), Mumbai, Maharashatra 400 062</textarea>
+          <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
+            <div *ngIf="f.address.errors.required">Please provide your Address details.</div>
+          </div>
+
+          <label>Current City<span class="text-danger">*</span></label>
+          <input type="text" formControlName="city_name" value="{{userData.data.user_details.city_name}}" placeholder="type here">
+          <div *ngIf="submitted && f.city_name.errors" class="invalid-feedback">
+            <div *ngIf="f.city_name.errors.required">City is required.</div>
+          </div>
+          <label for="add-more1">Adhar Card<span class="text-danger">*</span></label>
+          <div class="upload">
+              <input type="file" formControlName="aadhar_file"   placeholder="type here" (change)="onFileChange2($event)">
+              <div class="upload-icons">
+                  <i class="fa fa-upload" aria-hidden="true"></i>
+                  <h5>Add More</h5>
+              </div>
+
+          </div>
+          <div *ngIf="submitted && f.aadhar_file.errors" class="invalid-feedback">
+            <div *ngIf="f.aadhar_file.errors.required">Please upload aadhar card photo.</div>
+          </div>
+          <label for="add-more2">Pan Card<span class="text-danger">*</span></label>
+          <div class="upload">
+              <input type="file" formControlName="pan_file"  placeholder="type here" (change)="onFileChange($event)">
+              <div class="upload-icons">
+                  <i class="fa fa-upload" aria-hidden="true"></i>
+                  <h5>Add More</h5>
+              </div>
+          </div>
+          <div *ngIf="submitted && f.pan_file.errors" class="invalid-feedback">
+            <div *ngIf="f.pan_file.errors.required">Please upload pan card photo.</div>
+          </div>
+          
+           <label>Why you want to attend this workshop?<span class="text-danger">*</span></label>
+          <textarea placeholder="Your Answer" formControlName="about_workshop"></textarea>
+          <div *ngIf="submitted && f.about_workshop.errors" class="invalid-feedback">
+            <div *ngIf="f.about_workshop.errors.required">This field is required.</div>
+          </div>
+  
+          <div class="apply-btn">
+            <button type="submit" (click)="submit()"> submit</button>
+          </div>
+        </form>
+        </div>
+      </div>
+    </div>
+</body>

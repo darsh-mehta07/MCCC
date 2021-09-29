@@ -64,11 +64,18 @@ import { StickyMenuComponent } from './sticky-menu/sticky-menu.component';
 import { RouteReuseStrategy } from '@angular/router';
 import { CustomReuseStrategy } from './_service/custom_reuse_strategy';
 import { WorkshopComponent } from './workshop/workshop.component';
+
 // import { EventModule } from './event/event.module';
 import { EventComponent } from './event/event/event.component';
 import { EventInnerComponent } from './event/event-inner/event-inner.component';
 import { EventApplyComponent } from './event/event-apply/event-apply.component';
 import { EventThankyouComponent } from './event/event-thankyou/event-thankyou.component';
+
+import { WorkshopRegistrationComponent } from './workshop/workshop-registration/workshop-registration.component';
+import { WorkshopRegistrationFormComponent } from './workshop/workshop-registration-form/workshop-registration-form.component';
+import { ThankYouPageComponent } from './workshop/thank-you-page/thank-you-page.component';
+// import { CustomReuseStrategy, Routing } from './shared/routing';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -115,10 +122,16 @@ import { EventThankyouComponent } from './event/event-thankyou/event-thankyou.co
     LeftSideMenuComponent,
     StickyMenuComponent,
     WorkshopComponent,
+
     EventComponent,
     EventInnerComponent,
     EventApplyComponent,
     EventThankyouComponent,
+
+    WorkshopRegistrationComponent,
+    WorkshopRegistrationFormComponent,
+    ThankYouPageComponent,
+
   ],
   imports: [
     BrowserModule,
