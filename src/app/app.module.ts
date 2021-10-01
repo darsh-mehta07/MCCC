@@ -64,7 +64,7 @@ import { StickyMenuComponent } from './sticky-menu/sticky-menu.component';
 import { RouteReuseStrategy } from '@angular/router';
 import { CustomReuseStrategy } from './_service/custom_reuse_strategy';
 import { WorkshopComponent } from './workshop/workshop.component';
-import {ConnectionServiceModule} from 'ng-connection-service'; 
+import {ConnectionServiceModule} from 'ng-connection-service';
 // import { EventModule } from './event/event.module';
 import { EventComponent } from './event/event/event.component';
 import { EventInnerComponent } from './event/event-inner/event-inner.component';

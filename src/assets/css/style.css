@@ -680,7 +680,6 @@ body {
    .splash7 button.sign-up:focus-visible, .splash7 button.login-fb:focus-visible, .splash7 button.login-g:focus-visible { outline: 0;}
    .splash7 button.sign-up:focus, .splash7 button.login-fb:focus, .splash7 button.login-g:focus { outline: 0;}
    img.hd-img2 { width: 220px; position: absolute; top: 140px; z-index:1;}
-    .training-inner {display: flex; align-items: center;justify-content: center;background-image: url(../img/training-inner.png);background-size: 100%; height: 100%;background-repeat: no-repeat; background-position: top;}
     .event-inner {display: flex; align-items: center; justify-content: center; background-image: url(../img/Event-bg.png); background-size: cover;height: 100%; background-repeat: no-repeat; background-position: center;}
     .event-inner .hd-icons {filter: brightness(0.5) invert(1);}
     .training-inner .hd-icons {filter: brightness(0.5) invert(1);}
@@ -711,7 +710,7 @@ body {
     .training-inner .form_inner p {margin-bottom: 10px; font-size: 14px;}
     .training-inner h5 {font-size: 15px;}
     .training-btn a {background: hsl(88deg 47% 64%); padding: 10px 22px; border-radius: 25px;color: hsl(0deg 0% 100%);}
-    .training-btn {display: flex; align-items: center; justify-content: center;margin-top: 15px;}
+    .training-btn {display: flex; align-items: center; justify-content: center;margin-top: 15px;margin-bottom: 20%;}
     .sticky { position: fixed;}
     .fixed-icons{position:fixed;}
     .card-tbs h3 {font-size: 18px; color: hsl(7deg 88% 68%); font-weight: 500; text-decoration: none; width: fit-content;}

@@ -9,6 +9,7 @@ import {WorkshopService} from '../_service/workshop.service';
 })
 export class WorkshopComponent implements OnInit {
   stickymenu = 'training';
+  pageName = 'training';
   upcomingData: any;
   endingsoonData: any;
   previosData: any;

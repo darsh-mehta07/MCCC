@@ -10,7 +10,6 @@
           <h1>{{workshopData.title}}</h1>
           <p>{{workshopData.description}}</p>
           <p>The name and photo associated with your in App account will be recorded when you upload file and submit this form</p>
-          <h4><span>*</span>Required</h4>
           
         <label>First Name<span class="text-danger">*</span></label>
         <input type="text" value="{{currentUser.userDetails.name}}" readonly placeholder="name">
@@ -93,13 +92,15 @@
         
 
         <div class="apply-btn">
-          <button type="submit" (click)="submit()"> submit</button>
+          <a type="submit" (click)="submit()"> submit</a>
         </div>
         <div class="edit-profile">
-          <a [routerLink]="['/edit-profile']">
+          <a [routerLink]="['/edit-profile']" class="edit-prf">
             <i class="fa fa-pencil" aria-hidden="true"></i>
             Edit Profile</a>
         </div>
+        
+        
       </form>
       </div>
     </div>

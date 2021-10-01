@@ -29,14 +29,19 @@
                 <i (click)="bookmark(appEvents.id)" [ngClass]="bookmarks != '1'?'fa fa-bookmark-o':'fa fa-bookmark'" aria-hidden="true"></i>
                 <!-- <i class="fa fa-share-alt" aria-hidden="true"></i> -->
               </div>
-              <div class="evt-btn" *ngIf="this.checkData.data == 'No Data' ">
+              <div class="evt-btn" *ngIf="this.checkData.data == 'No Data' && prevDate ">
                 <a [routerLink]="['/workshop-registration-form/',appEvents.id,1]">ENROLL NOW</a>
               </div>
               
-              <div class="evt-btn" *ngIf="this.checkData.data !=  'No Data' ">
+              <div class="evt-btn" *ngIf="this.checkData.data !=  'No Data' && prevDate ">
                 <a>ALREADY ENROLLED</a>
               </div>
-              <h6 *ngIf="this.checkData.data == 'No Data' ">Enroll now to confirm your seat</h6>
+
+              <div class="training-btn" *ngIf=" !prevDate ">
+                <a> Expired </a>
+              </div>
+
+              <h6 *ngIf="this.checkData.data == 'No Data' && prevDate ">Enroll now to confirm your seat</h6>
             </div>      
           </div>
           <div class="item" *ngIf="!loading">

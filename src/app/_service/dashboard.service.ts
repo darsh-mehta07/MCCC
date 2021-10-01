@@ -4,11 +4,12 @@ import { Config } from '../_config/config';
 import{MyApplication} from'../_models/my-application';
 import { shareReplay, map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
-
+import { BehaviorSubject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class DashboardService {
+  public castingData: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
     headers:any;
     localstorageData : any;
     currentUser : any;

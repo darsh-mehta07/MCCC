@@ -151,7 +151,7 @@ const routes: Routes = [
   },
   {    
     path: 'home',component: HomeComponent, canActivate: [AuthGuard],   
-    data: {storeRoute: true,title: 'Home Page'}    
+    data: {title: 'Home Page'}    
   },
   {    
     path: 'profile_first_step',component: ProfileFirstStepComponent, canActivate: [AuthGuard],   
