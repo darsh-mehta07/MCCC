@@ -49,6 +49,14 @@ import { WorkshopRegistrationComponent } from './workshop/workshop-registration/
 import { WorkshopRegistrationFormComponent } from './workshop/workshop-registration-form/workshop-registration-form.component';
 import { ThankYouPageComponent } from './workshop/thank-you-page/thank-you-page.component';
 import { NoInternetComponent } from './no-internet/no-internet.component';
+import { AboutMcccComponent } from './common/about-mccc/about-mccc.component';
+import { FaqsComponent } from './common/faqs/faqs.component';
+import { HelpComponent } from './common/help/help.component';
+import { FaqInnerComponent } from './common/faq-inner/faq-inner.component';
+import { AnatomyComponent } from './common/anatomy/anatomy.component';
+import { PersonalComponent } from './common/personal/personal.component';
+import { ContactDetailsComponent } from './common/contact-details/contact-details.component';
+import { AnatomyInnerComponent } from './common/anatomy-inner/anatomy-inner.component';
 
 
 const routes: Routes = [
@@ -266,7 +274,38 @@ const routes: Routes = [
     path: 'no-internet',component: NoInternetComponent,    
     data: {storeRoute: true,title: 'Workshop Registration Form'}    
   },
-  
+  {    
+    path: 'about-MCCC',component: AboutMcccComponent,    
+    data: {storeRoute: true,title: 'About MCCC'}    
+  },
+  {    
+    path: 'faq',component: FaqsComponent,    
+    data: {storeRoute: true,title: 'FAQS'}    
+  },
+  {    
+    path: 'faq-inner/:id',component: FaqInnerComponent,    
+    data: {storeRoute: true,title: 'FAQ Inner'}    
+  },
+  {    
+    path: 'help',component: HelpComponent,    
+    data: {storeRoute: true,title: 'Help'}    
+  },
+  {    
+    path: 'anatomy',component: AnatomyComponent,    
+    data: {storeRoute: true,title: 'Anatomy'}    
+  },
+  {    
+    path: 'anatomy-inner',component: AnatomyInnerComponent,    
+    data: {storeRoute: true,title: 'Anatomy Inner'}    
+  },
+  {    
+    path: 'personal',component: PersonalComponent,    
+    data: {storeRoute: true,title: 'Parsanal'}    
+  },
+  {    
+    path: 'contact-details',component: ContactDetailsComponent,    
+    data: {storeRoute: true,title: 'Anatomy'}    
+  },
 
 ];
 
