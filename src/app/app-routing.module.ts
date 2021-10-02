@@ -49,6 +49,7 @@ import { WorkshopRegistrationComponent } from './workshop/workshop-registration/
 import { WorkshopRegistrationFormComponent } from './workshop/workshop-registration-form/workshop-registration-form.component';
 import { ThankYouPageComponent } from './workshop/thank-you-page/thank-you-page.component';
 import { NoInternetComponent } from './no-internet/no-internet.component';
+
 import { AboutMcccComponent } from './common/about-mccc/about-mccc.component';
 import { FaqsComponent } from './common/faqs/faqs.component';
 import { HelpComponent } from './common/help/help.component';
@@ -59,6 +60,9 @@ import { ContactDetailsComponent } from './common/contact-details/contact-detail
 import { AnatomyInnerComponent } from './common/anatomy-inner/anatomy-inner.component';
 import { ImagesComponent } from './common/images/images.component';
 import { VideoComponent } from './common/video/video.component';
+
+import { NotificationComponent } from './notification/notification.component';
+
 
 
 const routes: Routes = [
@@ -266,17 +270,18 @@ const routes: Routes = [
   },
   {    
     path: 'workshop-registration-form/:id/:type',component: WorkshopRegistrationFormComponent,canActivate: [AuthGuard],    
-    data: {storeRoute: true,title: 'Workshop Registration Form'}    
+    data: {title: 'Workshop Registration Form'}    
   },
   {    
     path: 'thank-you-workshop/:name',component: ThankYouPageComponent,canActivate: [AuthGuard],    
-    data: {storeRoute: true,title: 'Workshop Registration Form'}    
+    data: {title: 'Workshop Registration Form'}    
   },
   {    
     path: 'no-internet',component: NoInternetComponent,    
     data: {storeRoute: true,title: 'Workshop Registration Form'}    
   },
   {    
+
     path: 'about-MCCC',component: AboutMcccComponent,    
     data: {storeRoute: true,title: 'About MCCC'}    
   },
@@ -316,6 +321,13 @@ const routes: Routes = [
     path: 'video',component: VideoComponent,    
     data: {storeRoute: true,title: 'Video'}    
   },
+  {
+    path: 'notification',component: NotificationComponent,    
+    data: {title: 'Notification Panel'}    
+  },
+  
+
+
 ];
 
 @NgModule({

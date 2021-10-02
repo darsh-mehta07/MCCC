@@ -11,7 +11,7 @@
     <form [formGroup]="form" (ngSubmit)="submit()">
       <div class="form-group">
         <label>OTP</label>
-        <input autofocus formControlName="otp" id="otp" type="text" class="form-control" placeholder="OTP"
+        <input autofocus formControlName="otp" id="otp" type="text" maxlength="4" class="form-control" placeholder="OTP"
           [ngClass]="{ 'is-invalid': submitted && f.otp.errors }">
         <div *ngIf="submitted && f.otp.errors" class="invalid-feedback">
           <div *ngIf="f.otp.errors.required">OTP is required</div>
@@ -21,6 +21,7 @@
         </div>        
       </div>
       <div class="nt-btn">
+        <a href="#">Resend OTP</a>
         <button class="fw-btn">Next <i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>
       </div>
     </form>

@@ -55,6 +55,7 @@ export class CastingInnerComponent implements OnInit {
     this.loading = false;
     this.dashboardService.castingCall({casting_id:this.castingId}).pipe(first())
     .subscribe(res => {
+      console.log(res);
       this.Apiloading = false;
       this.loading = true;
       this.resData = res;   

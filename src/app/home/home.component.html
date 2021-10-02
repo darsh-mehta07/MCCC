@@ -232,7 +232,9 @@
         </h2>
         <a href="#">View All</a>
       </div>
-      <div class="card-tbs">
+      <div class="card-tbs" *ngFor="let upcoming of upcomingsEvents">
+        <div *ngIf="upcoming.noData">No Data Found</div>
+        <div *ngIf="!upcoming.noData">
         <div class="more">
           <button id="more-btn" class="more-btn">
             <span class="more-dot"></span>
@@ -254,64 +256,27 @@
             </ul>
           </div>
         </div>
-        <h3>Title: Lorem ipsum dolor</h3>
-        <p class="toggle-sec">10 days Acting Workshop in Lucknow...
-          <a href="#">Read more</a>
+        <h3>Title: {{upcoming.title | titlecase}}r</h3>
+        <p class="toggle-sec">{{upcoming.description}}
+          <a (click)="eventInner(upcoming.id)">Read more</a>
         </p>
         <div class="details">
           <div class="details-icons">
             <i class="fa fa-map-marker" aria-hidden="true"></i>
-            <h4>Loation</h4>
+            <h4>{{upcoming.location | titlecase}}</h4>
           </div>
           <div class="details-icons">
             <i class="fa fa-clock-o" aria-hidden="true"></i>
-            <h4>12th Aug, 2021</h4>
+            <h4>{{upcoming.start_date | date : "MMM,d,y"}}</h4>
           </div>
           <div class="details-icons">
             <i class="fa fa-clock-o" aria-hidden="true"></i>
-            <h4>8:00am</h4>
+            <h4>{{upcoming.start_date | date : "h:mm a"}}</h4>
           </div>
         </div>
-      </div>
-      <div class="card-tbs">
-        <div class="more">
-          <button id="more-btn" class="more-btn">
-            <span class="more-dot"></span>
-            <span class="more-dot"></span>
-            <span class="more-dot"></span>
-          </button>
-          <div class="more-menu">
-            <div class="more-menu-caret">
-              <div class="more-menu-caret-outer"></div>
-              <div class="more-menu-caret-inner"></div>
-            </div>
-            <ul class="more-menu-items" tabindex="-1" role="menu" aria-labelledby="more-btn" aria-hidden="true">
-              <li class="more-menu-item" role="presentation">
-                <button type="button" class="more-menu-btn" role="menuitem">Save</button>
-              </li>
-              <li class="more-menu-item" role="presentation">
-                <button type="button" class="more-menu-btn" role="menuitem">Share</button>
-              </li>
-            </ul>
-          </div>
         </div>
-        <h3>Title: Lorem ipsum dolor</h3>
-        <p class="toggle-sec">10 days Acting Workshop in Lucknow...
-          <a href="#">Read more</a>
-        </p>
-        <div class="details">
-          <div class="details-icons">
-            <i class="fa fa-map-marker" aria-hidden="true"></i>
-            <h4>Loation</h4>
-          </div>
-          <div class="details-icons">
-            <i class="fa fa-clock-o" aria-hidden="true"></i>
-            <h4>12th Aug, 2021</h4>
-          </div>
-          <div class="details-icons">
-            <i class="fa fa-clock-o" aria-hidden="true"></i>
-            <h4>8:00am</h4>
-          </div>
+        <div class="item" *ngIf="!upcomings_loding">
+          <ngx-skeleton-loader count="12"></ngx-skeleton-loader>
         </div>
       </div>
     </div>
@@ -326,7 +291,9 @@
         </h2>
         <a href="#">View All</a>
       </div>
-      <div class="card-tbs">
+      <div class="card-tbs" *ngFor="let eventforu of event_for_u">
+        <div *ngIf="eventforu.noData">No Data Found</div>
+        <div *ngIf="!eventforu.noData">
         <div class="more">
           <button id="more-btn" class="more-btn">
             <span class="more-dot"></span>
@@ -348,65 +315,28 @@
             </ul>
           </div>
         </div>
-        <h3 class="yto">Title: Lorem ipsum dolor</h3>
-        <p class="toggle-sec">10 days Acting Workshop in Lucknow...
-          <a href="#">Read more</a>
+        <h3>Title: {{eventforu.title | titlecase}}r</h3>
+        <p class="toggle-sec">{{eventforu.description}}
+          <a (click)="eventInner(eventforu.id)">Read more</a>
         </p>
         <div class="details">
           <div class="details-icons">
             <i class="fa fa-map-marker" aria-hidden="true"></i>
-            <h4>Loation</h4>
+            <h4>{{eventforu.location | titlecase}}</h4>
           </div>
           <div class="details-icons">
             <i class="fa fa-clock-o" aria-hidden="true"></i>
-            <h4>12th Aug, 2021</h4>
+            <h4>{{eventforu.start_date | date : "MMM,d,y"}}</h4>
           </div>
           <div class="details-icons">
             <i class="fa fa-clock-o" aria-hidden="true"></i>
-            <h4>8:00am</h4>
+            <h4>{{eventforu.start_date | date : "h:mm a"}}</h4>
           </div>
         </div>
-      </div>
-
-      <div class="card-tbs">
-        <div class="more">
-          <button id="more-btn" class="more-btn">
-            <span class="more-dot"></span>
-            <span class="more-dot"></span>
-            <span class="more-dot"></span>
-          </button>
-          <div class="more-menu">
-            <div class="more-menu-caret">
-              <div class="more-menu-caret-outer"></div>
-              <div class="more-menu-caret-inner"></div>
-            </div>
-            <ul class="more-menu-items" tabindex="-1" role="menu" aria-labelledby="more-btn" aria-hidden="true">
-              <li class="more-menu-item" role="presentation">
-                <button type="button" class="more-menu-btn" role="menuitem">Save</button>
-              </li>
-              <li class="more-menu-item" role="presentation">
-                <button type="button" class="more-menu-btn" role="menuitem">Share</button>
-              </li>
-            </ul>
-          </div>
+        
+        <div class="item" *ngIf="!forU_loding">
+          <ngx-skeleton-loader count="12"></ngx-skeleton-loader>
         </div>
-        <h3 class="yto">Title: Lorem ipsum dolor</h3>
-        <p class="toggle-sec">10 days Acting Workshop in Lucknow...
-          <a href="#">Read more</a>
-        </p>
-        <div class="details">
-          <div class="details-icons">
-            <i class="fa fa-map-marker" aria-hidden="true"></i>
-            <h4>Loation</h4>
-          </div>
-          <div class="details-icons">
-            <i class="fa fa-clock-o" aria-hidden="true"></i>
-            <h4>12th Aug, 2021</h4>
-          </div>
-          <div class="details-icons">
-            <i class="fa fa-clock-o" aria-hidden="true"></i>
-            <h4>8:00am</h4>
-          </div>
         </div>
       </div>
     </div>
@@ -523,7 +453,7 @@
           <hr class="on">
           <hr class="tw">
         </h2>
-        <a *ngIf="endingsoonData != 'No Data' " [routerLink]="['/workshop/2']">View All</a>
+        <a *ngIf="endingsoonData.length > 0 " [routerLink]="['/workshop/2']">View All</a>
       </div>
       <div class="card-tbs" *ngFor="let data of endingsoonData">
         <div class="more">
@@ -556,7 +486,7 @@
            <span (click)="expanded = 0"
              class="text-green"><b>{{expanded==  data.id ?'View less':'View more'}}</b></span></p>
       </div>
-      <div class="no-data" *ngIf="endingsoonData == 'No Data' ">
+      <div class="no-data" *ngIf="endingsoonData.length == 0 ">
         <h2>No Data Available</h2>
       </div>
 
