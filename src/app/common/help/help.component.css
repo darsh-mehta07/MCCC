@@ -1,3 +1,29 @@
 .bgimg{
     width:100% !important;
 }
+
+/*help-center*/
+.help-center img {width: 100%;}
+.help-center .form_areas {position: absolute; top: 10%; height: 100%; padding-bottom: 75px;}
+.help h3 {color: #000; font-size: 22px;border-bottom: 3px solid #c7c7c7;padding-bottom: 15px;}
+.help h5 {font-size: 14px;text-decoration: none;color: #000;display: flex; align-items: center; 
+    background: #fff;
+    padding: 0;
+    box-shadow: none;justify-content: space-between;}
+.help a {color: hsl(0deg 0% 0%);text-decoration: none;}
+.help .card-header {background: #fff; padding: 15px;border:0;display: flex;}
+.help .card {border: 0; border-bottom: 1px solid #6c757d !important;}
+.help .card-body { padding: 10px; border: 0 !important;}
+.help h5 i { float: right;font-size: 20px;margin-right: 20px;}
+.help p {font-size: 14px;margin: 0;}
+.help-center .card .card-header a:not(.collapsed) .rotate-icon2 { -webkit-transform: rotate(90deg); transform: rotate(90deg);}
+.help a.collapsed { width: 100%; display: flex;justify-content: flex-start;}
+.help ul {list-style: none;}
+.help-center ul li {  margin-bottom: 10px;}
+.help-center {
+    position: relative;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+/*help-center*/

@@ -9,11 +9,11 @@
       <div class="foot-tbs">
         <a [routerLink]="['/my-aaplication']" [ngClass]="pageName == 'my-application' ? 'active' : ''">
           <i class="fa fa-calendar" aria-hidden="true"></i>
-          <h5>My Application</h5>
+          <h5>Application</h5>
         </a>
       </div>
       <div class="foot-tbs">
-        <a [ngClass]="pageName == 'message' ? 'active' : ''">
+        <a [routerLink]="['/games']" [ngClass]="pageName == 'message' ? 'active' : ''">
           <i class="fa fa-gamepad" aria-hidden="true"></i>
           <h5>Games</h5>
         </a>
