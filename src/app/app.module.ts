@@ -89,6 +89,7 @@ import { SkillComponent } from './common/skill/skill.component';
 import { AnatomyInnerComponent } from './common/anatomy-inner/anatomy-inner.component';
 
 import { NotificationComponent } from './notification/notification.component';
+import { GamesComponent } from './games/games.component';
 
 // import { CustomReuseStrategy, Routing } from './shared/routing';
 
@@ -162,6 +163,7 @@ import { NotificationComponent } from './notification/notification.component';
     AnatomyInnerComponent,
 
     NotificationComponent,
+      GamesComponent,
 
 
   ],

@@ -27,7 +27,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     setInterval(() => { 
      this.getUserNotificationCounter();
-    }, 1000 * 3)
+    }, 1000 * 15)
 
     this.openMenu = false;
     this.getUserNotificationCounter();
@@ -39,7 +39,7 @@ export class HeaderComponent implements OnInit {
         
         this.loadingnc = true;
         this.resData = res;   
-        console.log(this.resData.data);     
+        // console.log(this.resData.data);     
         this.newCastinghh = this.resData.data; 
         if(this.newCastinghh == 'No Record Found'){
           this.nonewcall = true;
@@ -62,7 +62,7 @@ export class HeaderComponent implements OnInit {
     this.dashboardService.getUserNotificationCounter(null)
     .subscribe(res => {
       this.getCount = res.data; 
-      console.log(this.getCount + 'count');
+      // console.log(this.getCount + 'count');
     });
   }
 

@@ -62,6 +62,7 @@ import { ImagesComponent } from './common/images/images.component';
 import { VideoComponent } from './common/video/video.component';
 
 import { NotificationComponent } from './notification/notification.component';
+import { GamesComponent } from './games/games.component';
 
 
 
@@ -324,6 +325,10 @@ const routes: Routes = [
   {
     path: 'notification',component: NotificationComponent,    
     data: {title: 'Notification Panel'}    
+  },
+  {
+    path: 'games',component: GamesComponent,    
+    data: {title: 'games'}    
   },
   
 
