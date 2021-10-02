@@ -59,7 +59,6 @@ import { SafePipe } from './_config/safe.pipe';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { LeftSideMenuComponent } from './left-side-menu/left-side-menu.component';
 import { StickyMenuComponent } from './sticky-menu/sticky-menu.component';
 import { RouteReuseStrategy } from '@angular/router';
 import { CustomReuseStrategy } from './_service/custom_reuse_strategy';
@@ -75,7 +74,22 @@ import { WorkshopRegistrationComponent } from './workshop/workshop-registration/
 import { WorkshopRegistrationFormComponent } from './workshop/workshop-registration-form/workshop-registration-form.component';
 import { ThankYouPageComponent } from './workshop/thank-you-page/thank-you-page.component';
 import { NoInternetComponent } from './no-internet/no-internet.component';
+
+import { AboutMcccComponent } from './common/about-mccc/about-mccc.component';
+import { FaqsComponent } from './common/faqs/faqs.component';
+import { HelpComponent } from './common/help/help.component';
+import { FaqInnerComponent } from './common/faq-inner/faq-inner.component';
+import { AnatomyComponent } from './common/anatomy/anatomy.component';
+import { ContactDetailsComponent } from './common/contact-details/contact-details.component';
+import { PersonalComponent } from './common/personal/personal.component';
+import { ImagesComponent } from './common/images/images.component';
+import { VideoComponent } from './common/video/video.component';
+import { PreviousWorkComponent } from './common/previous-work/previous-work.component';
+import { SkillComponent } from './common/skill/skill.component';
+import { AnatomyInnerComponent } from './common/anatomy-inner/anatomy-inner.component';
+
 import { NotificationComponent } from './notification/notification.component';
+
 // import { CustomReuseStrategy, Routing } from './shared/routing';
 
 @NgModule({
@@ -121,7 +135,6 @@ import { NotificationComponent } from './notification/notification.component';
     SafePipe,
     HeaderComponent,
     FooterComponent,
-    LeftSideMenuComponent,
     StickyMenuComponent,
     WorkshopComponent,
 
@@ -134,7 +147,22 @@ import { NotificationComponent } from './notification/notification.component';
     WorkshopRegistrationFormComponent,
     ThankYouPageComponent,
     NoInternetComponent,
+
+    AboutMcccComponent,
+    FaqsComponent,
+    HelpComponent,
+    FaqInnerComponent,
+    AnatomyComponent,
+    ContactDetailsComponent,
+    PersonalComponent,
+    ImagesComponent,
+    VideoComponent,
+    PreviousWorkComponent,
+    SkillComponent,
+    AnatomyInnerComponent,
+
     NotificationComponent,
+
 
   ],
   imports: [

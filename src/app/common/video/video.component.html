@@ -1,0 +1,57 @@
+<div class="profile-dtl">
+    <img src="../../../assets/img/application.png">
+    <div class="container">
+        <div class="header profile-icons">
+            <a (click)="back()"><img src="../../../assets/img/back2.png" /></a>
+            <div class="Profile">
+                <img src="../../../assets/img/profile.svg">
+                <a href="#">Hello {{currentUser.userDetails.name}}</a>
+            </div>
+          </div>
+      
+        <div class="form_areas">
+            <h5>Videos</h5>
+            <div class="vdi">
+                <div class="upload-video">
+                    <div class="box">
+                        <div class="js--image-preview"></div>
+                        <div class="upload-options">
+                          <div class='multi-field'>
+                            <input type="file" class="image-upload" accept="image/*">
+                            <button type="button" class="close">X</button>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="js--image-preview"></div>
+                        <div class="upload-options">
+                          <div class='multi-field'>
+                            <input type="file" class="image-upload" accept="image/*">
+                            <button type="button" class="close">X</button>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="js--image-preview"></div>
+                        <div class="upload-options">
+                          <div class='multi-field'>
+                            <input type="file" class="image-upload" accept="image/*">
+                            <button type="button" class="close">X</button>
+                          </div>
+                        </div>
+                    </div>
+    </div>
+                <div class="vdi-btn">
+                    <i class="fa fa-plus-circle" aria-hidden="true"> </i>
+                    <p>Select More Videos</p>
+                </div>
+            </div>
+
+            <div class="profil-btn">
+                <button type="submit" [attr.disabled] = "active === 1 ? 'disabled' : null"> Save <span [ngClass]="uploading ? 'button_loader' : ''" ></span></button>
+              <a (click)="back()" class="wht"> Cancle</a>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer [pageName]="pageName"></app-footer>

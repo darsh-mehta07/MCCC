@@ -6,6 +6,8 @@ import { Config } from '../_config/config';
 import { UserService } from '../_service/user.service';
 import { first } from 'rxjs/operators';
 import { NotificationService } from '../_service/notification.service';
+import { MustMatch,MustMatchfield } from '../_helpers/must-match.validator';
+
 
 @Component({
   selector: 'app-reset-password',
@@ -17,6 +19,7 @@ export class ResetPasswordComponent implements OnInit {
   submitted = false;
   token:any;
   responceData:any;
+  rotp : any;
   constructor(private notifyService : NotificationService,private userService:UserService,private actRoute:ActivatedRoute ,private formBuilder: FormBuilder, private route : Router,private authenticationService: AuthenticationService,) {
     // redirect to home if already logged in
     if (this.authenticationService.currentUserValue) {
@@ -28,10 +31,14 @@ export class ResetPasswordComponent implements OnInit {
     this.actRoute.paramMap.subscribe((params: ParamMap) => {                 
       this.token = params.get('token');
     });
-    
+    this.rotp = sessionStorage.getItem('rotp');
     this.form = this.formBuilder.group({
-      password: ['',Validators.required]
-    });
+      password: ['',[Validators.required,Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,}')]],
+      confirm_password: ['',Validators.required],
+      otp : ['',[Validators.required ,Validators.max(9999),Validators.min(1000)]]
+    }, {
+      validator: [MustMatchfield('password','confirm_password'),MustMatch(this.rotp,'otp')]
+  });
   }
   get f(): { [key: string]: AbstractControl } {
     return this.form.controls;
@@ -44,6 +51,7 @@ export class ResetPasswordComponent implements OnInit {
       this.userService.reset_password(this.form.value,this.token).pipe(first()).subscribe(res => {
         this.responceData = res;
         if(this.responceData.status == 'true'){  
+          sessionStorage.removeItem('rotp');
           this.notifyService.showSuccess("Password Reset Successfully !!", "Mccc");
           this.route.navigate(['/signin']);
         }else{
