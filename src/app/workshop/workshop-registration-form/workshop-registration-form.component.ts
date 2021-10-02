@@ -94,6 +94,7 @@ export class WorkshopRegistrationFormComponent implements OnInit {
     }else{
       this.loading = true;
       var data = this.form.value;
+      console.log(this.form.value);
       if(this.type == 2){
           this.workshopService.user_apply_for_workshop(data).subscribe(
             data => { 
@@ -104,6 +105,7 @@ export class WorkshopRegistrationFormComponent implements OnInit {
           });
       }
       if(this.type == 1){
+        this.loading = false;
         this.dashboardService.user_apply_for_events(data).subscribe(
           data => { 
             console.log(data);

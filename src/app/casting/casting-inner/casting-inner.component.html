@@ -1,6 +1,6 @@
 <body class="hm_pg inner">
 <div class="casting-inner">
-  <img *ngIf="Apiloading" src="../../../assets/img/inner.png" class="hd-img">
+  <!-- <img *ngIf="Apiloading" src="../../../assets/img/inner.png" class="hd-img"> -->
     <img *ngIf="!Apiloading" src="{{image}}" class="hd-img">
     <div class="container" *ngIf="loading">
       <div class="header hd-icons"> 
@@ -11,7 +11,7 @@
           <div [innerHTML]="long_description"></div>
        <div class="card-icons">
           <i (click)="bookmark(castingId)" [ngClass]="bookmarks != '1'?'fa fa-bookmark-o':'fa fa-bookmark'" aria-hidden="true"></i>
-          <i class="fa fa-share-alt" aria-hidden="true"></i>
+          <!-- <i class="fa fa-share-alt" aria-hidden="true"></i> -->
         </div>
         <div class="inner-btn">
           <a (click)="applyCasting()"> Swipe to Apply

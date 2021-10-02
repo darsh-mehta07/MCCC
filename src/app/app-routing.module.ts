@@ -49,6 +49,7 @@ import { WorkshopRegistrationComponent } from './workshop/workshop-registration/
 import { WorkshopRegistrationFormComponent } from './workshop/workshop-registration-form/workshop-registration-form.component';
 import { ThankYouPageComponent } from './workshop/thank-you-page/thank-you-page.component';
 import { NoInternetComponent } from './no-internet/no-internet.component';
+import { NotificationComponent } from './notification/notification.component';
 
 
 const routes: Routes = [
@@ -256,15 +257,19 @@ const routes: Routes = [
   },
   {    
     path: 'workshop-registration-form/:id/:type',component: WorkshopRegistrationFormComponent,canActivate: [AuthGuard],    
-    data: {storeRoute: true,title: 'Workshop Registration Form'}    
+    data: {title: 'Workshop Registration Form'}    
   },
   {    
     path: 'thank-you-workshop/:name',component: ThankYouPageComponent,canActivate: [AuthGuard],    
-    data: {storeRoute: true,title: 'Workshop Registration Form'}    
+    data: {title: 'Workshop Registration Form'}    
   },
   {    
     path: 'no-internet',component: NoInternetComponent,    
     data: {storeRoute: true,title: 'Workshop Registration Form'}    
+  },
+  {    
+    path: 'notification',component: NotificationComponent,    
+    data: {title: 'Notification Panel'}    
   },
   
 
