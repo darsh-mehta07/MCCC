@@ -30,7 +30,7 @@ export class AnatomyInnerComponent implements OnInit {
      ngOnInit(): void {
       this.form = this.formBuilder.group({
         weight:['',Validators.required],
-        skin:['',Validators.required],
+        skin_color:['',Validators.required],
         waist:['',Validators.required],
         chest:['',Validators.required],
         bust:['',Validators.required],
@@ -43,6 +43,7 @@ export class AnatomyInnerComponent implements OnInit {
         this.resData = res;   
         this.datas = this.resData.data;
         this.form.controls['weight'].setValue(this.datas.weight);
+        this.form.controls['skin_color'].setValue(this.datas.skin_color);
         this.form.controls['waist'].setValue(this.datas.waist);
         this.form.controls['chest'].setValue(this.datas.chest);
         this.form.controls['bust'].setValue(this.datas.bust);

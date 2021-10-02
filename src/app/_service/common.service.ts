@@ -34,5 +34,17 @@ export class CommonService {
     anatomyInnerUpdate(data:any){
       return this.http.post(`${Config.BasePath}/add_update_anatomy`,data);
     }
+    personal(){
+      return this.http.get(`${Config.BasePath}/display_user_personal_info`);
+    }
+    personalUpdate(data:any){
+      return this.http.post(`${Config.BasePath}/add_update_anatomy`,data);
+    }
+    myImages(){
+      return this.http.get(`${Config.BasePath}/display_user_image_data`);
+    }
+    myVideo(data:any){
+      return this.http.post(`${Config.BasePath}/add_update_anatomy`,data);
+    }
     
 }

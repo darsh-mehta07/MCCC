@@ -11,34 +11,68 @@
       
       <div class="form_areas">
           <h5>Personal Information</h5>
+          <form [formGroup]="form" (ngSubmit)="submit()">            
+            <div class="form-group">
           <label>First Name<span class="text-danger">*</span></label>
-        <input type="text" name="" value="Ritesh Pandey" placeholder="type here">
-
-        <label>Age<span class="text-danger">*</span></label>
-        <input type="text" name="" value="30" placeholder="type here">
-
-        <label>Height<span class="text-danger">*</span></label>
-        <input type="text" name="" value="5ft 11inch" placeholder="type here">
-
-        <label>Contact Number<span class="text-danger">*</span></label>
-        <input type="tel" name="" value="+91 84 25025 713" placeholder="type here">
-
-        <label>Language<span class="text-danger">*</span></label>
-        <input type="text" name="" value="English, Hindi, Marathi" placeholder="type here">
-
-        <label>Current City<span class="text-danger">*</span></label>
-        <input type="text" name="" value="Mumbai" placeholder="type here">
-
+          <input type="text" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" class="form-control" formControlName="name" placeholder="Your Name">
+          <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+              <div *ngIf="f.name.errors.required">Name is required</div>
+            </div>
+      </div>
+      <div class="form-group">
+          <label>Age<span class="text-danger">*</span></label>
+          <input type="text" [ngClass]="{ 'is-invalid': submitted && f.dob.errors }" class="form-control" formControlName="dob" placeholder="Your Age">
+          <div *ngIf="submitted && f.dob.errors" class="invalid-feedback">
+              <div *ngIf="f.dob.errors.required">Age is required</div>
+            </div>
+      </div>
+      <div class="form-group">
+          <label>Height<span class="text-danger">*</span></label>
+          <input type="tel" [ngClass]="{ 'is-invalid': submitted && f.height.errors }" class="form-control" formControlName="height"  placeholder="5ft 11inche">
+          <div *ngIf="submitted && f.height.errors" class="invalid-feedback">
+              <div *ngIf="f.height.errors.required">Height is required</div>
+            </div>
+      </div>      
+      <div class="form-group">
+          <label>Contact Number<span class="text-danger">*</span></label>
+          <input type="text" [ngClass]="{ 'is-invalid': submitted && f.phone.errors }" class="form-control" formControlName="phone" placeholder="Your Contact Number">
+          <div *ngIf="submitted && f.phone.errors" class="invalid-feedback">
+              <div *ngIf="f.phone.errors.required">Contact Number is required</div>
+            </div>
+      </div>
+      <div class="form-group">
+          <label>Language<span class="text-danger">*</span></label>
+          <input type="text" [ngClass]="{ 'is-invalid': submitted && f.language_id.errors }" class="form-control" formControlName="language_id" placeholder="Your Language">
+          <div *ngIf="submitted && f.language_id.errors" class="invalid-feedback">
+              <div *ngIf="f.language_id.errors.required">Language is required</div>
+            </div>
+      </div>
+      <div class="form-group">
+          <label>Current City<span class="text-danger">*</span></label>
+          <input type="text" [ngClass]="{ 'is-invalid': submitted && f.city_id.errors }" class="form-control" formControlName="city_id" placeholder="Your City">
+          <div *ngIf="submitted && f.city_id.errors" class="invalid-feedback">
+              <div *ngIf="f.city_id.errors.required">city_id is required</div>
+            </div>
+      </div>
+      <div class="form-group">
         <label>Home Town<span class="text-danger">*</span></label>
-        <input type="text" name="" value="Mumbai" placeholder="type here">
-
+        <input type="text" [ngClass]="{ 'is-invalid': submitted && f.home_town.errors }" class="form-control" formControlName="home_town" placeholder="Your Home Town">
+        <div *ngIf="submitted && f.home_town.errors" class="invalid-feedback">
+            <div *ngIf="f.home_town.errors.required">Home Town is required</div>
+          </div>
+    </div>
+      <div class="form-group">
         <label>Hobbies<span class="text-danger">*</span></label>
-        <input type="text" name="" value="Cricket, Hockey" placeholder="type here">
-        
-        <div class="profil-btn">
-          <a href="#"> Save</a>
-          <a href="#" class="wht"> Cancle</a>
-        </div>
+        <input type="text" [ngClass]="{ 'is-invalid': submitted && f.hobbies.errors }" class="form-control" formControlName="hobbies" placeholder="Your Hobbies">
+        <div *ngIf="submitted && f.hobbies.errors" class="invalid-feedback">
+            <div *ngIf="f.hobbies.errors.required">Hobbies is required</div>
+          </div>
+    </div>
+          <div class="profil-btn">
+              <button type="submit" [attr.disabled] = "active === 1 ? 'disabled' : null"> Save <span [ngClass]="uploading ? 'button_loader' : ''" ></span></button>
+            <a (click)="back()" class="wht"> Cancle</a>
+          </div>
+      </form>   
        
       </div>
     </div>

@@ -57,6 +57,8 @@ import { AnatomyComponent } from './common/anatomy/anatomy.component';
 import { PersonalComponent } from './common/personal/personal.component';
 import { ContactDetailsComponent } from './common/contact-details/contact-details.component';
 import { AnatomyInnerComponent } from './common/anatomy-inner/anatomy-inner.component';
+import { ImagesComponent } from './common/images/images.component';
+import { VideoComponent } from './common/video/video.component';
 
 
 const routes: Routes = [
@@ -306,7 +308,14 @@ const routes: Routes = [
     path: 'contact-details',component: ContactDetailsComponent,    
     data: {storeRoute: true,title: 'Anatomy'}    
   },
-
+  {    
+    path: 'images',component: ImagesComponent,    
+    data: {storeRoute: true,title: 'Images'}    
+  },
+  {    
+    path: 'video',component: VideoComponent,    
+    data: {storeRoute: true,title: 'Video'}    
+  },
 ];
 
 @NgModule({

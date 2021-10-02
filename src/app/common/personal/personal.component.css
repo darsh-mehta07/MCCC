@@ -1,3 +1,16 @@
 .profile-dtl img{
     width:100%
 }
+.button_loader {
+    position: absolute;
+    left: 50%;
+    top: 68%;
+    z-index: 1;
+    width: 20px;
+    height: 20px;
+    margin: -76px 0 0 -76px;
+    border: 3px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 3px solid #ff6e61;
+    animation: spin 2s linear infinite;
+}

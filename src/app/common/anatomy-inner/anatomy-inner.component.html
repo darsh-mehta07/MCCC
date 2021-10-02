@@ -21,9 +21,9 @@
     </div>
     <div class="form-group">
         <label>Skin Colour<span class="text-danger">*</span></label>
-        <input type="text" [ngClass]="{ 'is-invalid': submitted && f.skin.errors }" class="form-control" formControlName="skin" placeholder="Black">
-        <div *ngIf="submitted && f.skin.errors" class="invalid-feedback">
-            <div *ngIf="f.skin.errors.required">Skin Colour is required</div>
+        <input type="text" [ngClass]="{ 'is-invalid': submitted && f.skin_color.errors }" class="form-control" formControlName="skin_color" placeholder="Black">
+        <div *ngIf="submitted && f.skin_color.errors" class="invalid-feedback">
+            <div *ngIf="f.skin_color.errors.required">Skin Colour is required</div>
           </div>
     </div>
     <div class="form-group">

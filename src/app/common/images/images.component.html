@@ -1,1 +1,58 @@
-<p>images works!</p>
+<div class="profile-dtl">
+    <img src="../../../assets/img/apply.png">
+    <div class="container">
+        <div class="header profile-icons">
+            <a (click)="back()"><img src="../../../assets/img/back2.png" /></a>
+            <div class="Profile">
+                <img src="../../../assets/img/profile.svg">
+                <a href="#">Hello {{currentUser.userDetails.name}}</a>
+            </div>
+          </div>
+      
+        <div class="form_areas">
+          <h5>Images</h5>
+            <div class="pht">
+                <!-- <div class="upload-img">
+                <div class="box">
+                    <div class="js--image-preview"></div>
+                    <div class="upload-options">
+                      <div class='multi-field'>
+                        <input type="file" class="image-upload" accept="image/*">
+                        <button type="button" class="close">X</button>
+                      </div>
+                    </div>
+                </div>                
+            </div> -->
+            <div class="upload-img">
+                <div class="box" *ngFor="let img of datas;let i=index;">
+                  <img class="js--image-preview" src="{{imagePath+img.image}}" />
+                  <div class="upload-options">
+                    <div class='multi-field'>
+                      <button type="button" class="close" (click)="removePrimaryImage(i)">X</button>
+                    </div>
+                  </div>
+                </div>
+                <!-- <div class="box" *ngFor='let url of cropimages; let j=index;'>
+                  <img class="js--image-preview" [src]="url" />
+                  <div class="upload-options">
+                    <div class='multi-field'>
+                      <button type="button" class="close" (click)="removeSelectedImage(url)">X</button>
+                    </div>
+                  </div>
+                </div> -->
+                <!-- <div class="error" *ngIf="threeimgerror">{{imageerror}}</div> -->
+              </div>
+                <div class="pht-btn">
+            <i class="fa fa-plus-circle" aria-hidden="true" class="add-pht"></i>
+            <p>Select More Photos</p>
+        </div>
+            </div>
+        
+            <div class="profil-btn">
+                <button type="submit" [attr.disabled] = "active === 1 ? 'disabled' : null"> Save <span [ngClass]="uploading ? 'button_loader' : ''" ></span></button>
+              <a (click)="back()" class="wht"> Cancle</a>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer [pageName]="pageName"></app-footer>
