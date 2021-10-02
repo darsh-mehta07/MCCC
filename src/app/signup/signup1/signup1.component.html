@@ -10,7 +10,7 @@
     <form [formGroup]="form" (ngSubmit)="submit()">
       <div class="form-group">
         <label for="name">What is your name?</label>
-        <input autofocus formControlName="name" id="name" type="text" class="form-control" placeholder="Your Name" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" maxlength="28">
+        <input autofocus formControlName="name" id="name" type="text" class="form-control" placeholder="Full Name" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" maxlength="28">
         <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
           <div *ngIf="f.name.errors.required">Name is required</div>
           <div *ngIf="f.name.errors.pattern">Name must be two characters</div>

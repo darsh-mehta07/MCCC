@@ -75,6 +75,7 @@ import { WorkshopRegistrationComponent } from './workshop/workshop-registration/
 import { WorkshopRegistrationFormComponent } from './workshop/workshop-registration-form/workshop-registration-form.component';
 import { ThankYouPageComponent } from './workshop/thank-you-page/thank-you-page.component';
 import { NoInternetComponent } from './no-internet/no-internet.component';
+import { NotificationComponent } from './notification/notification.component';
 // import { CustomReuseStrategy, Routing } from './shared/routing';
 
 @NgModule({
@@ -133,6 +134,7 @@ import { NoInternetComponent } from './no-internet/no-internet.component';
     WorkshopRegistrationFormComponent,
     ThankYouPageComponent,
     NoInternetComponent,
+    NotificationComponent,
 
   ],
   imports: [

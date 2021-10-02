@@ -17,6 +17,7 @@ export class HeaderComponent implements OnInit {
   resData: any;
   newCastinghh: any;
   nonewcall: boolean = false;
+  getCount: any;
   constructor( private route:Router,
     private authenticationService: AuthenticationService,
     private dashboardService: DashboardService) {
@@ -25,17 +26,14 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     setInterval(() => { 
-     this.newCastingCallApi();
-    }, 1000 * 10)
-  
+     this.getUserNotificationCounter();
+    }, 1000 * 3)
 
-    
     this.openMenu = false;
-    // this.dashboardService.castingCall.next(true);
+    this.getUserNotificationCounter();
   }
   newCastingCallApi(){
     
-      // console.log('data load from header');
     this.dashboardService.castingCall({limit:5})
       .subscribe(res => {
         
@@ -59,6 +57,13 @@ export class HeaderComponent implements OnInit {
     this.authenticationService.logout();
     this.openMenu = false;
     this.route.navigate(['/signin']);
+  }
+  getUserNotificationCounter(){
+    this.dashboardService.getUserNotificationCounter(null)
+    .subscribe(res => {
+      this.getCount = res.data; 
+      console.log(this.getCount + 'count');
+    });
   }
 
 }

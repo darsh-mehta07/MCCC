@@ -62,6 +62,15 @@ export class DashboardService {
     check_for_event_apply(data:any){
       return this.http.post<any>(`${Config.BasePath}/check_for_event_apply`,data);
     }
+    getUserNotification(data:any){
+      return this.http.post<any>(`${Config.BasePath}/get_user_notification`,data);
+    }
+    UserNotificationMarkRead(data:any){
+      return this.http.post<any>(`${Config.BasePath}/user_notification_mark_read`,data);
+    }
+    getUserNotificationCounter(data:any){
+      return this.http.post<any>(`${Config.BasePath}/get_user_notification_counter`,data);
+    }
     
     // myApplication(data:any):Observable<MyApplication[]>{
     //   // return this.http.post(`${Config.BasePath}/get_user_applied_casting`,data);
