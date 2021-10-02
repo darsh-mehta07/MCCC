@@ -20,22 +20,22 @@ export class AppComponent {
     private route:Router,
     private location: Location,) { 
       
-      this.route.events.subscribe((e) => {
-        if (e instanceof NavigationEnd) {
-          this.connectionService.monitor().subscribe(isConnected => {  
-            this.isConnected = isConnected;  
-            console.log(this.isConnected + 'fffconnecterd');
-            if (this.isConnected) {  
-              this.noInternetConnection=false;  
-              this.location.back();
-            }  
-            else {  
-              this.route.navigate(['/no-internet']);
-              this.noInternetConnection=true;  
-            }  
-          })  
-        }
-     });
+    //   this.route.events.subscribe((e) => {
+    //     if (e instanceof NavigationEnd) {
+    //       this.connectionService.monitor().subscribe(isConnected => {  
+    //         this.isConnected = isConnected;  
+    //         console.log(this.isConnected + 'fffconnecterd');
+    //         if (this.isConnected) {  
+    //           this.noInternetConnection=false;  
+    //           this.location.back();
+    //         }  
+    //         else {  
+    //           this.route.navigate(['/no-internet']);
+    //           this.noInternetConnection=true;  
+    //         }  
+    //       })  
+    //     }
+    //  });
      this.connectionService.monitor().subscribe(isConnected => {  
       this.isConnected = isConnected;  
       console.log(this.isConnected + 'fffconnecterd');

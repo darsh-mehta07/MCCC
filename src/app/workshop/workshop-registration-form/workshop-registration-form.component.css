@@ -1,0 +1,70 @@
+.event-regist img {
+    width: 100%;
+}
+.event-regist .header.hd-icons {
+    filter: brightness(0.5) invert(1);
+}
+.event-regist .form_areas {
+    top: 10%;
+}
+.event-regist {
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: relative;
+    background: #efefef;
+}
+.event-regist .apply-btn a {
+    background: hsl(201deg 80% 59%);
+    color: hsl(42deg 76% 64%) !important;
+    line-height: 1.5;
+}
+.upload {
+    font-size: 13px;
+    border-bottom: 1px solid hsl(0deg 0% 0%);
+}
+.event-regist input[type="file"] {
+    opacity: 0;
+    margin: 0;
+    padding: 0;
+    z-index: 1;
+}
+.upload-icons {
+    display: flex;
+    width: 30%;
+    float: right;
+    position: relative;
+    bottom: 20px;
+}
+.upload i {
+    margin-right: 8px;
+    color: hsl(211deg 100% 40%);
+}
+.upload h5 {
+    margin-bottom: 0;
+    font-size: 13px;
+    color: hsl(211deg 100% 40%);
+}
+textarea {
+    width: 100%;
+    border: 0;
+    height: 35px;
+    line-height: 25px;
+    border-bottom: 1px solid hsl(0deg 0% 0%);
+    margin-bottom: 15px;
+    font-size: 15px;
+    font-weight: 500;
+    padding-bottom: 5px;
+    overflow-y: scroll;
+}
+.event-regist .apply-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+.edit-profile a {
+    color: #000 !important;
+    position: relative;
+    bottom: 20px;
+    text-decoration: none;
+}

@@ -4,11 +4,12 @@ import { Config } from '../_config/config';
 import{MyApplication} from'../_models/my-application';
 import { shareReplay, map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
-
+import { BehaviorSubject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class DashboardService {
+  public castingData: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
     headers:any;
     localstorageData : any;
     currentUser : any;
@@ -60,6 +61,15 @@ export class DashboardService {
     }
     check_for_event_apply(data:any){
       return this.http.post<any>(`${Config.BasePath}/check_for_event_apply`,data);
+    }
+    getUserNotification(data:any){
+      return this.http.post<any>(`${Config.BasePath}/get_user_notification`,data);
+    }
+    UserNotificationMarkRead(data:any){
+      return this.http.post<any>(`${Config.BasePath}/user_notification_mark_read`,data);
+    }
+    getUserNotificationCounter(data:any){
+      return this.http.post<any>(`${Config.BasePath}/get_user_notification_counter`,data);
     }
     
     // myApplication(data:any):Observable<MyApplication[]>{
