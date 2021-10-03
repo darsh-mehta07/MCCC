@@ -94,7 +94,8 @@ export class ApplyCastingComponent implements OnInit {
     let image:any = sessionStorage.getItem('images');
     this.imgArray =  JSON.parse(image); 
     let video:any = sessionStorage.getItem('videos'); 
-    this.videoArray = JSON.parse(video);     
+    // console.log(JSON.parse(video));   
+    this.videoArray = sessionStorage.getItem('videos'); 
   }
   get f(): { [key: string]: AbstractControl } {
     return this.form.controls;

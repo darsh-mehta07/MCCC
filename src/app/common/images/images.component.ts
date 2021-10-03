@@ -63,8 +63,7 @@ export class ImagesComponent implements OnInit {
         console.log(this.datas);
       },error=>{
         this.loading = false;
-      });
-      
+      });      
     }
     get f(): { [key: string]: AbstractControl } {
       return this.form.controls;
@@ -80,9 +79,14 @@ export class ImagesComponent implements OnInit {
       if (this.form.invalid) {
         return;
       }else{
-        this.uploading = true;
-        this.active=1;
-        this.commonService.anatomyInnerUpdate(this.form.value).subscribe(
+        let totalimg = this.imgArray.length+this.cropimages.length;
+         
+        if(totalimg == 3 ){
+          this.loading = true;
+          this.patchOldImageValues();
+          this.uploading = true;
+          this.active=1;
+          this.commonService.updateImages(this.form.value).subscribe(
           data => {  
             this.uploading = false;     
             this.active=0;   
@@ -92,9 +96,19 @@ export class ImagesComponent implements OnInit {
             this.alertService.error(error.error.message,true);
               this.uploading = false;
               this.active=0;
-          }); 
+          });
+          
+        }else{
+          console.log("image count :" + totalimg);
+          
+          if(totalimg > 3){
+            this.imageerror = 'Please Select Only Three Photos';
+          this.threeimgerror = true;
+          }          
+        }
       }
-    }
+    } 
+
     back(): void {
       this.location.back();
     }
@@ -134,6 +148,11 @@ imageCropped(event: ImageCroppedEvent) {
   this.croppedImage = event.base64;    
   this.cropedfile = base64ToFile(this.croppedImage);   
   
+}
+patchOldImageValues(){
+  this.form.patchValue({
+    oldfileSource: this.imgArray,
+  });
 }
 saveImage(){     
 this.patchValues();                     

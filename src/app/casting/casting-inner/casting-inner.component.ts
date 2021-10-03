@@ -90,7 +90,7 @@ export class CastingInnerComponent implements OnInit {
           sessionStorage.setItem('home_town',this.userdetail.home_town);
           sessionStorage.setItem('hobbies',this.userdetail.hobbies);
           sessionStorage.setItem('images',JSON.stringify(this.userdetail.images));          
-          sessionStorage.setItem('videos',JSON.stringify(this.userdetail.videos));
+          sessionStorage.setItem('videos',JSON.stringify(this.userdetail.video));
           sessionStorage.setItem('casting_title',this.castingTitle);
           sessionStorage.setItem('casting_date',this.castingDate);
           this.route.navigate(['/apply-casting/'+this.castingId]);
