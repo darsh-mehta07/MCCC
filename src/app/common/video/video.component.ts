@@ -83,8 +83,7 @@ export class VideoComponent implements OnInit {
         .subscribe(res => {
           this.loading = true;
           this.notification.showSuccess('Video save Successfully.','Success!');
-          this.resData = res;   
-          // this.route.navigate(['/home']);       
+          this.resData = res;        
         });
       }else{    
         this.loading = false;    

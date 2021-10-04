@@ -24,6 +24,8 @@ export class MyCastingInnerComponent implements OnInit {
   applyDate:any;
   image:any;
   Apiloading : boolean = false;
+  bookmarks:any;
+  bmkStatus:any;
   constructor(
     private actRoute:ActivatedRoute,
     private dashboardService : DashboardService,
@@ -59,5 +61,20 @@ export class MyCastingInnerComponent implements OnInit {
   }
   back(): void {
     this.location.back()
+  }
+  bookmark(id:any){
+    this.dashboardService.bookmarkCasting({casting_card_id:id})
+    .pipe(first())
+      .subscribe(res => {
+        this.resData = res; 
+        this.bmkStatus = this.resData.data[0];
+        if(this.bmkStatus === 'Bookmark removed'){
+          this.bookmarks = 0;
+
+        }else if(this.bmkStatus === 'Bookmark Added'){
+          this.bookmarks = 1;
+        }
+        // this.showToasterSuccess();      
+      });
   }
 }

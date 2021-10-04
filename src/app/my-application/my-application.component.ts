@@ -14,7 +14,12 @@ export class MyApplicationComponent implements OnInit {
   loading = false;
   applications:any = [];
   resData:any;
-  constructor(private location:Location,private dashboardService : DashboardService,private alertService:AlertService) { }
+  constructor(private location:Location,private dashboardService : DashboardService,private alertService:AlertService) {
+    this.dashboardService.listen().subscribe((e:any)=>{
+      console.log(e);
+      this.getMyApplication();
+    });
+   }
 
   ngOnInit(): void {
     console.log("this.applications.length :   " + this.applications.length);

@@ -15,17 +15,17 @@
               <p>Apllication No: {{applicationId}}</p>
           </div>
          <div class="card-icons">
-            <i onclick="changeColor(this)" class="fa fa-bookmark-o" aria-hidden="true"></i>
+            <i (click)="bookmark(castingId)" [ngClass]="bookmarks != '1'?'fa fa-bookmark-o':'fa fa-bookmark'"  aria-hidden="true"></i>
             <i class="fa fa-share-alt" aria-hidden="true"></i>
           </div>
           <div class="inner-btn">
             <a> Shortlisted / Decline</a>
           </div>
         </div>
-      </div>
-      <div class="item" *ngIf="!loading">
-        <ngx-skeleton-loader count="12" ></ngx-skeleton-loader>
-      </div>
+        <div class="item" *ngIf="!loading">
+          <ngx-skeleton-loader count="12" ></ngx-skeleton-loader>
+        </div>
+      </div>      
     </div>
     <app-footer [pageName]='pageName'></app-footer>>
 </body>

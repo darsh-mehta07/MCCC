@@ -45,3 +45,7 @@
 .appli img {
     width: 100%;
 }
+.item{
+    top: 25px;
+    position: relative;
+}
