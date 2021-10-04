@@ -9,6 +9,9 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class DashboardService {
+  filter(arg0: string) {
+    throw new Error('Method not implemented.');
+  }
   public castingData: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
     headers:any;
     localstorageData : any;
