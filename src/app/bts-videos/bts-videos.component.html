@@ -15,6 +15,8 @@
         (beforeChange)="beforeChange($event)">
           <div *ngFor = " let vid of popularBtsVideos" [routerLink]="['/bts-video-view/',vid.id,1]"  ngxSlickItem class="slider">
             <img  src="{{hostUrl}}{{vid.thumbnail_path}}{{vid.thumbnail}}">
+            <img *ngIf="vid.youtube_thumbnail == null " src="{{hostUrl}}{{vid.thumbnail_path}}{{vid.thumbnail}}">
+					  <img *ngIf="vid.youtube_thumbnail != null " src="{{vid.youtube_thumbnail}}">
           </div>
         </ngx-slick-carousel>
         
@@ -32,7 +34,11 @@
             <a [routerLink]="['/bts-inner/2']">View All</a>
           </div>
           <div class="vd-icon" *ngFor="let vid of topBtsVideos">
-            <a class='img_link' [routerLink]="['/bts-video-view/',vid.id,2]" ><img  src="{{hostUrl}}{{vid.thumbnail_path}}{{vid.thumbnail}}">
+            <a class='img_link' [routerLink]="['/bts-video-view/',vid.id,2]" >
+              <!-- <img  src="{{hostUrl}}{{vid.thumbnail_path}}{{vid.thumbnail}}"> -->
+              <img *ngIf="vid.youtube_thumbnail == null " src="{{hostUrl}}{{vid.thumbnail_path}}{{vid.thumbnail}}">
+					    <img *ngIf="vid.youtube_thumbnail != null " src="{{vid.youtube_thumbnail}}">
+          
               <div class="icon"><img  src="../../assets/img/play.png"></div>
             </a>
           </div>

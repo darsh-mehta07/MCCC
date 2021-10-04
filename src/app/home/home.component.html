@@ -354,7 +354,10 @@
         (init)="slickInit($event)" (breakpoint)="breakpoint($event)" (afterChange)="afterChange($event)"
         (beforeChange)="beforeChange($event)">
           <div *ngFor = " let vid of popularBtsVideos" [routerLink]="['/bts-video-view/',vid.id,1]"  ngxSlickItem class="slider">
-            <img  src="{{hostUrl}}{{vid.thumbnail_path}}{{vid.thumbnail}}">
+            <!-- <img  src="{{hostUrl}}{{vid.thumbnail_path}}{{vid.thumbnail}}"> -->
+            <img *ngIf="vid.youtube_thumbnail == null " src="{{hostUrl}}{{vid.thumbnail_path}}{{vid.thumbnail}}">
+					  <img *ngIf="vid.youtube_thumbnail != null " src="{{vid.youtube_thumbnail}}">
+          
           </div>
       </ngx-slick-carousel>
       <div class="video-img">
@@ -363,7 +366,11 @@
           <a [routerLink]="['/bts-inner/2']">View All</a>
         </div>
         <div class="vd-icon" *ngFor="let vid of topBtsVideos">
-          <a class='img_link' [routerLink]="['/bts-video-view/',vid.id,2]" ><img  src="{{hostUrl}}{{vid.thumbnail_path}}{{vid.thumbnail}}">
+          <a class='img_link' [routerLink]="['/bts-video-view/',vid.id,2]" >
+            <!-- <img  src="{{hostUrl}}{{vid.thumbnail_path}}{{vid.thumbnail}}"> -->
+            <img *ngIf="vid.youtube_thumbnail == null " src="{{hostUrl}}{{vid.thumbnail_path}}{{vid.thumbnail}}">
+					  <img *ngIf="vid.youtube_thumbnail != null " src="{{vid.youtube_thumbnail}}">
+          
             <div class="icon"><img  src="../../assets/img/play.png"></div>
           </a>
         </div>
@@ -431,8 +438,8 @@
           </div>
         </div>
         <h3>{{data.title}}</h3>
-        <p  *ngIf="data.description.length > 70 && expanded !=  data.id">
-          {{data.description.substr(0, 70)}}
+        <p  *ngIf=" expanded !=  data.id">
+          {{data.description.substr(0, 30)}}
            <span (click)="expanded = data.id"
              class="text-green"><b>{{expanded==  data.id ?'View less':'View more'}}</b></span></p>
          <p  *ngIf="expanded ==  data.id ">{{data.description}}
@@ -453,7 +460,7 @@
           <hr class="on">
           <hr class="tw">
         </h2>
-        <a *ngIf="endingsoonData.length > 0 " [routerLink]="['/workshop/2']">View All</a>
+        <a *ngIf="endingsoonData != '' " [routerLink]="['/workshop/2']">View All</a>
       </div>
       <div class="card-tbs" *ngFor="let data of endingsoonData">
         <div class="more">
@@ -478,15 +485,15 @@
           </div>
         </div>
         <h3 class="grn">{{data.title}}</h3>
-        <p  *ngIf="data.description.length > 70 && expanded !=  data.id">
-          {{data.description.substr(0, 70)}}
+        <p  *ngIf="expanded !=  data.id">
+          {{data.description.substr(0, 30)}}
            <span (click)="expanded = data.id"
              class="text-green"><b>{{expanded==  data.id ?'View less':'View more'}}</b></span></p>
          <p  *ngIf="expanded ==  data.id ">{{data.description}}
            <span (click)="expanded = 0"
              class="text-green"><b>{{expanded==  data.id ?'View less':'View more'}}</b></span></p>
       </div>
-      <div class="no-data" *ngIf="endingsoonData.length == 0 ">
+      <div class="no-data" *ngIf="endingsoonData == '' ">
         <h2>No Data Available</h2>
       </div>
 
@@ -500,7 +507,7 @@
                 <hr _ngcontent-xmm-c57="" class="on" />
                 <hr _ngcontent-xmm-c57="" class="tw" />
             </h2>
-            <a _ngcontent-xmm-c57="" *ngIf="previosData != 'No Data' " [routerLink]="['/workshop/3']">View All</a>
+            <a _ngcontent-xmm-c57="" *ngIf="previosData != '' " [routerLink]="['/workshop/3']">View All</a>
         </div>
         <div _ngcontent-xmm-c57="" class="card-tbs" *ngFor="let data of previosData">
             <div _ngcontent-xmm-c57="" class="more">
@@ -520,15 +527,15 @@
             </div>
             <h3 _ngcontent-xmm-c57="" class="yto">{{data.title}}</h3>
             
-            <p ngcontent-xmm-c57="" class="toggle-sec" *ngIf="data.description.length > 70 && expanded !=  data.id">
-              {{data.description.substr(0, 70)}}
+            <p ngcontent-xmm-c57="" class="toggle-sec" *ngIf="expanded !=  data.id">
+              {{data.description.substr(0, 30)}}
                <span ngcontent-xmm-c57="" (click)="expanded = data.id"
                  class="text-green"><b>{{expanded==  data.id ?'View less':'View more'}}</b></span></p>
              <p  *ngIf="expanded ==  data.id ">{{data.description}}
                <span ngcontent-xmm-c57="" (click)="expanded = 0"
                  class="text-green"><b>{{expanded==  data.id ?'View less':'View more'}}</b></span></p>
         </div>
-        <div class="no-data" *ngIf="previosData == 'No Data' ">
+        <div class="no-data" *ngIf="previosData == '' ">
           <h2>No Data Available</h2>
         </div>
         

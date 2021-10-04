@@ -156,7 +156,13 @@ export class HomeComponent implements OnInit {
     
     this.workshopService.get_previous_workshop_data({'limit': 2}).subscribe(
         data => { 
-          this.previosData = data.data;
+          var dataV = data.data;
+          if(dataV == 'No Data'){
+            this.previosData = [];  
+          }else{
+            this.previosData = data.data;
+          }
+         
           
           console.log(this.previosData);
     }); 
