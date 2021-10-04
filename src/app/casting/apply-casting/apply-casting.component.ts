@@ -96,6 +96,7 @@ export class ApplyCastingComponent implements OnInit {
     let video:any = sessionStorage.getItem('videos'); 
     // console.log(JSON.parse(video));   
     this.videoArray = JSON.parse(video); 
+    this.loading = true;
   }
   get f(): { [key: string]: AbstractControl } {
     return this.form.controls;
@@ -105,6 +106,7 @@ export class ApplyCastingComponent implements OnInit {
     if (this.form.invalid) {
       return;
     }else{
+      this.loading = false;
       let totalimg = this.imgArray.length+this.cropimages.length;
       if(this.videoArray.videos != '' || this.videoArray.videos != null){
         this.oldvideo = 1;
@@ -113,12 +115,13 @@ export class ApplyCastingComponent implements OnInit {
       }
       let totalvideo = this.videos.length + this.oldvideo;   
       if(totalimg == 3 && totalvideo == 1 && (this.videoArray.videos != '' || this.videoArray.videos != null)){
-        this.loading = true;
+       
         this.patchOldImageValues();
         this.patchOldVideoValues(); 
         this.dashboardService.applyForCasting(this.form.value)
       .pipe(first())
         .subscribe(res => {
+          this.loading = true;
           this.resData = res;   
           if(this.resData.data.image_1){
           sessionStorage.setItem('image_1',this.resData.data.image_1);
@@ -170,6 +173,7 @@ export class ApplyCastingComponent implements OnInit {
         });
         
       }else{
+        this.loading = true;
         console.log("image count :" + totalimg);
         console.log("video count :" + totalvideo);
         if(totalimg > 3){
@@ -184,12 +188,12 @@ export class ApplyCastingComponent implements OnInit {
     }
   }  
   save(){
-   
+    
     this.submitted = true;
     if (this.form.invalid) {
       return;
     }else{
-      
+      this.loading = false;
       let totalimg = this.imgArray.length+this.cropimages.length; 
       if(this.videoArray.videos != '' || this.videoArray.videos != null){
         this.oldvideo = 1;
@@ -199,18 +203,20 @@ export class ApplyCastingComponent implements OnInit {
       let totalvideo = this.videos.length + this.oldvideo;
 
       if(totalimg < 7 && totalvideo < 4){
-        this.loading = true;
+        
         this.patchOldImageValues();
         this.patchOldVideoValues();
         this.patchSaveValues();
         this.dashboardService.applyForCasting(this.form.value)
         .pipe(first())
         .subscribe(res => {
-          this.notification.showSuccess('Casting call save Successfully.','Success!');
+          this.loading = true;
+          this.notification.showSuccess('Casting call save Successfully.','');
           this.resData = res;   
           this.route.navigate(['/home']);       
         });
-      }else{        
+      }else{
+        this.loading = true;    
         if(totalimg > 7){
           this.imageerror = 'Please Select Only Three Photo';
         this.threeimgerror = true;

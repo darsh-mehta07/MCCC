@@ -16,10 +16,10 @@
           </div>
          <div class="card-icons">
             <i (click)="bookmark(castingId)" [ngClass]="bookmarks != '1'?'fa fa-bookmark-o':'fa fa-bookmark'"  aria-hidden="true"></i>
-            <i class="fa fa-share-alt" aria-hidden="true"></i>
+            <!-- <i class="fa fa-share-alt" aria-hidden="true"></i> -->
           </div>
-          <div class="inner-btn">
-            <a> Shortlisted / Decline</a>
+          <div *ngIf="applicationStatus != null" class="inner-btn">
+            <a> {{applicationStatus | titlecase}}</a>
           </div>
         </div>
         <div class="item" *ngIf="!loading">

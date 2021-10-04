@@ -103,6 +103,7 @@ export class EditProfileComponent implements OnInit {
         this.resData = res;
         this.age = this.resData.data.age; 
         this.userdetail = this.resData.data.user_details;
+        this.notification.showSuccess('Profile Updated Successfully.','');
           sessionStorage.setItem('name',this.userdetail.name);
           sessionStorage.setItem('age',this.age);
           sessionStorage.setItem('dob',this.userdetail.dob);
@@ -114,8 +115,7 @@ export class EditProfileComponent implements OnInit {
           sessionStorage.setItem('city_id',this.userdetail.city_id);
           sessionStorage.setItem('state_id',this.userdetail.state_id);
           sessionStorage.setItem('home_town',this.userdetail.home_town);
-          sessionStorage.setItem('hobbies',this.userdetail.hobbies);
-        this.notification.showSuccess('Profile Updated Successfully.','Success!');
+          sessionStorage.setItem('hobbies',this.userdetail.hobbies);        
       },error=>{
         this.loading = false;
       });

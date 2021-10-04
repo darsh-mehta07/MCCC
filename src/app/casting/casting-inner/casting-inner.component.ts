@@ -27,6 +27,7 @@ export class CastingInnerComponent implements OnInit {
   castingTitle:any;
   castingDate:any;
   bookmarks:any;
+  applySt:any;
   bmkStatus:any;
   loading:boolean = false;
   Apiloading : boolean = false;
@@ -38,6 +39,7 @@ export class CastingInnerComponent implements OnInit {
     private sanitizer:DomSanitizer,
     private location:Location,
     private notifyService : NotificationService,
+    
     ) {} 
   ngOnInit(): void {    
     this.actRoute.paramMap.subscribe((params: ParamMap) => {                 
@@ -61,7 +63,17 @@ export class CastingInnerComponent implements OnInit {
       this.resData = res;   
       this.casting = this.resData.data;
       this.castingTitle =  this.casting.title;
-      this.bookmarks =  this.casting.bookmark_status;
+      if(this.casting.bookmark != null && this.casting.bookmark != ''){
+        this.bookmarks =  this.casting.bookmark.bookmark_status;
+      }else{
+        this.bookmarks =  0;
+      }
+      if(this.casting.apply_status != null && this.casting.apply_status != ''){
+        this.applySt = this.casting.apply_status.confirm;
+      }else{
+        this.applySt = 0;
+      }
+      
       this.castingDate = this.casting.created_at;
       this.image = this.baseUrl+'public/uploads/Admin/CastingImages/'+this.casting.banner_image;
       this.long_description = this.sanitizer.bypassSecurityTrustHtml(this.casting.long_description);
@@ -103,9 +115,11 @@ export class CastingInnerComponent implements OnInit {
         this.resData = res; 
         this.bmkStatus = this.resData.data[0];
         if(this.bmkStatus === 'Bookmark removed'){
+          this.notifyService.showSuccess('Bookmark removed.','');
           this.bookmarks = 0;
 
         }else if(this.bmkStatus === 'Bookmark Added'){
+          this.notifyService.showSuccess('Bookmark Added.','');
           this.bookmarks = 1;
         }
         // this.showToasterSuccess();      

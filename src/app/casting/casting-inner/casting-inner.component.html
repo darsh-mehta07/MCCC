@@ -14,7 +14,12 @@
           <!-- <i class="fa fa-share-alt" aria-hidden="true"></i> -->
         </div>
         <div class="inner-btn">
-          <a (click)="applyCasting()"> Swipe to Apply
+          <a *ngIf="applySt == 0" (click)="applyCasting()"> Swipe to Apply
+            <i class="fa fa-angle-right delay1" aria-hidden="true"></i>
+            <i class="fa fa-angle-right delay2" aria-hidden="true"></i>
+            <i class="fa fa-angle-right delay3" aria-hidden="true"></i>
+          </a>
+          <a *ngIf="applySt == 1" [routerLink]="['/home']"> Applied
             <i class="fa fa-angle-right delay1" aria-hidden="true"></i>
             <i class="fa fa-angle-right delay2" aria-hidden="true"></i>
             <i class="fa fa-angle-right delay3" aria-hidden="true"></i>
