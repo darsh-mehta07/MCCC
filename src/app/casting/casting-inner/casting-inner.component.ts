@@ -117,12 +117,10 @@ export class CastingInnerComponent implements OnInit {
         if(this.bmkStatus === 'Bookmark removed'){
           this.notifyService.showSuccess('Bookmark removed.','');
           this.bookmarks = 0;
-
         }else if(this.bmkStatus === 'Bookmark Added'){
           this.notifyService.showSuccess('Bookmark Added.','');
           this.bookmarks = 1;
-        }
-        // this.showToasterSuccess();      
+        }     
       });
   }
   showToasterSuccess(){
