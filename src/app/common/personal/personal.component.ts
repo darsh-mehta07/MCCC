@@ -6,6 +6,7 @@ import { AuthenticationService } from 'src/app/_service/authentication.service';
 import { AlertService } from 'src/app/_service/alert.service';
 import { CommonService } from 'src/app/_service/common.service';
 import { Router } from '@angular/router';
+import { RegisterService } from 'src/app/_service/register.service';
 
 @Component({
   selector: 'app-personal',
@@ -22,7 +23,13 @@ export class PersonalComponent implements OnInit {
   submitted = false;
   uploading:boolean=false;
   active:any=0;
-  constructor(  private alertService:AlertService,private formBuilder: FormBuilder,private location:Location,private route:Router,
+  statesTrue = false;
+  city:boolean = true;
+  state:boolean = true;
+  states : any;
+  cities : any;
+  dataTrue = false;
+  constructor(  private registerService : RegisterService,private alertService:AlertService,private formBuilder: FormBuilder,private location:Location,private route:Router,
     private authenticationService: AuthenticationService,private commonService:CommonService) {
       this.currentUser = this.authenticationService.currentUserValue;
      }
@@ -32,7 +39,8 @@ export class PersonalComponent implements OnInit {
         name:['',Validators.required],
         phone:['',Validators.required],
         dob:['',Validators.required],
-        city_id:['',Validators.required],
+        state:['',Validators.required],
+        city:['',Validators.required],
         height:['',Validators.required],
         home_town:['',Validators.required],
         hobbies:['',Validators.required],
@@ -47,7 +55,7 @@ export class PersonalComponent implements OnInit {
         this.form.controls['hobbies'].setValue(this.datas.hobbies);
         this.form.controls['home_town'].setValue(this.datas.home_town);
         this.form.controls['height'].setValue(this.datas.height);
-        this.form.controls['city_id'].setValue(this.datas.city_id);
+        this.form.controls['city'].setValue(this.datas.city_id);
         this.form.controls['dob'].setValue(this.datas.dob);
         this.form.controls['phone'].setValue(this.datas.phone);
         this.form.controls['name'].setValue(this.datas.name);
@@ -81,6 +89,23 @@ export class PersonalComponent implements OnInit {
     }
     back(): void {
       this.location.back();
+    }
+    changeSuit(e:any) {
+      if(e.target.value > 0){
+        this.statesTrue = true;
+        this.registerService.cities({state_id:e.target.value}).subscribe(res=>{
+          this.resData = res;
+          if(this.resData.data !== 'undefined' && this.resData.data.length > 0){
+            this.dataTrue = true;
+            this.cities = this.resData.data;  
+          }else{
+            this.dataTrue = false;
+          }
+        },error=>{
+          this.alertService.error(error);
+          this.loading = false;
+        });
+      }
     }
 
 }

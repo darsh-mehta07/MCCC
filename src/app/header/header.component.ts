@@ -25,12 +25,12 @@ export class HeaderComponent implements OnInit {
      }
 
   ngOnInit(): void {
-    setInterval(() => { 
-     this.getUserNotificationCounter();
-    }, 1000 * 15)
+    // setInterval(() => { 
+    //  this.getUserNotificationCounter();
+    // }, 1000 * 15)
 
     this.openMenu = false;
-    this.getUserNotificationCounter();
+    // this.getUserNotificationCounter();
   }
   newCastingCallApi(){
     

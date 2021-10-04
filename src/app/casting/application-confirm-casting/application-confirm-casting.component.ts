@@ -120,7 +120,7 @@ export class ApplicationConfirmCastingComponent implements OnInit {
           sessionStorage.removeItem('video_3');
           sessionStorage.removeItem('videos');
           sessionStorage.removeItem('images');
-          this.notification.showSuccess('Casting call applied Successfully.','Success!');
+          this.notification.showSuccess('Casting call applied Successfully.','');
           this.route.navigate(['/thank-casting/'+this.applicationNo]);       
         });
       }

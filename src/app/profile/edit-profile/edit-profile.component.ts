@@ -9,6 +9,8 @@ import { AbstractControl, FormGroup, FormBuilder, Validators } from '@angular/fo
 import { AlertService } from 'src/app/_service/alert.service';
 import { RegisterService } from 'src/app/_service/register.service';
 import { NotificationService } from 'src/app/_service/notification.service';
+import { PhoneExistsValidator } from 'src/app/_helpers/phone-exists-validator';
+import{ AgeBetween13To54 } from "../../_helpers/custom-DOB.validator";
 
 @Component({
   selector: 'app-edit-profile',
@@ -43,7 +45,8 @@ export class EditProfileComponent implements OnInit {
     private alertService: AlertService,
     private registerService: RegisterService,
     private formBuilder:FormBuilder,
-    private notification:NotificationService
+    private notification:NotificationService,
+    private phoneExists : PhoneExistsValidator
     ) {
     } 
   ngOnInit(): void {    
@@ -78,16 +81,18 @@ export class EditProfileComponent implements OnInit {
       this.loading = false;
     });
     this.form = this.formBuilder.group({
-      name : [sessionStorage.getItem('name'),Validators.required],
+      name : [sessionStorage.getItem('name'),[Validators.required,Validators.pattern('^[a-zA-Z]{2,}(?: [a-zA-Z]+){0,2}$')]],
       dob : [sessionStorage.getItem('dob'),Validators.required],
-      height : [sessionStorage.getItem('height'),Validators.required],
-      phone : [sessionStorage.getItem('phone'),Validators.required],
+      height : [sessionStorage.getItem('height'),[Validators.required,Validators.pattern("^[0-9]*$")]],
+      phone : [sessionStorage.getItem('phone'),[Validators.required,Validators.pattern(/^-?(0|[1-9]{10}\d*)?$/)]],
       state : [sessionStorage.getItem('state_id'),Validators.required],
       language_id : [sessionStorage.getItem('language_id'),Validators.required],
       select_city : [sessionStorage.getItem('city_id'),Validators.required],
       home_town : [sessionStorage.getItem('home_town'),Validators.required],
       hobbies : [sessionStorage.getItem('hobbies'),Validators.required],
-    });   
+    },{
+      validator: AgeBetween13To54('dob')
+  });   
   }
   get f(): { [key: string]: AbstractControl } {
     return this.form.controls;
@@ -103,6 +108,7 @@ export class EditProfileComponent implements OnInit {
         this.resData = res;
         this.age = this.resData.data.age; 
         this.userdetail = this.resData.data.user_details;
+        this.notification.showSuccess('Profile Updated Successfully.','');
           sessionStorage.setItem('name',this.userdetail.name);
           sessionStorage.setItem('age',this.age);
           sessionStorage.setItem('dob',this.userdetail.dob);
@@ -114,8 +120,7 @@ export class EditProfileComponent implements OnInit {
           sessionStorage.setItem('city_id',this.userdetail.city_id);
           sessionStorage.setItem('state_id',this.userdetail.state_id);
           sessionStorage.setItem('home_town',this.userdetail.home_town);
-          sessionStorage.setItem('hobbies',this.userdetail.hobbies);
-        this.notification.showSuccess('Profile Updated Successfully.','Success!');
+          sessionStorage.setItem('hobbies',this.userdetail.hobbies);        
       },error=>{
         this.loading = false;
       });

@@ -79,9 +79,9 @@
           <div class="vdi">
             <h3>Select Video</h3>
             <div class="upload-video">
-              <div class="box" *ngFor="let vid of videoArray;let i=index;">
+              <div class="box">
                 <video class="js--image-preview" width="30%" height="110px" controls>
-                  <source src="{{videoPath+vid.videos}}" type="video/mp4">
+                  <source src="{{videoPath+videoArray.videos}}" type="video/mp4">
                   Your browser does not support the video tag.
                 </video>
                 <div class="upload-options">
@@ -201,6 +201,6 @@
   </ng-template>
 
 
-  <div class="loader_screen" *ngIf="loading"></div>
+  <div class="loader_screen" *ngIf="!loading"></div>
   <app-footer [pageName]="pageName"></app-footer>
 </body>

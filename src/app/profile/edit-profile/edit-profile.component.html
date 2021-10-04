@@ -7,7 +7,7 @@
           <a href="home-page.html"><img src="../../../assets/img/home.png" /></a>
         </div>
         <div class="upper-txt">
-          <h2>Edit Your Prpfile</h2>
+          <h2>Your Profile</h2>
         </div>
         <div class="form_areas">
           <form [formGroup]="form" (ngSubmit)="submit()">
@@ -15,25 +15,27 @@
           <input type="text" formControlName="name" placeholder="type here" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" maxlength="28">
           <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
             <div *ngIf="f.name.errors.required">Name is required</div>
+            <div *ngIf="f.name.errors.pattern">Name must be two characters</div>
           </div>
           <label>DOB<span class="text-danger">*</span></label>
           <input type="date" formControlName="dob" maxlength="10" [ngClass]="{ 'is-invalid': submitted && f.dob.errors }">
           <div *ngIf="submitted && f.dob.errors" class="invalid-feedback">
             <div *ngIf="f.dob.errors.required">Date of Birth is required</div>  
             <div *ngIf="f.dob.errors.lessthen13">Your age is bellow 13 years</div>
-            <div *ngIf="f.dob.errors.above54">Your age is above 54 years</div>          
+            <div *ngIf="f.dob.errors.above54">Your age is above 54 years</div>           
           </div>
           <label>Height<span class="text-danger">*</span></label>
           <input type="text" formControlName="height" placeholder="type here" [ngClass]="{ 'is-invalid': submitted && f.height.errors }">
           <div *ngIf="submitted && f.height.errors" class="invalid-feedback">
-            <div *ngIf="f.height.errors.required">Name is required</div>
+            <div *ngIf="f.height.errors.required">Height is required</div>
+            <div *ngIf="f.height.errors.pattern">Height must be numeric</div>
           </div>
           <label>Contact Number<span class="text-danger">*</span></label>
           <input type="tel" formControlName="phone" placeholder="type here" [ngClass]="{ 'is-invalid': submitted && f.phone.errors }">
           <div *ngIf="submitted && f.phone.errors" class="invalid-feedback">
             <div *ngIf="f.phone.errors.required">Phone is required</div>
-            <div *ngIf="f.phone.errors.pattern">Only 10 digits allow</div>
-            <div *ngIf="f.phone.errors.phoneTaken">Phone is already taken.</div>
+          <div *ngIf="f.phone.errors.pattern">Please Enter 10 digit's mobile number</div>
+          <div *ngIf="f.phone.errors.phoneTaken">Phone is already taken.</div>
           </div>
           <label>Language You Know<span class="text-danger">*</span></label> 
           <div class="select_div">
@@ -74,12 +76,12 @@
           <label>Home Town<span class="text-danger">*</span></label>
           <input type="text" formControlName="home_town" placeholder="type here" [ngClass]="{ 'is-invalid': submitted && f.home_town.errors }">
           <div *ngIf="submitted && f.home_town.errors" class="invalid-feedback">
-            <div *ngIf="f.home_town.errors.required">Name is required</div>
+            <div *ngIf="f.home_town.errors.required">Home Town is required</div>
           </div>
           <label>Hobbies<span class="text-danger">*</span></label>
           <input type="text" formControlName="hobbies" placeholder="type here" [ngClass]="{ 'is-invalid': submitted && f.hobbies.errors }">
           <div *ngIf="submitted && f.hobbies.errors" class="invalid-feedback">
-            <div *ngIf="f.hobbies.errors.required">Name is required</div>
+            <div *ngIf="f.hobbies.errors.required">Hobbies is required</div>
           </div>                  
           <div class="apply-btn">
             <button type="submit"> submit</button>
