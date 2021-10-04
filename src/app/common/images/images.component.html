@@ -12,18 +12,7 @@
         <div class="form_areas">
           <h5>Images</h5>
           <form [formGroup]="form">
-            <div class="pht">
-                <!-- <div class="upload-img">
-                <div class="box">
-                    <div class="js--image-preview"></div>
-                    <div class="upload-options">
-                      <div class='multi-field'>
-                        <input type="file" class="image-upload" accept="image/*">
-                        <button type="button" class="close">X</button>
-                      </div>
-                    </div>
-                </div>                
-            </div> -->
+            <div class="pht">               
             <div class="upload-img">
                 <div class="box" *ngFor="let img of datas;let i=index;">
                   <img class="js--image-preview" src="{{imagePath+img.image}}" />
@@ -44,7 +33,7 @@
                 <div class="error" *ngIf="threeimgerror">{{imageerror}}</div>
               </div>
                 <div class="pht-btn">
-            <i class="fa fa-plus-circle" aria-hidden="true" class="add-pht"></i>
+            <i class="fa fa-plus-circle" aria-hidden="true"></i>
             <p (click)="open(content)">Select More Photos</p>
         </div>
             </div>

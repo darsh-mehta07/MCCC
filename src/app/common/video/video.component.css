@@ -14,3 +14,7 @@
     border-top: 3px solid #ff6e61;
     animation: spin 2s linear infinite;
 }
+.upload-video .upload-options {
+    bottom: 100px !Important;
+    position:relative;
+}

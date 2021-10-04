@@ -44,10 +44,13 @@ export class CommonService {
       return this.http.get(`${Config.BasePath}/display_user_image_data`);
     }
     updateImages(data:any){
-      return this.http.get(`${Config.BasePath}/update_user_image_data`,data);
+      return this.http.post(`${Config.BasePath}/update_user_image_data`,data);
     }
-    myVideo(data:any){
-      return this.http.post(`${Config.BasePath}/add_update_anatomy`,data);
+    myVideo(){
+      return this.http.get(`${Config.BasePath}/display_user_video_data`);
+    }
+    updateVideo(data:any){
+      return this.http.post(`${Config.BasePath}/update_user_video_data`,data);
     }
     
 }
