@@ -266,19 +266,19 @@ private loadAllUsers() {
 }
   
   showToasterSuccess(){
-    this.notifyService.showSuccess("Data saved successfully !!", "Mccc")
+    this.notifyService.showSuccess("Data saved successfully !!", "")
 }
  
 showToasterError(){
-    this.notifyService.showError("Something is wrong", "tutsmake.com")
+    this.notifyService.showError("Something is wrong", "")
 }
  
 showToasterInfo(){
-    this.notifyService.showInfo("This is info", "tutsmake.com")
+    this.notifyService.showInfo("This is info", "")
 }
  
 showToasterWarning(){
-    this.notifyService.showWarning("This is warning", "tutsmake.com")
+    this.notifyService.showWarning("This is warning", "")
 }
 eventInner(id:any){
   this.route.navigate(['event-inner',id]);

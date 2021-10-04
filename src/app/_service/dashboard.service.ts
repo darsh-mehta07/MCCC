@@ -3,8 +3,7 @@ import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Config } from '../_config/config';
 import{MyApplication} from'../_models/my-application';
 import { shareReplay, map } from 'rxjs/operators';
-import { Observable } from 'rxjs';
-import { BehaviorSubject } from 'rxjs';
+import { Observable,BehaviorSubject, Subject  } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -50,8 +49,19 @@ export class DashboardService {
     getconfirmCasting(data:any){
       return this.http.post(`${Config.BasePath}/get_confirm_casting_application`,data);
     }
-    myApplication(data:any){
-      return this.http.post(`${Config.BasePath}/get_user_applied_casting`,data);
+    // myApplication(data:any){
+    //   return this.http.post(`${Config.BasePath}/get_user_applied_casting`,data);
+    // }
+    myApplication(data:any):Observable<MyApplication[]>{
+      return this.http.post<MyApplication[]>(`${Config.BasePath}/get_user_applied_casting`,data);
+    }
+
+    private _listners = new Subject<any>();
+    listen():Observable<any>{
+      return this._listners.asObservable();
+    }
+    filter(filterBy:string){
+      this._listners.next(this.filter)
     }
     getEvents(){
       return this.http.get(`${Config.BasePath}/events`);
@@ -74,9 +84,4 @@ export class DashboardService {
     getUserNotificationCounter(data:any){
       return this.http.post<any>(`${Config.BasePath}/get_user_notification_counter`,data);
     }
-    
-    // myApplication(data:any):Observable<MyApplication[]>{
-    //   // return this.http.post(`${Config.BasePath}/get_user_applied_casting`,data);
-    //   return this.http.post<MyApplication[]>(`${Config.BasePath}/get_user_applied_casting`,data);
-    // }
 }

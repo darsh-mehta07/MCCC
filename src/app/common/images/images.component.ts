@@ -9,6 +9,7 @@ import { Location } from '@angular/common';
 import { Config } from 'src/app/_config/config';
 import { base64ToFile, Dimensions, ImageCroppedEvent, ImageTransform } from 'ngx-image-cropper';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NotificationService } from 'src/app/_service/notification.service';
 
 @Component({
   selector: 'app-images',
@@ -44,7 +45,7 @@ export class ImagesComponent implements OnInit {
     imageerror:any;
     closeResult:any;
     saveCropImage : boolean = false;
-  constructor(  private modalService: NgbModal,private alertService:AlertService,private formBuilder: FormBuilder,private location:Location,private route:Router,
+  constructor(  private notification : NotificationService,private modalService: NgbModal,private alertService:AlertService,private formBuilder: FormBuilder,private location:Location,private route:Router,
     private authenticationService: AuthenticationService,private commonService:CommonService) {
       this.currentUser = this.authenticationService.currentUserValue;
      }
@@ -59,12 +60,10 @@ export class ImagesComponent implements OnInit {
         this.loading = true;
         this.resData = res;   
         this.datas = this.resData.data;
-        
-        console.log(this.datas);
+        this.imgArray =  this.datas;
       },error=>{
         this.loading = false;
-      });
-      
+      });      
     }
     get f(): { [key: string]: AbstractControl } {
       return this.form.controls;
@@ -72,7 +71,7 @@ export class ImagesComponent implements OnInit {
     removePrimaryImage(element: number) {
       this.imgArray.forEach((value:any,index:any)=>{
           if(index==element) this.imgArray.splice(index,1);
-          // this.patchOldImageValues();
+          this.patchOldImageValues();
       });
     }
     submit(){
@@ -80,21 +79,39 @@ export class ImagesComponent implements OnInit {
       if (this.form.invalid) {
         return;
       }else{
-        this.uploading = true;
-        this.active=1;
-        this.commonService.anatomyInnerUpdate(this.form.value).subscribe(
+        this.loading = false;
+        let totalimg = this.imgArray.length+this.cropimages.length;
+         
+        if(totalimg > 0 ){         
+          this.patchOldImageValues();
+          this.uploading = true;
+          this.active=1;
+          this.commonService.updateImages(this.form.value).subscribe(
           data => {  
+            this.loading = true;
             this.uploading = false;     
             this.active=0;   
-            this.alertService.success('Update Successfully',false);
+            this.notification.showSuccess('Video save Successfully.','');
           },
           error => {
+            this.loading = false;
             this.alertService.error(error.error.message,true);
               this.uploading = false;
               this.active=0;
-          }); 
+          });
+          
+        }else{
+          this.loading = false;
+          console.log("image count :" + totalimg);
+          
+          if(totalimg > 3){
+            this.imageerror = 'Please Select Only Three Photos';
+          this.threeimgerror = true;
+          }          
+        }
       }
-    }
+    } 
+
     back(): void {
       this.location.back();
     }
@@ -108,7 +125,7 @@ export class ImagesComponent implements OnInit {
     }
     removeSelectedImage(url:any){    
       this.cropimages = this.cropimages.filter(img => (img != url));
-      // this.patchValues();
+      this.patchValues();
     }
     open(content:any) {
       this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
@@ -134,6 +151,11 @@ imageCropped(event: ImageCroppedEvent) {
   this.croppedImage = event.base64;    
   this.cropedfile = base64ToFile(this.croppedImage);   
   
+}
+patchOldImageValues(){
+  this.form.patchValue({
+    oldfileSource: this.imgArray,
+  });
 }
 saveImage(){     
 this.patchValues();                     

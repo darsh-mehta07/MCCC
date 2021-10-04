@@ -52,14 +52,14 @@ export class ResetPasswordComponent implements OnInit {
         this.responceData = res;
         if(this.responceData.status == 'true'){  
           sessionStorage.removeItem('rotp');
-          this.notifyService.showSuccess("Password Reset Successfully !!", "Mccc");
+          this.notifyService.showSuccess("Password Reset Successfully !!", "");
           this.route.navigate(['/signin']);
         }else{
-          this.notifyService.showError(this.responceData.message, "Mccc")
+          this.notifyService.showError(this.responceData.message, "")
           console.log('Hello forgot',this.responceData);
         }          
        },error=>{
-        this.notifyService.showError(error.message, "Mccc")
+        this.notifyService.showError(error.message, "")
        });       
         
     }

@@ -14,3 +14,9 @@
     border-top: 3px solid #ff6e61;
     animation: spin 2s linear infinite;
 }
+.multi-field button.close {
+    font-size: 13px;
+    position: relative;
+    right: 5px;
+    top: 50px;
+}

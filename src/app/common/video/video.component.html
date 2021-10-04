@@ -10,47 +10,79 @@
           </div>      
         <div class="form_areas">
             <h5>Videos</h5>
+            <form [formGroup]="form">
             <div class="vdi">
-                <div class="upload-video">
-                    <div class="box">
-                        <div class="js--image-preview"></div>
-                        <div class="upload-options">
-                          <div class='multi-field'>
-                            <input type="file" class="image-upload" accept="image/*">
-                            <button type="button" class="close">X</button>
-                          </div>
+              <div class="upload-video">
+                  <div class="box" *ngFor="let video of datas;let i=index;">
+                    <video class="js--image-preview" width="30%" height="110px" controls>
+                      <source src="{{videoPath+video.videos}}" type="video/mp4">
+                      Your browser does not support the video tag.
+                    </video>
+                      <div class="upload-options">
+                        <div class='multi-field'>
+                          <button type="button" class="close">X</button>
                         </div>
+                      </div>
+                  </div> 
+                  <div class="box" *ngFor='let url of videos'>
+                    <video class="js--image-preview" width="30%" height="110px" controls>
+                      <source src="{{url}}" type="video/mp4">
+                      Your browser does not support the video tag.
+                    </video>
+                    <div class="upload-options">
+                      <div class='multi-field'>
+                        <button type="button" class="close" (click)="removeSelectedVideo(url)">X</button>
+                      </div>
                     </div>
-                    <div class="box">
-                        <div class="js--image-preview"></div>
-                        <div class="upload-options">
-                          <div class='multi-field'>
-                            <input type="file" class="image-upload" accept="image/*">
-                            <button type="button" class="close">X</button>
-                          </div>
-                        </div>
-                    </div>
-                    <div class="box">
-                        <div class="js--image-preview"></div>
-                        <div class="upload-options">
-                          <div class='multi-field'>
-                            <input type="file" class="image-upload" accept="image/*">
-                            <button type="button" class="close">X</button>
-                          </div>
-                        </div>
-                    </div>
-    </div>
-                <div class="vdi-btn">
-                    <i class="fa fa-plus-circle" aria-hidden="true"> </i>
-                    <p>Select More Videos</p>
-                </div>
+                  </div>                 
+              </div>
+              <div class="vdi-btn">
+                  <i class="fa fa-plus-circle" aria-hidden="true"> </i>
+                  <p (click)="open(video)">Select More Videos</p>
+              </div>
             </div>
-
             <div class="profil-btn">
-                <button type="submit" [attr.disabled] = "active === 1 ? 'disabled' : null"> Save <span [ngClass]="uploading ? 'button_loader' : ''" ></span></button>
+                <button (click)="submit()" type="button"> Save </button>
               <a (click)="back()" class="wht"> Cancle</a>
             </div>
+          </form>
+          <div class="loader_screen" *ngIf="!loading"></div>
         </div>
     </div>
 </div>
+<ng-template #video let-modal>
+  <div class="crooping-modal"> 
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Select More Video</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">×</span>
+      </button>
+</div>
+  <div class="modal-body">      
+    <div class="form-group">
+      <div class="input-group">
+        <input type="file" class="image-upload" accept="video/*"  (change)="onVideoFileChange($event)" />
+      </div>
+    </div>
+    <hr>
+    <div class="upload-video">
+    <div class="box" *ngFor='let url of videos'>
+      <video class="js--image-preview" width="30%" height="110px" controls>
+        <source src="{{url}}" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <div class="upload-options">
+        <div class='multi-field'>
+          <button type="button" class="close" (click)="removeSelectedVideo(url)">X</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="closevideomodel('close click')">Close</button>
+    <button type="button" class="btn btn-primary" (click)="savevideomodel('close click')">Save changes</button>
+</div>
+</div>
+</ng-template>
 <app-footer [pageName]="pageName"></app-footer>
