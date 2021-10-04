@@ -1,7 +1,7 @@
-<body class="hm_pg inner">
-    <div class="training-inner" [style.background-image]="'url('+bgImage+')'">
-        <img src="../../assets/img/logo.png">
-        <!-- <img src="{{hostUrl}}{{workshopData.banner_img_path}}/{{workshopData.banner_image}}"> -->
+<body class=" inner">
+    <!-- <div class="training-inner" [style.background-image]="'url('+bgImage+')'"> -->
+      <div class="training-inner" *ngIf="dataLoad">
+        <img src="{{bgImage}}">
       <div class="container">
         <div class="header hd-icons">
           <a (click)="back()"><img src="../../assets/img/back2.png" /></a>
@@ -15,7 +15,7 @@
           <h5>{{workshopData.description}}</h5>
           <p>
              <i class="fa fa-calendar" aria-hidden="true"></i>
-             {{ workshopData.start_date | date :'mediumDate' }} - {{ workshopData.closing_date | date :'mediumDate' }} 
+             {{eventDate }} 
           </p>
           <p>
              <i class="fa fa-clock-o" aria-hidden="true"></i>
@@ -28,11 +28,23 @@
   
           <p>{{workshopData.more_details}}</p>
           
-          <div class="training-btn">
-            <a [routerLink] = "['/workshop-registration-form/',workshopData.id]"> ENROLL NOW </a>
+          <div class="training-btn" *ngIf="this.checkData.data == 'No Data' && prevDate ">
+            <a [routerLink] = "['/workshop-registration-form/',workshopData.id,2]"> ENROLL NOW </a>
           </div>
+
+          <div class="training-btn" *ngIf="this.checkData.data != 'No Data' && prevDate ">
+            <a> ALREADY ENROLLED </a>
+          </div>
+
+          <div class="training-btn" *ngIf=" !prevDate ">
+            <a> Expired </a>
+          </div>
+
         </div>
       </div>
+    </div>
+    <div class="item" *ngIf="!dataLoad">
+      <ngx-skeleton-loader count="12"></ngx-skeleton-loader>
     </div>
     <app-footer></app-footer>
 </body>    

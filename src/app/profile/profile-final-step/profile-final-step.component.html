@@ -80,7 +80,7 @@
                         <!-- Social Login end -->
                         <div class="input_group plus">
                             <label>Add Tag Line for Your Profile</label>
-                            <input type="text" formControlName="tag_line" maxlength="50" placeholder="write here........." [ngClass]="{ 'is-invalid': submitted && f.tag_line.errors }">
+                            <input type="text" formControlName="tag_line" maxlength="50" placeholder="Write here........." [ngClass]="{ 'is-invalid': submitted && f.tag_line.errors }">
                             <div *ngIf="submitted && f.tag_line.errors" class="invalid-feedback">
                                 <div *ngIf="f.tag_line.errors.required">Tag is required</div>
                                 <div *ngIf="f.tag_line.errors.maxlength">Only 50 character allowed</div>
@@ -96,7 +96,7 @@
                         </div>      
                         <div class="input_group plus">
                             <label>Height</label>
-                            <input type="text" formControlName="height" maxlength="50" placeholder="write here........." [ngClass]="{ 'is-invalid': submitted && f.height.errors }">
+                            <input type="text" formControlName="height" maxlength="50" placeholder="Write here........." [ngClass]="{ 'is-invalid': submitted && f.height.errors }">
                             <div *ngIf="submitted && f.height.errors" class="invalid-feedback">
                                 <div *ngIf="f.height.errors.required">Height is required</div>
                                 <div *ngIf="f.height.errors.pattern">Height must be numeric</div>
@@ -104,7 +104,7 @@
                         </div>
                         <div class="input_group plus">
                             <label>Skin color</label>
-                            <input type="text" formControlName="skin_color" maxlength="500" placeholder="write here........." [ngClass]="{ 'is-invalid': submitted && f.skin_color.errors }">
+                            <input type="text" formControlName="skin_color" maxlength="500" placeholder="Write here........." [ngClass]="{ 'is-invalid': submitted && f.skin_color.errors }">
                             <div *ngIf="submitted && f.skin_color.errors" class="invalid-feedback">
                                 <div *ngIf="f.skin_color.errors.required">Skin color is required</div>
                             </div>

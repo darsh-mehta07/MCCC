@@ -9,6 +9,7 @@ import {WorkshopService} from '../_service/workshop.service';
 })
 export class WorkshopComponent implements OnInit {
   stickymenu = 'training';
+  pageName = 'training';
   upcomingData: any;
   endingsoonData: any;
   previosData: any;
@@ -37,19 +38,27 @@ export class WorkshopComponent implements OnInit {
     this.workshopService.get_upcoming_workshop_data({'limit': ''}).subscribe(
       data => { 
         this.upcomingData = data.data;
-        console.log(this.upcomingData);
+        if(this.upcomingData == 'No Data'){
+          this.upcomingData = [];
+        }
+        console.log(this.upcomingData.length);
     });
 
     this.workshopService.get_endingsoon_workshop_data({'limit': ''}).subscribe(
       data => { 
         this.endingsoonData = data.data;
+        if(this.endingsoonData == 'No Data'){
+          this.endingsoonData = [];
+        }
         console.log(this.endingsoonData);
     });
   
   this.workshopService.get_previous_workshop_data({'limit': ''}).subscribe(
       data => { 
         this.previosData = data.data;
-        
+        if(this.previosData == 'No Data'){
+          this.previosData = [];
+        }
         console.log(this.previosData);
   });
   }

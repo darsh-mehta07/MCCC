@@ -12,7 +12,7 @@ import{NotificationService} from '../_service/notification.service';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import {BtsVideosService} from '../_service/bts-videos.service';
 import {WorkshopService} from '../_service/workshop.service';
-
+import { ConnectionService } from 'ng-connection-service'; 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -49,6 +49,15 @@ export class HomeComponent implements OnInit {
     expanded = 0;
     category_color: any = ['hsl(7deg 88% 68%)','hsl(88deg 47% 64%)','hsl(42deg 76% 64%)','hsl(201deg 100% 73%)','hsl(7deg 88% 68%)','hsl(88deg 47% 64%)','hsl(42deg 76% 64%)','hsl(201deg 100% 73%)'];
     hostUrl:string = Config.Host+'backend2/';
+    isConnected = true;  
+    noInternetConnection!: boolean;  
+  on_going_loding: boolean = false;
+  upcomings_loding: boolean = false;
+  forU_loding: boolean = false;
+  appEvents: any;
+  on_going: any;
+  event_for_u: any;
+  upcomingsEvents: any;
     constructor(
         private route:Router,
         private authenticationService: AuthenticationService,
@@ -56,10 +65,11 @@ export class HomeComponent implements OnInit {
         private notifyService : NotificationService,
         private dashboardService : DashboardService,
         private btsVideosService: BtsVideosService,
-        private workshopService: WorkshopService
+        private workshopService: WorkshopService,
+        private connectionService: ConnectionService
         
     ) {
-      
+      console.log('const');
        // redirect to home if already logged in
         if(this.authenticationService.currentUserValue) {
             if(sessionStorage.getItem('profile_status') === 'false'){
@@ -68,7 +78,18 @@ export class HomeComponent implements OnInit {
         }else{
           this.route.navigate(['/signin']);
         }
-        this.currentUser = this.authenticationService.currentUserValue;        
+        this.currentUser = this.authenticationService.currentUserValue;     
+        
+        this.connectionService.monitor().subscribe(isConnected => {  
+          this.isConnected = isConnected;  
+          console.log(this.isConnected + 'fffconnecterd');
+          if (this.isConnected) {  
+            this.noInternetConnection=false;  
+          }  
+          else {  
+            this.noInternetConnection=true;  
+          }  
+        })  
     }
     //-----slick slider------------//    
     slideConfig = {"slidesToShow": 1, "slidesToScroll": 1,"dots": true,};
@@ -93,11 +114,13 @@ export class HomeComponent implements OnInit {
     } 
     //-----slick slider------------//
   ngOnInit(): void {    
+    console.log('ngon');
     this.loadAllUsers();
     this.castingSliderApi();
     this.newCastingCallApi();
     this.getRecomendedData();
     this.callEndingSoonAPI();
+    this.getEventsData();
     this.btsVideosService.get_bts_videos({'limit': 10,'category_id':1}).subscribe(
       data => { 
           // console.log(data);
@@ -121,7 +144,13 @@ export class HomeComponent implements OnInit {
       
     this.workshopService.get_endingsoon_workshop_data({'limit': 2}).subscribe(
         data => { 
-          this.endingsoonData = data.data;
+          var dataV = data.data;
+          if(dataV == 'No Data'){
+            this.endingsoonData = [];  
+          }else{
+            this.endingsoonData = data.data;
+          }
+          
           console.log(this.endingsoonData);
       });
     
@@ -131,6 +160,22 @@ export class HomeComponent implements OnInit {
           
           console.log(this.previosData);
     }); 
+  }
+  getEventsData(){
+    this.dashboardService.getEvents()
+      .subscribe(res => {
+        this.on_going_loding = true;
+        this.upcomings_loding = true;
+        this.forU_loding = true;
+        this.loading = true;
+        this.resData = res;        
+        this.appEvents = this.resData.data;   
+        this.on_going = this.resData.data.on_going;
+        this.upcomingsEvents = this.resData.data.upcoming;
+        console.log(this.upcomingsEvents);
+        this.event_for_u = this.resData.data.event_for_u;
+        console.log(this.event_for_u);
+      });
   }
   castingSliderApi(){
     this.dashboardService.castingSlider()
@@ -228,6 +273,9 @@ showToasterInfo(){
  
 showToasterWarning(){
     this.notifyService.showWarning("This is warning", "tutsmake.com")
+}
+eventInner(id:any){
+  this.route.navigate(['event-inner',id]);
 }
 
 }

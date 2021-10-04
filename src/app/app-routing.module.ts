@@ -39,7 +39,6 @@ import { BtsVideoViewComponent } from './bts-videos/bts-video-view/bts-video-vie
 import { RouteReuseStrategy } from '@angular/router';
 import { CustomReuseStrategy } from './_service/custom_reuse_strategy';
 
-import {WorkshopComponent} from './workshop/workshop.component';
 import { EventComponent } from './event/event/event.component';
 import { EventInnerComponent } from './event/event-inner/event-inner.component';
 import { EventApplyComponent } from './event/event-apply/event-apply.component';
@@ -49,6 +48,22 @@ import {WorkshopComponent} from './workshop/workshop.component'
 import { WorkshopRegistrationComponent } from './workshop/workshop-registration/workshop-registration.component';
 import { WorkshopRegistrationFormComponent } from './workshop/workshop-registration-form/workshop-registration-form.component';
 import { ThankYouPageComponent } from './workshop/thank-you-page/thank-you-page.component';
+import { NoInternetComponent } from './no-internet/no-internet.component';
+
+import { AboutMcccComponent } from './common/about-mccc/about-mccc.component';
+import { FaqsComponent } from './common/faqs/faqs.component';
+import { HelpComponent } from './common/help/help.component';
+import { FaqInnerComponent } from './common/faq-inner/faq-inner.component';
+import { AnatomyComponent } from './common/anatomy/anatomy.component';
+import { PersonalComponent } from './common/personal/personal.component';
+import { ContactDetailsComponent } from './common/contact-details/contact-details.component';
+import { AnatomyInnerComponent } from './common/anatomy-inner/anatomy-inner.component';
+import { ImagesComponent } from './common/images/images.component';
+import { VideoComponent } from './common/video/video.component';
+
+import { NotificationComponent } from './notification/notification.component';
+import { GamesComponent } from './games/games.component';
+
 
 
 const routes: Routes = [
@@ -250,19 +265,73 @@ const routes: Routes = [
     path: 'event-thankyou',component: EventThankyouComponent,canActivate: [AuthGuard],    
     data: {storeRoute: true,title: 'Event Thankyou page'}    
   },
-
+  {
     path: 'workshop-registration/:id',component: WorkshopRegistrationComponent,canActivate: [AuthGuard],    
     data: {storeRoute: true,title: 'Workshop Registration'}    
   },
   {    
-    path: 'workshop-registration-form/:id',component: WorkshopRegistrationFormComponent,canActivate: [AuthGuard],    
+    path: 'workshop-registration-form/:id/:type',component: WorkshopRegistrationFormComponent,canActivate: [AuthGuard],    
+    data: {title: 'Workshop Registration Form'}    
+  },
+  {    
+    path: 'thank-you-workshop/:name',component: ThankYouPageComponent,canActivate: [AuthGuard],    
+    data: {title: 'Workshop Registration Form'}    
+  },
+  {    
+    path: 'no-internet',component: NoInternetComponent,    
     data: {storeRoute: true,title: 'Workshop Registration Form'}    
   },
   {    
-    path: 'thank-you-workshop',component: ThankYouPageComponent,canActivate: [AuthGuard],    
-    data: {storeRoute: true,title: 'Workshop Registration Form'}    
+
+    path: 'about-MCCC',component: AboutMcccComponent,    
+    data: {storeRoute: true,title: 'About MCCC'}    
+  },
+  {    
+    path: 'faq',component: FaqsComponent,    
+    data: {storeRoute: true,title: 'FAQS'}    
+  },
+  {    
+    path: 'faq-inner/:id',component: FaqInnerComponent,    
+    data: {storeRoute: true,title: 'FAQ Inner'}    
+  },
+  {    
+    path: 'help',component: HelpComponent,    
+    data: {storeRoute: true,title: 'Help'}    
+  },
+  {    
+    path: 'anatomy',component: AnatomyComponent,    
+    data: {storeRoute: true,title: 'Anatomy'}    
+  },
+  {    
+    path: 'anatomy-inner',component: AnatomyInnerComponent,    
+    data: {storeRoute: true,title: 'Anatomy Inner'}    
+  },
+  {    
+    path: 'personal',component: PersonalComponent,    
+    data: {storeRoute: true,title: 'Parsanal'}    
+  },
+  {    
+    path: 'contact-details',component: ContactDetailsComponent,    
+    data: {storeRoute: true,title: 'Anatomy'}    
+  },
+  {    
+    path: 'images',component: ImagesComponent,    
+    data: {storeRoute: true,title: 'Images'}    
+  },
+  {    
+    path: 'video',component: VideoComponent,    
+    data: {storeRoute: true,title: 'Video'}    
+  },
+  {
+    path: 'notification',component: NotificationComponent,    
+    data: {title: 'Notification Panel'}    
+  },
+  {
+    path: 'games',component: GamesComponent,    
+    data: {title: 'games'}    
   },
   
+
 
 ];
 

@@ -6,7 +6,7 @@ import { Location } from '@angular/common';
 import { AuthenticationService } from '../../_service/authentication.service';
 import { DashboardService } from '../../_service/dashboard.service';
 import { User } from '../../_models/user';
-
+import { NotificationService } from 'src/app/_service/notification.service';
 import { AbstractControl, FormGroup, FormBuilder, Validators,FormControl } from '@angular/forms';
 @Component({
   selector: 'app-workshop-registration-form',
@@ -15,8 +15,10 @@ import { AbstractControl, FormGroup, FormBuilder, Validators,FormControl } from 
 })
 export class WorkshopRegistrationFormComponent implements OnInit {
   id: any;
+  type:any;
   bgImage: any;
   workshopData: any;
+  eventData: any;
   currentUser: User;
   images: string[] = [];
   images2: string[] = [];
@@ -24,13 +26,15 @@ export class WorkshopRegistrationFormComponent implements OnInit {
   userData: any;
   url: any;
   form: FormGroup | any;
+  loading = false;
   submitted = false;
   constructor(private location: Location,private workshopService: WorkshopService,
     private route:Router,
     private actRoute:ActivatedRoute,
     private authenticationService: AuthenticationService,
     private dashboardService: DashboardService,
-    private formBuilder:FormBuilder) { 
+    private formBuilder:FormBuilder,
+    private notification:NotificationService) { 
       this.currentUser = this.authenticationService.currentUserValue;
       this.userId = this.currentUser.userDetails.id;
       console.log(this.currentUser);
@@ -39,6 +43,8 @@ export class WorkshopRegistrationFormComponent implements OnInit {
   ngOnInit(): void {
     this.actRoute.paramMap.subscribe((params: ParamMap) => {                 
       this.id = params.get('id');
+      this.type = params.get('type');
+      console.log(this.type);
     });
 
     this.dashboardService.userDetails({casting_id:''}).subscribe(
@@ -47,31 +53,34 @@ export class WorkshopRegistrationFormComponent implements OnInit {
         console.log(data);
     });
 
-    this.workshopService.get_each_workshop_data({'id': this.id}).subscribe(
-      data => { 
-        this.workshopData = data.data[0];
-        console.log(this.workshopData);
-    });
+    if(this.type == 1){
+      this.dashboardService.innerEvents({'id': this.id}).subscribe(
+        data => { 
+          this.eventData = data;
+          this.workshopData = this.eventData.data;
+          console.log(this.workshopData);
+      });
+    }
+
+    if(this.type == 2){
+      this.workshopService.get_each_workshop_data({'id': this.id}).subscribe(
+        data => { 
+          this.workshopData = data.data[0];
+          console.log(this.workshopData);
+      });
+    }
 
     this.form = this.formBuilder.group({
       
-      name : [this.currentUser.userDetails.name,Validators.required],
-      age : [null,Validators.required],
-      phone : [this.currentUser.userDetails.phone],
       sos_phone : [null,Validators.required],
       edu_details: [null,Validators.required],
-      gender: [this.currentUser.userDetails.gender,Validators.required],
-      dob: [this.currentUser.userDetails.dob,Validators.required],
-      email: [this.currentUser.userDetails.email,Validators.required],
       address: [null,Validators.required],
-      city_name: [null,Validators.required],
       aadhar_file: ['',Validators.required],
       pan_file: ['',Validators.required],
       about_workshop: ['',Validators.required],
       fileSource : [''],
       aadharfileSource : [''],
-      user_id:[this.currentUser.userDetails.id,''],
-      workshop_id:[this.workshopData.id,'']
+      workshop_id:[this.id,''],
     });
   }
 
@@ -80,17 +89,31 @@ export class WorkshopRegistrationFormComponent implements OnInit {
   } 
   submit(){
     this.submitted = true;
-    console.log(this.form.value);
     if (this.form.invalid) {
       return;
     }else{
+      this.loading = true;
       var data = this.form.value;
-      this.workshopService.user_apply_for_workshop(data).subscribe(
-        data => { 
-          console.log(data);
-          this.route.navigate(['/thank-you-workshop']);
-      });
-      
+      console.log(this.form.value);
+      if(this.type == 2){
+          this.workshopService.user_apply_for_workshop(data).subscribe(
+            data => { 
+              console.log(data);
+              this.loading = false;
+              this.notification.showSuccess('Thank You.','');
+              this.route.navigate(['/thank-you-workshop/',this.workshopData.title]);
+          });
+      }
+      if(this.type == 1){
+        this.loading = false;
+        this.dashboardService.user_apply_for_events(data).subscribe(
+          data => { 
+            console.log(data);
+            this.loading = false;
+            this.notification.showSuccess('Thank You.','');
+            this.route.navigate(['/thank-you-workshop',this.workshopData.title]);
+        });
+    }
     }
   }
   back(): void {
@@ -132,9 +155,9 @@ export class WorkshopRegistrationFormComponent implements OnInit {
         
         reader.onload = (event: any) => {
           this.url = (<FileReader>event.target).result;
-          this.images.push(event.target.result);
+          this.images2.push(event.target.result);
           this.form.patchValue({
-            aadharfileSource: this.images
+            aadharfileSource: this.images2
           });
         }
         reader.readAsDataURL(event.target.files[i]);

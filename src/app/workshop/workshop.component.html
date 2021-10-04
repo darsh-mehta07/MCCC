@@ -21,6 +21,7 @@
             <!--<a href="#">View All</a>-->
           </div>
           <div class="card-tbs" *ngFor="let data of upcomingData">
+            <div *ngIf="upcomingData.length > 0">
               <div class='dt-tabs'>
                     <div class="show-hidden-menu">
                         <span></span>
@@ -58,10 +59,10 @@
                 <h4>{{data.start_time}}</h4>
               </div>
             </div>
+            </div>
+           
          </div>
-         <div class="no-data" *ngIf="upcomingData == 'No Data' ">
-            <h2>No Data Available</h2>
-          </div>
+         <div *ngIf="upcomingData.length == '0' ">No Data Found</div>
         
           
         </div>
@@ -75,6 +76,8 @@
             </h2>
           </div>
          <div class="card-tbs" *ngFor="let data of endingsoonData">
+          
+          <div *ngIf="endingsoonData.length > 0">
              <div class='dt-tabs'>
                     <div class="show-hidden-menu">
                         <span></span>
@@ -113,9 +116,9 @@
               </div>
             </div>
          </div>
-         <div class="no-data" *ngIf="endingsoonData == 'No Data' ">
-            <h2>No Data Available</h2>
-          </div>
+         
+         </div>
+         <div *ngIf="endingsoonData.length == 0 ">No Data Found</div>
         </div>
       </div>
         <div class="Previous-workshops-tbs tab-pane " [ngClass]="catId == 3 ? 'active':''" id="tab3">
@@ -128,6 +131,8 @@
             <!--<a href="#">View All</a>-->
           </div>
           <div class="card-tbs" *ngFor="let data of previosData">
+            <div *ngIf="previosData.length == 0 ">No Data Found</div>
+            <div *ngIf="previosData.length > 0">
               <div class='dt-tabs'>
                     <div class="show-hidden-menu">
                         <span></span>
@@ -166,9 +171,8 @@
               </div>
             </div>
          </div>
-         <div class="no-data" *ngIf="previosData == 'No Data' ">
-            <h2>No Data Available</h2>
-          </div>
+        </div>
+         
           </div>
       </div>
     <div class="train-banner">
@@ -182,29 +186,46 @@
     </div>
     <div class="trner">
     <div class="container">
-        <ngx-slick-carousel class="carousel video_slider" #slickModal="slick-carousel" [config]="trns_sliders"
-          (init)="slickInit($event)" (breakpoint)="breakpoint($event)" (afterChange)="afterChange($event)"
-          (beforeChange)="beforeChange($event)">
-          <div class="slider">
-          <div class="vdo-slide">
-            <img src="../../assets/img/trainer1.png">
-            <div class="slider-txt hv1">
-              <h3>Anupam Kher</h3>
-            </div>
+      <ngx-slick-carousel class="carousel trns_sliders" #slickModal="slick-carousel" [config]="trns_sliders"
+      (init)="slickInit($event)" (breakpoint)="breakpoint($event)" (afterChange)="afterChange($event)"
+      (beforeChange)="beforeChange($event)">
+      <div ngxSlickItem class="slider">
+        <div class="vdo-slide">
+          <img src="../../../assets/img/trainer1.png">
+          <div class="slider-txt hv1">
+            <h3>Anupam Kher</h3>
           </div>
-            </div>
-            <div class="slider">
-            <div class="vdo-slide">
-                <img src="../../assets/img/trainer2.png">
-                <div class="slider-txt hv2">
-                <h3>Sonu Sood</h3>
-                </div>
-            </div>
-            </div>
-        </ngx-slick-carousel>
+        </div>
+      </div>
+      <div ngxSlickItem class="slider">
+        <div class="vdo-slide">
+          <img src="../../../assets/img/trainer2.png">
+          <div class="slider-txt hv2">
+            <h3>Sunu Sood</h3>
+          </div>
+        </div>
+      </div>
+      <div ngxSlickItem class="slider">
+        <div class="vdo-slide">
+          <img src="../../../assets/img/trainer3.png">
+          <div class="slider-txt hv3">
+            <h3>Mukesh Khanna</h3>
+          </div>
+        </div>
+      </div>
+      <div ngxSlickItem class="slider">
+        <div class="vdo-slide">
+          <img src="../../../assets/img/trainer4.png">
+          <div class="slider-txt hv4">
+            <h3>Amitabh Bacchan</h3>
+          </div>
+        </div>
+      </div>
+      
+    </ngx-slick-carousel>
       
     </div>
   </div>
     </div>
-    <app-footer></app-footer>
+    <app-footer [pageName]="pageName"></app-footer>
 </body>    

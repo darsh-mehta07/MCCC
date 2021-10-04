@@ -9,7 +9,7 @@
           </div>
           <div class="menu-nav">
             <img src="../../../assets/img/application.svg">
-            <a >Your Application</a>
+            <a [routerLink]="['/my-aaplication']">Your Application</a>
           </div>
           <div class="menu-nav">
             <img src="../../../assets/img/notify.svg">
@@ -17,11 +17,11 @@
           </div>
           <div class="menu-nav">
             <img src="../../../assets/img/upcoming.svg">
-            <a >Upcoming Events</a>
+            <a [routerLink]="['/event',4]">Upcoming Events</a>
           </div>
           <div class="menu-nav">
             <img src="../../../assets/img/traing.svg">
-            <a >Training Session</a>
+            <a [routerLink]="['/workshop',1]">Training Session</a>
           </div>
           <div class="menu-nav">
             <img src="../../../assets/img/shortlist.svg">
@@ -31,13 +31,13 @@
             <img src="../../../assets/img/bts.svg">
             <a (click)='closeNav()' [routerLink]="['/bts-video']">BTS</a>
           </div>
-          <div class="menu-nav">
+          <!-- <div class="menu-nav">
             <img src="../../../assets/img/draft.png">
             <a >Your Drafts</a>
-          </div>
+          </div> -->
           <div class="menu-nav">
             <img src="../../../assets/img/game.svg">
-            <a >Games</a>
+            <a [routerLink]="['/games']">Games</a>
           </div>
           <div class="menu-nav">
             <img src="../../../assets/img/classif.png">
@@ -45,18 +45,18 @@
           </div>
           <div class="menu-nav">
             <img src="../../../assets/img/about-mccc.svg">
-            <a >About MCCC</a>
+            <a [routerLink]="['/about-MCCC']">About MCCC</a>
           </div>
           <div class="menu-nav">
             <img src="../../../assets/img/faq.svg">
-            <a >FAQ's</a>
+            <a [routerLink]="['/faq']">FAQ's</a>
           </div>
           <div class="menu-nav">
             <img src="../../../assets/img/help.svg">
-            <a >Helps</a>
+            <a [routerLink]="['/help']">Helps</a>
           </div>
           <div class="menu-nav">
-            <img src="../../../assets/img/help.svg">
+            <img src="../../../assets/img/logout.png">
             <a (click)="logout()">Logout</a>
           </div>
 
@@ -65,11 +65,11 @@
         <div class="logo">
           <img src="../../../assets/img/logo-2.png">
         </div>
-        <div class="search">
+        <!-- <div class="search">
           <img src="../../../assets/img/search.png">
-        </div>
+        </div> -->
         <div class="notify">
-          <img src="../../../assets/img/notification.png">
+          <a [routerLink]="['/notification']"><img src="../../../assets/img/notification.png"></a>{{getCount}}
         </div>
       </div>
     </div>
