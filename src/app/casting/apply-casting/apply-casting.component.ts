@@ -211,14 +211,14 @@ export class ApplyCastingComponent implements OnInit {
         .pipe(first())
         .subscribe(res => {
           this.loading = true;
-          this.notification.showSuccess('Casting call save Successfully.','');
+          this.notification.showSuccess('Casting call saved Successfully.','');
           this.resData = res;   
           this.route.navigate(['/home']);       
         });
       }else{
         this.loading = true;    
         if(totalimg > 7){
-          this.imageerror = 'Please Select Only Three Photo';
+          this.imageerror = 'Please Select Only Three Photos';
         this.threeimgerror = true;
         }else if(totalvideo > 4){
           this.videoerror = 'Please Select Only One Video';

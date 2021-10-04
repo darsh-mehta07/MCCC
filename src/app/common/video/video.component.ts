@@ -82,7 +82,7 @@ export class VideoComponent implements OnInit {
         this.commonService.updateVideo(this.form.value)
         .subscribe(res => {
           this.loading = true;
-          this.notification.showSuccess('Video save Successfully.','');
+          this.notification.showSuccess('Video saved Successfully.','');
           this.resData = res;        
         });
       }else{    

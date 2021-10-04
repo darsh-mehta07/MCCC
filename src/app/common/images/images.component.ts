@@ -91,7 +91,7 @@ export class ImagesComponent implements OnInit {
             this.loading = true;
             this.uploading = false;     
             this.active=0;   
-            this.notification.showSuccess('Video save Successfully.','');
+            this.notification.showSuccess('Video saved Successfully.','');
           },
           error => {
             this.loading = false;
