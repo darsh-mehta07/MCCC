@@ -21,10 +21,10 @@
           <img src="{{ slide.img }}" alt="" width="100%">
           <h2>{{slide.title}}</h2>
             <p>{{slide.des}}</p>
-            <a *ngIf="slide.no != 3" (click)="slickModal.slickGoTo(slide.no)" class="{{ slide.class3 }}">
+            <a *ngIf="slide.no != 4" (click)="slickModal.slickGoTo(slide.no)" class="{{ slide.class3 }}">
                 <button><i class="fa fa-angle-right"></i></button>
               </a>
-              <a *ngIf="slide.no == 3" [routerLink]="['/welcome']" class="{{ slide.class3 }}">
+              <a *ngIf="slide.no == 4" [routerLink]="['/welcome']" class="{{ slide.class3 }}">
                 <button><i class="fa fa-angle-right"></i></button>
               </a>
         

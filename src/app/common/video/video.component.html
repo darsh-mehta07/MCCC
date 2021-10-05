@@ -13,28 +13,32 @@
             <form [formGroup]="form">
             <div class="vdi">
               <div class="upload-video">
+                <div *ngIf="!newVideoAdded">
                   <div class="box" *ngFor="let video of datas;let i=index;">
                     <video class="js--image-preview" width="30%" height="110px" controls>
                       <source src="{{videoPath+video.videos}}" type="video/mp4">
                       Your browser does not support the video tag.
                     </video>
-                      <div class="upload-options">
+                      <!-- <div class="upload-options">
                         <div class='multi-field'>
                           <button type="button" class="close">X</button>
                         </div>
-                      </div>
-                  </div> 
+                      </div> -->
+                  </div>
+                </div> 
+                <div *ngIf="newVideoAdded">
                   <div class="box" *ngFor='let url of videos'>
                     <video class="js--image-preview" width="30%" height="110px" controls>
                       <source src="{{url}}" type="video/mp4">
                       Your browser does not support the video tag.
                     </video>
-                    <div class="upload-options">
+                    <!-- <div class="upload-options">
                       <div class='multi-field'>
                         <button type="button" class="close" (click)="removeSelectedVideo(url)">X</button>
                       </div>
-                    </div>
-                  </div>                 
+                    </div> -->
+                  </div>  
+                  </div>               
               </div>
               <div class="vdi-btn">
                   <i class="fa fa-plus-circle" aria-hidden="true"> </i>
@@ -71,11 +75,11 @@
         <source src="{{url}}" type="video/mp4">
         Your browser does not support the video tag.
       </video>
-      <div class="upload-options">
+      <!-- <div class="upload-options">
         <div class='multi-field'>
           <button type="button" class="close" (click)="removeSelectedVideo(url)">X</button>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
   </div>
