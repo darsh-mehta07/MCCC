@@ -32,11 +32,7 @@ export class Splash1Component implements OnInit {
     // console.log('breakpoint');
   }    
   afterChange(e:any) {
-    if(e.last){
-      this.slideConfig.autoplay = false;
-    }else{
-        console.log("after change");
-    }
+    
   }    
   beforeChange(e:any) {
     // console.log('beforeChange');
