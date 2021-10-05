@@ -27,3 +27,26 @@
 .conform-details img {
     width: 100%;
 }
+.conform-details {
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: relative;
+}
+.conform-details .container {
+    height: auto;
+}
+.upload-video .box {
+    width: 100%;
+    height: 180px;
+}
+.upload-video .upload-options {
+    width: 100%;
+    height: 180px;
+    bottom: 190px !important;
+    position: relative;
+}
+
+@media only screen and (max-width: 320px) {
+    .upload-img .box { min-width: 70px;}
+}
