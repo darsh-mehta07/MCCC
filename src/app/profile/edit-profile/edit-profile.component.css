@@ -37,3 +37,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .select_div select option{
    margin:10px;
 }
+.application .invalid-feedback {
+    margin-top: 0;
+}
