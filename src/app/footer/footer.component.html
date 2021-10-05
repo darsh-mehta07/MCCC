@@ -1,19 +1,19 @@
 <div class="footer hm-bg" id="footer">
     <div class="grids">
       <div class="foot-tbs">
-        <a [routerLink]="['/home']" [ngClass]="pageName == 'home' ? 'active' : ''">
+        <a (click)="home()" [ngClass]="pageName == 'home' ? 'active' : ''">
           <i class="fa fa-home" aria-hidden="true"></i>
           <h5>Home</h5>
         </a>
       </div>
       <div class="foot-tbs">
-        <a [routerLink]="['/my-aaplication']" [ngClass]="pageName == 'my-application' ? 'active' : ''">
+        <a (click)="myApplication()" [ngClass]="pageName == 'my-application' ? 'active' : ''">
           <i class="fa fa-calendar" aria-hidden="true"></i>
           <h5>Application</h5>
         </a>
       </div>
       <div class="foot-tbs">
-        <a [routerLink]="['/games']" [ngClass]="pageName == 'message' ? 'active' : ''">
+        <a (click)="games()" [ngClass]="pageName == 'message' ? 'active' : ''">
           <i class="fa fa-gamepad" aria-hidden="true"></i>
           <h5>Games</h5>
         </a>
@@ -30,12 +30,12 @@
     <a href="javascript:void(0)" class="closebtn" (click)="closeprofile()">X</a>
      <div class="Profile">
        <img src="../../assets/img/profile.svg">
-       <a href="#">Hello {{currentUser.userDetails.name}}</a>
+       <a >Hello {{currentUser.userDetails.name}}</a>
     </div>
-    <div class="prof-nav">
+    <!-- <div class="prof-nav">
         <img src="../../assets/img/edit.png">
         <a >Edit</a>
-    </div>
+    </div> -->
     <div class="prof-nav">
         <img src="../../assets/img/personla.png">
         <a [routerLink]="['/edit-profile']">Personal</a>
@@ -44,14 +44,14 @@
         <img src="../../assets/img/antonomy.png">
         <a [routerLink]="['/anatomy-inner']">Anatomy</a>
     </div>
-    <div class="prof-nav">
+    <!-- <div class="prof-nav">
         <img src="../../assets/img/skill.png">
         <a href="skill.html">Skill</a>
-    </div>
-    <div class="prof-nav">
+    </div> -->
+    <!-- <div class="prof-nav">
         <img src="../../assets/img/previus.png">
         <a >Previous Works</a>
-    </div>
+    </div> -->
     <div class="prof-nav">
         <img src="../../assets/img/images.png">
         <a [routerLink]="['/images']">Images</a>

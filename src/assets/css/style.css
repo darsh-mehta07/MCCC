@@ -257,6 +257,54 @@ body {
     .splash1 .container {max-width: 100%; position: absolute; height: 100%; display: flex; align-items: center;justify-content: center;}
     .splash1 .splash-content {  width: 100%;display: flex; align-items: center;justify-content: center; height: 100%;}
     .splash1 .splash-content img {width: 200px; height: auto; display: flex; align-items: center; justify-content: center;}
+    .bTs {
+        background: #78cfff;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 30px;
+    }
+    .bTs-content {
+        height: 100%;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .bTs-content p {
+        color: #162707;
+        font-size: 17px;
+    }
+    .bTs  h2 {
+        font-size: 35px;
+        font-weight: 600;
+        text-shadow: 2px 2px #fff;
+    }
+    .slide-btn4 {
+        border-radius: 50%;
+        position: relative;
+        top: 20%;
+        left: 40%;
+        border: 5px solid #fff;
+        border-bottom-color: transparent;
+        border-left-color: transparent;
+    }
+    .slide-btn4 button {
+        border: 0;
+        width: 55px;
+        height: 55px;
+        background: #3b8ab5;
+        border-radius: 50%;
+        color: #fff;
+    }
+    .slide-btn4 i.fa.fa-angle-right {
+        font-size: 36px;
+    }
+    .bTs-content img {
+        margin-bottom: 10px;
+        width: 35%;
+    }
 }
 
 @media screen and (min-height: 812px) {

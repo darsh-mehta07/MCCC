@@ -26,6 +26,7 @@ export class VideoComponent implements OnInit {
     url : any;
     onevideoerror:boolean = false;
     videoerror:any;
+    newVideoAdded:boolean = false;
 
 
   pageName="images";
@@ -69,8 +70,15 @@ export class VideoComponent implements OnInit {
     if (this.form.invalid) {
       return;
     }else{     
+      //video update section
+      if(this.newVideoAdded){
+        console.log('newVideoAdded');
+           this.videoArray = null;
+           this.patchOldVideoValues();
+      }
+      //video update section
       this.loading = false;
-      if(this.videoArray.videos != '' || this.videoArray.videos != null){
+      if(this.videoArray!= null && this.videoArray.videos != '' && this.videoArray.videos != null){
         this.oldvideo = 1;
       }else{
         this.oldvideo = 0;
@@ -78,15 +86,17 @@ export class VideoComponent implements OnInit {
       let totalvideo = this.videos.length + this.oldvideo;
 
       if(totalvideo > 0){
+        console.log('if');
         this.patchOldVideoValues();
         this.commonService.updateVideo(this.form.value)
         .subscribe(res => {
           this.loading = true;
-          this.notification.showSuccess('Video save Successfully.','');
+          this.notification.showSuccess('Video saved Successfully.','');
           this.resData = res;        
         });
       }else{    
-        this.loading = false;    
+        console.log('else');
+        this.loading = true;    
          if(totalvideo > 4){
           this.videoerror = 'Please Select Only One Video';
         this.onevideoerror = true;
@@ -135,6 +145,7 @@ export class VideoComponent implements OnInit {
       });
     }
     onVideoFileChange(event: any){
+      let newVideo :string [] = [];
       if (event.target.files && event.target.files[0]) {
         const file = event.target.files && event.target.files[0];
         var filesAmount = event.target.files.length;
@@ -148,16 +159,18 @@ export class VideoComponent implements OnInit {
           }
           reader.onload = (event: any) => {
             this.url = (<FileReader>event.target).result;
-            this.videos.push(event.target.result);
-            if(this.videos.length == 1){
+            newVideo.push(event.target.result);
+            if(newVideo.length == 1){
               this.secvidbox = false;
             }
-            if(this.videos.length == 2){
+            if(newVideo.length == 2){
               this.thrvidbox = false;
             }
             this.form.patchValue({
-              newvideofileSource: this.videos
-            });           
+              newvideofileSource: newVideo
+            });  
+            this.videos = newVideo;         
+            this.newVideoAdded = true;           
           }
           reader.readAsDataURL(event.target.files[i]);
         }
