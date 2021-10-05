@@ -21,7 +21,7 @@
             <!--<a href="#">View All</a>-->
           </div>
           <div class="card-tbs" *ngFor="let data of upcomingData">
-            <div *ngIf="upcomingData.length > 0">
+            <div *ngIf="upcomingData != '' ">
               <div class='dt-tabs'>
                     <div class="show-hidden-menu">
                         <span></span>
@@ -62,7 +62,7 @@
             </div>
            
          </div>
-         <div *ngIf="upcomingData.length == '0' ">No Data Found</div>
+         <div *ngIf="upcomingData == '' ">No Data Found</div>
         
           
         </div>
@@ -77,7 +77,7 @@
           </div>
          <div class="card-tbs" *ngFor="let data of endingsoonData">
           
-          <div *ngIf="endingsoonData.length > 0">
+          <div *ngIf="endingsoonData != '' ">
              <div class='dt-tabs'>
                     <div class="show-hidden-menu">
                         <span></span>
@@ -118,7 +118,7 @@
          </div>
          
          </div>
-         <div *ngIf="endingsoonData.length == 0 ">No Data Found</div>
+         <div *ngIf="endingsoonData == '' ">No Data Found</div>
         </div>
       </div>
         <div class="Previous-workshops-tbs tab-pane " [ngClass]="catId == 3 ? 'active':''" id="tab3">
@@ -131,8 +131,8 @@
             <!--<a href="#">View All</a>-->
           </div>
           <div class="card-tbs" *ngFor="let data of previosData">
-            <div *ngIf="previosData.length == 0 ">No Data Found</div>
-            <div *ngIf="previosData.length > 0">
+            
+            <div *ngIf="previosData != '' ">
               <div class='dt-tabs'>
                     <div class="show-hidden-menu">
                         <span></span>
@@ -172,7 +172,7 @@
             </div>
          </div>
         </div>
-         
+        <div *ngIf="previosData == '' ">No Data Found</div>
           </div>
       </div>
     <div class="train-banner">

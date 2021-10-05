@@ -8,6 +8,7 @@ import { Observable,BehaviorSubject, Subject  } from 'rxjs';
   providedIn: 'root'
 })
 export class DashboardService {
+ 
   public castingData: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
     headers:any;
     localstorageData : any;
