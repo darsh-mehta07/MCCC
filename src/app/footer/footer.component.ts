@@ -23,6 +23,18 @@ export class FooterComponent implements OnInit {
     this.pageName = 'profile';
     this.openprofilenav = true;
   }
+  home(){
+    this.pageName = 'home';
+    this.route.navigate(['/home']);
+  }
+  games(){
+    this.pageName = 'games';
+    this.route.navigate(['/games']);
+  }
+  myApplication(){
+    this.pageName = 'my-application';
+    this.route.navigate(['/my-aaplication']);
+  }
   closeprofile(){
     this.openprofilenav = false;
   }
