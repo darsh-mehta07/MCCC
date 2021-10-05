@@ -1,17 +1,37 @@
+<ngx-slick-carousel class="carousel slick_sliders splace_slider" #slickModal="slick-carousel" [config]="slideConfig"
+(init)="slickInit($event)" (breakpoint)="breakpoint($event)" (afterChange)="afterChange($event)"
+(beforeChange)="beforeChange($event)">
+<div ngxSlickItem *ngFor="let slide of slides" class="slide">
 <div class="header">
     <button class="skip">
-        <a href="welcome">SKIP</a>
+        <a [routerLink]="['/welcome']">SKIP</a>
     </button>
 </div>
-<div class="casting">
+<div class="{{slide.class1}}">
     <div class="container">
-        <div class="casting-content">
-            <img src="../../assets/img/casting-svg.svg">
+        <div class="{{slide.class2}}">
+            <!-- <img src="../../assets/img/casting-svg.svg">
             <h2>Casting</h2>
             <p>Get Updates on the most recent casting calls of feature films, TV commercials and other mediums. Register NOW!</p>
             <a href="splash2" class="slide-btn1">
                 <button><i class="fa fa-angle-right"></i></button>
+              </a> -->
+       
+       
+          <img src="{{ slide.img }}" alt="" width="100%">
+          <h2>{{slide.title}}</h2>
+            <p>{{slide.des}}</p>
+            <a *ngIf="slide.no != 3" (click)="slickModal.slickGoTo(slide.no)" class="{{ slide.class3 }}">
+                <button><i class="fa fa-angle-right"></i></button>
               </a>
-        </div>
+              <a *ngIf="slide.no == 3" [routerLink]="['/welcome']" class="{{ slide.class3 }}">
+                <button><i class="fa fa-angle-right"></i></button>
+              </a>
+        
+    </div>
+
+
     </div>
 </div>
+</div>
+</ngx-slick-carousel>
