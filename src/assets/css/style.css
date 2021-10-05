@@ -340,6 +340,12 @@ body {
         justify-content: flex-start;
         padding-left: 20px;
     }
+    .profile-dtl {
+        position: relative;
+        height: 100%;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
     .profilenav img {
         width: 20px;
         height: auto;
@@ -353,11 +359,7 @@ body {
         transition: 0.3s;
     }
     .profile-dtl .container {
-        width: 100%;
-        height: 100vh;
-        overflow-y: scroll;
-        position: absolute;
-        top: 0;
+        width: 100%;height: auto;
     }
     .profile-icons {
         top: 0;
@@ -513,6 +515,7 @@ body {
         text-transform: none;
         font-size: 14px;
         text-decoration: none;
+        border: 0;
     }
     a.wht {
         background: hsl(0deg 0% 100%);
@@ -636,7 +639,7 @@ body {
     .login-fb i.fa.fa-facebook {margin-right: 5px;font-size: 18px;}
     .splash7 button.login-g { margin-top: 15px; border: 0; height: 50px; border-radius: 25px; background: #ffff; line-height: normal; display: block; align-items: center; justify-content: center; width: 100%; font-size: 20px; }
     .splash7 img { width: 100%;}
-    .splash7 .login-g img { width: 23px; margin-bottom: 0; margin-right: 10px;}
+    .splash7 .login-g img {width: 23px !important;  margin-bottom: 0 !important; margin-right: 10px;}
      button.sign-in { width: 100%;border: 0; height: 60px;line-height: 3.2;background: #F1BF45; font-size: 20px; text-transform: uppercase;}
     .footer { position: absolute; bottom: 0; width: 100%; z-index:9}
     .splash1 a {width: 50%;object-fit: cover;}
@@ -868,7 +871,7 @@ body {
     .upper-txt {position: absolute; top: 10%; text-align: center; width: 100%; left: 0;}
     .upper-txt h4 {font-size: 16px; color: #fff;}
     .upper-txt h3 {font-size: 16px; color: #fff;}
-    .upper-txt h2 {font-size: 24px; color: #fff;}
+    .upper-txt h2 {font-size: 22px; color: #fff;}
     .hd-icons {top: 0; left: 0; display: flex; align-items: center; justify-content: space-between;}
     .form_areas {width: 90%;background: #fff;margin: 0 auto ; padding: 25px; border-radius: 20px; position: absolute; top: 23%; height: auto; left: 0; right: 0;}
     .form_areas label { width: 100%; font-size: 12px; margin-bottom: 0; font-weight:600;}
@@ -950,10 +953,9 @@ body {
     .inner .casting-inner {background: #fff; height: 100%;}
     .casting-inner .hd-icons img {width: 8px !IMPORTANT;}
     .casting-inner .hd-icons img.home2 {width: 18px !important;}
-    .form_inner { width: 100%; background: #f8f8f8; margin:  0;padding: 20px; border-radius: 20px;position: absolute;height:60% !important; left: 0; right: 0; z-index:1; }
+    .form_inner { width: 100%; background: #f8f8f8; margin:  0;padding: 20px; border-radius: 20px;position: absolute;height:auto !important; left: 0; right: 0; z-index:1; }
     img.hd-img { 
-        height: calc(100% - 50%);
-    width: 100%;}
+        height: calc(100% - 50%);width: 100%;object-fit: cover;}
     .inner .casting-inner {
         background: #fff;
         height: 100%;
@@ -994,7 +996,7 @@ body {
    .evt-content h6 { color: hsl(0deg 0% 100%); font-size: 23px; font-weight: 500;}
    .evt-content h3 { color: hsl(0deg 0% 100%);font-size: 48px; font-family: 'Oswald'; font-weight: 600;}
    .evt-btn a {padding: 15px 35px; text-align: center; color: hsl(45deg 97% 74%); background: hsl(201deg 100% 74%); font-weight: 500; border-radius: 25px; text-decoration: none;}
-   .evt-btn { text-align: center; margin-top: 15px;}
+   .evt-btn { text-align: center; margin-top: 15px;padding-bottom: 100px;}
    .evt-btn~h6 { margin-bottom: 0;text-align: center;font-size: 12px; margin-top: 18px;}
    .event-inner h5 {font-size: 15px;}
    .event-inner h2 {font-size: 20px;color: hsl(7deg 88% 68%);font-weight: 600;margin-bottom: 15px;}
@@ -1017,10 +1019,10 @@ body {
     .training-inner .form_inner p {margin-bottom: 10px; font-size: 14px;}
     .training-inner h5 {font-size: 15px;}
     .training-btn a {background: hsl(88deg 47% 64%); padding: 10px 22px; border-radius: 25px;color: hsl(0deg 0% 100%);}
-    .training-btn {display: flex; align-items: center; justify-content: center;margin-top: 15px;}
+    .training-btn {display: flex; align-items: center; justify-content: center;margin-top: 15px;padding-bottom: 100px;}
     .sticky { position: fixed;}
     .fixed-icons{position:fixed;}
-    .card-tbs h3 {font-size: 18px; color: hsl(7deg 88% 68%); font-weight: 500; text-decoration: none; width: fit-content;}
+    .card-tbs h3 {font-size: 18px; color: hsl(7deg 88% 68%); font-weight: 500; text-decoration: none; width: 90%;}
     .toggle-sec a {color: hsl(0deg 0% 0%); text-decoration: none;}
    .cardbtn-Slider a {background: #dee2e6; color: #000; padding: 10px 5px; overflow: visible; width: 100px;border-radius: 25px;font-size: 12px; margin: 0 5px !important; height: 100px;text-align: center;}
     .cardbtn-Slider .slider { position: relative; top: 11px; width: auto !important;height: 50px;  margin-top: 5px;}
@@ -1102,7 +1104,7 @@ body {
 
 
     .slide-btn1:focus-visible, .slide-btn2:focus-visible, .slide-btn3:focus-visible {outline: 0;}
-    .upload-img {display: flex; justify-content: center;}
+    .upload-img {display: flex; justify-content: space-between;}
     .box { display: block;min-width: 93px;height: 150px;margin: 10px 4px;background-color: hsl(0deg 0% 100%);border-radius: 5px;box-shadow: 0 1px 3px rgb(0 0 0 / 12%), 0 1px 2px rgb(0 0 0 / 24%);transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);overflow: hidden;}
     .js--image-preview {height: 100%; width: 100%;position: relative;overflow: hidden; background-color: hsl(0deg 0% 100%);background-image: url(../img/img-prev.jpg);background-size: cover;background-repeat: no-repeat;background-position: center center;}
     .js--image-preview::after {content: ''; font-family: "Material Icons";position: relative;font-size: 10px;color: hsl(0deg 0% 90%);top: calc(50% - 2rem);left: calc(50% - 1.5rem);z-index: 0; width: 76px !important;}
@@ -1206,11 +1208,22 @@ p.lht-txt {color: hsl(0deg 0% 66%);}
 
 
 
+@media screen and (max-width: 412px) {
+    .application .form_areas { top: 28%;}
+    .conform-details .form_areas {top: 12%;}
+    .profile-dtl .form_areas { top: 14%;}
+    .splash7 button.sign-up {  margin-top: 35px;}
+    .splash7 button.login-g {  margin-bottom: 80px;}
+
+
+
+
+}
 
 @media screen and (max-width: 414px) {
     
     .sidenav a {font-size: 18px;}
-     .inner-btn a { font-size: 14px; padding: 10px 25px;}
+    .inner-btn a { font-size: 14px; padding: 10px 25px;}
 }
 
 @media only screen and (max-width: 375px) {
@@ -1266,13 +1279,18 @@ p.lht-txt {color: hsl(0deg 0% 66%);}
  .form_areas input {font-size: 15px;}
  .pht-btn i, .vdi-btn i {margin-right: 5px;}
  .pht-btn, .vdi-btn { font-size: 14px;}
- .upper-txt h2 {font-size: 22px;}
- .application .form_areas {top: 25%;}
+ .upper-txt h2 {font-size: 18px;}
+ .application .form_areas { top: 28%;}
+ .conform-details .form_areas {top: 15%;}
+ .profile-dtl .form_areas { top: 14%;}
+ .splash7 .splash-content img { width: 30%; margin-bottom: 10px;}
+ .sign_btn { height: 70px;}
+
 
 }
 
 @media only screen and (max-width: 320px) {
-    .splash-content p { font-size: 16px;}
+    .splash-content p { font-size: 14px;}
     .splash7 button.sign-up { font-size: 16px; height: 35px; margin-top: 0;}
     .or { font-size: 16px;}
     .splash7 button.login-fb, .splash7 button.login-g{font-size: 16px; height: 35px;}
@@ -1280,7 +1298,7 @@ p.lht-txt {color: hsl(0deg 0% 66%);}
     input.email {text-align: center; font-size: 26px;}
     .sign-content input[type="number"] { font-size: 28px;}
     .t_c label {width: 80%;}
-    img.hd-img {width: 170px;}
+    img.hd-img {width: 100%;}
     .inner-content h3 {font-size: 24px;}
     .inner-content h2 {font-size: 35px;}
     .form_inner p {font-size: 12px;margin-bottom: 10px;}
@@ -1322,7 +1340,12 @@ p.lht-txt {color: hsl(0deg 0% 66%);}
     .sign-content label { margin-bottom: 5px;}
     a.nt-btn.submit { position: relative;  top: 34%; margin-top:0;}
     button.fw-btn.proceed { display: flex; justify-content: center; position: relative;top: 0; padding: 4px 5px;height: 40px;}
-    .upper-txt h2 { font-size: 20px;}
+    .upper-txt h2 { font-size: 16px;}
+    .application .form_areas { top: 30%;}
+    .conform-details .form_areas { top: 18%;}
+    .training-btn { padding-bottom: 70px;}
+    .splash7 .splash-content img { width: 28%;  margin-bottom: 10px;}
+    .sign_btn { height: 70px;}
 
 
 
@@ -2378,9 +2401,23 @@ input#phone::placeholder {
 .inner-tabs ul.nav.nav-pills {
     background: hsl(210deg 17% 98%);
 }
-.details-icons:first-child {
-    padding-left: 0 !important;
-}
 .evnt img {
     width: 100%;
+}
+.dt-tabs {
+    position: relative;
+    right: 10px;
+}
+.events-inner .container, .training-inner .container {
+    width: 100%;
+    height: auto;
+}
+.events-inner , .training-inner{
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: relative;
+}
+.trns #tab1, .trns #tab2, .trns #tab3 {
+    padding-bottom: 0 !important;
 }
