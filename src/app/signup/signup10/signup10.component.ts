@@ -19,7 +19,7 @@ export class Signup10Component implements OnInit {
   form: FormGroup | any;
   submitted = false;
   data :any;
-  loading = false;
+  loading:boolean = false;
   all_terms : any;
   terms :any;
   showViewMore:boolean = false;
@@ -68,7 +68,7 @@ export class Signup10Component implements OnInit {
       terms3: [sessionStorage.getItem('terms3'),Validators.required]
     });
 
-    
+    this.loading = true;
   }
   get f(): { [key: string]: AbstractControl } {
     return this.form.controls;
@@ -78,11 +78,12 @@ export class Signup10Component implements OnInit {
     if (this.form.invalid) {
         return;
     }else{        
-        this.loading = true;
+        this.loading = false;
         this.registerService.register(this.form.value)
             .pipe(first())
             .subscribe(
-                data => {             
+                data => {           
+                  this.loading = true;  
                   console.log(JSON.stringify(data));       
                   sessionStorage.removeItem('name');
                   // sessionStorage.removeItem('email');
@@ -99,7 +100,7 @@ export class Signup10Component implements OnInit {
                 error => {
                   // console.log('Registration successful',error.error.message);
                   this.alertService.error(error.error.message,true);
-                    this.loading = false;
+                    this.loading = true;
                 });      
     }
   }
