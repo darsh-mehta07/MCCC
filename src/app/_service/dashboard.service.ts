@@ -32,6 +32,9 @@ export class DashboardService {
     bookmarkCasting(data:any){
       return this.http.post(`${Config.BasePath}/bookmark`,data);
     }
+    bookmarkWorkshopEvents(data:any){
+      return this.http.post(`${Config.BasePath}/bookmark_workshop_events`,data);
+    }
     userDetails(data:any){
       return this.http.post(`${Config.BasePath}/user_details`,data);
     }

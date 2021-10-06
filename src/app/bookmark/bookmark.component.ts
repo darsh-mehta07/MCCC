@@ -9,11 +9,13 @@ import { DashboardService } from 'src/app/_service/dashboard.service';
 export class BookmarkComponent implements OnInit {
   loading: boolean = false;
   bookmarkData: any;
+  catId:any;
   pageName = 'bookmark';
   constructor(private dashboardService:DashboardService,
     private route : Router,) { }
 
   ngOnInit(): void {
+    this.catId = 1;
     this.dashboardService.getUserBookmark('')
         .subscribe(res => {
           this.loading = true;
@@ -23,6 +25,9 @@ export class BookmarkComponent implements OnInit {
   }
   castingInner(id:any){
     this.route.navigate(['casting-inner',id]);
+  }
+  tab(data:any){
+    this.catId = data;
   }
 
 }

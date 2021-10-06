@@ -81,25 +81,17 @@
             <div class="upload-video">
               <div class="box">
                 <video class="js--image-preview" width="30%" height="110px" controls>
-                  <source src="{{videoPath+videoArray.videos}}" type="video/mp4">
+                  <source src="{{videoPath+videoArray[0].videos}}" type="video/mp4">
                   Your browser does not support the video tag.
                 </video>
-                <div class="upload-options">
-                  <div class='multi-field'>
-                    <button type="button" class="close" (click)="removePrimaryVideo()">X</button>
-                  </div>
-                </div>
+                
               </div>
               <div class="box" *ngFor='let url of videos'>
                 <video class="js--image-preview" width="30%" height="110px" controls>
                   <source src="{{url}}" type="video/mp4">
                   Your browser does not support the video tag.
                 </video>
-                <div class="upload-options">
-                  <div class='multi-field'>
-                    <button type="button" class="close" (click)="removeSelectedVideo(url)">X</button>
-                  </div>
-                </div>
+                
               </div>
               <!-- <div class="box" *ngIf="secvidbox"></div>
               <div class="box" *ngIf="thrvidbox"></div> -->

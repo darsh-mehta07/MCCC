@@ -71,7 +71,7 @@ export class EventInnerComponent implements OnInit {
       });
   }
   bookmark(id:any){
-    this.dashboardService.bookmarkCasting({casting_card_id:id})
+    this.dashboardService.bookmarkWorkshopEvents({event_id:id,type:'event'})
       .subscribe(res => {
         this.resData = res; 
         this.bmkStatus = this.resData.data[0];
