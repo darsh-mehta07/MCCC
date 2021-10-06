@@ -247,8 +247,8 @@ export class HomeComponent implements OnInit {
   bookmarkCasting(id:any){
     this.dashboardService.bookmarkCasting({casting_card_id:id})
       .subscribe(res => {
-        this.resData = res;        
-        this.callEnding = this.resData.data; 
+        // this.resData = res;        
+        // this.callEnding = this.resData.data; 
         this.showToasterSuccess();      
       });
   }

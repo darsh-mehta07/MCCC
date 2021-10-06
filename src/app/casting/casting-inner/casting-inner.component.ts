@@ -63,8 +63,8 @@ export class CastingInnerComponent implements OnInit {
       this.resData = res;   
       this.casting = this.resData.data;
       this.castingTitle =  this.casting.title;
-      if(this.casting.bookmark != null && this.casting.bookmark != ''){
-        this.bookmarks =  this.casting.bookmark.bookmark_status;
+      if(this.casting.bookmark_status != null && this.casting.bookmark_status != ''){
+        this.bookmarks =  this.casting.bookmark_status;
       }else{
         this.bookmarks =  0;
       }

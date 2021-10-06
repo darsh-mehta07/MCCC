@@ -89,24 +89,19 @@
         <a [routerLink]="['/casting-all/2']" >View All</a>
       </div>
       <div class="card-tbs" *ngFor="let casting of recomended; let i=index;">
-        <div class="more">
-          <button id="more-btn" class="more-btn">
-            <span class="more-dot"></span>
-            <span class="more-dot"></span>
-            <span class="more-dot"></span>
-          </button>
-          <div class="more-menu">
-            <div class="more-menu-caret">
-              <div class="more-menu-caret-outer"></div>
-              <div class="more-menu-caret-inner"></div>
-            </div>
-            <ul class="more-menu-items" tabindex="-1" role="menu" aria-labelledby="more-btn" aria-hidden="true">
-              <li class="more-menu-item" role="presentation">
-                <button type="button" class="more-menu-btn" role="menuitem">Save</button>
-              </li>
-              <li class="more-menu-item" role="presentation">
-                <button type="button" class="more-menu-btn" role="menuitem">Share</button>
-              </li>
+        <div class='dt-tabs'>
+          <div class="show-hidden-menu" (click)="clickEvent(casting.id)">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div class="hidden-menu" *ngIf="status && casting.id == cardnum ? 'active':''">
+            <div class="arrow">
+              <i class="fa fa-caret-up" aria-hidden="true"></i>
+          </div>
+            <ul>
+              <li (click)="bookmarkCasting(casting.id)">Save</li>
+              <!-- <li>Share</li> -->
             </ul>
           </div>
         </div>
@@ -149,24 +144,19 @@
         <a [routerLink]="['/casting-all/3']">View All</a>
       </div>
       <div class="card-tbs" *ngFor="let casting of callEnding; let i=index;">
-        <div class="more">
-          <button id="more-btn" class="more-btn" (click)="clickEvent(casting.id)">
-            <span class="more-dot"></span>
-            <span class="more-dot"></span>
-            <span class="more-dot"></span>
-          </button>
-          <div class="more-menu" *ngIf="status && casting.id == cardnum ? 'active':''">
-            <div class="more-menu-caret">
-              <div class="more-menu-caret-outer"></div>
-              <div class="more-menu-caret-inner"></div>
-            </div>
-            <ul class="more-menu-items" tabindex="-1" role="menu" aria-labelledby="more-btn" aria-hidden="true">
-              <li class="more-menu-item" role="presentation" (click)="bookmarkCasting(casting.id)">
-                <button type="button" class="more-menu-btn" role="menuitem">Save</button>
-              </li>
-              <li class="more-menu-item" role="presentation">
-                <button type="button" class="more-menu-btn" role="menuitem">Share</button>
-              </li>
+        <div class='dt-tabs'>
+          <div class="show-hidden-menu" (click)="clickEvent(casting.id)">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div class="hidden-menu" *ngIf="status && casting.id == cardnum ? 'active':''">
+            <div class="arrow">
+              <i class="fa fa-caret-up" aria-hidden="true"></i>
+          </div>
+            <ul>
+              <li (click)="bookmarkCasting(casting.id)">Save</li>
+              <!-- <li>Share</li> -->
             </ul>
           </div>
         </div>
