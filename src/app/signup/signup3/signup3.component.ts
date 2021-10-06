@@ -37,7 +37,7 @@ export class Signup3Component implements OnInit {
       return;
     }else{       
       sessionStorage.setItem('phone',this.form.value.phone);
-      this.otpService.get_response(Response).subscribe((res: any) => {
+      this.otpService.get_response(this.form.value).subscribe((res: any) => {
         // console.log(res.otp);
         this.otp = res.otp;
         sessionStorage.setItem('otp',this.otp);

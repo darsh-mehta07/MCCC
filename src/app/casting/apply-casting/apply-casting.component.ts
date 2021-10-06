@@ -56,7 +56,7 @@ export class ApplyCastingComponent implements OnInit {
     secvidbox :boolean = true;
     thrvidbox :boolean = true;
     saveCropImage : boolean = false;
-    
+    newVideoAdded:boolean = false;
   constructor(
     private actRoute:ActivatedRoute,
     private route : Router,
@@ -106,20 +106,29 @@ export class ApplyCastingComponent implements OnInit {
     if (this.form.invalid) {
       return;
     }else{
+      //video update section
+      if(this.newVideoAdded){
+        console.log('newVideoAdded');
+           this.videoArray = null;
+           this.patchOldVideoValues();
+      }
+      //video update section
       this.loading = false;
       let totalimg = this.imgArray.length+this.cropimages.length;
-      if(this.videoArray.videos != '' || this.videoArray.videos != null){
+      if(this.videoArray!= null && this.videoArray.videos != '' && this.videoArray.videos != null){
         this.oldvideo = 1;
       }else{
         this.oldvideo = 0;
       }
+      console.log("old Video : " + this.oldvideo);
+      console.log("old Video Length : " + this.videos.length);
+
       let totalvideo = this.videos.length + this.oldvideo;   
-      if(totalimg == 3 && totalvideo == 1 && (this.videoArray.videos != '' || this.videoArray.videos != null)){
+      if(totalimg == 3 && totalvideo == 1 ){
        
         this.patchOldImageValues();
         this.patchOldVideoValues(); 
-        this.dashboardService.applyForCasting(this.form.value)
-      .pipe(first())
+        this.dashboardService.applyForCasting(this.form.value)     
         .subscribe(res => {
           this.loading = true;
           this.resData = res;   
@@ -193,16 +202,21 @@ export class ApplyCastingComponent implements OnInit {
     if (this.form.invalid) {
       return;
     }else{
+      if(this.newVideoAdded){
+        console.log('newVideoAdded');
+           this.videoArray = null;
+           this.patchOldVideoValues();
+      }
       this.loading = false;
       let totalimg = this.imgArray.length+this.cropimages.length; 
-      if(this.videoArray.videos != '' || this.videoArray.videos != null){
+      if(this.videoArray!= null && this.videoArray.videos != '' && this.videoArray.videos != null){
         this.oldvideo = 1;
       }else{
         this.oldvideo = 0;
       }
       let totalvideo = this.videos.length + this.oldvideo;
 
-      if(totalimg < 7 && totalvideo < 4){
+      if(totalimg < 7 && totalvideo == 1){
         
         this.patchOldImageValues();
         this.patchOldVideoValues();
@@ -211,14 +225,14 @@ export class ApplyCastingComponent implements OnInit {
         .pipe(first())
         .subscribe(res => {
           this.loading = true;
-          this.notification.showSuccess('Casting call save Successfully.','');
+          this.notification.showSuccess('Casting call saved Successfully.','');
           this.resData = res;   
           this.route.navigate(['/home']);       
         });
       }else{
         this.loading = true;    
         if(totalimg > 7){
-          this.imageerror = 'Please Select Only Three Photo';
+          this.imageerror = 'Please Select Only Three Photos';
         this.threeimgerror = true;
         }else if(totalvideo > 4){
           this.videoerror = 'Please Select Only One Video';
@@ -239,10 +253,12 @@ export class ApplyCastingComponent implements OnInit {
     this.modalService.dismissAll(content);
   }
   closevideomodel(content:any) {
+    this.newVideoAdded = false;
     this.videos = [];
     this.modalService.dismissAll(content);
   }
   savevideomodel(content:any) {
+    this.newVideoAdded = true;
     this.modalService.dismissAll(content);
   }
   open(content:any) {
@@ -283,6 +299,7 @@ export class ApplyCastingComponent implements OnInit {
   }
 
   onVideoFileChange(event: any){
+    let newVideo :string [] = [];
       if (event.target.files && event.target.files[0]) {
         const file = event.target.files && event.target.files[0];
         var filesAmount = event.target.files.length;
@@ -296,16 +313,18 @@ export class ApplyCastingComponent implements OnInit {
           }
           reader.onload = (event: any) => {
             this.url = (<FileReader>event.target).result;
-            this.videos.push(event.target.result);
-            if(this.videos.length == 1){
-              this.secvidbox = false;
-            }
-            if(this.videos.length == 2){
-              this.thrvidbox = false;
-            }
+            newVideo.push(event.target.result);
+            // if(newVideo.length == 1){
+            //   this.secvidbox = false;
+            // }
+            // if(newVideo.length == 2){
+            //   this.thrvidbox = false;
+            // }
             this.form.patchValue({
-              newvideofileSource: this.videos
-            });           
+              newvideofileSource: newVideo
+            });  
+            this.videos = newVideo;         
+            this.newVideoAdded = true;
           }
           reader.readAsDataURL(event.target.files[i]);
         }
