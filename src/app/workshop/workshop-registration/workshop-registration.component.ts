@@ -34,6 +34,11 @@ export class WorkshopRegistrationComponent implements OnInit {
 
     this.workshopService.get_each_workshop_data({'id': this.id}).subscribe(
       data => { 
+        console.log(data);
+        if(data.data == 'No Data'){
+          this.workshopData = 'No Data';
+          this.dataLoad = true;
+        }else{
         this.workshopData = data.data[0];
         this.dataLoad = true;
         var cur_date = formatDate(new Date(), 'yyyy-MM-dd', 'en');
@@ -42,14 +47,14 @@ export class WorkshopRegistrationComponent implements OnInit {
         }
         let date1 = new Date(this.workshopData.start_date); 
         let date2 = new Date(this.workshopData.closing_date);
-       if(this.isDatesEqual(date1,date2)){        
+        if(this.isDatesEqual(date1,date2)){        
           this.eventDate = this.datepipe.transform(this.workshopData.start_date, 'MMM d,y');
-       }else{
-        this.eventDate = this.datepipe.transform(this.workshopData.start_date, 'MMM d,y') +' - '+this.datepipe.transform(this.workshopData.closing_date, 'MMM d,y');
-       }
+        }else{
+          this.eventDate = this.datepipe.transform(this.workshopData.start_date, 'MMM d,y') +' - '+this.datepipe.transform(this.workshopData.closing_date, 'MMM d,y');
+        }
         console.log(this.workshopData.start_date);
         this.bgImage = this.hostUrl+this.workshopData.banner_img_path+'/'+this.workshopData.banner_image;
-       
+      }  
     });
     this.workshopService.check_for_apply({'workshop_id': this.id}).subscribe(
       data => { 

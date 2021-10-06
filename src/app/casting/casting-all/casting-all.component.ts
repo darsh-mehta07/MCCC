@@ -24,6 +24,9 @@ export class CastingAllComponent implements OnInit {
   callEndingSoon:any;
   recomended:any;
   loading = false;
+  castingData = false;
+  recommendData = false;
+  endingSoonData = false;
   status: boolean = false;
     cardnum:any;
   constructor(
@@ -48,7 +51,11 @@ export class CastingAllComponent implements OnInit {
       .subscribe(res => {
         this.loading = true;
         this.resData = res;        
-        this.castings = this.resData.data;       
+        this.castings = this.resData.data;  
+        console.log(this.castings.length);    
+        if(this.castings.length > 0){
+          this.castingData = true;
+        } 
       });
   }
   getCallEndingSoonData(){
@@ -57,7 +64,10 @@ export class CastingAllComponent implements OnInit {
       .subscribe(res => {
         this.loading = true;
         this.resData = res;        
-        this.callEndingSoon = this.resData.data;       
+        this.callEndingSoon = this.resData.data;  
+        if(this.callEndingSoon.length > 0){
+          this.endingSoonData = true;
+        }     
       });
   }
   getRecomendedData(){
@@ -66,7 +76,10 @@ export class CastingAllComponent implements OnInit {
       .subscribe(res => {
         this.loading = true;
         this.resData = res;        
-        this.recomended = this.resData.data;       
+        this.recomended = this.resData.data;  
+        if(this.recomended.length > 0){
+          this.recommendData = true;
+        }       
       });
   }
   castingInner(id:any){

@@ -59,3 +59,11 @@
     overflow-y: auto;
     overflow-x: hidden;
 }
+.no-data {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    flex-direction: column;
+    overflow: hidden;
+}

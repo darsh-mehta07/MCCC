@@ -29,7 +29,7 @@ export class BtsVideoViewComponent implements OnInit {
     vid: any;
     desc: any;
     upNext: any;
-    
+    pageName = 'bts-video-view';
     BtsNextVideos:any;
     getUpnextVideos: boolean = false;
   ngOnInit(): void {

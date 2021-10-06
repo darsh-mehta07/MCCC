@@ -11,7 +11,7 @@
     <div class="tab-content clearfix">
         <div class="required-tbs tab-pane" [ngClass]="catId == 1 ? 'active':''" id="tab1">
             <div class="container">
-                <div class="tabs">
+                <div class="tabs" *ngIf="castingData">
                     <h2>New Casting Calls
                         <hr class="on">
                         <hr class="tw">
@@ -63,12 +63,18 @@
                   <div class="item" *ngIf="!loading">
                     <ngx-skeleton-loader count="15"></ngx-skeleton-loader>
                   </div>
+                  
+                  <div *ngIf="!castingData && loading" class="no-data">
+                    <img src="../../../assets/img/image.png">
+                    <h2>No Data Available</h2>
+                  </div>
+                  
             </div>
         </div>
 
         <div class="recommended-tbs tab-pane" [ngClass]="catId == 2 ? 'active':''" id="tab2">
             <div class="container">
-                <div class="tabs">
+                <div class="tabs" *ngIf="recommendData">
                     <h2>Recommended Calls
                         <hr class="on">
                         <hr class="tw">
@@ -115,6 +121,10 @@
                         </div>
                     </div>
                 </div>
+                <div *ngIf="!recommendData && loading" class="no-data">
+                  <img src="../../../assets/img/image.png">
+                  <h2>No Data Available</h2>
+                </div>
                 <div class="item" *ngIf="!loading">
                     <ngx-skeleton-loader count="15"></ngx-skeleton-loader>
                   </div>
@@ -123,7 +133,7 @@
 
         <div class="call-ending-tbs tab-pane" [ngClass]="catId == 3 ? 'active':''" id="tab3">
             <div class="container">
-                <div class="tabs">
+                <div class="tabs" *ngIf="callEndingSoon.length > 0">
                     <h2>Call Ending Soon
                         <hr class="on">
                         <hr class="tw">
@@ -172,7 +182,11 @@
                       </div>         
                     </div>
                   </div>
-                  <div class="item" *ngIf="!loading">
+                  <div *ngIf="callEndingSoon.length == 0" class="no-data">
+                    <img src="../../../assets/img/image.png">
+                    <h2>No Data Available</h2>
+                  </div>
+                  <div class="item" *ngIf="!endingSoonData && loading">
                     <ngx-skeleton-loader count="15"></ngx-skeleton-loader>
                   </div>
             </div>
