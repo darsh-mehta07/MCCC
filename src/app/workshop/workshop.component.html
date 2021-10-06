@@ -52,12 +52,15 @@
               </div>
               <div class="details-icons">
                <i class="fa fa-clock-o" aria-hidden="true"></i>
-                <h4>{{data.start_time}}</h4>
+                <h4>{{data.start_time_1}}</h4>
               </div>
             </div>
             </div>
            
          </div>
+         <div class="item" *ngIf="!loading">
+          <ngx-skeleton-loader count="15"></ngx-skeleton-loader>
+        </div>
          <div *ngIf="upcomingData == ''" class="no-data">
           <img src="../../../assets/img/image.png">
           <h2>No Data Available</h2>
@@ -107,12 +110,15 @@
               </div>
               <div class="details-icons">
                <i class="fa fa-clock-o" aria-hidden="true"></i>
-                <h4>{{data.start_time}}</h4>
+                <h4>{{data.start_time_1}}</h4>
               </div>
             </div>
          </div>
          
          </div>
+         <div class="item" *ngIf="!loading">
+          <ngx-skeleton-loader count="15"></ngx-skeleton-loader>
+        </div>
          <div *ngIf="endingsoonData == ''" class="no-data">
           <img src="../../../assets/img/image.png">
           <h2>No Data Available</h2>
@@ -161,10 +167,13 @@
               </div>
               <div class="details-icons">
                <i class="fa fa-clock-o" aria-hidden="true"></i>
-                <h4>{{data.start_time}}</h4>
+                <h4>{{data.start_time_1}}</h4>
               </div>
             </div>
          </div>
+        </div>
+        <div class="item" *ngIf="!loading">
+          <ngx-skeleton-loader count="15"></ngx-skeleton-loader>
         </div>
         <div *ngIf="previosData == ''" class="no-data">
           <img src="../../../assets/img/image.png">

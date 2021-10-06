@@ -229,7 +229,8 @@ export class HomeComponent implements OnInit {
         this.recomended = this.resData.data; 
         if(this.recomended == 'No Record Found'){
           this.norecomended = true;
-        }        
+        }  
+        console.log(this.recomended);      
       });
   }
   castingInner(id:any){

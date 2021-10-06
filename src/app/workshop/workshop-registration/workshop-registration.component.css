@@ -46,3 +46,11 @@
 .training-inner .form_inner {
     height: auto !important;
 }
+.no-data {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    flex-direction: column;
+    overflow: hidden;
+}

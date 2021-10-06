@@ -42,3 +42,12 @@ a {
 .card-tbs a {
     text-decoration: none;
 }
+.no-data {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    flex-direction: column;
+    overflow: hidden;
+}
+

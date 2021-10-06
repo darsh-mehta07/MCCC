@@ -19,7 +19,11 @@
              </a>   
              <div class="item" *ngIf="!loading">
               <ngx-skeleton-loader count="12"></ngx-skeleton-loader>
-            </div>          
+            </div>    
+            <div *ngIf="noData && loading" class="no-data">
+              <img src="../../../assets/img/image.png">
+              <h2>No Data Available</h2>
+            </div>      
          </div>
         </div>
       </div>
