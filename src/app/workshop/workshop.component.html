@@ -13,7 +13,7 @@
     <div class="tab-content clearfix trns">
         <div class="upcoming-workshop-tbs tab-pane " [ngClass]="catId == 1 ? 'active':''" id="tab1">
         <div class="container">
-          <div class="tabs">
+          <div class="tabs" *ngIf="upcomingData != '' ">
             <h2>Upcoming Workshops
               <hr class="on">
               <hr class="tw">
@@ -23,25 +23,21 @@
           <div class="card-tbs" *ngFor="let data of upcomingData">
             <div *ngIf="upcomingData != '' ">
               <div class='dt-tabs'>
-                    <div class="show-hidden-menu">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                      <div class="hidden-menu" style="display: none;">
-                        <div class="arrow">
-                            <i class="fa fa-caret-up" aria-hidden="true"></i>
-                        </div>
-                        <ul>
-                          <li>
-                            <a href="#">Save</a> 
-                          </li>
-                          <li>
-                              <a href="#">Share</a>
-                          </li>
-                        </ul>
-                    </div>
+                <div class="show-hidden-menu" (click)="clickEvent(data.id)">
+                  <span></span>
+                  <span></span>
+                  <span></span>
                 </div>
+                <div class="hidden-menu" *ngIf="status && data.id == cardnum ? 'active':''">
+                  <div class="arrow">
+                    <i class="fa fa-caret-up" aria-hidden="true"></i>
+                </div>
+                  <ul>
+                    <li (click)="bookmarkEvent(data.id)">Save</li>
+                    <!-- <li>Share</li> -->
+                  </ul>
+                </div>
+              </div>
             <h3>{{data.title}}</h3> 
             <p class="toggle-sec">{{data.description.substr(0, 35)}}
             <a [routerLink]="['/workshop-registration/',data.id]">More...</a></p>
@@ -62,14 +58,17 @@
             </div>
            
          </div>
-         <div *ngIf="upcomingData == '' ">No Data Found</div>
+         <div *ngIf="upcomingData == ''" class="no-data">
+          <img src="../../../assets/img/image.png">
+          <h2>No Data Available</h2>
+        </div>
         
           
         </div>
       </div>
         <div class="workshop-ending-tbs tab-pane " [ngClass]="catId == 2 ? 'active':''" id="tab2">
         <div class="container">
-          <div class="tabs">
+          <div class="tabs" *ngIf="endingsoonData != ''">
             <h2>Workshop Ending Soon
               <hr class="on">
               <hr class="tw">
@@ -78,26 +77,22 @@
          <div class="card-tbs" *ngFor="let data of endingsoonData">
           
           <div *ngIf="endingsoonData != '' ">
-             <div class='dt-tabs'>
-                    <div class="show-hidden-menu">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                      <div class="hidden-menu" style="display: none;">
-                        <div class="arrow">
-                            <i class="fa fa-caret-up" aria-hidden="true"></i>
-                        </div>
-                        <ul>
-                          <li>
-                            <a href="#">Save</a> 
-                          </li>
-                          <li>
-                              <a href="#">Share</a>
-                          </li>
-                        </ul>
-                    </div>
-                </div>
+            <div class='dt-tabs'>
+              <div class="show-hidden-menu" (click)="clickEvent(data.id)">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <div class="hidden-menu" *ngIf="status && data.id == cardnum ? 'active':''">
+                <div class="arrow">
+                  <i class="fa fa-caret-up" aria-hidden="true"></i>
+              </div>
+                <ul>
+                  <li (click)="bookmarkEvent(data.id)">Save</li>
+                  <!-- <li>Share</li> -->
+                </ul>
+              </div>
+            </div>
             <h3 class="grn">{{data.title}}</h3> 
             <p class="toggle-sec">{{data.description.substr(0, 35)}}
             <a [routerLink]="['/workshop-registration/',data.id]">More...</a></p>
@@ -118,12 +113,15 @@
          </div>
          
          </div>
-         <div *ngIf="endingsoonData == '' ">No Data Found</div>
+         <div *ngIf="endingsoonData == ''" class="no-data">
+          <img src="../../../assets/img/image.png">
+          <h2>No Data Available</h2>
+        </div>
         </div>
       </div>
         <div class="Previous-workshops-tbs tab-pane " [ngClass]="catId == 3 ? 'active':''" id="tab3">
         <div class="container">
-          <div class="tabs">
+          <div class="tabs"  *ngIf="previosData != '' ">
             <h2>Previous Workshops
               <hr class="on">
               <hr class="tw">
@@ -134,25 +132,21 @@
             
             <div *ngIf="previosData != '' ">
               <div class='dt-tabs'>
-                    <div class="show-hidden-menu">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                      <div class="hidden-menu" style="display: none;">
-                        <div class="arrow">
-                            <i class="fa fa-caret-up" aria-hidden="true"></i>
-                        </div>
-                        <ul>
-                          <li>
-                            <a href="#">Save</a> 
-                          </li>
-                          <li>
-                              <a href="#">Share</a>
-                          </li>
-                        </ul>
-                    </div>
+                <div class="show-hidden-menu" (click)="clickEvent(data.id)">
+                  <span></span>
+                  <span></span>
+                  <span></span>
                 </div>
+                <div class="hidden-menu" *ngIf="status && data.id == cardnum ? 'active':''">
+                  <div class="arrow">
+                    <i class="fa fa-caret-up" aria-hidden="true"></i>
+                </div>
+                  <ul>
+                    <li (click)="bookmarkEvent(data.id)">Save</li>
+                    <!-- <li>Share</li> -->
+                  </ul>
+                </div>
+              </div>
             <h3 class="yto">{{data.title}}</h3> 
             <p class="toggle-sec">{{data.description.substr(0, 35)}}
             <a [routerLink]="['/workshop-registration/',data.id]">More...</a></p>
@@ -172,7 +166,10 @@
             </div>
          </div>
         </div>
-        <div *ngIf="previosData == '' ">No Data Found</div>
+        <div *ngIf="previosData == ''" class="no-data">
+          <img src="../../../assets/img/image.png">
+          <h2>No Data Available</h2>
+        </div>
           </div>
       </div>
     <div class="train-banner">

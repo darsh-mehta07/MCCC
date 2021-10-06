@@ -81,7 +81,7 @@
             <div class="upload-video">
               <div class="box" *ngIf="!newVideoAdded">
                 <video class="js--image-preview" width="30%" height="110px" controls>
-                  <source src="{{videoPath+videoArray.videos}}" type="video/mp4">
+                  <source src="{{videoPath+videoArray[0].videos}}" type="video/mp4">
                   Your browser does not support the video tag.
                 </video>
                 <!-- <div class="upload-options">
