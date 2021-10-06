@@ -93,7 +93,7 @@ export class HomeComponent implements OnInit {
     }
     //-----slick slider------------//    
     slideConfig = {"slidesToShow": 1, "slidesToScroll": 1,"dots": true,};
-    trns_sliders = {"slidesToShow": 4, "slidesToScroll": 4,"dots": false,};
+    trns_sliders = {"slidesToShow": 4, "slidesToScroll": 4,"dots": false,"infinite": false};
     // addSlide() {
     //   this.slides.push({img: "http://placehold.it/350x150/777777"})
     // }    
@@ -247,8 +247,8 @@ export class HomeComponent implements OnInit {
   bookmarkCasting(id:any){
     this.dashboardService.bookmarkCasting({casting_card_id:id})
       .subscribe(res => {
-        this.resData = res;        
-        this.callEnding = this.resData.data; 
+        // this.resData = res;        
+        // this.callEnding = this.resData.data; 
         this.showToasterSuccess();      
       });
   }

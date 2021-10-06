@@ -64,6 +64,7 @@ import { VideoComponent } from './common/video/video.component';
 import { NotificationComponent } from './notification/notification.component';
 import { GamesComponent } from './games/games.component';
 import { TermConditionComponent } from './term-condition/term-condition.component';
+import { BookmarkComponent } from './bookmark/bookmark.component';
 
 
 
@@ -334,6 +335,10 @@ const routes: Routes = [
   {
     path: 'term-condition',component: TermConditionComponent,    
     data: {title: 'term-condition'}    
+  },
+  {
+    path: 'bookmark',component: BookmarkComponent,    
+    data: {title: 'bookmark'}    
   },
   
 

@@ -63,8 +63,8 @@ export class CastingInnerComponent implements OnInit {
       this.resData = res;   
       this.casting = this.resData.data;
       this.castingTitle =  this.casting.title;
-      if(this.casting.bookmark != null && this.casting.bookmark != ''){
-        this.bookmarks =  this.casting.bookmark.bookmark_status;
+      if(this.casting.bookmark_status != null && this.casting.bookmark_status != ''){
+        this.bookmarks =  this.casting.bookmark_status;
       }else{
         this.bookmarks =  0;
       }
@@ -102,7 +102,7 @@ export class CastingInnerComponent implements OnInit {
           sessionStorage.setItem('home_town',this.userdetail.home_town);
           sessionStorage.setItem('hobbies',this.userdetail.hobbies);
           sessionStorage.setItem('images',JSON.stringify(this.userdetail.images));          
-          sessionStorage.setItem('videos',JSON.stringify(this.userdetail.video));
+          sessionStorage.setItem('videos',JSON.stringify(this.userdetail.videos));
           sessionStorage.setItem('casting_title',this.castingTitle);
           sessionStorage.setItem('casting_date',this.castingDate);
           this.route.navigate(['/apply-casting/'+this.castingId]);

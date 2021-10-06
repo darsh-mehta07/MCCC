@@ -5,7 +5,10 @@ import { MustMatch } from '../../_helpers/must-match.validator';
 import { AuthenticationService } from 'src/app/_service/authentication.service';
 import { Config } from 'src/app/_config/config';
 import { OtpService } from 'src/app/_service/otp.service';
+<<<<<<< HEAD
 
+=======
+>>>>>>> 18057a1d248602aea33e386f4ef5152ddbc6bd76
 
 @Component({
   selector: 'app-signup4',
@@ -18,7 +21,11 @@ export class Signup4Component implements OnInit {
   submitted = false;
   storeOTP : any;
   otp : string = '1111';
+<<<<<<< HEAD
   constructor(public otpService:OtpService, private formBuilder: FormBuilder, private route : Router,private authenticationService: AuthenticationService,) {
+=======
+  constructor(public otpService:OtpService,private formBuilder: FormBuilder, private route : Router,private authenticationService: AuthenticationService,) {
+>>>>>>> 18057a1d248602aea33e386f4ef5152ddbc6bd76
     // redirect to home if already logged in
     if (this.authenticationService.currentUserValue) {
          this.route.navigate([Config.AfterLogin]);
