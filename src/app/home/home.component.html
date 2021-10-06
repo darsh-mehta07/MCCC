@@ -202,7 +202,7 @@
     </div>
   </div>
 
-  <div class="events-banner">
+  <div class="events-banner" *ngIf="!upcomingsEvents[0].noData">
     <div class="container">
       <ngx-slick-carousel class="carousel slick_sliders evnts_sliders" #slickModal="slick-carousel" [config]="slideConfig"
         (init)="slickInit($event)" (breakpoint)="breakpoint($event)" (afterChange)="afterChange($event)"
@@ -223,7 +223,7 @@
     </div>
   </div>
 
-  <div class="upcoming-events-tbs">
+  <div class="upcoming-events-tbs" *ngIf="!upcomingsEvents[0].noData">
     <div class="container">
       <div class="tabs">
         <h2>Upcoming events
@@ -282,7 +282,7 @@
     </div>
   </div>
 
-  <div class="events-tbs">
+  <div class="events-tbs" *ngIf="!event_for_u[0].noData">
     <div class="container">
       <div class="tabs">
         <h2>Events for You
@@ -414,7 +414,7 @@
     </div>
   </div>
 
-  <div class="upcoming-workshop-tbs">
+  <div class="upcoming-workshop-tbs" *ngIf="upcomingData != 'No Data' ">
     <div class="container">
       <div class="tabs">
         <h2>Upcoming Workshops
@@ -453,7 +453,7 @@
     </div>
   </div>
 
-  <div class="workshop-ending-tbs">
+  <div class="workshop-ending-tbs" *ngIf="endingsoonData != '' ">
     <div class="container">
       <div class="tabs">
         <h2>Workshop Ending Soon
@@ -499,7 +499,7 @@
 
     </div>
   </div>
-  <div _ngcontent-xmm-c57="" class="Previous-workshops-tbs">
+  <div _ngcontent-xmm-c57="" class="Previous-workshops-tbs" *ngIf="previosData != '' ">
     <div _ngcontent-xmm-c57="" class="container">
         <div _ngcontent-xmm-c57="" class="tabs">
             <h2 _ngcontent-xmm-c57="">

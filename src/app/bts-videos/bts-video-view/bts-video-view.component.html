@@ -11,7 +11,7 @@
     </div>
     <div class="upNext">
     <div class="video-nt">
-            <div class="video-icons">
+            <div class="video-icons" *ngIf="getUpnextVideos">
                 <!-- <p>{{desc}}</p> -->
                     <p  *ngIf="desc.length > 29 && expanded !=  this.BtsVideos[0].id">
                         {{desc.substr(0, 29)}}
@@ -22,10 +22,13 @@
                        class="text-green"><b>{{expanded==  this.BtsVideos[0].id ?'View less':'View more'}}</b></span></p>
                        <span>{{BtsVideos[0].viewsCount}} views </span>
             </div>
+            <div class="item" *ngIf="!getUpnextVideos">
+                <ngx-skeleton-loader count="2"></ngx-skeleton-loader>
+            </div>
         <div class="nxt">
             <p>Up Next</p>
         </div>
-        <div class="more-video">
+        <div class="more-video" *ngIf="getUpnextVideos">
             <ul>
                 <li *ngFor="let data of upNext">
                     <!-- <iframe width="560" height="315" [src]="data.video_url | safe " title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe> -->
@@ -52,6 +55,97 @@
                 </li>
             </ul>
         </div>
+
+        <div class="more-video" *ngIf="!getUpnextVideos">
+            <ul>
+                <li >
+                    <a class="next_vid_list"  >
+                        <div class="gravatar">
+                            <ngx-skeleton-loader count="1" appearance="circle" [theme]="{
+                                width: '100px',
+                                height: '100px',
+                                'border-radius': '10px'
+                              }">
+                            </ngx-skeleton-loader>
+                        </div>
+                    </a>
+                    <div class="more-txt">
+                        <ngx-skeleton-loader [theme]="{
+                            width: '200px',
+                            'border-radius': '10px',
+                            height: '15px',
+                            'margin-bottom': '10px'
+                          }"></ngx-skeleton-loader>
+                          <ngx-skeleton-loader [theme]="{
+                            width: '200px',
+                            'border-radius': '10px',
+                            height: '15px',
+                            'margin-bottom': '10px'
+                          }"></ngx-skeleton-loader>
+                    </div>
+                </li>
+            </ul>
+            <ul>
+                <li >
+                    <a class="next_vid_list"  >
+                        <div class="gravatar">
+                            <ngx-skeleton-loader count="1" appearance="circle" [theme]="{
+                                width: '100px',
+                                height: '100px',
+                                'border-radius': '10px'
+                              }">
+                            </ngx-skeleton-loader>
+                        </div>
+                    </a>
+                    <div class="more-txt">
+                        <ngx-skeleton-loader [theme]="{
+                            width: '200px',
+                            'border-radius': '10px',
+                            height: '15px',
+                            'margin-bottom': '10px'
+                          }"></ngx-skeleton-loader>
+                          <ngx-skeleton-loader [theme]="{
+                            width: '200px',
+                            'border-radius': '10px',
+                            height: '15px',
+                            'margin-bottom': '10px'
+                          }"></ngx-skeleton-loader>
+                    </div>
+                </li>
+            </ul>
+            <ul>
+                <li >
+                    <a class="next_vid_list"  >
+                        <div class="gravatar">
+                            <ngx-skeleton-loader count="1" appearance="circle" [theme]="{
+                                width: '100px',
+                                height: '100px',
+                                'border-radius': '10px'
+                              }">
+                            </ngx-skeleton-loader>
+                        </div>
+                    </a>
+                    <div class="more-txt">
+                        <ngx-skeleton-loader [theme]="{
+                            width: '200px',
+                            'border-radius': '10px',
+                            height: '15px',
+                            'margin-bottom': '10px'
+                          }"></ngx-skeleton-loader>
+                          <ngx-skeleton-loader [theme]="{
+                            width: '200px',
+                            'border-radius': '10px',
+                            height: '15px',
+                            'margin-bottom': '10px'
+                          }"></ngx-skeleton-loader>
+                    </div>
+                </li>
+            </ul>
+        </div>
+      
+
+
+
     </div>
     </div>
     </div>
