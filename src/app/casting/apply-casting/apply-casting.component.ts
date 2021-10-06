@@ -96,7 +96,7 @@ export class ApplyCastingComponent implements OnInit {
     let video:any = sessionStorage.getItem('videos'); 
     // console.log(JSON.parse(video));   
     this.videoArray = JSON.parse(video); 
-    // this.loading = true;
+    this.loading = true;
   }
   get f(): { [key: string]: AbstractControl } {
     return this.form.controls;
@@ -115,7 +115,8 @@ export class ApplyCastingComponent implements OnInit {
       //video update section
       this.loading = false;
       let totalimg = this.imgArray.length+this.cropimages.length;
-      if(this.videoArray!= null && this.videoArray.videos != '' && this.videoArray.videos != null){
+      console.log("videoArray : " , this.videoArray);
+      if(this.videoArray!= null){
         this.oldvideo = 1;
       }else{
         this.oldvideo = 0;
@@ -125,7 +126,7 @@ export class ApplyCastingComponent implements OnInit {
 
       let totalvideo = this.videos.length + this.oldvideo;   
       if(totalimg == 3 && totalvideo == 1 ){
-       
+        this.threeimgerror = false;
         this.patchOldImageValues();
         this.patchOldVideoValues(); 
         this.dashboardService.applyForCasting(this.form.value)     
@@ -336,8 +337,10 @@ export class ApplyCastingComponent implements OnInit {
           if(index==element) this.imgArray.splice(index,1);
           this.patchOldImageValues();
       });
+      this.threeimgerror = false;
     }
-    removeSelectedImage(url:any){    
+    removeSelectedImage(url:any){  
+      this.threeimgerror = false;  
       this.cropimages = this.cropimages.filter(img => (img != url));
       // this.patchValues();
     }
