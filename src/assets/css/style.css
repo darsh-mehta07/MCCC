@@ -872,7 +872,7 @@ body {
     .card-tbs-btn:focus-visible { outline: 0;}
     .card-tbs-btn:focus {outline: 0;}
     .application img {width: 100%;}
-    .upper-txt {position: absolute; top: 10%; text-align: center; width: 100%; left: 0;}
+    .upper-txt {position: absolute; top: 10%; text-align: center; width: 90%; left: 22px;}
     .upper-txt h4 {font-size: 16px; color: #fff;}
     .upper-txt h3 {font-size: 16px; color: #fff;}
     .upper-txt h2 {font-size: 22px; color: #fff;}
@@ -1033,7 +1033,7 @@ body {
     .evnt h4 { font-size: 25px;color: #a7a2a2; font-weight: 600;}
     .inner-tabs ul.nav.nav-pills li {  display: flex;font-size: 15px; width: 135px;text-align: center;border-right: 1px solid hsl(0deg 1% 85%);}	
     .inner-tabs { width: 100%; overflow: scroll; position: sticky;  top: 140px;  z-index: 9999 !important;}	
-    .inner-tabs ul li a { color: hsl(0deg 0% 0%); width: 100%;text-decoration: none;padding: 10px;}
+    .inner-tabs ul li a { color: hsl(0deg 0% 0%); width: 100%;text-decoration: none;padding: 10px;font-weight: 600;}
     .tbs img { height: 40px;}
     .main-tab {display: flex;}
     .tbs:first-child {padding-left: 0;}
@@ -2214,7 +2214,7 @@ a:focus {
     position: absolute;
     left: 62%;
     top: 62%;
-    z-index: 1;
+    z-index: 999;
     width: 60px;
     height: 60px;
     margin: -76px 0 0 -76px;
@@ -2412,10 +2412,31 @@ input#phone::placeholder {
     position: relative;
 }
 .trns #tab1, .trns #tab2, .trns #tab3 {padding-bottom: 0 !important;}
-.required-tbs .details-icons:last-child , .recommended-tbs .details-icons:last-child , .call-ending-tbs .details-icons{border: 0;}
+.required-tbs .details-icons:last-child , .recommended-tbs .details-icons:last-child , .call-ending-tbs .details-icons:last-child {border: 0;}
 .login .invalid-feedback {margin-top: 5px; margin-bottom: 15px;}
 .fAq .container {height: auto;}
 .reset input {top: 0;margin-bottom: 10px;}
 .reset .invalid-feedback {margin: 5px 0;}
 .sta-city .nt-btn {top: 0;}
 .casting-inner .container { height: auto;}
+.upcoming-events-tbs h2 {  color: hsl(6deg 88% 68%);}
+.on_going-events-tbs h2 { color: #a7d07a;}
+.on_going-events-tbs h3 { color: #a7d07a;}
+.on_going-events-tbs hr {border: 1px solid #59822d !important;}
+.required-tbs hr {border: 1px solid #ff6e61 !important;}
+.recommended-tbs hr {border: 1px solid #59822d !important;}
+.call-ending-tbs hr {border: 1px solid #F1BF45 !important;}
+.Previous-workshops-tbs hr {border: 1px solid  #F1BF45 !important;}
+.workshop-ending-tbs hr {border: 1px solid #59822d !important;}
+.upcoming-workshop-tbs hr{border: 1px solid #ff6e61 !important;}
+.upcoming-events-tbs hr{border: 1px solid #ff6e61 !important;}
+.events-tbs hr{border: 1px solid #F1BF45 !important;}
+.loader_parent {
+    width: 100%;
+    position: fixed;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: #0008;
+    z-index: 99;
+}

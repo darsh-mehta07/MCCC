@@ -115,7 +115,7 @@ export class ApplyCastingComponent implements OnInit {
       //video update section
       this.loading = false;
       let totalimg = this.imgArray.length+this.cropimages.length;
-      if(this.videoArray!= null && this.videoArray.videos != '' && this.videoArray.videos != null){
+      if(this.videoArray!= null ){
         this.oldvideo = 1;
       }else{
         this.oldvideo = 0;
