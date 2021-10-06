@@ -17,7 +17,7 @@ import { NotificationService } from 'src/app/_service/notification.service';
 })
 export class ApplyCastingComponent implements OnInit {
   pageName = 'applycasting';
-  loading = false;
+  loading :boolean = false;
   castingId:any;
   resData:any;
   baseUrl :string = Config.Host+'backend2/';
@@ -96,7 +96,7 @@ export class ApplyCastingComponent implements OnInit {
     let video:any = sessionStorage.getItem('videos'); 
     // console.log(JSON.parse(video));   
     this.videoArray = JSON.parse(video); 
-    this.loading = true;
+    // this.loading = true;
   }
   get f(): { [key: string]: AbstractControl } {
     return this.form.controls;
