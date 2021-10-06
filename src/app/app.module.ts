@@ -90,6 +90,8 @@ import { AnatomyInnerComponent } from './common/anatomy-inner/anatomy-inner.comp
 
 import { NotificationComponent } from './notification/notification.component';
 import { GamesComponent } from './games/games.component';
+import { TermConditionComponent } from './term-condition/term-condition.component';
+import { BookmarkComponent } from './bookmark/bookmark.component';
 
 // import { CustomReuseStrategy, Routing } from './shared/routing';
 
@@ -164,6 +166,8 @@ import { GamesComponent } from './games/games.component';
 
     NotificationComponent,
       GamesComponent,
+      TermConditionComponent,
+      BookmarkComponent,
 
 
   ],

@@ -82,4 +82,8 @@ export class DashboardService {
     getUserNotificationCounter(data:any){
       return this.http.post<any>(`${Config.BasePath}/get_user_notification_counter`,data);
     }
+
+    getUserBookmark(data:any){
+      return this.http.post<any>(`${Config.BasePath}/get_user_bookmark`,data);
+    }
 }
