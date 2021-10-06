@@ -31,6 +31,7 @@ export class BtsVideoViewComponent implements OnInit {
     upNext: any;
     
     BtsNextVideos:any;
+    getUpnextVideos: boolean = false;
   ngOnInit(): void {
     this.dataLoad = true;
     this.actRoute.paramMap.subscribe((params: ParamMap) => {                 
@@ -56,6 +57,7 @@ export class BtsVideoViewComponent implements OnInit {
           .subscribe(
                     data => { 
                         console.log(data.data);
+                        this.getUpnextVideos = true;
                         this.BtsNextVideos = data.data;
                     }); 
     
