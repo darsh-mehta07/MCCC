@@ -21,6 +21,9 @@
           <div *ngIf="applicationStatus != null" class="inner-btn">
             <a> {{applicationStatus | titlecase}}</a>
           </div>
+          <div  class="inner-btn">
+            <a> applicationStatus | titlecase</a>
+          </div>
         </div>
         <div class="item" *ngIf="!loading">
           <ngx-skeleton-loader count="12" ></ngx-skeleton-loader>

@@ -12,7 +12,7 @@
     <form [formGroup]="form" (ngSubmit)="submit()">
       <div class="form-group">
         <label>Make one secure password</label>
-        <input autofocus formControlName="password" type="password" maxlength="15" minlength="6" class="form-control ps" placeholder="4A890"
+        <input autofocus formControlName="password" type="password" maxlength="8" minlength="6" class="form-control ps" placeholder="4A890"
           [ngClass]="{ 'is-invalid': submitted && f.password.errors }"/>
         <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
           <div *ngIf="f.password.errors.required">Password is required</div>

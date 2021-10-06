@@ -11,7 +11,7 @@
     <form [formGroup]="form" (ngSubmit)="submit()">
       <div class="form-group">
         <label>Can you confirm entered password</label>
-        <input autofocus formControlName="confirm_password" type="password" maxlength="15" minlength="6" class="form-control ps" placeholder="4A890"
+        <input autofocus formControlName="confirm_password" type="password" maxlength="8" minlength="6" class="form-control ps" placeholder="4A890"
           [ngClass]="{ 'is-invalid': submitted && f.confirm_password.errors }"/>
         <div *ngIf="submitted && f.confirm_password.errors" class="invalid-feedback">
           <div *ngIf="f.confirm_password.errors.required">Confirm Password is required</div>

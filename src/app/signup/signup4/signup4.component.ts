@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { MustMatch } from '../../_helpers/must-match.validator';
 import { AuthenticationService } from 'src/app/_service/authentication.service';
 import { Config } from 'src/app/_config/config';
+import { OtpService } from 'src/app/_service/otp.service';
+
 
 @Component({
   selector: 'app-signup4',
@@ -15,7 +17,8 @@ export class Signup4Component implements OnInit {
   form: FormGroup | any;
   submitted = false;
   storeOTP : any;
-  constructor(private formBuilder: FormBuilder, private route : Router,private authenticationService: AuthenticationService,) {
+  otp : string = '1111';
+  constructor(public otpService:OtpService, private formBuilder: FormBuilder, private route : Router,private authenticationService: AuthenticationService,) {
     // redirect to home if already logged in
     if (this.authenticationService.currentUserValue) {
          this.route.navigate([Config.AfterLogin]);
@@ -25,7 +28,7 @@ export class Signup4Component implements OnInit {
   ngOnInit(): void {
     this.storeOTP = sessionStorage.getItem('otp');
     this.form = this.formBuilder.group({
-      otp : [sessionStorage.getItem('otp'), [Validators.required ,Validators.max(9999),Validators.min(1000)]]
+      otp : ['', [Validators.required ,Validators.max(9999),Validators.min(1000)]]
     }, {
       validator: MustMatch(this.storeOTP,'otp')
   });
@@ -33,6 +36,13 @@ export class Signup4Component implements OnInit {
   get f(): { [key: string]: AbstractControl } {
     return this.form.controls;
   } 
+  resendOTP(){
+    this.otpService.get_resendotp({phone:sessionStorage.getItem('phone')}).subscribe((res: any) => {      
+      this.otp = res.otp;
+      sessionStorage.setItem('otp',this.otp);
+      this.ngOnInit();
+    });
+  }
   submit(){
     this.submitted = true;
     if (this.form.invalid) {

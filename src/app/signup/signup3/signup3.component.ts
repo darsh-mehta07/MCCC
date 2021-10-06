@@ -25,19 +25,20 @@ export class Signup3Component implements OnInit {
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
-      phone : [sessionStorage.getItem('phone'), [Validators.required,Validators.pattern(/^-?(0|[1-9]{10}\d*)?$/)],this.phoneExists.validate.bind(this.phoneExists)]
+      phone : [sessionStorage.getItem('phone'), [Validators.required],this.phoneExists.validate.bind(this.phoneExists)]
     });
   }
   get f(): { [key: string]: AbstractControl } {
     return this.form.controls;
   } 
+ 
   submit(){
     this.submitted = true;
     if (this.form.invalid) {
       return;
     }else{       
       sessionStorage.setItem('phone',this.form.value.phone);
-      this.otpService.get_response(Response).subscribe((res: any) => {
+      this.otpService.get_response(this.form.value).subscribe((res: any) => {
         // console.log(res.otp);
         this.otp = res.otp;
         sessionStorage.setItem('otp',this.otp);

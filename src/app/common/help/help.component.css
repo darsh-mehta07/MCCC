@@ -20,10 +20,6 @@
 .help a.collapsed { width: 100%; display: flex;justify-content: flex-start;}
 .help ul {list-style: none;}
 .help-center ul li {  margin-bottom: 10px;}
-.help-center {
-    position: relative;
-    height: 100%;
-    overflow-y: auto;
-    overflow-x: hidden;
-}
-/*help-center*/
+.help-center {position: relative;height: 100%;overflow-y: auto;overflow-x: hidden;}
+.help-center .container {height: auto;}
+    /*help-center*/

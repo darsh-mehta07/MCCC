@@ -1,7 +1,8 @@
 .appli .form_areas {
     position: absolute;
     top: 10%;
-    height: 100%;
+    height: auto;
+    padding-bottom: 100px;
 }
 .appl h3 {
     color: hsl(7deg 88% 68%);
@@ -48,4 +49,13 @@
 .item{
     top: 25px;
     position: relative;
+}
+.appli .container {
+    height: auto;
+}
+.appli {
+    position: relative;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
 }

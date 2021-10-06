@@ -12,20 +12,13 @@
 .notify-foot {display: flex;justify-content: space-between; align-items: flex-end;}
 .notify-foot h5 {font-size: 12px;margin: 0 !important;}
 .notification .profile-icons img {filter: brightness(0.5) invert(1);}
-.notification .dt-tabs {top: 20px;}
+.notification .dt-tabs {top: 0;right: 0}
 .notify-cont i {position: absolute; right: 20px; font-weight: 100;font-size: 14px;}
 .notification img { width: 100%;}
 .notification .header.profile-icons { position: absolute; top: 0; display: flex; justify-content: space-between;  left: 0;}
 .notification img { width: 100%;}
-.notification .form_areas { top: 10%;  height: 100%;}
-.notification {  height: auto; position: relative;overflow-y: auto; overflow-x: hidden;}
-
-.no-data {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-}
-.no-data h2 {
-    font-size: 16px;
-}
+.notification .form_areas { top: 10%;  height: auto; margin-bottom: 50px;}
+.notification {  height: 100%; position: relative;overflow-y: auto; overflow-x: hidden;}
+.no-data {display: flex;align-items: center; justify-content: center;height: 100%;}
+.no-data h2 {font-size: 16px;}
+.notification .container {height: auto;}
