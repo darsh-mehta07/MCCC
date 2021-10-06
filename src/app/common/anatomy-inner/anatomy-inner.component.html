@@ -62,11 +62,13 @@
           </div>
     </div>
         <div class="profil-btn">
-            <button type="submit" [attr.disabled] = "active === 1 ? 'disabled' : null"> Save <span [ngClass]="uploading ? 'button_loader' : ''" ></span></button>
+            <button type="submit" [attr.disabled] = "active === 1 ? 'disabled' : null"> Save </button>
           <a (click)="back()" class="wht"> Cancle</a>
         </div>
     </form>   
       </div>
     </div>
+    <div class="loader_screen" *ngIf="uploading"></div>
+
   </div>
   <app-footer [pageName]="pageName"></app-footer>

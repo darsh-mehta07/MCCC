@@ -20,3 +20,18 @@
     right: 5px;
     top: 50px;
 }
+
+button.btn.btn-primary {
+    color: #fff;
+    background-color: #ff6e61;
+    border-color: #ff6e61;
+}
+button.btn.btn-secondary {
+    color: #fff;
+    background-color: #ff6e61;
+    border-color: #ff6e61;
+}
+.modal-footer[_ngcontent-qom-c142] {
+    display: flex;
+    justify-content: space-between;
+}

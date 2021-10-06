@@ -10,9 +10,5 @@
 .terms p {font-size: 14px;}
 .term-condition .card .card-header a:not(.collapsed) .rotate-icon2 { -webkit-transform: rotate(90deg); transform: rotate(90deg);}
 .terms a.collapsed { width: 100%; display: flex;justify-content: flex-start;}
-.term-condition {
-    height: 100%;
-    position: relative;
-    overflow-y: auto;
-    overflow-x: hidden;
-}
+.term-condition { height: 100%;position: relative; overflow-y: auto; overflow-x: hidden;}
+.term-condition .container {height: auto;}
