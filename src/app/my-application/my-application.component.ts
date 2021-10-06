@@ -12,6 +12,7 @@ import { Location } from '@angular/common';
 export class MyApplicationComponent implements OnInit {
   pageName='my-application';
   loading = false;
+  noData = false;
   applications:any = [];
   resData:any;
   constructor(private location:Location,private dashboardService : DashboardService,private alertService:AlertService) {
@@ -25,6 +26,7 @@ export class MyApplicationComponent implements OnInit {
     console.log("this.applications.length :   " + this.applications.length);
     if(this.applications.length != 0){
       this.loading=false;
+      this.noData = true;
     }else{
       this.getMyApplication();
     }
@@ -38,6 +40,7 @@ export class MyApplicationComponent implements OnInit {
           this.loading=true;
           this.resData = res;        
         this.applications = this.resData.data; 
+        console.log(this.applications.length);
         },
         error => {
           this.loading=true;

@@ -42,6 +42,15 @@
               <div class="icon"><img  src="../../assets/img/play.png"></div>
             </a>
           </div>
+          <div class="vd-icon" >
+            <div class="item" *ngIf="!loadData">
+              <ngx-skeleton-loader count="4"></ngx-skeleton-loader>
+            </div>  
+            <div class="item" *ngIf="!loadData">
+              <ngx-skeleton-loader count="4"></ngx-skeleton-loader>
+            </div>  
+          </div>
+          
         </div>
   
         <div class="video-opt opt">

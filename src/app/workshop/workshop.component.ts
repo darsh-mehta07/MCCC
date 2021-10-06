@@ -13,6 +13,7 @@ export class WorkshopComponent implements OnInit {
   stickymenu = 'training';
   pageName = 'training';
   upcomingData: any;
+  loading = false;
   endingsoonData: any;
   previosData: any;
   expanded = 0;
@@ -44,6 +45,7 @@ export class WorkshopComponent implements OnInit {
     this.workshopService.get_upcoming_workshop_data({'limit': ''}).subscribe(
       data => { 
         this.upcomingData = data.data;
+        this.loading = true;
         if(this.upcomingData == 'No Data'){
           this.upcomingData = [];
         }
@@ -52,6 +54,7 @@ export class WorkshopComponent implements OnInit {
 
     this.workshopService.get_endingsoon_workshop_data({'limit': ''}).subscribe(
       data => { 
+        this.loading = true;
         this.endingsoonData = data.data;
         if(this.endingsoonData == 'No Data'){
           this.endingsoonData = [];
@@ -61,6 +64,7 @@ export class WorkshopComponent implements OnInit {
   
   this.workshopService.get_previous_workshop_data({'limit': ''}).subscribe(
       data => { 
+        this.loading = true;
         this.previosData = data.data;
         if(this.previosData == 'No Data'){
           this.previosData = [];
