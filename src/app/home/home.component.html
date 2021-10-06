@@ -104,7 +104,7 @@
               <!-- <li>Share</li> -->
             </ul>
           </div>
-        </div>
+        </div> 
         <h3 class="grn" (click)="castingInner(casting.id)">{{casting.title}}</h3>
         <p class="toggle-sec">{{casting.short_description}}
           <a (click)="castingInner(casting.id)" class="read-more">More...</a>
@@ -159,7 +159,7 @@
               <!-- <li>Share</li> -->
             </ul>
           </div>
-        </div>
+        </div> 
         <h3 class="yto" (click)="castingInner(casting.id)">{{casting.title | titlecase}}</h3>
         <p class="toggle-sec">{{casting.short_description}}
           <a (click)="castingInner(casting.id)" class="read-more">More...</a>
@@ -192,7 +192,7 @@
     </div>
   </div>
 
-  <div class="events-banner">
+  <div class="events-banner" *ngIf="!upcomingsEvents[0].noData">
     <div class="container">
       <ngx-slick-carousel class="carousel slick_sliders evnts_sliders" #slickModal="slick-carousel" [config]="slideConfig"
         (init)="slickInit($event)" (breakpoint)="breakpoint($event)" (afterChange)="afterChange($event)"
@@ -213,14 +213,14 @@
     </div>
   </div>
 
-  <div class="upcoming-events-tbs">
+  <div class="upcoming-events-tbs" *ngIf="!upcomingsEvents[0].noData">
     <div class="container">
       <div class="tabs">
         <h2>Upcoming events
           <hr class="on">
           <hr class="tw">
         </h2>
-        <a href="#">View All</a>
+        <a [routerLink]="['/event/4']">View All</a>
       </div>
       <div class="card-tbs" *ngFor="let upcoming of upcomingsEvents">
         <div *ngIf="upcoming.noData">No Data Found</div>
@@ -272,14 +272,14 @@
     </div>
   </div>
 
-  <div class="events-tbs">
+  <div class="events-tbs" *ngIf="!event_for_u[0].noData">
     <div class="container">
       <div class="tabs">
         <h2>Events for You
           <hr class="on">
           <hr class="tw">
         </h2>
-        <a href="#">View All</a>
+        <a [routerLink]="['/event/5']">View All</a>
       </div>
       <div class="card-tbs" *ngFor="let eventforu of event_for_u">
         <div *ngIf="eventforu.noData">No Data Found</div>
@@ -404,7 +404,7 @@
     </div>
   </div>
 
-  <div class="upcoming-workshop-tbs">
+  <div class="upcoming-workshop-tbs" *ngIf="upcomingData != 'No Data' ">
     <div class="container">
       <div class="tabs">
         <h2>Upcoming Workshops
@@ -443,7 +443,7 @@
     </div>
   </div>
 
-  <div class="workshop-ending-tbs">
+  <div class="workshop-ending-tbs" *ngIf="endingsoonData != '' ">
     <div class="container">
       <div class="tabs">
         <h2>Workshop Ending Soon
@@ -489,7 +489,7 @@
 
     </div>
   </div>
-  <div _ngcontent-xmm-c57="" class="Previous-workshops-tbs">
+  <div _ngcontent-xmm-c57="" class="Previous-workshops-tbs" *ngIf="previosData != '' ">
     <div _ngcontent-xmm-c57="" class="container">
         <div _ngcontent-xmm-c57="" class="tabs">
             <h2 _ngcontent-xmm-c57="">

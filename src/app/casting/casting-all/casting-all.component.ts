@@ -4,6 +4,7 @@ import { first } from 'rxjs/operators';
 import { Config } from 'src/app/_config/config';
 import { DashboardService } from 'src/app/_service/dashboard.service';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import { NotificationService } from 'src/app/_service/notification.service';
 const pageName = 'casting';
 @Component({
   selector: 'app-casting-all',
@@ -23,10 +24,13 @@ export class CastingAllComponent implements OnInit {
   callEndingSoon:any;
   recomended:any;
   loading = false;
+  status: boolean = false;
+    cardnum:any;
   constructor(
     private actRoute:ActivatedRoute,
     private route : Router,
-    private dashboardService:DashboardService,) {} 
+    private dashboardService:DashboardService,
+    private notifyService : NotificationService,) {} 
   ngOnInit(): void {  
     this.actRoute.paramMap.subscribe((params: ParamMap) => {                 
       this.catId = params.get('id');
@@ -68,5 +72,37 @@ export class CastingAllComponent implements OnInit {
   castingInner(id:any){
     this.route.navigate(['casting-inner',id]);
   }
+  clickEvent(id:any){
+    if(this.status){
+      this.status = false;
+      this.cardnum = id;
+    }else{
+      this.status = true;
+      this.cardnum = id;
+    }
+  }
+  bookmarkCasting(id:any){
+    this.dashboardService.bookmarkCasting({casting_card_id:id})
+      .subscribe(res => {
+        // this.resData = res;        
+        // this.callEnding = this.resData.data; 
+        this.showToasterSuccess();      
+      });
+  }
+  showToasterSuccess(){
+    this.notifyService.showSuccess("Data saved successfully !!", "")
+}
+ 
+showToasterError(){
+    this.notifyService.showError("Something is wrong", "")
+}
+ 
+showToasterInfo(){
+    this.notifyService.showInfo("This is info", "")
+}
+ 
+showToasterWarning(){
+    this.notifyService.showWarning("This is warning", "")
+}
 
 }

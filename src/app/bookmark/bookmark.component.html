@@ -1,0 +1,49 @@
+<body class="hm_pg">
+<div id="exTab1" class="inner-tabs">	
+    <ul class="nav nav-pills twtbs" >
+      <li [ngClass]="catId == 4 ? 'active':''" id="tb4"><a  (click)="tab(4)"data-toggle="tab" [ngClass]="catId == 4 ? 'active':''">On Going </a></li>
+		<li [ngClass]="catId == 5 ? 'active':''" id="tb5"><a  (click)="tab(5)"data-toggle="tab" [ngClass]="catId == 5 ? 'active':''">Upcoming </a></li>
+		<li [ngClass]="catId == 6 ? 'active':''" id="tb6"><a (click)="tab(6)"data-toggle="tab" [ngClass]="catId == 6 ? 'active':''">Events </a></li>
+	</ul>
+  </div>
+<div class="card-tbs" *ngFor="let bookmark of bookmarkData; let i=index;">
+                    <div class='dt-tabs'>
+                      <div class="show-hidden-menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                      </div>
+                      <!-- <div class="hidden-menu" style="display: none;">
+                        <ul>
+                          <li>Save</li>
+                          <li>Share</li>
+                        </ul>
+                      </div> -->
+                    </div>
+                    <h3 (click)="castingInner(bookmark.id)">{{bookmark.title}}</h3>
+                    <p class="toggle-sec">{{bookmark.short_description}}
+                      <a (click)="castingInner(bookmark.id)" class="read-more">More...</a>
+                    </p>
+                    <div class="details">
+                      <div class="details-icons">
+                        <i class="fa fa-transgender-alt" aria-hidden="true"></i>
+                        <h4>{{bookmark.gender}}</h4>
+                      </div>
+                      <div class="details-icons" *ngIf="bookmark.closing_date != null">
+                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                        <h4 >{{bookmark.closing_date}}</h4>
+                      </div>
+                      <div class="details-icons">
+                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                        <h4>{{bookmark.location}}</h4>
+                      </div>
+                    </div>
+            
+                    <div class="card-btn">
+                      <div class="slide-btn" *ngFor="let tag of bookmark.tags.split(',');">
+                        <a href="#">{{tag}}</a>
+                      </div>         
+                    </div>
+                  </div>
+                  <app-footer [pageName]="pageName"></app-footer>
+</body>

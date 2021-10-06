@@ -19,19 +19,22 @@
                     <!--<a href="#">View All</a>-->
                 </div>
                 <div class="card-tbs" *ngFor="let casting of castings; let i=index;">
-                    <div class='dt-tabs'>
-                      <div class="show-hidden-menu">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                      </div>
-                      <div class="hidden-menu" style="display: none;">
-                        <ul>
-                          <li>Save</li>
-                          <!-- <li>Share</li> -->
-                        </ul>
-                      </div>
+                  <div class='dt-tabs'>
+                    <div class="show-hidden-menu" (click)="clickEvent(casting.id)">
+                      <span></span>
+                      <span></span>
+                      <span></span>
                     </div>
+                    <div class="hidden-menu" *ngIf="status && casting.id == cardnum ? 'active':''">
+                      <div class="arrow">
+                        <i class="fa fa-caret-up" aria-hidden="true"></i>
+                    </div>
+                      <ul>
+                        <li (click)="bookmarkCasting(casting.id)">Save</li>
+                        <!-- <li>Share</li> -->
+                      </ul>
+                    </div>
+                  </div> 
                     <h3 (click)="castingInner(casting.id)">{{casting.title | titlecase}}</h3>
                     <p class="toggle-sec">{{casting.short_description}}
                       <a (click)="castingInner(casting.id)" class="read-more">More...</a>
@@ -73,26 +76,22 @@
                     <!--<a href="#">View All</a>-->
                 </div>
                 <div class="card-tbs" *ngFor="let rcasting of recomended; let i=index;">
-                    <div class='dt-tabs'>
-                        <div class="show-hidden-menu">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
-                        <div class="hidden-menu" style="display: none;">
-                            <div class="arrow">
-                                <i class="fa fa-caret-up" aria-hidden="true"></i>
-                            </div>
-                            <ul>
-                                <li>
-                                    <a href="#">Save</a>
-                                </li>
-                                <!-- <li>
-                                    <a href="#">Share</a>
-                                </li> -->
-                            </ul>
-                        </div>
+                  <div class='dt-tabs'>
+                    <div class="show-hidden-menu" (click)="clickEvent(rcasting.id)">
+                      <span></span>
+                      <span></span>
+                      <span></span>
                     </div>
+                    <div class="hidden-menu" *ngIf="status && rcasting.id == cardnum ? 'active':''">
+                      <div class="arrow">
+                        <i class="fa fa-caret-up" aria-hidden="true"></i>
+                    </div>
+                      <ul>
+                        <li (click)="bookmarkCasting(rcasting.id)">Save</li>
+                        <!-- <li>Share</li> -->
+                      </ul>
+                    </div>
+                  </div> 
                     <h3 class="grn" (click)="castingInner(rcasting.id)">{{rcasting.title}}</h3>
                     <p class="toggle-sec">{{rcasting.short_description}}
                       <a (click)="castingInner(rcasting.id)" class="read-more">More...</a>
@@ -132,19 +131,22 @@
                     <!--<a href="#">View All</a>-->
                 </div>
                 <div class="card-tbs" *ngFor="let casting of callEndingSoon; let i=index;">
-                    <div class='dt-tabs'>
-                      <div class="show-hidden-menu">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                      </div>
-                      <div class="hidden-menu" style="display: none;">
-                        <ul>
-                          <li>Save</li>
-                          <!-- <li>Share</li> -->
-                        </ul>
-                      </div>
+                  <div class='dt-tabs'>
+                    <div class="show-hidden-menu" (click)="clickEvent(casting.id)">
+                      <span></span>
+                      <span></span>
+                      <span></span>
                     </div>
+                    <div class="hidden-menu" *ngIf="status && casting.id == cardnum ? 'active':''">
+                      <div class="arrow">
+                        <i class="fa fa-caret-up" aria-hidden="true"></i>
+                    </div>
+                      <ul>
+                        <li (click)="bookmarkCasting(casting.id)">Save</li>
+                        <!-- <li>Share</li> -->
+                      </ul>
+                    </div>
+                  </div> 
                     <h3 (click)="castingInner(casting.id)">{{casting.title | titlecase}}</h3>
                     <p class="toggle-sec">{{casting.short_description}}
                       <a (click)="castingInner(casting.id)" class="read-more">More...</a>

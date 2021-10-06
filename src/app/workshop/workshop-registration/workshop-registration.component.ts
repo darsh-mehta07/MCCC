@@ -3,6 +3,7 @@ import { ActivatedRoute, ParamMap,Router } from '@angular/router';
 import { Config } from '../../_config/config';
 import {WorkshopService} from '../../_service/workshop.service';
 import { Location,formatDate,DatePipe} from '@angular/common';
+import { DashboardService } from 'src/app/_service/dashboard.service';
 
 @Component({
   selector: 'app-workshop-registration',
@@ -13,6 +14,9 @@ export class WorkshopRegistrationComponent implements OnInit {
   stickymenu = 'workshop registration';
   id: any;
   bgImage: any;
+  bookmarks:any;
+  bmkStatus:any;
+  resData :any;
   workshopData: any;
   myDate = new Date();
   hostUrl:string = Config.Host+'backend2/';
@@ -21,7 +25,7 @@ export class WorkshopRegistrationComponent implements OnInit {
   eventDate: any;
   dataLoad: boolean = false;
   constructor(private location: Location,private workshopService: WorkshopService,
-    private route:Router,private actRoute:ActivatedRoute,public datepipe: DatePipe) { }
+    private route:Router,private actRoute:ActivatedRoute,public datepipe: DatePipe,private dashboardService : DashboardService) { }
 
   ngOnInit(): void {
     this.actRoute.paramMap.subscribe((params: ParamMap) => {                 
@@ -59,5 +63,20 @@ export class WorkshopRegistrationComponent implements OnInit {
     return date1.getFullYear() === date2.getFullYear() &&
       date1.getMonth() === date2.getMonth() &&
       date1.getDate() === date2.getDate();
+  }
+
+  bookmark(id:any){
+    this.dashboardService.bookmarkWorkshopEvents({event_id:id,type:'event'})
+      .subscribe(res => {
+        this.resData = res; 
+        this.bmkStatus = this.resData.data[0];
+        if(this.bmkStatus === 'Bookmark removed'){
+          this.bookmarks = 0;
+
+        }else if(this.bmkStatus === 'Bookmark Added'){
+          this.bookmarks = 1;
+        }
+        // this.showToasterSuccess();      
+      });
   }
 }

@@ -24,3 +24,11 @@
     border-right: 0;
     border-left: 0;
 }
+.no-data {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    flex-direction: column;
+    overflow: hidden;
+}
