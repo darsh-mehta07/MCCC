@@ -37,6 +37,7 @@ export class HomeComponent implements OnInit {
     nonewcall:boolean = false;
     nocallend:boolean = false;
     loading:boolean = false;
+    slideData:boolean = false;
     loadingnc:boolean = false;
     loadingnr:boolean = false;
     loadingnce:boolean = false;
@@ -189,7 +190,8 @@ export class HomeComponent implements OnInit {
         this.loading = true;
         this.resData = res;
         if(this.resData.data.length > 0){
-          this.slides = this.resData.data;          
+          this.slides = this.resData.data;      
+          this.slideData = true;    
         }else{
           this.slides = [
             {img: "../../../assets/img/slide1.jpg"},

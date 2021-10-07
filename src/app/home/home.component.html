@@ -15,10 +15,11 @@
             </div>
           </div>
         </div>
+        <div class="item" *ngIf="!slideData">
+          <ngx-skeleton-loader count="6"></ngx-skeleton-loader>
+        </div>
       </ngx-slick-carousel>
-      <div class="item" *ngIf="!loading">
-        <ngx-skeleton-loader count="6"></ngx-skeleton-loader>
-      </div>
+     
     </div>
   </div>
 
@@ -484,7 +485,7 @@
             </ul>
           </div>
         </div>
-        <h3 (click)="workshopInner(data.id)">{{data.title | titlecase}}</h3>
+        <h3> (click)="workshopInner(data.id)">{{data.title | titlecase}}</h3>
             <p class="toggle-sec">{{data.description}}
               <a (click)="workshopInner(data.id)" class="read-more">More...</a>
             </p>

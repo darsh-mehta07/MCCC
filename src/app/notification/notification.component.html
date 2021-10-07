@@ -6,11 +6,11 @@
           <a (click)="back()"><img src="../../assets/img/back2.png" /></a>
           <div class="Profile">
              <div class="dt-tabs">
-                  <div class="show-hidden-menu">
+                  <!-- <div class="show-hidden-menu">
                       <span></span>
                       <span></span>
                       <span></span>
-                  </div>
+                  </div> -->
                     <div class="hidden-menu" style="display: none;">
                       <div class="arrow">
                           <i class="fa fa-caret-up" aria-hidden="true"></i>
@@ -43,6 +43,7 @@
                   </div>
               </div>
                 <div class="no-data" *ngIf="dataLength == 0">
+                  <img src="../../../assets/img/image.png">
                     <h2>No New Notification !</h2>
                 </div>
               <div class="notify_tab" *ngIf="!loading">
