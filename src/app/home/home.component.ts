@@ -236,6 +236,9 @@ export class HomeComponent implements OnInit {
   castingInner(id:any){
     this.route.navigate(['casting-inner',id]);
   }
+  workshopInner(id:any){
+    this.route.navigate(['workshop-registration',id]);
+  }
   clickEvent(id:any){
     if(this.status){
       this.status = false;
