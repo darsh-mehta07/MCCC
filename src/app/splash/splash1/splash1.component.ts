@@ -17,6 +17,7 @@ export class Splash1Component implements OnInit {
   constructor() { }
   //-----slick slider------------//    
   slideConfig = {"slidesToShow": 1, "slidesToScroll": 1,"dots": false,"autoplay": false,
+  fade: true,
   "autoplaySpeed": 3000,method:{
     "slickPause" : true
   }};
