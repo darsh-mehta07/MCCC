@@ -285,7 +285,7 @@ body {
     .slide-btn4 {
         border-radius: 50%;
         position: relative;
-        top: 20%;
+        top: 24%;
         left: 40%;
         border: 5px solid #fff;
     }
@@ -353,7 +353,7 @@ body {
         height: auto;
     }
     .profilenav a {
-        padding: 8px 8px 8px 32px;
+        padding: 8px 8px 8px 30px;
         text-decoration: none;
         font-size: 16px;
         color: hsl(0deg 0% 0%);
@@ -580,7 +580,7 @@ body {
     .skip a { font-size: 18px; color: #000; text-decoration: none; }
     .header {position: absolute; width: 100%; padding: 20px 15px;}
     .traning-content img { margin-bottom: 10px;width: 25%;}
-    .slide-btn2 {border-radius: 50%; position: relative; top: 20%; left: 40%; border: 5px solid #fff; border-left-color: transparent; border-bottom-color: transparent}
+    .slide-btn2 {border-radius: 50%; position: relative; top: 21%; left: 40%; border: 5px solid #fff; border-left-color: transparent; border-bottom-color: transparent}
     .slide-btn2 i.fa.fa-angle-right {font-size: 36px;}
     .slide-btn2 button {border: 0; width: 55px; height: 55px; background: #C74D42; border-radius: 50%; color: #fff;}
     .traning-content p {color: #162707; font-size: 16px;}
@@ -592,7 +592,7 @@ body {
     .skip a { font-size: 18px; color: #000; text-decoration: none; }
     .header {position: absolute; width: 100%; padding: 20px 15px;}
     .event-content img { margin-bottom: 10px;width: 25%;}
-    .slide-btn3 {border-radius: 50%; position: relative; top: 20%; left: 40%; border: 5px solid #fff;border-left-color: transparent; }
+    .slide-btn3 {border-radius: 50%; position: relative; top: 24%; left: 40%; border: 5px solid #fff;border-left-color: transparent; }
     .slide-btn3 i.fa.fa-angle-right {font-size: 36px;}
     .slide-btn3 button {border: 0; width: 55px; height: 55px; background: #CC9612; border-radius: 50%; color: #fff;}
     .event-content p { color: #162707; font-size: 16px;}
@@ -798,7 +798,7 @@ body {
         top: 0;
     }
     .sidenav {height: 100%; width: 0; position: fixed; z-index: 1; top: 0; left: 0; background-color: #fff; overflow-x: hidden;  padding-top: 35px;  transition: 0.5s;}
-    .sidenav a {padding: 8px 8px 8px 55px; line-height: 2.3; text-decoration: none; font-size: 18px; display: block; transition: 0.3s; font-family: 'Gilroy';color: #000; font-weight: 500;}
+    .sidenav a {padding: 8px 8px 8px 30px; line-height: 2.3; text-decoration: none; font-size: 18px; display: block; transition: 0.3s; font-family: 'Gilroy';color: #000; font-weight: 500;}
     .sidenav a:hover, .offcanvas a:focus{color: #f1f1f1;}
     .sidenav .closebtn {
         position: absolute;
@@ -813,7 +813,7 @@ body {
     .top-header span {height: 100%; align-items: center; display: flex;}
     .main { width: 100%; display: flex;  align-items: center; justify-content: space-between; height: 75px;}
     .logo img {position: relative; left: 0; width: 30%;}
-    .logo { width: 235px;display: flex; justify-content: center; margin:  15px 0;}
+    .logo { width: 235px;display: flex; justify-content: center; margin:  15px 0;margin-bottom: 0;}
     .search img {width: 25px;}
     .notify img  { width: 25px;filter: brightness(0.5) invert(1);}
     .search {width: 45px;}
@@ -854,8 +854,8 @@ body {
     .card-tbs p {font-size: 13px; margin-bottom:15px;}
     span#dots { font-weight: 400;}
     .card-tbs h3 span {color: #ff6e61;}
-    .details-icons h4 {font-size: 15px; margin-bottom: 0; margin-left: 0;}	
-    .details i { width: 10px;margin-right: 10px; }	
+    .details-icons h4 {font-size: 15px; margin-bottom: 0; margin-left: 5px;}	
+    .details i { margin-right: 5px; }	
     .details-icons  {display: flex;align-items: baseline; justify-content: left;width: auto;padding: 0 10px;margin: 8px 0;}
     .details-icons:last-child {border-right: 0;}
     .details {clear: both;padding-top: 0; display: block; justify-content: flex-start; margin:  0;}	
@@ -875,12 +875,19 @@ body {
     .upper-txt {position: absolute; top: 10%; text-align: center; width: 90%; left: 22px;}
     .upper-txt h4 {font-size: 16px; color: #fff;}
     .upper-txt h3 {font-size: 16px; color: #fff;}
-    .upper-txt h2 {font-size: 22px; color: #fff;}
+    .upper-txt h2 {font-size: 21px; color: #fff;}
     .hd-icons {top: 0; left: 0; display: flex; align-items: center; justify-content: space-between;}
     .form_areas {width: 90%;background: #fff;margin: 0 auto ; padding: 25px; border-radius: 20px; position: absolute; top: 23%; height: auto; left: 0; right: 0;}
     .form_areas label { width: 100%; font-size: 12px; margin-bottom: 0; font-weight:600;}
-    .form_areas input {width: 100%; height: 22px;border: 0; border-bottom: 1px solid #000; margin-bottom: 15px; font-size: 15px; font-weight:600;}
-
+    .form_areas input {width: 100%; height: 22px;border: 0; border-bottom: 1px solid #000; margin-bottom: 10px; font-size: 15px; font-weight:600;}
+    .event-regist .invalid-feedback {
+        margin-top: 0;
+        margin-bottom: 10px;
+        padding: 0;
+    }
+    .invalid-feedback {
+        color: red;
+    }
     /* .text-danger {color: #000 !IMPORTANT; font-size: 14px;} */
 
     .text-danger {color:#e4061b !IMPORTANT; font-size: 14px;}
@@ -1007,8 +1014,8 @@ body {
     @keyframes evt2 { 0% {width:10%} 50% { width:15%} 100% {width:20%} }
     .training-inner .form_inner p {margin-bottom: 10px; font-size: 14px;}
     .training-inner h5 {font-size: 15px;}
-    .training-btn a {background: hsl(88deg 47% 64%); padding: 10px 22px; border-radius: 25px;color: hsl(0deg 0% 100%);}
-    .training-btn {display: flex; align-items: center; justify-content: center;margin-top: 15px;padding-bottom: 100px;}
+    .training-btn a {background: hsl(88deg 47% 64%); padding: 6px 22px; border-radius: 25px;color: hsl(0deg 0% 100%);text-decoration: none;}
+    .training-btn {display: flex; align-items: center; justify-content: center;margin-top: 15px;padding-bottom: 100px;flex-direction: column;}
     .sticky { position: fixed;}
     .fixed-icons{position:fixed;}
     .card-tbs h3 {font-size: 18px; color: hsl(7deg 88% 68%); font-weight: 500; text-decoration: none; width: 90%;}
@@ -1108,7 +1115,7 @@ body {
     .upload-video .js--image-preview { height: 100%; width: 100%; position: relative;overflow: hidden; background-color: hsl(231deg 16% 83%);background-size:contain;background-image: none;object-fit: cover;}
     .pht, .vdi {margin-bottom: 30px; margin-top:20px;}
     .pht h3, .vdi h3 { font-size: 16px;  font-weight: 600;margin-bottom: 10px;}
-    .pht-btn, .vdi-btn {float: right;display: flex;align-items: center;}
+    .pht-btn, .vdi-btn {float: right;display: flex;align-items: baseline;}
     .pht-btn i, .vdi-btn i {color: hsl(211deg 100% 40%);margin-right: 10px;}
     .pht-btn p, .vdi-btn p {margin-bottom: 0;}
     .conform-details .vdi img {width: 100%;}
@@ -1233,7 +1240,7 @@ p.lht-txt {color: hsl(0deg 0% 66%);}
     .details-icons { padding: 0 10px;}
     .evnts_sliders img {width: 100%;}
     .traine-txt p { font-size: 14px;}
-    .vide1 {width: 75px !IMPORTANT;height: 75px; background: #f57767; border-radius: 50%; margin: 0 5px;}
+    .vide1 {width: 75px !IMPORTANT;height: 75px!IMPORTANT; background: #f57767; border-radius: 50%; margin: 0 5px;}
     .vide2 {width: 75px !IMPORTANT;height: 75px; background: #a7cf79; border-radius: 50%; margin: 0 5px;}
     .vide3 {width: 75px !IMPORTANT;height: 75px; background: #e9bf5b; border-radius: 50%; margin: 0 5px;}
     .vide4 {width: 75px !IMPORTANT;height: 75px; background: #77cfff; border-radius: 50%; margin: 0;}
@@ -2258,7 +2265,7 @@ a:focus {
     height: 285px !important;
 }
 a.read-more {
-    color: #188aff;
+    color: #188aff !important;
 }
 .tbs a {
     text-decoration: none;
@@ -2440,5 +2447,36 @@ input#phone::placeholder {
     background: #0008;
     z-index: 99;
 }
-.notify span.counts {position: absolute; top: 20px; right: 7px;font-size: 10px;color: #000; padding: 8px; height: 3px;border-radius: 50%; width: 3px;display: flex; align-items: center; justify-content: center;}
+.notify span.counts {position: absolute; top: 20px; right: 12px;font-size: 15px;font-weight: 400;color: #000; padding: 8px; height: 3px;border-radius: 50%; width: 3px;display: flex; align-items: center; justify-content: center;}
 .more-video {padding-bottom: 50px;}
+.evt-btn h6 {
+    position: relative;
+    top: 25px;
+}
+.event-regist .container {
+    height: auto;
+}
+.event-regist .edit-profile {
+    padding-bottom: 80px;
+}
+.training-btn h6 {
+    position: relative;
+    top: 10px;
+}
+.training-inner hr {
+    border: 1px solid #f57768 !important;
+}
+.upload-video[_ngcontent-rlp-c142] .box[_ngcontent-rlp-c142] {
+    width: 100% !important;
+    height: 180px;
+}
+.hd-icons a img {
+    width: 80% !important;
+}
+.events-inner p i {
+    margin-right: 10px;
+}
+
+.video-opt .slick-track{
+    display: flex;
+}

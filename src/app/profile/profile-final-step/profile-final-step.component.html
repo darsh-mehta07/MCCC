@@ -152,7 +152,7 @@
                             </div>
                         </div>
                         <div class="input_group plus" id="add_social_links">
-                            <label>Socail Links / Video Links</label>
+                            <label>Social Links / Video Links</label>
                             <div class="input"formArrayName="social_links" *ngFor="let item of form.get('social_links')['controls']; let i = index;">
                                 <div [formGroupName]="i">
                                 <input type="text" formControlName="social_link" maxlength="200" placeholder="https://www.facebook.com/tseriesmusic/videos/730159777602363/" [ngClass]="{ 'is-invalid': submitted && f.social_links.errors }">

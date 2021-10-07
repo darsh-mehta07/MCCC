@@ -31,8 +31,9 @@
               </div>
               <div class="evt-btn" *ngIf="this.checkData.data == 'No Data' && prevDate ">
                 <a [routerLink]="['/workshop-registration-form/',appEvents.id,1]">ENROLL NOW</a>
+                <h6 *ngIf="this.checkData.data == 'No Data' && prevDate ">Enroll now to confirm your seat</h6>
               </div>
-              <h6 *ngIf="this.checkData.data == 'No Data' && prevDate ">Enroll now to confirm your seat</h6>
+             
               <div class="evt-btn" *ngIf="this.checkData.data !=  'No Data' && prevDate ">
                 <a>ALREADY ENROLLED</a>
               </div>
