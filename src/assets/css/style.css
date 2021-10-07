@@ -2447,7 +2447,7 @@ input#phone::placeholder {
     background: #0008;
     z-index: 99;
 }
-.notify span.counts {position: absolute; top: 20px; right: 12px;font-size: 15px;font-weight: 400;color: #000; padding: 8px; height: 3px;border-radius: 50%; width: 3px;display: flex; align-items: center; justify-content: center;}
+.notify span.counts {position: absolute; top: 20px; right: 12px;font-size: 13px;font-weight: 400;color: #000;background: #fff; padding: 8px; height: 3px;border-radius: 50%; width: 3px;display: flex; align-items: center; justify-content: center;}
 .more-video {padding-bottom: 50px;}
 .evt-btn h6 {
     position: relative;
@@ -2479,4 +2479,6 @@ input#phone::placeholder {
 
 .video-opt .slick-track{
     display: flex;
+    width: 100% !important;
+    height: 100%;
 }
