@@ -15,10 +15,11 @@
             </div>
           </div>
         </div>
+        <div class="item" *ngIf="!slideData">
+          <ngx-skeleton-loader count="6"></ngx-skeleton-loader>
+        </div>
       </ngx-slick-carousel>
-      <div class="item" *ngIf="!loading">
-        <ngx-skeleton-loader count="6"></ngx-skeleton-loader>
-      </div>
+     
     </div>
   </div>
 
@@ -427,14 +428,24 @@
             </ul>
           </div>
         </div>
-        <h3>{{data.title}}</h3>
-        <p  *ngIf=" expanded !=  data.id">
-          {{data.description.substr(0, 30)}}
-           <span (click)="expanded = data.id"
-             class="text-green"><b>{{expanded==  data.id ?'View less':'View more'}}</b></span></p>
-         <p  *ngIf="expanded ==  data.id ">{{data.description}}
-           <span (click)="expanded = 0"
-             class="text-green"><b>{{expanded==  data.id ?'View less':'View more'}}</b></span></p>
+        <h3 (click)="workshopInner(data.id)">{{data.title | titlecase}}</h3>
+            <p class="toggle-sec">{{data.description}}
+              <a (click)="workshopInner(data.id)" class="read-more">More...</a>
+            </p>
+            <div class="details">
+              <div class="details-icons">
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                <h4>{{data.city_name}}</h4>
+              </div>
+              <div class="details-icons">
+                <i class="fa fa-clock-o" aria-hidden="true"></i> 
+                <h4>{{data.start_time_1}}</h4>
+              </div>
+              <div class="details-icons">
+                <i class="fa fa-calendar" aria-hidden="true"></i>
+                <h4>{{data.start_date}} to {{data.closing_date}}</h4>
+              </div>
+           </div>
       </div>
       <div class="no-data" *ngIf="upcomingData == 'No Data' ">
         <h2>No Data Available</h2>
@@ -474,14 +485,24 @@
             </ul>
           </div>
         </div>
-        <h3 class="grn">{{data.title}}</h3>
-        <p  *ngIf="expanded !=  data.id">
-          {{data.description.substr(0, 30)}}
-           <span (click)="expanded = data.id"
-             class="text-green"><b>{{expanded==  data.id ?'View less':'View more'}}</b></span></p>
-         <p  *ngIf="expanded ==  data.id ">{{data.description}}
-           <span (click)="expanded = 0"
-             class="text-green"><b>{{expanded==  data.id ?'View less':'View more'}}</b></span></p>
+        <h3> (click)="workshopInner(data.id)">{{data.title | titlecase}}</h3>
+            <p class="toggle-sec">{{data.description}}
+              <a (click)="workshopInner(data.id)" class="read-more">More...</a>
+            </p>
+            <div class="details">
+              <div class="details-icons">
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                <h4>{{data.city_name}}</h4>
+              </div>
+              <div class="details-icons">
+                <i class="fa fa-clock-o" aria-hidden="true"></i> 
+                <h4>{{data.start_time_1}}</h4>
+              </div>
+              <div class="details-icons">
+                <i class="fa fa-calendar" aria-hidden="true"></i>
+                <h4>{{data.start_date}} to {{data.closing_date}}</h4>
+              </div>
+           </div>
       </div>
       <div class="no-data" *ngIf="endingsoonData == '' ">
         <h2>No Data Available</h2>
@@ -515,15 +536,24 @@
                     </ul>
                 </div>
             </div>
-            <h3 _ngcontent-xmm-c57="" class="yto">{{data.title}}</h3>
-            
-            <p ngcontent-xmm-c57="" class="toggle-sec" *ngIf="expanded !=  data.id">
-              {{data.description.substr(0, 30)}}
-               <span ngcontent-xmm-c57="" (click)="expanded = data.id"
-                 class="text-green"><b>{{expanded==  data.id ?'View less':'View more'}}</b></span></p>
-             <p  *ngIf="expanded ==  data.id ">{{data.description}}
-               <span ngcontent-xmm-c57="" (click)="expanded = 0"
-                 class="text-green"><b>{{expanded==  data.id ?'View less':'View more'}}</b></span></p>
+            <h3 (click)="workshopInner(data.id)">{{data.title | titlecase}}</h3>
+            <p class="toggle-sec">{{data.description}}
+              <a (click)="workshopInner(data.id)" class="read-more">More...</a>
+            </p>
+            <div class="details">
+              <div class="details-icons">
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                <h4>{{data.city_name}}</h4>
+              </div>
+              <div class="details-icons">
+                <i class="fa fa-clock-o" aria-hidden="true"></i> 
+                <h4>{{data.start_time_1}}</h4>
+              </div>
+              <div class="details-icons">
+                <i class="fa fa-calendar" aria-hidden="true"></i>
+                <h4>{{data.start_date}} to {{data.closing_date}}</h4>
+              </div>
+           </div>
         </div>
         <div class="no-data" *ngIf="previosData == '' ">
           <h2>No Data Available</h2>
