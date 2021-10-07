@@ -38,9 +38,11 @@ export class CastingAllComponent implements OnInit {
     this.actRoute.paramMap.subscribe((params: ParamMap) => {                 
       this.catId = params.get('id');
     });
+    this.loading = false;
     this.getCastingData();
     this.getRecomendedData();
     this.getCallEndingSoonData();
+    console.log(this.loading + 'loadddddd');
   }
   tab(data:any){
     this.catId = data;

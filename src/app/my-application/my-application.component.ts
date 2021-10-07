@@ -12,24 +12,17 @@ import { Location } from '@angular/common';
 export class MyApplicationComponent implements OnInit {
   pageName='my-application';
   loading = false;
-  noData = false;
+  noData:boolean = true;
   applications:any = [];
   resData:any;
   constructor(private location:Location,private dashboardService : DashboardService,private alertService:AlertService) {
     this.dashboardService.listen().subscribe((e:any)=>{
-      console.log(e);
       this.getMyApplication();
     });
    }
 
   ngOnInit(): void {
-    console.log("this.applications.length :   " + this.applications.length);
-    if(this.applications.length != 0){
-      this.loading=false;
-      this.noData = true;
-    }else{
-      this.getMyApplication();
-    }
+          this.getMyApplication();
     
   }
   
@@ -38,9 +31,19 @@ export class MyApplicationComponent implements OnInit {
     .subscribe(
         res => {
           this.loading=true;
+          this.noData = true;
           this.resData = res;        
         this.applications = this.resData.data; 
-        console.log(this.applications.length);
+        console.log("My app :",this.applications.length);
+
+        if(this.applications.length != 0){
+          console.log("this.applications.length :   " + this.applications.length);
+          this.noData = true;
+        }else{
+          this.noData = false;
+          console.log("this.applications.length else :   " + this.applications.length);
+        }
+
         },
         error => {
           this.loading=true;
