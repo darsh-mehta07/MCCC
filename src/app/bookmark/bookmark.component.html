@@ -1,51 +1,55 @@
 <body class="hm_pg">
   <app-header></app-header>
-  <div class="tabs" >
-    <h2>Casting Calls
-        <hr class="on">
-        <hr class="tw">
-    </h2>
-    <!--<a href="#">View All</a>-->
+  <div class="bkmark">
+  <div class="container">
+      <div class="tabs" >
+      <h2>Casting Calls
+          <hr class="on">
+          <hr class="tw">
+      </h2>
+      <!--<a href="#">View All</a>-->
+      </div>
+      <div class="card-tbs" *ngFor="let bookmark of bookmarkData; let i=index;">
+    
+                      <div class='dt-tabs'>
+                        <div class="show-hidden-menu">
+                          <span></span>
+                          <span></span>
+                          <span></span>
+                        </div>
+                        <!-- <div class="hidden-menu" style="display: none;">
+                          <ul>
+                            <li>Save</li>
+                            <li>Share</li>
+                          </ul>
+                        </div> -->
+                      </div>
+                      <h3 (click)="castingInner(bookmark.id)">{{bookmark.title}}</h3>
+                      <p class="toggle-sec">{{bookmark.short_description}}
+                        <a (click)="castingInner(bookmark.id)" class="read-more">More...</a>
+                      </p>
+                      <div class="details">
+                        <div class="details-icons">
+                          <i class="fa fa-transgender-alt" aria-hidden="true"></i>
+                          <h4>{{bookmark.gender}}</h4>
+                        </div>
+                        <div class="details-icons" *ngIf="bookmark.closing_date != null">
+                          <i class="fa fa-clock-o" aria-hidden="true"></i>
+                          <h4 >{{bookmark.closing_date}}</h4>
+                        </div>
+                        <div class="details-icons">
+                          <i class="fa fa-map-marker" aria-hidden="true"></i>
+                          <h4>{{bookmark.location}}</h4>
+                        </div>
+                      </div>
+              
+                      <div class="card-btn">
+                        <div class="slide-btn" *ngFor="let tag of bookmark.tags.split(',');">
+                          <a href="#">{{tag}}</a>
+                        </div>         
+                      </div>
+      </div>
+  </div>
 </div>
-<div class="card-tbs" *ngFor="let bookmark of bookmarkData; let i=index;">
-  
-                    <div class='dt-tabs'>
-                      <div class="show-hidden-menu">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                      </div>
-                      <!-- <div class="hidden-menu" style="display: none;">
-                        <ul>
-                          <li>Save</li>
-                          <li>Share</li>
-                        </ul>
-                      </div> -->
-                    </div>
-                    <h3 (click)="castingInner(bookmark.id)">{{bookmark.title}}</h3>
-                    <p class="toggle-sec">{{bookmark.short_description}}
-                      <a (click)="castingInner(bookmark.id)" class="read-more">More...</a>
-                    </p>
-                    <div class="details">
-                      <div class="details-icons">
-                        <i class="fa fa-transgender-alt" aria-hidden="true"></i>
-                        <h4>{{bookmark.gender}}</h4>
-                      </div>
-                      <div class="details-icons" *ngIf="bookmark.closing_date != null">
-                        <i class="fa fa-clock-o" aria-hidden="true"></i>
-                        <h4 >{{bookmark.closing_date}}</h4>
-                      </div>
-                      <div class="details-icons">
-                        <i class="fa fa-map-marker" aria-hidden="true"></i>
-                        <h4>{{bookmark.location}}</h4>
-                      </div>
-                    </div>
-            
-                    <div class="card-btn">
-                      <div class="slide-btn" *ngFor="let tag of bookmark.tags.split(',');">
-                        <a href="#">{{tag}}</a>
-                      </div>         
-                    </div>
-                  </div>
-                  <app-footer [pageName]="pageName"></app-footer>
+  <app-footer [pageName]="pageName"></app-footer>
 </body>
