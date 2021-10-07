@@ -25,7 +25,7 @@ export class MyApplicationComponent implements OnInit {
   ngOnInit(): void {
     console.log("this.applications.length :   " + this.applications.length);
     if(this.applications.length != 0){
-      this.loading=false;
+      
       this.noData = true;
     }else{
       this.getMyApplication();
@@ -38,9 +38,10 @@ export class MyApplicationComponent implements OnInit {
     .subscribe(
         res => {
           this.loading=true;
+          this.noData = true;
           this.resData = res;        
         this.applications = this.resData.data; 
-        console.log(this.applications.length);
+        console.log(this.applications);
         },
         error => {
           this.loading=true;
