@@ -168,7 +168,7 @@ const routes: Routes = [
   },
   {    
     path: 'home',component: HomeComponent, canActivate: [AuthGuard],   
-    data: {storeRoute: true,title: 'Home Page'}    
+    data: {storeRoute: false,title: 'Home Page'}    
   },
   {    
     path: 'profile_first_step',component: ProfileFirstStepComponent, canActivate: [AuthGuard],   
@@ -188,23 +188,23 @@ const routes: Routes = [
   },
   {    
     path: 'casting-inner/:id',component: CastingInnerComponent,canActivate: [AuthGuard],    
-    data: {storeRoute: true,title: 'Casting Inner Page'}    
+    data: {storeRoute: false,title: 'Casting Inner Page'}    
   },
   {    
     path: 'casting-all/:id',component: CastingAllComponent,canActivate: [AuthGuard],    
-    data: {storeRoute: true,title: 'Casting All Page'}    
+    data: {storeRoute: false,title: 'Casting All Page'}    
   },
   {    
     path: 'apply-casting/:id',component: ApplyCastingComponent,canActivate: [AuthGuard],    
-    data: {storeRoute: true,title: 'Apply Casting Page'}   
+    data: {storeRoute: false,title: 'Apply Casting Page'}   
   },
   {    
     path: 'casting-all/:id',component: CastingAllComponent,canActivate: [AuthGuard],    
-    data: {storeRoute: true, title: 'Casting All Page'}    
+    data: {storeRoute: false, title: 'Casting All Page'}    
   },
   {    
     path: 'apply-casting/:id',component: ApplyCastingComponent,canActivate: [AuthGuard],    
-    data: {storeRoute: true, title: 'Apply Casting Page'}    
+    data: {storeRoute: false, title: 'Apply Casting Page'}    
   },
   {    
     path: 'casting-confirm/:id',component: ApplicationConfirmCastingComponent,canActivate: [AuthGuard],    
@@ -216,7 +216,7 @@ const routes: Routes = [
   },
   {    
     path: 'my-aaplication',component: MyApplicationComponent,canActivate: [AuthGuard],    
-    data: {storeRoute: true,title: 'My Application Page'}    
+    data: {storeRoute: false,title: 'My Application Page'}    
   },
   {    
     path: 'edit-profile',component: EditProfileComponent,canActivate: [AuthGuard],    
@@ -224,44 +224,44 @@ const routes: Routes = [
   },
   {    
     path: 'my-casting/:id',component: MyCastingInnerComponent,canActivate: [AuthGuard],    
-    data: {storeRoute: true,title: 'My casting Page'}    
+    data: {storeRoute: false,title: 'My casting Page'}    
   },
   {    
     path: 'bts-video',component: BtsVideosComponent,canActivate: [AuthGuard],    
-    data: {storeRoute: true,title: 'BTS Videos'}    
+    data: {storeRoute: false,title: 'BTS Videos'}    
   },
   {    
     path: 'bts-inner/:id',component: BtsInnerComponent,canActivate: [AuthGuard],    
-    data: {storeRoute: true,title: 'BTS Inner'}    
+    data: {storeRoute: false,title: 'BTS Inner'}    
   },
   {    
     path: 'bts-video',component: BtsVideosComponent,canActivate: [AuthGuard],    
-    data: {storeRoute: true, title: 'BTS Videos'}    
+    data: {storeRoute: false, title: 'BTS Videos'}    
   },
   {    
     path: 'bts-inner/:id',component: BtsInnerComponent,canActivate: [AuthGuard],    
-    data: {storeRoute: true, title: 'BTS Inner'}    
+    data: {storeRoute: false, title: 'BTS Inner'}    
   },
   {    
     path: 'bts-video-view/:id/:type',component: BtsVideoViewComponent,canActivate: [AuthGuard],    
-    data: {storeRoute: true,title: 'BTS Inner'}    
+    data: {storeRoute: false,title: 'BTS Inner'}    
   },
   {    
     path: 'workshop/:id',component: WorkshopComponent,canActivate: [AuthGuard],    
-    data: {storeRoute: true,title: 'Workshop'}    
+    data: {storeRoute: false,title: 'Workshop'}    
   },
   {    
 
     path: 'event/:id',component: EventComponent,canActivate: [AuthGuard],    
-    data: {storeRoute: true,title: 'Event page'}    
+    data: {storeRoute: false,title: 'Event page'}    
   },
   {    
     path: 'event-inner/:id',component: EventInnerComponent,canActivate: [AuthGuard],    
-    data: {storeRoute: true,title: 'Event Inner page'}    
+    data: {storeRoute: false,title: 'Event Inner page'}    
   },
   {    
     path: 'event-apply/:id',component: EventApplyComponent,canActivate: [AuthGuard],    
-    data: {storeRoute: true,title: 'Event Apply page'}    
+    data: {storeRoute: false,title: 'Event Apply page'}    
   },
   {    
     path: 'event-thankyou',component: EventThankyouComponent,canActivate: [AuthGuard],    
