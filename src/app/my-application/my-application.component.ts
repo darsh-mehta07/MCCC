@@ -31,6 +31,7 @@ export class MyApplicationComponent implements OnInit {
     .subscribe(
         res => {
           this.loading=true;
+          this.noData = true;
           this.resData = res;        
         this.applications = this.resData.data; 
         console.log("My app :",this.applications.length);

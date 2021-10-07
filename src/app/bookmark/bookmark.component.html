@@ -9,19 +9,19 @@
 </div>
 <div class="card-tbs" *ngFor="let bookmark of bookmarkData; let i=index;">
   
-                    <div class='dt-tabs'>
+                    <!-- <div class='dt-tabs'>
                       <div class="show-hidden-menu">
                         <span></span>
                         <span></span>
                         <span></span>
-                      </div>
+                      </div> -->
                       <!-- <div class="hidden-menu" style="display: none;">
                         <ul>
                           <li>Save</li>
                           <li>Share</li>
                         </ul>
                       </div> -->
-                    </div>
+                    <!-- </div> -->
                     <h3 (click)="castingInner(bookmark.id)">{{bookmark.title}}</h3>
                     <p class="toggle-sec">{{bookmark.short_description}}
                       <a (click)="castingInner(bookmark.id)" class="read-more">More...</a>
@@ -46,6 +46,10 @@
                         <a href="#">{{tag}}</a>
                       </div>         
                     </div>
+                  </div>
+                  <div *ngIf="bookmarkData == 'No Bookmark' " class="no-data">
+                    <img src="../../../assets/img/image.png">
+                    <h2>No Data Available</h2>
                   </div>
                   <app-footer [pageName]="pageName"></app-footer>
 </body>
