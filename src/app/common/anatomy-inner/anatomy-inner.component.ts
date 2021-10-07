@@ -6,6 +6,7 @@ import { AlertService } from 'src/app/_service/alert.service';
 import { AuthenticationService } from 'src/app/_service/authentication.service';
 import { CommonService } from 'src/app/_service/common.service';
 import { Location } from '@angular/common';
+import { NotificationService } from 'src/app/_service/notification.service';
 
 @Component({
   selector: 'app-anatomy-inner',
@@ -22,7 +23,7 @@ export class AnatomyInnerComponent implements OnInit {
   submitted = false;
   uploading:boolean=false;
   active:any=0;
-  constructor(  private alertService:AlertService,private formBuilder: FormBuilder,private location:Location,private route:Router,
+  constructor( private notification : NotificationService, private alertService:AlertService,private formBuilder: FormBuilder,private location:Location,private route:Router,
     private authenticationService: AuthenticationService,private commonService:CommonService) {
       this.currentUser = this.authenticationService.currentUserValue;
      }
@@ -68,10 +69,10 @@ export class AnatomyInnerComponent implements OnInit {
           data => {  
             this.uploading = false;     
             this.active=0;   
-            this.alertService.success('Update Successfully',false);
+            this.notification.showSuccess('Update Successfully','');
           },
           error => {
-            this.alertService.error(error.error.message,true);
+            this.notification.showError(error.error.message,true);
               this.uploading = false;
               this.active=0;
           }); 

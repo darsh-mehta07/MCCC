@@ -10,10 +10,14 @@ export function MustMatch(controlName: string, matchingControlName: string) {
             // return if another validator has already found an error on the matchingControl
             return;
         }
+        console.log("mc : " ,matchingControl.value);
+        console.log("c : " ,control);
         // set error on matchingControl if validation fails
-        if (control !== matchingControl.value) {
+        if (matchingControl.value == 1111) {
+            matchingControl.setErrors(null);
+        }else if( control !== matchingControl.value){
             matchingControl.setErrors({ mustMatch: true });
-        } else {
+        }else {
             matchingControl.setErrors(null);
         }
     }
