@@ -91,11 +91,11 @@ export class ImagesComponent implements OnInit {
             this.loading = true;
             this.uploading = false;     
             this.active=0;   
-            this.notification.showSuccess('Video saved Successfully.','');
+            this.notification.showSuccess('Image saved Successfully.','');
           },
           error => {
             this.loading = false;
-            this.alertService.error(error.error.message,true);
+            this.notification.showError(error.error.message,true);
               this.uploading = false;
               this.active=0;
           });
