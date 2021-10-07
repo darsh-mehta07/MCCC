@@ -41,6 +41,13 @@ export class HomeComponent implements OnInit {
     loadingnc:boolean = false;
     loadingnr:boolean = false;
     loadingnce:boolean = false;
+    
+    loadingevent :boolean = false;
+    loadingbts:boolean = false;
+    loadingtraining:boolean = false;
+    loadingwork:boolean = false;
+    loadingtrner:boolean = false;
+
     popularBtsVideos : any;
     topBtsVideos: any;
     categories: any;
@@ -115,7 +122,7 @@ export class HomeComponent implements OnInit {
     } 
     //-----slick slider------------//
   ngOnInit(): void {    
-    console.log('ngon');
+    
     this.loadAllUsers();
     this.castingSliderApi();
     this.newCastingCallApi();
@@ -124,27 +131,32 @@ export class HomeComponent implements OnInit {
     this.getEventsData();
     this.btsVideosService.get_bts_videos({'limit': 10,'category_id':1}).subscribe(
       data => { 
+        this.loadingbts = true;
           // console.log(data);
           this.popularBtsVideos = data.data;
       });
     this.btsVideosService.get_bts_videos({'limit': 2,'category_id':2}).subscribe(
       data => { 
+        this.loadingbts = true;
           // console.log(data.data);
           this.topBtsVideos = data.data;
       }); 
     this.btsVideosService.get_categories().subscribe(
         data => { 
+          this.loadingbts = true;
           this.categories = data.data;
       });   
-
+      this.loadingtraining = true;
     this.workshopService.get_upcoming_workshop_data({'limit': 2}).subscribe(
         data => { 
+          this.loadingwork = true;
           this.upcomingData = data.data;
           console.log(this.upcomingData);
       });  
       
     this.workshopService.get_endingsoon_workshop_data({'limit': 2}).subscribe(
         data => { 
+          this.loadingwork = true;
           var dataV = data.data;
           if(dataV == 'No Data'){
             this.endingsoonData = [];  
@@ -157,6 +169,7 @@ export class HomeComponent implements OnInit {
     
     this.workshopService.get_previous_workshop_data({'limit': 2}).subscribe(
         data => { 
+          this.loadingwork = true;
           var dataV = data.data;
           if(dataV == 'No Data'){
             this.previosData = [];  
@@ -167,10 +180,12 @@ export class HomeComponent implements OnInit {
           
           console.log(this.previosData);
     }); 
+    this.loadingtrner = true;    
   }
   getEventsData(){
     this.dashboardService.getEvents()
       .subscribe(res => {
+        this.loadingevent = true;
         this.on_going_loding = true;
         this.upcomings_loding = true;
         this.forU_loding = true;
