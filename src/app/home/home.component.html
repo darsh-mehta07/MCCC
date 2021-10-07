@@ -14,16 +14,15 @@
               <p>Lorem Ipsum is simply<br> dummy text </p>
             </div>
           </div>
-        </div>
-        <div class="item" *ngIf="!slideData">
-          <ngx-skeleton-loader count="6"></ngx-skeleton-loader>
-        </div>
-      </ngx-slick-carousel>
-     
+        </div>        
+      </ngx-slick-carousel>      
     </div>
   </div>
+  <div class="item" *ngIf="!slideData">
+    <ngx-skeleton-loader count="6"></ngx-skeleton-loader>
+  </div>
 
-  <div class="required-tbs" *ngIf="!nonewcall">
+  <div class="required-tbs" *ngIf="loadingnc">
     <div class="container">
       <div class="tabs">
         <h2>New Casting Calls
@@ -80,7 +79,7 @@
     </div>
   </div>
 
-  <div class="recommended-tbs" *ngIf="!norecomended">
+  <div class="recommended-tbs" *ngIf="loadingnr">
     <div class="container">
       <div class="tabs">
         <h2>Recommended Calls
@@ -128,14 +127,14 @@
               <a>{{tag}}</a>
             </div>
           </div>
-      </div>
-      <div class="item" *ngIf="!loadingnr">
-        <ngx-skeleton-loader count="6"></ngx-skeleton-loader>
-      </div>
+      </div>     
     </div>
   </div>
+  <div class="item" *ngIf="!loadingnr">
+    <ngx-skeleton-loader count="6"></ngx-skeleton-loader>
+  </div>
 
-  <div class="call-ending-tbs" *ngIf="!nocallend">
+  <div class="call-ending-tbs" *ngIf="loadingnce">
     <div class="container">
       <div class="tabs">
         <h2>Call Ending Soon
@@ -179,20 +178,19 @@
             <h4>{{casting.location}}</h4>
           </div>
         </div>
-
         <div class="card-btn">
           <div class="slide-btn" *ngFor="let tag of casting.tags;">
             <a>{{tag}}</a>
           </div>
         </div>
-
-      </div>
-      <div class="item" *ngIf="!loadingnce">
-        <ngx-skeleton-loader count="6"></ngx-skeleton-loader>
-      </div>
+      </div>      
     </div>
   </div>
+  <div class="item" *ngIf="!loadingnce">
+    <ngx-skeleton-loader count="6"></ngx-skeleton-loader>
+  </div>
 
+<div *ngIf="loadingevent">
   <div class="events-banner" *ngIf="!upcomingsEvents[0].noData">
     <div class="container">
       <ngx-slick-carousel class="carousel slick_sliders evnts_sliders" #slickModal="slick-carousel" [config]="slideConfig"
@@ -332,7 +330,12 @@
       </div>
     </div>
   </div>
+</div>
+<div class="item" *ngIf="!loadingevent">
+  <ngx-skeleton-loader count="6"></ngx-skeleton-loader>
+</div>
 
+<div *ngIf="loadingbts">
   <div class="behinde_screen">
     <div class="container">
 
@@ -384,8 +387,12 @@
       </div>
     </div>
   </div>
+</div>
+<div class="item" *ngIf="!loadingbts">
+  <ngx-skeleton-loader count="6"></ngx-skeleton-loader>
+</div>
 
-  <div class="training-slide">
+  <div class="training-slide" *ngIf="loadingtraining">
     <div class="container">
       <ngx-slick-carousel class="carousel training_sliders" #slickModal="slick-carousel" [config]="slideConfig"
         (init)="slickInit($event)" (breakpoint)="breakpoint($event)" (afterChange)="afterChange($event)"
@@ -404,7 +411,11 @@
       </ngx-slick-carousel>
     </div>
   </div>
+  <div class="item" *ngIf="!loadingtraining">
+    <ngx-skeleton-loader count="6"></ngx-skeleton-loader>
+  </div>
 
+  <div *ngIf="loadingwork">
   <div class="upcoming-workshop-tbs" *ngIf="upcomingData != 'No Data' ">
     <div class="container">
       <div class="tabs">
@@ -453,7 +464,6 @@
       
     </div>
   </div>
-
   <div class="workshop-ending-tbs" *ngIf="endingsoonData != '' ">
     <div class="container">
       <div class="tabs">
@@ -561,7 +571,13 @@
         
     </div>
 </div>
-  <div class="train-banner">
+</div>
+<div class="item" *ngIf="!loadingwork">
+  <ngx-skeleton-loader count="6"></ngx-skeleton-loader>
+</div>
+
+<div *ngIf="loadingtrner">
+  <div class="train-banner" >
     <div class="container">
       <img src="../../../assets/img/train3.png">
       <div class="traine-txt">
@@ -571,7 +587,7 @@
     </div>
   </div>
 
-  <div class="trner">
+  <div class="trner" >
     <div class="container">
       <ngx-slick-carousel class="carousel trns_sliders" #slickModal="slick-carousel" [config]="trns_sliders"
         (init)="slickInit($event)" (breakpoint)="breakpoint($event)" (afterChange)="afterChange($event)"
@@ -643,6 +659,9 @@
       </ngx-slick-carousel>
     </div>
   </div>
-
+</div>
+<div class="item" *ngIf="!loadingtrner">
+  <ngx-skeleton-loader count="6"></ngx-skeleton-loader>
+</div>
   <app-footer [pageName]="pageName"></app-footer>
 </body>
