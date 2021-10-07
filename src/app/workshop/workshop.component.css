@@ -184,8 +184,8 @@
 }
 .details-icons {
     display: inline-flex;
-    align-items: center;
-    justify-content: space-between;
+    align-items: baseline;
+    justify-content: center;
     width: auto;
     padding: 0 6px;
     border-right: 1px solid #000;

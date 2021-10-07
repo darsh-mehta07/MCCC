@@ -1,3 +1,9 @@
 .profile-dtl img{
     width:100%
 }
+.profile-dtl .invalid-feedback {
+    margin: 0;
+    text-align: left;
+    margin-bottom: 10px;
+    padding: 0;
+}

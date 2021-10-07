@@ -66,7 +66,7 @@ button.close {
     color: #fff !IMPORTANT;
     text-align: center;
     padding: 8px 10px;
-    text-transform: uppercase;
+    text-transform: capitalize;
     font-size: 14px;
     border: 0;
 }

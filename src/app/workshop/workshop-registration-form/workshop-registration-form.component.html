@@ -5,6 +5,7 @@
     <div class="container">
       <div class="header hd-icons">
         <a (click)="back()"><img src="../../assets/img/back2.png" /></a>
+        <a [routerLink]="['/home']"><img src="../../assets/img/home2.png" class="home2"/></a>
       </div>
       <div class="form_areas">
           <form [formGroup]="form">
@@ -70,7 +71,7 @@
 
         </div>
         <div *ngIf="submitted && f.aadhar_file.errors" class="invalid-feedback">
-          <div *ngIf="f.aadhar_file.errors.required">Please upload aadhar card photo.</div>
+          <div *ngIf="f.aadhar_file.errors.required">Please upload Aadhar card photo.</div>
         </div>
         <label for="add-more2">Pan Card<span class="text-danger">*</span></label>
         <div class="upload">
@@ -81,7 +82,7 @@
             </div>
         </div>
         <div *ngIf="submitted && f.pan_file.errors" class="invalid-feedback">
-          <div *ngIf="f.pan_file.errors.required">Please upload pan card photo.</div>
+          <div *ngIf="f.pan_file.errors.required">Please upload Pan card photo.</div>
         </div>
         
         <label *ngIf="type == 1">Why you want to attend this event?<span class="text-danger">*</span></label>
