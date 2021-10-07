@@ -84,7 +84,7 @@ export class EditProfileComponent implements OnInit {
       name : [sessionStorage.getItem('name'),[Validators.required,Validators.pattern('^[a-zA-Z]{2,}(?: [a-zA-Z]+){0,2}$')]],
       dob : [sessionStorage.getItem('dob'),Validators.required],
       height : [sessionStorage.getItem('height'),[Validators.required,Validators.pattern("^[0-9]*$")]],
-      phone : [sessionStorage.getItem('phone'),[Validators.required,Validators.pattern(/^-?(0|[1-9]{10}\d*)?$/)]],
+      phone : [sessionStorage.getItem('phone'),[Validators.required]],
       state : [sessionStorage.getItem('state_id'),Validators.required],
       language_id : [sessionStorage.getItem('language_id'),Validators.required],
       select_city : [sessionStorage.getItem('city_id'),Validators.required],

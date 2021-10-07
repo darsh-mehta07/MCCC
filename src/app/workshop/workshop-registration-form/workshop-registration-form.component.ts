@@ -26,7 +26,7 @@ export class WorkshopRegistrationFormComponent implements OnInit {
   userData: any;
   url: any;
   form: FormGroup | any;
-  loading = false;
+  loading: boolean = false;
   submitted = false;
   constructor(private location: Location,private workshopService: WorkshopService,
     private route:Router,
@@ -41,6 +41,7 @@ export class WorkshopRegistrationFormComponent implements OnInit {
     }
 
   ngOnInit(): void {
+
     this.actRoute.paramMap.subscribe((params: ParamMap) => {                 
       this.id = params.get('id');
       this.type = params.get('type');
@@ -82,34 +83,36 @@ export class WorkshopRegistrationFormComponent implements OnInit {
       aadharfileSource : [''],
       workshop_id:[this.id,''],
     });
+    this.loading = true;
   }
 
   get f(): { [key: string]: AbstractControl } {
     return this.form.controls;
   } 
   submit(){
+    
     this.submitted = true;
     if (this.form.invalid) {
       return;
     }else{
-      this.loading = true;
+      this.loading = false;
       var data = this.form.value;
       console.log(this.form.value);
       if(this.type == 2){
           this.workshopService.user_apply_for_workshop(data).subscribe(
             data => { 
               console.log(data);
-              this.loading = false;
+              this.loading = true;
               this.notification.showSuccess('Thank You.','');
               this.route.navigate(['/thank-you-workshop/',this.workshopData.title]);
           });
       }
       if(this.type == 1){
-        this.loading = false;
+        
         this.dashboardService.user_apply_for_events(data).subscribe(
           data => { 
             console.log(data);
-            this.loading = false;
+            this.loading = true;
             this.notification.showSuccess('Thank You.','');
             this.route.navigate(['/thank-you-workshop',this.workshopData.title]);
         });

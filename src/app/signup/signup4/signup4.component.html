@@ -11,7 +11,7 @@
     <form [formGroup]="form" (ngSubmit)="submit()">
       <div class="form-group">
         <label>OTP</label>
-        <input autofocus formControlName="otp" id="otp" type="text" maxlength="4" class="form-control" placeholder="OTP"
+        <input autofocus formControlName="otp" id="otp" type="tel" maxlength="4" class="form-control" placeholder="OTP"
           [ngClass]="{ 'is-invalid': submitted && f.otp.errors }">
         <div *ngIf="submitted && f.otp.errors" class="invalid-feedback">
           <div *ngIf="f.otp.errors.required">OTP is required</div>
