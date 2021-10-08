@@ -187,6 +187,7 @@ const file = this.cropedfile;
                 }  
                 reader.readAsDataURL(this.cropedfile);
         }
+        this.imageChangedEvent = null;
 }
 imageLoaded() {
   this.showCropper = true;
