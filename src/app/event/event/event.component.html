@@ -41,7 +41,7 @@
           </div>
         </div>
           <h3 (click)="eventInner(onGoing.id)">Title: {{onGoing.title | titlecase}}</h3> 
-           <p class="toggle-sec" >{{onGoing.description}}
+           <p class="toggle-sec" >{{onGoing.description.substr(0, 50)}}
             <a (click)="eventInner(onGoing.id)" class="read-more">More...</a>
            </p>
           <div class="details">
@@ -96,7 +96,7 @@
           </div>
         </div>
       <h3 (click)="eventInner(upcoming.id)">Title: {{upcoming.title | titlecase}}</h3> 
-       <p class="toggle-sec" >{{upcoming.description}}
+       <p class="toggle-sec" >{{upcoming.description.substr(0, 50)}}
         <a (click)="eventInner(upcoming.id)" class="read-more">More...</a>
        </p>
       <div class="details">
@@ -153,7 +153,7 @@
         </div>
          
        <h3  class="yto" (click)="eventInner(eventforu.id)">Title: {{eventforu.title | titlecase}}</h3> 
-       <p  class="toggle-sec">{{eventforu.description}}
+       <p  class="toggle-sec">{{eventforu.description.substr(0, 50)}}
         <a (click)="eventInner(eventforu.id)" class="read-more">More...</a>
        </p>
       <div class="details">

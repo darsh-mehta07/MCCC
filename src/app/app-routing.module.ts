@@ -96,7 +96,7 @@ const routes: Routes = [
   },
   {    
     path: 'signin',component: SigninComponent,    
-    data: {storeRoute: true,title: 'Signin Page'}    
+    data: {storeRoute: false,title: 'Signin Page'}    
   }, 
   {    
     path: 'splash2',component: Splash2Component,    
@@ -110,10 +110,7 @@ const routes: Routes = [
     path: 'welcome',component: WelcomeComponent,    
     data: {storeRoute: true, title: 'Welcome Page'}    
   },
-  {    
-    path: 'signin',component: SigninComponent,    
-    data: {storeRoute: true, title: 'Signin Page'}    
-  },
+  
   {    
     path: 'forgot-password',component: ForgotPasswordComponent,    
     data: {title: 'Forgot Password Page'}    

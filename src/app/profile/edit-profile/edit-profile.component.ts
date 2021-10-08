@@ -83,7 +83,7 @@ export class EditProfileComponent implements OnInit {
     this.form = this.formBuilder.group({
       name : [sessionStorage.getItem('name'),[Validators.required,Validators.pattern('^[a-zA-Z]{2,}(?: [a-zA-Z]+){0,2}$')]],
       dob : [sessionStorage.getItem('dob'),Validators.required],
-      height : [sessionStorage.getItem('height'),[Validators.required,Validators.pattern("^[0-9]*$")]],
+      height : [sessionStorage.getItem('height'),[Validators.required,Validators.pattern("^[0-9]+(.[0-9]{0,2})?$")]],
       phone : [sessionStorage.getItem('phone'),[Validators.required]],
       state : [sessionStorage.getItem('state_id'),Validators.required],
       language_id : [sessionStorage.getItem('language_id'),Validators.required],

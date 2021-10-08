@@ -73,7 +73,7 @@ export class ProfileFinalStepComponent implements OnInit {
         language_id: [''],
         social_links: this.formBuilder.array([this.createSocialLinks()]),
         skin_color:['',Validators.required],
-        height:['',[Validators.required,Validators.pattern("^[0-9]*$")]]
+        height:['',[Validators.required,Validators.pattern("^[0-9]+(.[0-9]{0,2})?$")]]
       }, {
         validator: AgeBetween13To54('dob')
     });
