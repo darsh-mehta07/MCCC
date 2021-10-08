@@ -25,9 +25,10 @@ export class HeaderComponent implements OnInit {
      }
 
   ngOnInit(): void {
+    this.getUserNotificationCounter();
     setInterval(() => { 
      this.getUserNotificationCounter();
-    }, 1000 * 10)
+    }, 1000 * 15)
 
     this.openMenu = false;
     // this.getUserNotificationCounter();
