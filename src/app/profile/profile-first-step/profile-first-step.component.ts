@@ -176,6 +176,7 @@ saveImage(){
                   }  
                   reader.readAsDataURL(this.cropedfile);
           }
+          this.imageChangedEvent = null;
 }
   ngOnInit(): void {    
     this.form = this.formBuilder.group({

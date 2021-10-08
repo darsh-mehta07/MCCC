@@ -109,18 +109,23 @@ export class EditProfileComponent implements OnInit {
         this.age = this.resData.data.age; 
         this.userdetail = this.resData.data.user_details;
         this.notification.showSuccess('Profile Updated Successfully.','');
-          sessionStorage.setItem('name',this.userdetail.name);
-          sessionStorage.setItem('age',this.age);
-          sessionStorage.setItem('dob',this.userdetail.dob);
-          sessionStorage.setItem('height',this.userdetail.height);
-          sessionStorage.setItem('phone',this.userdetail.phone);
-          sessionStorage.setItem('language_id',this.userdetail.language_id);
-          sessionStorage.setItem('language',this.userdetail.language);
-          sessionStorage.setItem('city',this.userdetail.city_name);
-          sessionStorage.setItem('city_id',this.userdetail.city_id);
-          sessionStorage.setItem('state_id',this.userdetail.state_id);
-          sessionStorage.setItem('home_town',this.userdetail.home_town);
-          sessionStorage.setItem('hobbies',this.userdetail.hobbies);        
+          sessionStorage.setItem('name',this.form.value.name);
+          // sessionStorage.setItem('age',this.age);
+          // sessionStorage.setItem('dob',this.userdetail.dob);
+          sessionStorage.setItem('height',this.form.value.height);
+          sessionStorage.setItem('phone',this.form.value.phone);
+          // sessionStorage.setItem('language_id',this.userdetail.language_id);
+          // sessionStorage.setItem('language',this.userdetail.language);
+          // sessionStorage.setItem('city',this.userdetail.city_name);
+          // sessionStorage.setItem('city_id',this.userdetail.city_id);
+          // sessionStorage.setItem('state_id',this.userdetail.state_id);
+          // if(this.userdetail.home_town != null && this.userdetail.home_town != ''){
+            sessionStorage.setItem('home_town',this.form.value.home_town);
+          // }
+          // if(this.userdetail.hobbies != null && this.userdetail.hobbies !=''){
+            sessionStorage.setItem('hobbies',this.form.value.hobbies);
+          // }     
+          this.dashboardService.filter('applyed');
       },error=>{
         this.loading = false;
       });
@@ -144,6 +149,7 @@ export class EditProfileComponent implements OnInit {
     }
   }
   back(): void {
+    this.dashboardService.filter('applyed');
     this.location.back()
   } 
 

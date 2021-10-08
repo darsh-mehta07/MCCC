@@ -14,6 +14,7 @@ export class HeaderComponent implements OnInit {
   openMenu:boolean = false;
   currentUser: User;
   loadingnc:boolean = false;
+  sidebarloading:boolean = false;
   resData: any;
   newCastinghh: any;
   nonewcall: boolean = false;

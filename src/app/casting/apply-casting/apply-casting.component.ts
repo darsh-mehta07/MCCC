@@ -68,6 +68,9 @@ export class ApplyCastingComponent implements OnInit {
     private modalService: NgbModal,
     private notification : NotificationService,
     ) {
+      this.dashboardService.listen().subscribe((e:any)=>{
+        this.ngOnInit();
+      });
     } 
   ngOnInit(): void {    
     this.actRoute.paramMap.subscribe((params: ParamMap) => {                 
@@ -391,6 +394,7 @@ cropImage(){
                   }  
                   reader.readAsDataURL(this.cropedfile);
           }
+          this.imageChangedEvent = null;
 }
 imageLoaded() {
     this.showCropper = true;
