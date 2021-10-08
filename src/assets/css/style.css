@@ -568,7 +568,6 @@ body {
     .casting-content { height: 100%; display: flex; align-items: flex-start; justify-content: center; flex-direction: column;}
     button.skip { display: flex; align-items: center; justify-content: flex-end; width: 100%;  background: transparent; border: 0;}
     .skip a { font-size: 18px; color: #000; text-decoration: none; }
-    .header {position: absolute; width: 100%; padding: 20px 15px;}
     .casting-content img { margin-bottom: 10px;width: 30%;}
     .slide-btn1 {border-radius: 50%;position: relative; top: 23%; left: 40%; border: 5px solid #fff;  border-bottom-color: transparent; border-left-color: transparent;border-right-color: transparent;}
     .slide-btn1 i.fa.fa-angle-right {font-size: 36px;}
@@ -578,7 +577,6 @@ body {
     .traning-content { height: 100%; display: flex; align-items: flex-start; justify-content: center; flex-direction: column;}
     button.skip { display: flex; align-items: center; justify-content: flex-end; width: 100%;  background: transparent; border: 0;}
     .skip a { font-size: 18px; color: #000; text-decoration: none; }
-    .header {position: absolute; width: 100%; padding: 20px 15px;}
     .traning-content img { margin-bottom: 10px;width: 25%;}
     .slide-btn2 {border-radius: 50%; position: relative; top: 21%; left: 40%; border: 5px solid #fff; border-left-color: transparent; border-bottom-color: transparent}
     .slide-btn2 i.fa.fa-angle-right {font-size: 36px;}
@@ -590,7 +588,6 @@ body {
     .event-content { height: 100%; display: flex; align-items: flex-start; justify-content: center; flex-direction: column;}
     button.skip { display: flex; align-items: center; justify-content: flex-end; width: 10%;  background: transparent; border: 0;}
     .skip a { font-size: 18px; color: #000; text-decoration: none; }
-    .header {position: absolute; width: 100%; padding: 20px 15px;}
     .event-content img { margin-bottom: 10px;width: 25%;}
     .slide-btn3 {border-radius: 50%; position: relative; top: 24%; left: 40%; border: 5px solid #fff;border-left-color: transparent; }
     .slide-btn3 i.fa.fa-angle-right {font-size: 36px;}
@@ -706,7 +703,6 @@ body {
         justify-content: center;
         margin-top: 20px;
     }
-    
     .log-or hr { border-color: #fefefe;display: flex; align-items: center; justify-content: center;width: 22%; margin: 0 10px;}
     .log-or { display: flex; align-items: center; justify-content: center; margin-top: 10px;}
     .social-icons { display: flex; justify-content: center; align-items: center; margin-top: 20px;}
@@ -2481,4 +2477,7 @@ input#phone::placeholder {
     display: flex;
     width: 100% !important;
     height: 100%;
+}
+.header .skip {
+    width: 100%;
 }
