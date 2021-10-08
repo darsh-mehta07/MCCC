@@ -99,8 +99,12 @@ export class CastingInnerComponent implements OnInit {
           sessionStorage.setItem('city',this.userdetail.city_name);
           sessionStorage.setItem('city_id',this.userdetail.city_id);
           sessionStorage.setItem('state_id',this.userdetail.state_id);
-          sessionStorage.setItem('home_town',this.userdetail.home_town);
-          sessionStorage.setItem('hobbies',this.userdetail.hobbies);
+          if(this.userdetail.home_town != null && this.userdetail.home_town != ''){
+            sessionStorage.setItem('home_town',this.userdetail.home_town);
+          }
+          if(this.userdetail.hobbies != null && this.userdetail.hobbies != ''){
+            sessionStorage.setItem('hobbies',this.userdetail.hobbies);
+          }
           sessionStorage.setItem('images',JSON.stringify(this.userdetail.images));          
           sessionStorage.setItem('videos',JSON.stringify(this.userdetail.videos));
           sessionStorage.setItem('casting_title',this.castingTitle);

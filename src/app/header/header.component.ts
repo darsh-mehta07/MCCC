@@ -14,6 +14,7 @@ export class HeaderComponent implements OnInit {
   openMenu:boolean = false;
   currentUser: User;
   loadingnc:boolean = false;
+  sidebarloading:boolean = false;
   resData: any;
   newCastinghh: any;
   nonewcall: boolean = false;
@@ -28,7 +29,9 @@ export class HeaderComponent implements OnInit {
     setInterval(() => { 
      this.getUserNotificationCounter();
     }, 1000 * 10)
-
+    // setTimeout(() => { 
+    //   this.sidebarloading = true;
+    //  }, 2000);
     this.openMenu = false;
     // this.getUserNotificationCounter();
   }
