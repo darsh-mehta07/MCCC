@@ -38,7 +38,7 @@
                   </ul>
                 </div>
               </div>
-            <h3>{{data.title}}</h3> 
+            <h3 [routerLink]="['/workshop-registration/',data.id]">{{data.title}}</h3> 
             <p class="toggle-sec">{{data.description.substr(0, 35)}}
             <a [routerLink]="['/workshop-registration/',data.id]" class="read-more">More...</a></p>
             <div class="details">
@@ -96,7 +96,7 @@
                 </ul>
               </div>
             </div>
-            <h3 class="grn">{{data.title}}</h3> 
+            <h3 class="grn" [routerLink]="['/workshop-registration/',data.id]">{{data.title}}</h3> 
             <p class="toggle-sec">{{data.description.substr(0, 35)}}
             <a [routerLink]="['/workshop-registration/',data.id]" class="read-more">More...</a></p>
             <div class="details">
@@ -153,7 +153,7 @@
                   </ul>
                 </div>
               </div>
-            <h3 class="yto">{{data.title}}</h3> 
+            <h3 class="yto" [routerLink]="['/workshop-registration/',data.id]">{{data.title}}</h3> 
             <p class="toggle-sec">{{data.description.substr(0, 35)}}
             <a [routerLink]="['/workshop-registration/',data.id]" class="read-more">More...</a></p>
             <div class="details">

@@ -99,7 +99,7 @@ export class CastingInnerComponent implements OnInit {
           sessionStorage.setItem('city',this.userdetail.city_name);
           sessionStorage.setItem('city_id',this.userdetail.city_id);
           sessionStorage.setItem('state_id',this.userdetail.state_id);
-          if(this.userdetail.home_town != null && this.userdetail.home_town != ''){
+          if(this.userdetail.home_town != null && this.userdetail.home_town != '' && this.userdetail.home_town != 'null'){
             sessionStorage.setItem('home_town',this.userdetail.home_town);
           }
           if(this.userdetail.hobbies != null && this.userdetail.hobbies != ''){
