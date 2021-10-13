@@ -307,7 +307,7 @@ const routes: Routes = [
   },
   {    
     path: 'personal',component: PersonalComponent,    
-    data: {storeRoute: true,title: 'Parsanal'}    
+    data: {storeRoute: false,title: 'Parsanal'}    
   },
   {    
     path: 'contact-details',component: ContactDetailsComponent,    
