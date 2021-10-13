@@ -26,6 +26,7 @@
     overflow-y: auto;
     overflow-x: hidden;
     height: 90%;
+    margin-top: 55px;
 }
 .event-inner .container {
     height: auto;
