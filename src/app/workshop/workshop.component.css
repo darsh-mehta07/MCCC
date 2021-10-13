@@ -161,7 +161,6 @@
     color: hsl(7deg 88% 68%);
     font-weight: 500;
     text-decoration: none;
-    width: fit-content;
 }
 .card-tbs p {
     font-size: 13px;

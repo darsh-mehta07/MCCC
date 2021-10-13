@@ -285,7 +285,7 @@ body {
     .slide-btn4 {
         border-radius: 50%;
         position: relative;
-        top: 24%;
+        top: 25%;
         left: 40%;
         border: 5px solid #fff;
     }
@@ -505,7 +505,7 @@ body {
         display: flex;
         justify-content: space-between;
         padding-top: 19px;
-        margin-bottom: 50px;
+        margin-bottom: 80px;
     }
     .profil-btn a,.profil-btn button {
         width: 122px;
@@ -757,7 +757,7 @@ body {
     button.btn.btn-primary:focus:active { box-shadow: none;}
     .btn-check:focus+.btn-secondary, .btn-secondary:focus { box-shadow: none;}
     .proceed i.fa.fa-angle-right { padding: 0 4px; position: relative; top: -1px; left: 4px; font-size: 18px;}
-    .proceed-txt p {  position: relative; top: 60px; text-align: center; font-size: 13px;}
+    .proceed-txt p { position: relative;top: 25px;text-align: center;font-size: 14px; margin: 0 15px;}
     .container { width: 100%; height: 100%;}
     .field-icon {float: right; margin-right: 10px;  position: relative; z-index: 2;bottom: 50px;font-size: 18px;}
     .select_div select { appearance: none;}
@@ -972,7 +972,7 @@ body {
     .inner-btn a {color: #000; background: hsl(207deg 87% 63%);  padding: 10px 20px; border-radius: 25px; font-weight: 600;line-height: 1;}
     .inner-btn i { font-size: 16px;}
     .inner-btn {text-align: center;margin-top: 15px;position: absolute;display: flex;justify-content: center;align-items: center;width: 100%;left: 0;margin-bottom: 80px;}
-    .form_inner p { font-size: 14px; font-weight: 600;}
+    .form_inner p { font-size: 14px; font-weight: 600;margin-left: 20px;}
     .tabs h2 hr.on {width: 15%;float: left;margin: 0; border: 1px solid #787878; border-width: thin; animation: rainbow linear 1s infinite alternate;}
     .tabs h2 hr.tw {width: 25%; margin: 5px 0;border: 1px solid #787878;border-width: thin; animation: rainbows linear 0.9s infinite alternate;}
     @keyframes rainbow { 0% {width:10%} 50% {width:15%} 100% {width:20%}  }
@@ -982,13 +982,11 @@ body {
    .splash7 button.sign-up:focus, .splash7 button.login-fb:focus, .splash7 button.login-g:focus { outline: 0;}
    img.hd-img2 { width: 220px; position: absolute; top: 140px; z-index:1;}
     
-    .event-inner .hd-icons {filter: brightness(0.5) invert(1);}
-    .training-inner .hd-icons {filter: brightness(0.5) invert(1);}
    .evt-content {display: flex; align-items: center; justify-content: flex-start; flex-direction: column; position: relative; top: 28px; text-align: center;}
    .evt-content h6 { color: hsl(0deg 0% 100%); font-size: 23px; font-weight: 500;}
    .evt-content h3 { color: hsl(0deg 0% 100%);font-size: 48px; font-family: 'Oswald'; font-weight: 600;}
    .evt-btn a {padding: 15px 35px; text-align: center; color: hsl(45deg 97% 74%); background: hsl(201deg 100% 74%); font-weight: 500; border-radius: 25px; text-decoration: none;}
-   .evt-btn { text-align: center; margin-top: 15px;padding-bottom: 100px;}
+   .evt-btn { text-align: center; padding-top: 15px;padding-bottom: 100px;}
    .evt-btn~h6 { margin-bottom: 0;text-align: center;font-size: 12px; margin-top: 18px;}
    .event-inner h5 {font-size: 15px;}
    .event-inner h2 {font-size: 20px;color: hsl(7deg 88% 68%);font-weight: 600;margin-bottom: 15px;}
@@ -1010,7 +1008,7 @@ body {
     @keyframes evt2 { 0% {width:10%} 50% { width:15%} 100% {width:20%} }
     .training-inner .form_inner p {margin-bottom: 10px; font-size: 14px;}
     .training-inner h5 {font-size: 15px;}
-    .training-btn a {background: hsl(88deg 47% 64%); padding: 6px 22px; border-radius: 25px;color: hsl(0deg 0% 100%);text-decoration: none;}
+    .training-btn a {background: hsl(88deg 47% 64%); padding: 6px 22px; border-radius: 25px;color: hsl(0deg 0% 100%);text-decoration: none;line-height: 2;}
     .training-btn {display: flex; align-items: center; justify-content: center;margin-top: 15px;padding-bottom: 100px;flex-direction: column;}
     .sticky { position: fixed;}
     .fixed-icons{position:fixed;}
@@ -1055,7 +1053,7 @@ body {
     .upcoming-events-tbs .card-tbs, .events-tbs .card-tbs { padding: 15px 10px;}
     .behinde-screen_sliders .slick-track {display: -webkit-box; width: 100% !important;}
     .trner {position: relative; padding-bottom: 50px;}
-    .trns_sliders .slick-track {margin-bottom: 30px; width: 100%;}
+    .trns_sliders .slick-track {margin-bottom: 35px; width: 100%;}
     .more-menu { width: 100px;}
     .more-btn, .more-menu-btn {background: none;border: 0 none;line-height: normal; overflow: visible; -webkit-user-select: none;-moz-user-select: none; -ms-user-select: none;width: 100%;text-align: left; outline: none; cursor: pointer; flex-direction:column;display:flex;}
     .more-dot { background-color: #aab8c2;margin: 0 auto;display: inline-block; width: 3px;height: 3px;margin-bottom: 2px; border-radius: 50%; transition: background-color 0.3s;background:#000}
@@ -1294,7 +1292,7 @@ p.lht-txt {color: hsl(0deg 0% 66%);}
     .inner-content h3 {font-size: 24px;}
     .inner-content h2 {font-size: 35px;}
     .form_inner p {font-size: 12px;margin-bottom: 10px;}
-    .inner-btn a {font-size: 13px;}
+    .inner-btn a {font-size: 13px;text-decoration: none !IMPORTANT;}
     .inner-btn i {font-size: 13px;}
     .card-icons i { padding: 0 10px; font-size: 15px;}
     .apply-btn a { width: 100px; font-size: 11px;}
@@ -2447,7 +2445,8 @@ input#phone::placeholder {
 .more-video {padding-bottom: 50px;}
 .evt-btn h6 {
     position: relative;
-    top: 25px;
+    top: 16px;
+    font-size: 12px;
 }
 .event-regist .container {
     height: auto;
@@ -2470,7 +2469,8 @@ input#phone::placeholder {
     width: 80% !important;
 }
 .events-inner p i {
-    margin-right: 10px;
+    position: absolute;
+    left: 20px;
 }
 
 .video-opt .slick-track{
@@ -2478,6 +2478,45 @@ input#phone::placeholder {
     width: 100% !important;
     height: 100%;
 }
-.header .skip {
+.header button.skip {
     width: 100%;
+}
+.more-txt a {
+    text-decoration: none;
+}
+.events-inner h5 {
+    font-size: 15px;
+}
+.notify {
+    padding-bottom: 80px;
+}
+.top-header .notify {
+    padding: 0;
+}
+.toast-container .ngx-toastr {
+    padding: 15px !important;
+}
+.toast-top-right {
+    position: absolute;
+    left: 0 !IMPORTANT;
+    right: 0 !IMPORTANT;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.overlay-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+#tab1, #tab2, #tab3, #tab4, #tab5, #tab6 {
+    padding-bottom: 80px;
+}
+.profile-dtl .invalid-feedback {
+    margin-top: 0;
+    text-align: left;
+    margin-bottom: 5px;
 }

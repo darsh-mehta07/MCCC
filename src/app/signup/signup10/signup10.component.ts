@@ -62,10 +62,10 @@ export class Signup10Component implements OnInit {
       gender:[sessionStorage.getItem('gender')],
       select_state:[sessionStorage.getItem('state')],
       select_city:[sessionStorage.getItem('city')],
-      terms0: [sessionStorage.getItem('terms0'),Validators.required],
-      terms1: [sessionStorage.getItem('terms1'),Validators.required],
-      terms2: [sessionStorage.getItem('terms2'),Validators.required],
-      terms3: [sessionStorage.getItem('terms3'),Validators.required]
+      // terms0: [sessionStorage.getItem('terms0'),Validators.required],
+      // terms1: [sessionStorage.getItem('terms1'),Validators.required],
+      // terms2: [sessionStorage.getItem('terms2'),Validators.required],
+      // terms3: [sessionStorage.getItem('terms3'),Validators.required]
     });
 
     this.loading = true;

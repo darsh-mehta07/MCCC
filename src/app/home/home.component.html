@@ -58,7 +58,7 @@
             <h4>{{casting.gender}}</h4>
           </div>
           <div class="details-icons" *ngIf="casting.closing_date != null">
-            <i class="fa fa-clock-o" aria-hidden="true"></i>
+            <i class="fa fa-calendar" aria-hidden="true"></i>
             <h4>{{casting.closing_date}}</h4>
           </div>
           <div class="details-icons">
@@ -114,7 +114,7 @@
               <h4>{{casting.gender}}</h4>
             </div>
             <div class="details-icons" *ngIf="casting.closing_date != null">
-              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              <i class="fa fa-calendar" aria-hidden="true"></i>
               <h4>{{casting.closing_date}}</h4>
             </div>
             <div class="details-icons">
@@ -170,7 +170,7 @@
             <h4>{{casting.gender}}</h4>
           </div>
           <div class="details-icons" *ngIf="casting.closing_date != null">
-            <i class="fa fa-clock-o" aria-hidden="true"></i>
+            <i class="fa fa-calendar" aria-hidden="true"></i>
             <h4 >{{casting.closing_date}}</h4>
           </div>
           <div class="details-icons">
@@ -245,7 +245,7 @@
             </ul>
           </div>
         </div>
-        <h3>Title: {{upcoming.title | titlecase}}r</h3>
+        <h3 (click)="eventInner(upcoming.id)">Title: {{upcoming.title | titlecase}}r</h3>
         <p class="toggle-sec">{{upcoming.description}}
           <a (click)="eventInner(upcoming.id)">More</a>
         </p>
@@ -255,7 +255,7 @@
             <h4>{{upcoming.location | titlecase}}</h4>
           </div>
           <div class="details-icons">
-            <i class="fa fa-clock-o" aria-hidden="true"></i>
+            <i class="fa fa-calendar" aria-hidden="true"></i>
             <h4>{{upcoming.start_date | date : "MMM,d,y"}}</h4>
           </div>
           <div class="details-icons">
@@ -304,7 +304,7 @@
             </ul>
           </div>
         </div>
-        <h3>Title: {{eventforu.title | titlecase}}r</h3>
+        <h3 (click)="eventInner(eventforu.id)">Title: {{eventforu.title | titlecase}}r</h3>
         <p class="toggle-sec">{{eventforu.description}}
           <a (click)="eventInner(eventforu.id)">More</a>
         </p>
@@ -318,7 +318,7 @@
             <h4>{{eventforu.start_date | date : "MMM,d,y"}}</h4>
           </div>
           <div class="details-icons">
-            <i class="fa fa-clock-o" aria-hidden="true"></i>
+            <i class="fa fa-calendar" aria-hidden="true"></i>
             <h4>{{eventforu.start_date | date : "h:mm a"}}</h4>
           </div>
         </div>

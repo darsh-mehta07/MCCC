@@ -6,7 +6,7 @@
         <a (click)="back()"><img src="../../../assets/img/back2.png" /></a>
         <div class="Profile">
             <img src="../../../assets/img/profile.svg">
-            <a href="#">Hello {{currentUser.userDetails.name}}</a>
+            <a [routerLink]= "['/home']">Hello {{currentUser.userDetails.name}}</a>
         </div>
       </div>
       

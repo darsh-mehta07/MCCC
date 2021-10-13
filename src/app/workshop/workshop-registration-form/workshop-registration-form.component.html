@@ -34,7 +34,7 @@
         <input type="text" value="{{currentUser.userDetails.phone}}" placeholder="type here" readonly>
         
 
-        <label>Emergency Contact<span class="text-danger">*</span></label>
+        <label>Secondary Contact<span class="text-danger">*</span></label>
         <input type="text" formControlName="sos_phone" value="" minlength="10" maxlength="11" placeholder="type here" [ngClass]="{ 'is-invalid': submitted && f.sos_phone.errors }">
         <div *ngIf="submitted && f.sos_phone.errors" class="invalid-feedback">
           <div *ngIf="f.sos_phone.errors.required">Please provide Emergency Contact No. in case your Default number is not reachable.</div>
@@ -61,7 +61,7 @@
         <input type="text" value="{{userData.data.user_details.city_name}}" readonly placeholder="type here">
         
 
-        <label for="add-more1">Adhar Card<span class="text-danger">*</span></label>
+        <label for="add-more1">Aadhar Card<span class="text-danger">*</span></label>
         <div class="upload">
             <input type="file" formControlName="aadhar_file"   placeholder="type here" (change)="onFileChange2($event)">
             <div class="upload-icons">
@@ -96,11 +96,11 @@
         <div class="apply-btn">
           <a type="submit" (click)="submit()"> submit</a>
         </div>
-        <div class="edit-profile">
+        <!-- <div class="edit-profile">
           <a [routerLink]="['/edit-profile']" class="edit-prf">
             <i class="fa fa-pencil" aria-hidden="true"></i>
             Edit Profile</a>
-        </div>
+        </div> -->
         
         
       </form>
