@@ -872,7 +872,7 @@ body {
     .card-tbs-btn:focus-visible { outline: 0;}
     .card-tbs-btn:focus {outline: 0;}
     .application img {width: 100%;}
-    .upper-txt {position: absolute; top: 10%; text-align: center; width: 90%; left: 22px;}
+    .upper-txt {position: absolute; top: 10%; text-align: center; width: 90%; left: 20px;}
     .upper-txt h4 {font-size: 16px; color: #fff;}
     .upper-txt h3 {font-size: 16px; color: #fff;}
     .upper-txt h2 {font-size: 21px; color: #fff;}
@@ -2495,4 +2495,10 @@ input#phone::placeholder {
 }
 .top-header .notify {
     padding: 0;
+}
+.is-invalid~.invalid-feedback, .is-invalid~.invalid-tooltip, .was-validated :invalid~.invalid-feedback, .was-validated :invalid~.invalid-tooltip {
+    display: flex;
+}
+.upload-video div {
+    width: 100%;
 }

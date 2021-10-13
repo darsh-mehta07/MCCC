@@ -63,6 +63,7 @@ textarea {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
+    padding-bottom: 50px;
 }
 .edit-profile a {
     color: #000 !important;
