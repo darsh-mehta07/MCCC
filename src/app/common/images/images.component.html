@@ -6,7 +6,7 @@
             <a (click)="back()"><img src="../../../assets/img/back2.png" /></a>
             <div class="Profile">
                 <img src="../../../assets/img/profile.svg">
-                <a href="#">Hello {{currentUser.userDetails.name}}</a>
+                <a [routerLink]="['/home']">Hello {{currentUser.userDetails.name}}</a>
             </div>
           </div>
       
@@ -52,8 +52,8 @@
 <ng-template #content let-modal>
     <div class="crooping-modal"> 
       <div class="modal-header">
-        <h4 class="modal-title" id="modal-basic-title">Select More Photo</h4>
-        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <h4 class="modal-title" id="modal-basic-title">Select More Photos</h4>
+        <button type="button" class="close" aria-label="Close" (click)="closemodel()">
           <span aria-hidden="true">×</span>
         </button>     
   </div>
@@ -72,7 +72,7 @@
         (loadImageFailed)="loadImageFailed()">
       </image-cropper>
       <div class="upload-img">
-        <div class="box" *ngFor='let url of cropimages'>
+        <div class="box" *ngFor='let url of savedimages'>
           <img class="js--image-preview" [src]="url" />
           <div class="upload-options">
             <div class='multi-field'>

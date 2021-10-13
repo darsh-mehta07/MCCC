@@ -303,7 +303,7 @@ const routes: Routes = [
   },
   {    
     path: 'anatomy-inner',component: AnatomyInnerComponent,    
-    data: {storeRoute: true,title: 'Anatomy Inner'}    
+    data: {storeRoute: false,title: 'Anatomy Inner'}    
   },
   {    
     path: 'personal',component: PersonalComponent,    
@@ -315,11 +315,11 @@ const routes: Routes = [
   },
   {    
     path: 'images',component: ImagesComponent,    
-    data: {storeRoute: true,title: 'Images'}    
+    data: {storeRoute: false,title: 'Images'}    
   },
   {    
     path: 'video',component: VideoComponent,    
-    data: {storeRoute: true,title: 'Video'}    
+    data: {storeRoute: false,title: 'Video'}    
   },
   {
     path: 'notification',component: NotificationComponent,    
