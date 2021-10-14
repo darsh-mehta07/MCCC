@@ -37,6 +37,7 @@
                         <!-- <div class="icon"><img  src="../../assets/img/play.png"></div> -->
                         <img width="100" height="100" *ngIf="data.youtube_thumbnail == null " src="{{hostUrl}}{{data.thumbnail_path}}{{data.thumbnail}}">
                         <img width="100" height="100" *ngIf="data.youtube_thumbnail != null " src="{{data.youtube_thumbnail}}">
+                        <div class="icon"><img src="../../assets/img/play.png"></div>
                     </a>
                     <div class="more-txt">
                         <a [routerLink]="['/bts-video-view/',data.id,btsCategoryId]"><h3 >{{data.title}}</h3></a>

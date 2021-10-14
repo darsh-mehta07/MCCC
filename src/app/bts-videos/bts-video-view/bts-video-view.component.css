@@ -90,12 +90,3 @@
 /* .ivideo{
     pointer-events:none;
 } */
-a.next_vid_list {
-    height: 100px;
-    margin: 0 8px;
-    background-image: url(../../../assets/img/vidoe.png);
-    background-position: center center;
-    background-size: 30%;
-    background-repeat: no-repeat;
-    position: relative;
-}

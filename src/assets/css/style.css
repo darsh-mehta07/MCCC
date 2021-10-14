@@ -234,7 +234,7 @@ body {
     .skip a { font-size: 18px; color: #000; text-decoration: none; }
     .header {position: absolute; width: 100%; padding: 20px 15px;}
     .traning-content img { margin-bottom: 10px;  width: 35%;}
-    .slide-btn2 {border-radius: 50%; position: absolute; bottom: 60px; left: 45%; border: 7px solid #fff; border-left-color: transparent;}
+    .slide-btn2 {border-radius: 50%; position: absolute; bottom: 60px; left: 45%; border: 7px solid #fff !important; border-left-color: transparent !important;}
     .slide-btn2 i.fa.fa-angle-right {font-size: 45px;}
     .slide-btn2 button {border: 0; width: 70px; height: 70px; background: #C74D42; border-radius: 50%; color: #fff;}
     .traning-content p {color: #162707; font-size: 27px;}
@@ -285,7 +285,7 @@ body {
     .slide-btn4 {
         border-radius: 50%;
         position: relative;
-        top: 24%;
+        top: 25%;
         left: 40%;
         border: 5px solid #fff;
     }
@@ -424,7 +424,7 @@ body {
         min-width: 85px;
         height: 110px;
         background-color: hsl(0deg 0% 100%);
-        width: 30%;
+        width: 30.9%;
         border-radius: 5px;
         box-shadow: 0 1px 3px rgb(0 0 0 / 12%), 0 1px 2px rgb(0 0 0 / 24%);
         transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -453,7 +453,7 @@ body {
     }
     .profile-dtl .upload-img, .profile-dtl .upload-video {
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-start;
         flex-wrap: wrap;
     }
     .profile-dtl .btn-toggle.active {
@@ -505,7 +505,7 @@ body {
         display: flex;
         justify-content: space-between;
         padding-top: 19px;
-        margin-bottom: 50px;
+        margin-bottom: 80px;
     }
     .profil-btn a,.profil-btn button {
         width: 122px;
@@ -568,9 +568,8 @@ body {
     .casting-content { height: 100%; display: flex; align-items: flex-start; justify-content: center; flex-direction: column;}
     button.skip { display: flex; align-items: center; justify-content: flex-end; width: 100%;  background: transparent; border: 0;}
     .skip a { font-size: 18px; color: #000; text-decoration: none; }
-    .header {position: absolute; width: 100%; padding: 20px 15px;}
     .casting-content img { margin-bottom: 10px;width: 30%;}
-    .slide-btn1 {border-radius: 50%;position: relative; top: 23%; left: 40%; border: 5px solid #fff;  border-bottom-color: transparent; border-left-color: transparent;border-right-color: transparent;}
+    .slide-btn1 {border-radius: 50%;position: relative; top: 23%; left: 40%; border: 5px solid #fff !important;  border-bottom-color: transparent !important; border-left-color: transparent !important;border-right-color: transparent !important;}
     .slide-btn1 i.fa.fa-angle-right {font-size: 36px;}
     .slide-btn1 button {border: 0; width: 55px; height: 55px; background: #80AF56; border-radius: 50%; color: #fff;}
     .traning { background: #ff6e61; height: 100%;display: flex; align-items: center;justify-content: center; padding: 20px;}
@@ -578,7 +577,6 @@ body {
     .traning-content { height: 100%; display: flex; align-items: flex-start; justify-content: center; flex-direction: column;}
     button.skip { display: flex; align-items: center; justify-content: flex-end; width: 100%;  background: transparent; border: 0;}
     .skip a { font-size: 18px; color: #000; text-decoration: none; }
-    .header {position: absolute; width: 100%; padding: 20px 15px;}
     .traning-content img { margin-bottom: 10px;width: 25%;}
     .slide-btn2 {border-radius: 50%; position: relative; top: 21%; left: 40%; border: 5px solid #fff; border-left-color: transparent; border-bottom-color: transparent}
     .slide-btn2 i.fa.fa-angle-right {font-size: 36px;}
@@ -590,9 +588,8 @@ body {
     .event-content { height: 100%; display: flex; align-items: flex-start; justify-content: center; flex-direction: column;}
     button.skip { display: flex; align-items: center; justify-content: flex-end; width: 10%;  background: transparent; border: 0;}
     .skip a { font-size: 18px; color: #000; text-decoration: none; }
-    .header {position: absolute; width: 100%; padding: 20px 15px;}
     .event-content img { margin-bottom: 10px;width: 25%;}
-    .slide-btn3 {border-radius: 50%; position: relative; top: 24%; left: 40%; border: 5px solid #fff;border-left-color: transparent; }
+    .slide-btn3 {border-radius: 50%; position: relative; top: 25%; left: 40%; border: 5px solid #fff !important;border-left-color: transparent !important; }
     .slide-btn3 i.fa.fa-angle-right {font-size: 36px;}
     .slide-btn3 button {border: 0; width: 55px; height: 55px; background: #CC9612; border-radius: 50%; color: #fff;}
     .event-content p { color: #162707; font-size: 16px;}
@@ -706,7 +703,6 @@ body {
         justify-content: center;
         margin-top: 20px;
     }
-    
     .log-or hr { border-color: #fefefe;display: flex; align-items: center; justify-content: center;width: 22%; margin: 0 10px;}
     .log-or { display: flex; align-items: center; justify-content: center; margin-top: 10px;}
     .social-icons { display: flex; justify-content: center; align-items: center; margin-top: 20px;}
@@ -849,7 +845,7 @@ body {
     .banner .slick-dots li button:before {opacity: 1; color: #fff; font-size: 7px;}
     .banner .slick-dots li {width: 10px;}
     #more {display: none;}
-    .card-tbs {margin: 15px 0; background: #fff;border-radius: 25px; border: 1px solid #8c8c8c; padding: 25px 15px;}
+    .card-tbs {margin: 15px 0; background: #fff;border-radius: 25px; border: 1px solid #8c8c8c; padding: 25px 15px; position: sticky;}
     .card-tbs h3 a {font-size: 18px;font-weight: 600; color: #000; text-decoration:none;}
     .card-tbs p {font-size: 13px; margin-bottom:15px;}
     span#dots { font-weight: 400;}
@@ -876,7 +872,7 @@ body {
     .upper-txt h4 {font-size: 16px; color: #fff;}
     .upper-txt h3 {font-size: 16px; color: #fff;}
     .upper-txt h2 {font-size: 21px; color: #fff;}
-    .hd-icons {top: 0; left: 0; display: flex; align-items: center; justify-content: space-between;}
+    .hd-icons {top: 0; left: 0; display: flex; align-items: center; justify-content: space-between; }
     .form_areas {width: 90%;background: #fff;margin: 0 auto ; padding: 25px; border-radius: 20px; position: absolute; top: 23%; height: auto; left: 0; right: 0;}
     .form_areas label { width: 100%; font-size: 12px; margin-bottom: 0; font-weight:600;}
     .form_areas input {width: 100%; height: 22px;border: 0; border-bottom: 1px solid #000; margin-bottom: 10px; font-size: 15px; font-weight:600;}
@@ -976,7 +972,7 @@ body {
     .inner-btn a {color: #000; background: hsl(207deg 87% 63%);  padding: 10px 20px; border-radius: 25px; font-weight: 600;line-height: 1;}
     .inner-btn i { font-size: 16px;}
     .inner-btn {text-align: center;margin-top: 15px;position: absolute;display: flex;justify-content: center;align-items: center;width: 100%;left: 0;margin-bottom: 80px;}
-    .form_inner p { font-size: 14px; font-weight: 600;}
+    .form_inner p { font-size: 14px; font-weight: 600;margin-left: 20px;}
     .tabs h2 hr.on {width: 15%;float: left;margin: 0; border: 1px solid #787878; border-width: thin; animation: rainbow linear 1s infinite alternate;}
     .tabs h2 hr.tw {width: 25%; margin: 5px 0;border: 1px solid #787878;border-width: thin; animation: rainbows linear 0.9s infinite alternate;}
     @keyframes rainbow { 0% {width:10%} 50% {width:15%} 100% {width:20%}  }
@@ -990,7 +986,7 @@ body {
    .evt-content h6 { color: hsl(0deg 0% 100%); font-size: 23px; font-weight: 500;}
    .evt-content h3 { color: hsl(0deg 0% 100%);font-size: 48px; font-family: 'Oswald'; font-weight: 600;}
    .evt-btn a {padding: 15px 35px; text-align: center; color: hsl(45deg 97% 74%); background: hsl(201deg 100% 74%); font-weight: 500; border-radius: 25px; text-decoration: none;}
-   .evt-btn { text-align: center; margin-top: 15px;padding-bottom: 100px;}
+   .evt-btn { text-align: center; padding-top: 15px;padding-bottom: 100px;}
    .evt-btn~h6 { margin-bottom: 0;text-align: center;font-size: 12px; margin-top: 18px;}
    .event-inner h5 {font-size: 15px;}
    .event-inner h2 {font-size: 20px;color: hsl(7deg 88% 68%);font-weight: 600;margin-bottom: 15px;}
@@ -1012,7 +1008,7 @@ body {
     @keyframes evt2 { 0% {width:10%} 50% { width:15%} 100% {width:20%} }
     .training-inner .form_inner p {margin-bottom: 10px; font-size: 14px;}
     .training-inner h5 {font-size: 15px;}
-    .training-btn a {background: hsl(88deg 47% 64%); padding: 6px 22px; border-radius: 25px;color: hsl(0deg 0% 100%);text-decoration: none;}
+    .training-btn a {background: hsl(88deg 47% 64%); padding: 6px 22px; border-radius: 25px;color: hsl(0deg 0% 100%);text-decoration: none;line-height: 2;}
     .training-btn {display: flex; align-items: center; justify-content: center;margin-top: 15px;padding-bottom: 100px;flex-direction: column;}
     .sticky { position: fixed;}
     .fixed-icons{position:fixed;}
@@ -1057,7 +1053,7 @@ body {
     .upcoming-events-tbs .card-tbs, .events-tbs .card-tbs { padding: 15px 10px;}
     .behinde-screen_sliders .slick-track {display: -webkit-box; width: 100% !important;}
     .trner {position: relative; padding-bottom: 50px;}
-    .trns_sliders .slick-track {margin-bottom: 30px; width: 100%;}
+    .trns_sliders .slick-track {margin-bottom: 35px; width: 100%;}
     .more-menu { width: 100px;}
     .more-btn, .more-menu-btn {background: none;border: 0 none;line-height: normal; overflow: visible; -webkit-user-select: none;-moz-user-select: none; -ms-user-select: none;width: 100%;text-align: left; outline: none; cursor: pointer; flex-direction:column;display:flex;}
     .more-dot { background-color: #aab8c2;margin: 0 auto;display: inline-block; width: 3px;height: 3px;margin-bottom: 2px; border-radius: 50%; transition: background-color 0.3s;background:#000}
@@ -1098,9 +1094,9 @@ body {
 
 
     .slide-btn1:focus-visible, .slide-btn2:focus-visible, .slide-btn3:focus-visible {outline: 0;}
-    .upload-img {display: flex; justify-content: space-between;}
+    .upload-img {display: flex; justify-content: flex-start;}
     .box { display: block;min-width: 93px;height: 150px;margin: 10px 4px;background-color: hsl(0deg 0% 100%);border-radius: 5px;box-shadow: 0 1px 3px rgb(0 0 0 / 12%), 0 1px 2px rgb(0 0 0 / 24%);transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);overflow: hidden;}
-    .js--image-preview {height: 100%; width: 100%;position: relative;overflow: hidden; background-color: hsl(0deg 0% 100%);background-image: url(../img/img-prev.jpg);background-size: cover;background-repeat: no-repeat;background-position: center center;}
+    .js--image-preview {height: 100%; position: relative;overflow: hidden; background-color: hsl(0deg 0% 100%);background-image: url(../img/img-prev.jpg);background-size: cover;background-repeat: no-repeat;background-position: center center;}
     .js--image-preview::after {content: ''; font-family: "Material Icons";position: relative;font-size: 10px;color: hsl(0deg 0% 90%);top: calc(50% - 2rem);left: calc(50% - 1.5rem);z-index: 0; width: 76px !important;}
     .upload-options { position: relative;height: 150px;cursor: pointer;overflow: hidden; text-align: center;transition: background-color ease-in-out 150ms;bottom: 150px;}
     .upload-options label {display: flex;align-items: center;width: 100px;height: 150px; font-weight: 400; text-overflow: ellipsis;white-space: nowrap;cursor: pointer;overflow: hidden;}
@@ -1218,7 +1214,7 @@ p.lht-txt {color: hsl(0deg 0% 66%);}
 
 @media screen and (max-width: 414px) {
     .sidenav a {font-size: 18px;}
-    .inner-btn a { font-size: 14px; padding: 10px 25px;}
+    .inner-btn a { font-size: 14px; padding: 10px 25px;text-decoration: none;}
 }
 
 @media only screen and (max-width: 375px) {
@@ -1296,7 +1292,7 @@ p.lht-txt {color: hsl(0deg 0% 66%);}
     .inner-content h3 {font-size: 24px;}
     .inner-content h2 {font-size: 35px;}
     .form_inner p {font-size: 12px;margin-bottom: 10px;}
-    .inner-btn a {font-size: 13px;}
+    .inner-btn a {font-size: 13px;text-decoration: none !IMPORTANT;}
     .inner-btn i {font-size: 13px;}
     .card-icons i { padding: 0 10px; font-size: 15px;}
     .apply-btn a { width: 100px; font-size: 11px;}
@@ -1345,6 +1341,15 @@ p.lht-txt {color: hsl(0deg 0% 66%);}
     .slide-btn2 {top: 13%;}
     .slide-btn3 {top: 18%;}
     .slide-btn4 {top: 15%;}
+    .slide-btn4 {
+        border-radius: 50%;
+        position: relative;
+        top: 25%;
+        left: 40%;
+        border: 5px solid #fff !important;
+    }
+    
+
     button.fw-btn {  line-height: 2.2; height: 40px;}
 
 
@@ -2403,8 +2408,8 @@ input#phone::placeholder {
     width: 100%;
 }
 .dt-tabs {
-    position: relative;
-    right: 10px;
+    position: absolute;
+    right: 20px;
 }
 .events-inner .container, .training-inner .container {
     width: 100%;
@@ -2415,7 +2420,7 @@ input#phone::placeholder {
     overflow-x: hidden;
     overflow-y: auto;
     position: relative;
-}
+    margin-top: 50px;}
 .trns #tab1, .trns #tab2, .trns #tab3 {padding-bottom: 0 !important;}
 .required-tbs .details-icons:last-child , .recommended-tbs .details-icons:last-child , .call-ending-tbs .details-icons:last-child {border: 0;}
 .login .invalid-feedback {margin-top: 5px; margin-bottom: 15px;}
@@ -2449,7 +2454,7 @@ input#phone::placeholder {
 .more-video {padding-bottom: 50px;}
 .evt-btn h6 {
     position: relative;
-    top: 25px;
+    top: 16px;
     font-size: 12px;
 }
 .event-regist .container {
@@ -2473,7 +2478,8 @@ input#phone::placeholder {
     width: 80% !important;
 }
 .events-inner p i {
-    margin-right: 10px;
+    position: absolute;
+    left: 20px;
 }
 
 .video-opt .slick-track{
@@ -2496,9 +2502,61 @@ input#phone::placeholder {
 .top-header .notify {
     padding: 0;
 }
+.toast-container .ngx-toastr {
+    padding: 15px !important;
+}
+.toast-top-right {
+    position: absolute;
+    left: 0 !IMPORTANT;
+    right: 0 !IMPORTANT;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.overlay-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+#tab1, #tab2, #tab3, #tab4, #tab5, #tab6 {
+    padding-bottom: 80px;
+}
+.profile-dtl .invalid-feedback {
+    margin-top: 0;
+    text-align: left;
+    margin-bottom: 5px;
+}
 .is-invalid~.invalid-feedback, .is-invalid~.invalid-tooltip, .was-validated :invalid~.invalid-feedback, .was-validated :invalid~.invalid-tooltip {
     display: flex;
 }
 .upload-video div {
     width: 100%;
+}
+.more-video .icon {
+    position: absolute;
+    transform: translate(50%, -50%);
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+}
+.more-video .icon img {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    bottom: 50px;
+    left: 20px;
+}
+.casting-inner .header.hd-icons, .events-inner .header.hd-icons, .training-inner .header.hd-icons {
+    background: #ffffff;
+    position: fixed;
+    padding: 15px 10px;
+}
+.vdo-slide img {
+    outline: 0;
+}
+.trner .slick-slide:focus {
+    outline: 0 !important;
 }

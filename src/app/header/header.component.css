@@ -5,3 +5,11 @@
 .active h5 {
     color: #78cfff;
 }
+.header .skip {
+    width: 100%;
+}
+.header .skip a {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
