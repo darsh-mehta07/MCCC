@@ -32,7 +32,10 @@ export class ForgotPasswordComponent implements OnInit {
 
  ngOnInit(): void {
   this.form = this.formBuilder.group({
-    email_or_mobile : ['',[Validators.required, Validators.email]]
+    email_or_mobile : ['',[Validators.required,
+      //  Validators.email,
+       Validators.pattern(/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)
+      ]]
   });
 }
 get f(): { [key: string]: AbstractControl } {
@@ -46,10 +49,10 @@ submit(){
     this.userService.forgot_password(this.form.value).pipe(first()).subscribe(res => {
      this.responceData = res;
      if(this.responceData.status == 'true' && this.responceData.token != ''){   
-      sessionStorage.setItem('rotp',this.responceData.otp);    
+        sessionStorage.setItem('rotp',this.responceData.otp);    
         this.route.navigate(['/reset-password',this.responceData.token]);
      }else{
-      console.log('Hello forgot');
+      this.form.controls['email_or_mobile'].setErrors({ userNotExit: true   });
      }          
     });   
   }

@@ -40,11 +40,17 @@
 
           <label>Home Town<span class="text-danger">*</span></label>
           <input type="text" formControlName="home_town" placeholder="type here"
-            [ngClass]="{ 'is-invalid': submitted && f.home_town.errors }" readonly>
+            [ngClass]="{ 'is-invalid': submitted && f.home_town.errors }" >
+            <div *ngIf="submitted && f.home_town.errors" class="invalid-feedback">
+              <div *ngIf="f.home_town.errors.required">Home Town is required</div>
+            </div>
 
           <label>Hobbies<span class="text-danger">*</span></label>
           <input type="text" formControlName="hobbies" placeholder="type here"
-            [ngClass]="{ 'is-invalid': submitted && f.hobbies.errors }" readonly>
+            [ngClass]="{ 'is-invalid': submitted && f.hobbies.errors }" >
+            <div *ngIf="submitted && f.hobbies.errors" class="invalid-feedback">
+              <div *ngIf="f.hobbies.errors.required">Hobbies is required</div>
+            </div>
 
           <div class="edit-profile">
             <a [routerLink]="['/edit-profile']">

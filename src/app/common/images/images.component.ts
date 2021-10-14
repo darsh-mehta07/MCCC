@@ -30,6 +30,7 @@ export class ImagesComponent implements OnInit {
   imagePath = this.baseUrl+'public/uploads/UserImages/';
   imgArray:any;
   cropimages : string[] = [];
+  savedimages : string[] = [];
   imageChangedEvent: any = '';
     croppedImage: any = '';
     canvasRotation = 0;
@@ -70,9 +71,19 @@ export class ImagesComponent implements OnInit {
     } 
     removePrimaryImage(element: number) {
       this.imgArray.forEach((value:any,index:any)=>{
-          if(index==element) this.imgArray.splice(index,1);
+          if(index==element) {
+            this.imgArray.splice(index,1);
+            this.commonService.deleteImages({image_id : value.id}).subscribe(
+              data => {                   
+                this.notification.showSuccess('Image removed Successfully.','');
+              },
+              error => {              
+                this.notification.showError(error.error.message,true);
+                });
+          }
           this.patchOldImageValues();
       });
+     
     }
     submit(){
       this.submitted = true;
@@ -94,7 +105,7 @@ export class ImagesComponent implements OnInit {
             this.notification.showSuccess('Image saved Successfully.','');
           },
           error => {
-            this.loading = false;
+            this.loading = true;
             this.notification.showError(error.error.message,true);
               this.uploading = false;
               this.active=0;
@@ -122,6 +133,13 @@ export class ImagesComponent implements OnInit {
     }
     saveimgmodel(content:any) {
       this.modalService.dismissAll(content);
+    }
+    closemodel(){
+      this.modalService.dismissAll(); //close model
+      this.savedimages = []; // reset the variable
+      this.saveCropImage = false; // save button disabled     
+      this.imageChangedEvent = null; //reset the image changes event
+      this.cropedfile = null; // reset the croped file
     }
     removeSelectedImage(url:any){    
       this.cropimages = this.cropimages.filter(img => (img != url));
@@ -157,10 +175,14 @@ patchOldImageValues(){
     oldfileSource: this.imgArray,
   });
 }
-saveImage(){     
-this.patchValues();                     
-this.saveimgmodel('save');
-this.imageChangedEvent ='';                   
+saveImage(){   
+  this.cropimages = this.savedimages;
+  this.patchValues();                     
+  this.saveimgmodel('save');   
+  this.savedimages = [];// reset the variable
+  this.saveCropImage = false; // save button disabled     
+  this.imageChangedEvent = null; //reset the image changes event
+  this.cropedfile = null; // reset the croped file               
 }
 cropImage(){
 const file = this.cropedfile;
@@ -176,7 +198,8 @@ const file = this.cropedfile;
                 reader.onload = (event:any) => {
                   this.url = (<FileReader>event.target).result;
                   if(this.cropimages.length < 3){
-                   this.cropimages.push(event.target.result);    
+                  //  this.cropimages.push(event.target.result); 
+                   this.savedimages.push(event.target.result);   
                    this.patchValues();
                    this.saveCropImage = true;
                    if(this.cropimages.length == 3){
@@ -188,6 +211,7 @@ const file = this.cropedfile;
                 reader.readAsDataURL(this.cropedfile);
         }
         this.imageChangedEvent = null;
+        this.cropedfile = null;
 }
 imageLoaded() {
   this.showCropper = true;

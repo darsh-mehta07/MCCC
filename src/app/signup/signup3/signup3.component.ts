@@ -41,8 +41,10 @@ export class Signup3Component implements OnInit {
       this.otpService.get_response(this.form.value).subscribe((res: any) => {
         // console.log(res.otp);
         this.otp = res.otp;
-        sessionStorage.setItem('otp',this.otp);
-        this.route.navigate(['/signup-otp']);
+        if(res.status && res.code == 200){
+          sessionStorage.setItem('otp',this.otp);
+          this.route.navigate(['/signup-otp']);
+        }        
       });
     }
   }

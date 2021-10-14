@@ -48,6 +48,12 @@ export class AuthenticationService {
         // remove user from local storage and set current user to null        
         localStorage.removeItem('currentUser');
         sessionStorage.removeItem('profile_status');
+        sessionStorage.removeItem('email');
+                  sessionStorage.removeItem('otp');
+                  sessionStorage.removeItem('gender');
+                  sessionStorage.removeItem('dob');
+                  sessionStorage.removeItem('name');
+                  sessionStorage.removeItem('phone');
         this.currentUserSubject.next(null as any);
         return this.http.post(`${Config.BasePath}/logout`,null);
     }  

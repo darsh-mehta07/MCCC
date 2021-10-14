@@ -46,6 +46,9 @@ export class CommonService {
     updateImages(data:any){
       return this.http.post(`${Config.BasePath}/update_user_image_data`,data);
     }
+    deleteImages(data:any){
+      return this.http.post(`${Config.BasePath}/delete_user_image_data`,data);
+    }
     myVideo(){
       return this.http.get(`${Config.BasePath}/display_user_video_data`);
     }

@@ -9,7 +9,7 @@
                     <div class="form-group">
                         <input autofocus type="text" formControlName="email_or_mobile" placeholder="Phone or email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email_or_mobile.errors }" maxlength="28"/>     
                         <div *ngIf="submitted && f.email_or_mobile.errors" class="invalid-feedback">
-                            <div *ngIf="f.email_or_mobile.errors.required">Username is required</div>
+                            <div *ngIf="f.email_or_mobile.errors.required">Phone or Email is required</div>
                           </div>                  
                     </div>
                     <div class="form-group">
