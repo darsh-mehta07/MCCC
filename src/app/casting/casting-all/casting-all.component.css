@@ -11,22 +11,27 @@ a {
     color: hsl(6deg 88% 68%);
     border-bottom: 1px solid hsl(6deg 88% 68%);
 }
+#tb2 a.active {
+    color: hsl(89deg 47% 66%);
+    border-bottom: 1px solid hsl(89deg 47% 66%);
+    background: #ffff;
+}
+/* #tb3 a:hover {
+    color: hsl(43deg 86% 61%);
+    border-bottom: 1px solid hsl(43deg 86% 61%);
+    background: #ffff;
+} */
+#tb3 a.active {
+    color: hsl(43deg 86% 61%) !important;
+    border-bottom: 1px solid hsl(43deg 86% 61%) !important;
+    background: #ffff;
+}
 .inner-tabs ul li a {
     color: hsl(0deg 0% 0%);
     width: 100%;
     text-decoration: none;
     font-weight: 600;
     padding: 10px;
-}
-#tb2 a.active {
-    color: hsl(89deg 47% 66%);
-    border-bottom: 1px solid hsl(89deg 47% 66%);
-    background: #ffff;
-}
-#tb3 a:hover {
-    color: hsl(43deg 86% 61%);
-    border-bottom: 1px solid hsl(43deg 86% 61%);
-    background: #ffff;
 }
 .card-btn a {
     border-radius: 25px;

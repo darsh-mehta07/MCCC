@@ -6,7 +6,7 @@
             <a (click)="back()"><img src="../../../assets/img/back2.png" /></a>
             <div class="Profile">
                 <img src="../../../assets/img/profile.svg">
-                <a href="#">Hello {{currentUser.userDetails.name}}</a>
+                <a [routerLink]="['/home']">Hello {{currentUser.userDetails.name}}</a>
             </div>
           </div>      
         <div class="form_areas">
@@ -59,7 +59,7 @@
 <ng-template #video let-modal>
   <div class="crooping-modal"> 
   <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">Select More Video</h4>
+    <h4 class="modal-title" id="modal-basic-title">Select More Videos</h4>
       <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
         <span aria-hidden="true">×</span>
       </button>
@@ -72,7 +72,7 @@
     </div>
     <hr>
     <div class="upload-video">
-    <div class="box" *ngFor='let url of videos'>
+    <div class="box" *ngFor='let url of videosaved'>
       <video class="js--image-preview" width="30%" height="110px" controls>
         <source src="{{url}}" type="video/mp4">
         Your browser does not support the video tag.
