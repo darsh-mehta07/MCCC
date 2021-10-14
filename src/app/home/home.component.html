@@ -49,7 +49,7 @@
           </div>
         </div>        
         <h3 (click)="castingInner(casting.id)">{{casting.title | titlecase}}</h3>
-        <p class="toggle-sec">{{casting.short_description}}
+        <p class="toggle-sec">{{casting.short_description.substr(0, 50)}}
           <a (click)="castingInner(casting.id)" class="read-more">More...</a>
         </p>
         <div class="details">
@@ -105,8 +105,8 @@
             </ul>
           </div>
         </div> 
-        <h3 class="grn" (click)="castingInner(casting.id)">{{casting.title}}</h3>
-        <p class="toggle-sec">{{casting.short_description}}
+        <h3 class="grn" (click)="castingInner(casting.id)">{{casting.title | titlecase}}</h3>
+        <p class="toggle-sec">{{casting.short_description.substr(0, 50)}}
           <a (click)="castingInner(casting.id)" class="read-more">More...</a>
           <div class="details">
             <div class="details-icons">
@@ -161,7 +161,7 @@
           </div>
         </div> 
         <h3 class="yto" (click)="castingInner(casting.id)">{{casting.title | titlecase}}</h3>
-        <p class="toggle-sec">{{casting.short_description}}
+        <p class="toggle-sec">{{casting.short_description.substr(0, 50)}}
           <a (click)="castingInner(casting.id)" class="read-more">More...</a>
         </p>
         <div class="details">
@@ -245,7 +245,7 @@
             </ul>
           </div>
         </div>
-        <h3 (click)="eventInner(upcoming.id)">Title: {{upcoming.title | titlecase}}r</h3>
+        <h3 (click)="eventInner(upcoming.id)">Title: {{upcoming.title | titlecase}}</h3>
         <p class="toggle-sec">{{upcoming.description}}
           <a (click)="eventInner(upcoming.id)">More</a>
         </p>
@@ -304,7 +304,7 @@
             </ul>
           </div>
         </div>
-        <h3 (click)="eventInner(eventforu.id)">Title: {{eventforu.title | titlecase}}r</h3>
+        <h3 (click)="eventInner(eventforu.id)">Title: {{eventforu.title | titlecase}}</h3>
         <p class="toggle-sec">{{eventforu.description}}
           <a (click)="eventInner(eventforu.id)">More</a>
         </p>

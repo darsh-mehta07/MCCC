@@ -19,6 +19,7 @@ export class VideoComponent implements OnInit {
   closeResult:any;
   videoArray:any;
   videos : string[] = [];
+  videosaved : string[] = [];
   oldvideo:any;
   secvidbox :boolean = true;
   thrvidbox :boolean = true;
@@ -131,9 +132,13 @@ export class VideoComponent implements OnInit {
     }
     savevideomodel(content:any) {
       this.modalService.dismissAll(content);
+      this.videos = this.videosaved;
+      this.newVideoAdded = true;      
+      this.videosaved = [];
     }
     closevideomodel(content:any) {
-      this.videos = [];
+      this.videosaved = [];
+      // this.videos = [];
       this.modalService.dismissAll(content);
     }
     removeSelectedVideo(url:any){
@@ -160,17 +165,11 @@ export class VideoComponent implements OnInit {
           reader.onload = (event: any) => {
             this.url = (<FileReader>event.target).result;
             newVideo.push(event.target.result);
-            if(newVideo.length == 1){
-              this.secvidbox = false;
-            }
-            if(newVideo.length == 2){
-              this.thrvidbox = false;
-            }
             this.form.patchValue({
               newvideofileSource: newVideo
             });  
-            this.videos = newVideo;         
-            this.newVideoAdded = true;           
+            this.videosaved = newVideo;         
+            this.newVideoAdded = false;           
           }
           reader.readAsDataURL(event.target.files[i]);
         }

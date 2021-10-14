@@ -30,7 +30,7 @@ export class Signup2Component implements OnInit {
     this.form = this.formBuilder.group({
       email : [sessionStorage.getItem('email'),[
         Validators.required,
-        Validators.email,
+        // Validators.email,
         Validators.pattern(/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)
       ],this.emailExists.validate.bind(this.emailExists)]
     });

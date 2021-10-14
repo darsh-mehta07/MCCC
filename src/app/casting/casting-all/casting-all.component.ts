@@ -21,12 +21,12 @@ export class CastingAllComponent implements OnInit {
   long_description:any;
   image:any;
   catId:any;
-  callEndingSoon:any;
+  callEndingSoon:any = [];
   recomended:any;
   loading = false;
-  castingData = false;
-  recommendData = false;
-  endingSoonData = false;
+  castingData = true;
+  recommendData = true;
+  endingSoonData = true;
   status: boolean = false;
     cardnum:any;
   constructor(
@@ -37,15 +37,16 @@ export class CastingAllComponent implements OnInit {
   ngOnInit(): void {  
     this.actRoute.paramMap.subscribe((params: ParamMap) => {                 
       this.catId = params.get('id');
+      console.log("catId : ", this.catId);
     });
     this.loading = false;
     this.getCastingData();
     this.getRecomendedData();
     this.getCallEndingSoonData();
-    console.log(this.loading + 'loadddddd');
   }
   tab(data:any){
     this.catId = data;
+    console.log("catId : ", this.catId);
   }
   getCastingData(){
     this.dashboardService.castingCall(null)
@@ -54,9 +55,8 @@ export class CastingAllComponent implements OnInit {
         this.loading = true;
         this.resData = res;        
         this.castings = this.resData.data;  
-        console.log(this.castings.length);    
         if(this.castings.length > 0){
-          this.castingData = true;
+          this.castingData = false;
         } 
       });
   }
@@ -68,7 +68,7 @@ export class CastingAllComponent implements OnInit {
         this.resData = res;        
         this.callEndingSoon = this.resData.data;  
         if(this.callEndingSoon.length > 0){
-          this.endingSoonData = true;
+          this.endingSoonData = false;
         }     
       });
   }
@@ -80,7 +80,7 @@ export class CastingAllComponent implements OnInit {
         this.resData = res;        
         this.recomended = this.resData.data;  
         if(this.recomended.length > 0){
-          this.recommendData = true;
+          this.recommendData = false;
         }       
       });
   }
