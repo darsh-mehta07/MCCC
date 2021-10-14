@@ -8,11 +8,11 @@
               <a [routerLink]="['/home']"><img src="../../../assets/img/home2.png" class="home2"/></a>
             </div>      
             <div class="form_inner">
-              <h2 class="event-h2">{{appEvents.title | titlecase}}
+              <h2 class="event-h2" [innerHtml]="appEvents.title | titlecase">
                 <hr class="on">
                 <hr class="tw">
               </h2>
-              <h5>{{appEvents.description}}</h5>
+              <h5 [innerHtml]="appEvents.description"></h5>
               <p>
                  <i class="fa fa-calendar" aria-hidden="true"></i>
                  {{eventDate}}

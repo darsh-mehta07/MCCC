@@ -27,7 +27,7 @@ export class ThankyouCastingComponent implements OnInit {
   }
   back(): void {
     this.dashboardService.filter('applyed');
-    this.location.back();
+    this.route.navigate(['/home']);
   }
 
 }
