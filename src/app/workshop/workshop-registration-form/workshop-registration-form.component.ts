@@ -29,6 +29,10 @@ export class WorkshopRegistrationFormComponent implements OnInit {
   form: FormGroup | any;
   loading: boolean = false;
   submitted = false;
+  aadharfileChoosen : boolean = false;
+  aadharfileName : any;
+  panfileChoosen : boolean = false;
+  panfileName : any;
   constructor(private location: Location,private workshopService: WorkshopService,
     private route:Router,
     private actRoute:ActivatedRoute,
@@ -133,6 +137,8 @@ export class WorkshopRegistrationFormComponent implements OnInit {
 
   onFileChange(event: any) {
     if (event.target.files && event.target.files[0]) {
+      this.panfileChoosen = true;
+      this.panfileName = event.target.files[0].name; 
       const file = event.target.files && event.target.files[0];
       var filesAmount = event.target.files.length;
       for (let i = 0; i < filesAmount; i++) {
@@ -152,6 +158,8 @@ export class WorkshopRegistrationFormComponent implements OnInit {
 
   onFileChange2(event: any) {
     if (event.target.files && event.target.files[0]) {
+      this.aadharfileChoosen = true;
+      this.aadharfileName = event.target.files[0].name;      
       const file = event.target.files && event.target.files[0];
       var filesAmount = event.target.files.length;
       for (let i = 0; i < filesAmount; i++) {
@@ -159,6 +167,7 @@ export class WorkshopRegistrationFormComponent implements OnInit {
         
         reader.onload = (event: any) => {
           this.url = (<FileReader>event.target).result;
+          
           this.images2.push(event.target.result);
           this.form.patchValue({
             aadharfileSource: this.images2

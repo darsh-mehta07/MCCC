@@ -202,17 +202,26 @@ import { BookmarkComponent } from './bookmark/bookmark.component';
       providers: [
         {
           id: GoogleLoginProvider.PROVIDER_ID,
+          // MCCC
+          // Client ID : 727905192800-hp1qn4bal47d4243tibbq4ie4dnnf4ih.apps.googleusercontent.com
           provider: new GoogleLoginProvider(
-            '733441649382-gkoiqopf4lvf3edcdvjoj5jvhn9a0531.apps.googleusercontent.com'
+            '727905192800-hp1qn4bal47d4243tibbq4ie4dnnf4ih.apps.googleusercontent.com'
           )
         },{
           id: FacebookLoginProvider.PROVIDER_ID,
+          // App Name : MCCCWD
+          // App id : 629080598116548
+          // this is the web platform App ID
+          // Site url : https://mcccapp.in/
+
+
+          // test app
+          // App id : 908282646448240
+          // App Name : MCCCWD-aws
+
           provider: new FacebookLoginProvider(
-            '390016662788825'
-          )
-          // provider: new FacebookLoginProvider(
-          //   '132519988987129'
-          // )
+            '629080598116548'
+          )          
         }
       ]
     } as SocialAuthServiceConfig,
