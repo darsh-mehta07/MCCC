@@ -54,6 +54,7 @@ export class AuthenticationService {
                   sessionStorage.removeItem('dob');
                   sessionStorage.removeItem('name');
                   sessionStorage.removeItem('phone');
+        sessionStorage.clear();          
         this.currentUserSubject.next(null as any);
         return this.http.post(`${Config.BasePath}/logout`,null);
     }  

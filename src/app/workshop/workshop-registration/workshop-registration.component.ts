@@ -4,6 +4,7 @@ import { Config } from '../../_config/config';
 import {WorkshopService} from '../../_service/workshop.service';
 import { Location,formatDate,DatePipe} from '@angular/common';
 import { DashboardService } from 'src/app/_service/dashboard.service';
+import { NotificationService } from 'src/app/_service/notification.service';
 
 @Component({
   selector: 'app-workshop-registration',
@@ -24,7 +25,7 @@ export class WorkshopRegistrationComponent implements OnInit {
   prevDate: boolean = true;
   eventDate: any;
   dataLoad: boolean = false;
-  constructor(private location: Location,private workshopService: WorkshopService,
+  constructor(private notifyService : NotificationService,private location: Location,private workshopService: WorkshopService,
     private route:Router,private actRoute:ActivatedRoute,public datepipe: DatePipe,private dashboardService : DashboardService) { }
 
   ngOnInit(): void {
@@ -71,17 +72,18 @@ export class WorkshopRegistrationComponent implements OnInit {
   }
 
   bookmark(id:any){
-    this.dashboardService.bookmarkWorkshopEvents({event_id:id,type:'event'})
+    this.dashboardService.bookmarkWorkshopEvents({event_id:id,type:'workshop'})
       .subscribe(res => {
         this.resData = res; 
         this.bmkStatus = this.resData.data[0];
         if(this.bmkStatus === 'Bookmark removed'){
           this.bookmarks = 0;
-
+          this.notifyService.showSuccess("Bookmark removed", "")
         }else if(this.bmkStatus === 'Bookmark Added'){
           this.bookmarks = 1;
-        }
-        // this.showToasterSuccess();      
+          this.notifyService.showSuccess("Bookmark Added", "")
+
+        }  
       });
   }
 }

@@ -25,10 +25,10 @@
                 <i class="fa fa-map-marker" aria-hidden="true"></i>
                  {{appEvents.address}}
               </p>
-             <!-- <div class="card-icons">
+             <div class="card-icons">
                 <i (click)="bookmark(appEvents.id)" [ngClass]="bookmarks != '1'?'fa fa-bookmark-o':'fa fa-bookmark'" aria-hidden="true"></i>
              
-              </div> -->
+              </div>
               <div class="evt-btn" *ngIf="this.checkData.data == 'No Data' && prevDate ">
                 <a [routerLink]="['/workshop-registration-form/',appEvents.id,1]">ENROLL NOW</a>
                 <h6 *ngIf="this.checkData.data == 'No Data' && prevDate ">Enroll now to confirm your seat</h6>

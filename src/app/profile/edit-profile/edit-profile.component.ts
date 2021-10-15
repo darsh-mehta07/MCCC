@@ -111,7 +111,7 @@ export class EditProfileComponent implements OnInit {
         this.notification.showSuccess('Profile Updated Successfully.','');
           sessionStorage.setItem('name',this.form.value.name);
           // sessionStorage.setItem('age',this.age);
-          // sessionStorage.setItem('dob',this.userdetail.dob);
+          sessionStorage.setItem('dob',this.form.value.dob);
           sessionStorage.setItem('height',this.form.value.height);
           sessionStorage.setItem('phone',this.form.value.phone);
           // sessionStorage.setItem('language_id',this.userdetail.language_id);
@@ -133,7 +133,7 @@ export class EditProfileComponent implements OnInit {
   }
   changeSuit(e: any) {
     if (e.target.value > 0) {
-      this.registerService.cities({ state_id: e.target.value }).pipe(first()).subscribe(res => {
+      this.registerService.cities({ state_id: e.target.value }).subscribe(res => {
         this.response = res;
         if (this.response.data !== 'undefined' && this.response.data.length > 0) {
           this.dataTrue = true;
