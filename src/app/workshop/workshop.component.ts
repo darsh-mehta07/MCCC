@@ -93,7 +93,7 @@ export class WorkshopComponent implements OnInit {
       });
   }
   showToasterSuccess(){
-    this.notifyService.showSuccess("Data saved successfully !!", "")
+    this.notifyService.showSuccess("Workshop saved successfully !!", "")
 }
 
 }

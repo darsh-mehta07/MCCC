@@ -114,7 +114,6 @@ export class CastingInnerComponent implements OnInit {
   }
   bookmark(id:any){
     this.dashboardService.bookmarkCasting({casting_card_id:id})
-    .pipe(first())
       .subscribe(res => {
         this.resData = res; 
         this.bmkStatus = this.resData.data[0];

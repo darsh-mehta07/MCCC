@@ -7,6 +7,8 @@ import { first } from 'rxjs/operators';
 import { UserService } from 'src/app/_service/user.service';
 import { AlertService } from 'src/app/_service/alert.service';
 import { Dimensions,ImageCroppedEvent, ImageTransform,base64ToFile} from 'ngx-image-cropper';
+import { Location } from '@angular/common';
+
 
 @Component({
   selector: 'app-profile-first-step',
@@ -42,7 +44,8 @@ export class ProfileFirstStepComponent implements OnInit {
     private route : Router,
     private authenticationService: AuthenticationService,
     private userService : UserService,
-    private alertService : AlertService
+    private alertService : AlertService,
+    private location:Location,
     ) {
      // redirect to home if already logged in
      if(sessionStorage.getItem('social_login') === 'true'){
@@ -76,7 +79,7 @@ imageLoaded() {
 
 cropperReady(sourceImageDimensions: Dimensions) {  
     this.cropperbutton = true;
-    console.log('Cropper ready', sourceImageDimensions);
+    // console.log('Cropper ready', sourceImageDimensions);
 }
 
 loadImageFailed() {
@@ -177,6 +180,7 @@ saveImage(){
                   reader.readAsDataURL(this.cropedfile);
           }
           this.imageChangedEvent = null;
+        this.cropedfile = null;
 }
   ngOnInit(): void {    
     this.form = this.formBuilder.group({
@@ -217,7 +221,7 @@ saveImage(){
   }
   // Remove Image
   removeImage(url:any){
-    console.log(this.images,url);    
+    // console.log(this.images,url);    
     this.images = this.images.filter(img => (img != url));
     if(this.images.length < 3){
       this.cropperbutton = true;  
@@ -246,5 +250,8 @@ saveImage(){
       });
     }
   }
-
+  back(): void {
+    this.authenticationService.logout();
+    this.route.navigate(['/signin']);
+  }
 }

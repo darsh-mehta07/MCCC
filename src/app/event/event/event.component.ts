@@ -77,7 +77,7 @@ export class EventComponent implements OnInit {
       });
   }
   showToasterSuccess(){
-    this.notifyService.showSuccess("Data saved successfully !!", "")
+    this.notifyService.showSuccess("Event saved successfully !!", "")
 }
 
 }
