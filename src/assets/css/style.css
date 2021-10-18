@@ -215,7 +215,6 @@ body {
 
 }
 
-
 @media only screen and (max-width: 1024px) {
     .casting { background: #A7D07A; height: 100%;display: flex; align-items: center;justify-content: center; padding: 30px;}
     .container {  max-width: 100%; }
@@ -224,7 +223,7 @@ body {
     .skip a { font-size: 18px; color: #000; text-decoration: none; }
     .header {position: absolute; width: 100%; padding: 20px 15px;}
     .casting-content img { margin-bottom: 10px; width: 35%;}
-    .slide-btn1 {border-radius: 50%; position: absolute; bottom: 60px; left: 45%; border: 7px solid #fff; border-bottom-color: transparent; border-left-color: transparent;}
+    .slide-btn1 {border-radius: 50%; position: absolute; bottom: 60px; left: 45%; border: 7px solid #fff; border-bottom-color: transparent !important; border-left-color: transparent !important; border-right-color: transparent !important;}
     .slide-btn1 i.fa.fa-angle-right {font-size: 45px;}
     .slide-btn1 button {border: 0; width: 70px; height: 70px; background: #80AF56; border-radius: 50%; color: #fff;}
     .traning { background: #ff6e61; height: 100%;display: flex; align-items: center;justify-content: center; padding: 20px;}
@@ -234,7 +233,7 @@ body {
     .skip a { font-size: 18px; color: #000; text-decoration: none; }
     .header {position: absolute; width: 100%; padding: 20px 15px;}
     .traning-content img { margin-bottom: 10px;  width: 35%;}
-    .slide-btn2 {border-radius: 50%; position: absolute; bottom: 60px; left: 45%; border: 7px solid #fff !important; border-left-color: transparent !important;}
+    .slide-btn2 {border-radius: 50%; position: absolute; bottom: 60px; left: 45%; border: 7px solid #fff !important; border-left-color: transparent !IMPORTANT; border-bottom-color: transparent !IMPORTANT;}
     .slide-btn2 i.fa.fa-angle-right {font-size: 45px;}
     .slide-btn2 button {border: 0; width: 70px; height: 70px; background: #C74D42; border-radius: 50%; color: #fff;}
     .traning-content p {color: #162707; font-size: 27px;}
@@ -285,7 +284,7 @@ body {
     .slide-btn4 {
         border-radius: 50%;
         position: relative;
-        top: 25%;
+        top: 26%;
         left: 40%;
         border: 5px solid #fff;
     }
@@ -578,7 +577,7 @@ body {
     button.skip { display: flex; align-items: center; justify-content: flex-end; width: 100%;  background: transparent; border: 0;}
     .skip a { font-size: 18px; color: #000; text-decoration: none; }
     .traning-content img { margin-bottom: 10px;width: 25%;}
-    .slide-btn2 {border-radius: 50%; position: relative; top: 21%; left: 40%; border: 5px solid #fff; border-left-color: transparent; border-bottom-color: transparent}
+    .slide-btn2 {border-radius: 50%; position: relative; top: 21%; left: 40%; border: 5px solid #fff !important; border-left-color: transparent !IMPORTANT; border-bottom-color: transparent !IMPORTANT}
     .slide-btn2 i.fa.fa-angle-right {font-size: 36px;}
     .slide-btn2 button {border: 0; width: 55px; height: 55px; background: #C74D42; border-radius: 50%; color: #fff;}
     .traning-content p {color: #162707; font-size: 16px;}
@@ -589,7 +588,7 @@ body {
     button.skip { display: flex; align-items: center; justify-content: flex-end; width: 10%;  background: transparent; border: 0;}
     .skip a { font-size: 18px; color: #000; text-decoration: none; }
     .event-content img { margin-bottom: 10px;width: 25%;}
-    .slide-btn3 {border-radius: 50%; position: relative; top: 25%; left: 40%; border: 5px solid #fff !important;border-left-color: transparent !important; }
+    .slide-btn3 {border-radius: 50%; position: relative; top: 26%; left: 40%; border: 5px solid #fff !important;border-left-color: transparent !important; }
     .slide-btn3 i.fa.fa-angle-right {font-size: 36px;}
     .slide-btn3 button {border: 0; width: 55px; height: 55px; background: #CC9612; border-radius: 50%; color: #fff;}
     .event-content p { color: #162707; font-size: 16px;}
@@ -874,8 +873,8 @@ body {
     .upper-txt h2 {font-size: 21px; color: #fff;}
     .hd-icons {top: 0; left: 0; display: flex; align-items: center; justify-content: space-between; }
     .form_areas {width: 90%;background: #fff;margin: 0 auto ; padding: 25px; border-radius: 20px; position: absolute; top: 23%; height: auto; left: 0; right: 0;}
-    .form_areas label { width: 100%; font-size: 12px; margin-bottom: 0; font-weight:600;}
-    .form_areas input {width: 100%; height: 22px;border: 0; border-bottom: 1px solid #000; margin-bottom: 10px; font-size: 15px; font-weight:600;background: transparent;}
+    .form_areas label { width: 100%; font-size: 12px; margin-bottom: 8px; font-weight:600;}
+    .form_areas input {width: 100%; height: 22px;border: 0; border-bottom: 1px solid #000; margin-bottom: 15px; font-size: 15px; font-weight:600;background: transparent;padding-bottom: 5px;}
     .event-regist .invalid-feedback {
         margin-top: 0;
         margin-bottom: 10px;
@@ -971,7 +970,7 @@ body {
     .form_inner p a {text-decoration: underline #949494;}
     .inner-btn a {color: #000; background: hsl(207deg 87% 63%);  padding: 10px 20px; border-radius: 25px; font-weight: 600;line-height: 1;}
     .inner-btn i { font-size: 16px;}
-    .inner-btn {text-align: center;margin-top: 15px;position: absolute;display: flex;justify-content: center;align-items: center;width: 100%;left: 0;margin-bottom: 80px;}
+    .inner-btn {text-align: center;margin-top: 15px;position: absolute;display: flex;justify-content: center;align-items: center;width: 100%;left: 0;margin-bottom: 100px;}
     .form_inner p { font-size: 14px; font-weight: 600;margin-left: 20px;}
     .tabs h2 hr.on {width: 15%;float: left;margin: 0; border: 1px solid #787878; border-width: thin; animation: rainbow linear 1s infinite alternate;}
     .tabs h2 hr.tw {width: 25%; margin: 5px 0;border: 1px solid #787878;border-width: thin; animation: rainbows linear 0.9s infinite alternate;}
@@ -1094,7 +1093,7 @@ body {
 
 
     .slide-btn1:focus-visible, .slide-btn2:focus-visible, .slide-btn3:focus-visible {outline: 0;}
-    .upload-img {display: flex; justify-content: flex-start;}
+    .upload-img {display: flex; justify-content: flex-start !important;}
     .box { display: block;min-width: 93px;height: 150px;margin: 10px 4px;background-color: hsl(0deg 0% 100%);border-radius: 5px;box-shadow: 0 1px 3px rgb(0 0 0 / 12%), 0 1px 2px rgb(0 0 0 / 24%);transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);overflow: hidden;}
     .js--image-preview {height: 100%; position: relative;overflow: hidden; background-color: hsl(0deg 0% 100%);background-image: url(../img/img-prev.jpg);background-size: cover;background-repeat: no-repeat;background-position: center center;}
     .js--image-preview::after {content: ''; font-family: "Material Icons";position: relative;font-size: 10px;color: hsl(0deg 0% 90%);top: calc(50% - 2rem);left: calc(50% - 1.5rem);z-index: 0; width: 76px !important;}
@@ -2099,13 +2098,7 @@ a:focus {
         color: #000;
         font-weight: 600;
     }
-    .complete_profile .top_part .form_area .btom_file .profileImg_area {
-        display: -ms-grid;
-        display: grid !important;
-        grid-template-columns: repeat(3, 1fr);
-        grid-gap: 10px;
-        margin-top: 1rem;
-    }
+   */
     .complete_profile .top_part .form_area .btom_file .profileImg_area .img_div {
         max-width: 150px;
         height: 150px;
@@ -2584,4 +2577,15 @@ input#phone::placeholder {
     padding: 0;
     height: 44px;
     font-weight: bold;
+}
+video {
+    width: 100%;
+    object-fit: cover;
+}
+.img_div {
+    position: relative;
+}
+.complete_profile .invalid-feedback {
+    margin-top: 5px;
+    padding-left: 0;
 }
