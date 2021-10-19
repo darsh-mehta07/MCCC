@@ -423,7 +423,7 @@ body {
         min-width: 85px;
         height: 110px;
         background-color: hsl(0deg 0% 100%);
-        width: 30.9%;
+        width: 30%;
         border-radius: 5px;
         box-shadow: 0 1px 3px rgb(0 0 0 / 12%), 0 1px 2px rgb(0 0 0 / 24%);
         transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -893,7 +893,7 @@ body {
     .details-btn {text-align: center; background: #78cfff; width: fit-content; margin: 0 auto; padding: 10px 40px; border-radius: 25px; color: #fff940;}
     .details-btn a {color: #fff940  !important; font-size: 16px !important; margin-top: 0 !important;}
     .conform-details a {text-align: center;margin-top: 10px; width: auto; font-size: 13px; display: flex; justify-content: center;color: #000; text-decoration: none;}
-    .details-btn i {display: flex;align-items: center;padding-left: 5px;}
+    .details-btn i {display: flex;align-items: center;padding-left: 2px;}
     .conform-details h2 {font-size: 28px; font-weight: 600;}
     .conform-details h3 {font-size: 14px;}
     .conform-details h4 { font-size: 14px;}
@@ -1245,7 +1245,7 @@ p.lht-txt {color: hsl(0deg 0% 66%);}
     .inner-content h2 {font-size: 40px;}
     .form_inner p {font-size: 13px;}
     .inner-btn { text-align: center; margin-top: 0;}
-    .upper-txt h2 {font-size: 25px;}
+    .upper-txt h2 {font-size: 21px;}
     .notify img { width: 25px;}
     .search img { width: 20px;}
     .conform-details h2 {font-size: 25px;}
@@ -1401,8 +1401,8 @@ p.lht-txt {color: hsl(0deg 0% 66%);}
 }
 
 .wrapper .complete_profile .top_part .logo img {
-    -o-object-fit: cover;	
-    object-fit: cover;	
+    -o-object-fit: contain;	
+    object-fit: contain;	
     width: 80%;
 }
 
@@ -2402,7 +2402,7 @@ input#phone::placeholder {
 }
 .dt-tabs {
     position: absolute;
-    right: 20px;
+    right: 20px !important;
 }
 .events-inner .container, .training-inner .container {
     width: 100%;
@@ -2459,6 +2459,7 @@ input#phone::placeholder {
 .training-btn h6 {
     position: relative;
     top: 10px;
+    font-size: 11px;
 }
 .training-inner hr {
     border: 1px solid #f57768 !important;
@@ -2589,3 +2590,23 @@ video {
     margin-top: 5px;
     padding-left: 0;
 }
+.crooping-modal .upload-video .box {
+    height: 180px;
+}
+.form_inner h5 p {
+    margin-left: 0;
+}
+.details-btn i:first-child {
+    padding-left: 4px;
+}
+@supports (-webkit-touch-callout: none) {
+    /* CSS specific to iOS devices */ 
+    .inner-tabs[_ngcontent-gor-c77] {
+        width: 100%;
+        overflow: scroll;
+        position: absolute;
+        top: 0;
+        z-index: 9999!important;
+    }
+    .inner-btn{margin-top: 0; margin-bottom: 100px;}
+ }
