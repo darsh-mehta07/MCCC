@@ -971,7 +971,7 @@ body {
     .inner-btn a {color: #000; background: hsl(207deg 87% 63%);  padding: 10px 20px; border-radius: 25px; font-weight: 600;line-height: 1;}
     .inner-btn i { font-size: 16px;}
     .inner-btn {text-align: center;margin-top: 15px;position: absolute;display: flex;justify-content: center;align-items: center;width: 100%;left: 0;margin-bottom: 100px;}
-    .form_inner p { font-size: 14px; font-weight: 600;margin-left: 20px;}
+    .form_inner p { font-size: 14px; font-weight: 600;margin-left: 20px; line-height: 1.4;}
     .tabs h2 hr.on {width: 15%;float: left;margin: 0; border: 1px solid #787878; border-width: thin; animation: rainbow linear 1s infinite alternate;}
     .tabs h2 hr.tw {width: 25%; margin: 5px 0;border: 1px solid #787878;border-width: thin; animation: rainbows linear 0.9s infinite alternate;}
     @keyframes rainbow { 0% {width:10%} 50% {width:15%} 100% {width:20%}  }
@@ -2610,3 +2610,16 @@ video {
     }
     .inner-btn{margin-top: 0; margin-bottom: 100px;}
  }
+ .toast-container .ngx-toastr {
+    margin: 5px auto !important;
+}
+.toast-container {
+    pointer-events: none;
+    position: fixed;
+    display: block;
+    z-index: 999999;
+    width: 90%;
+    justify-content: center !important;
+    align-items: center;
+    margin: 0 auto;
+}
