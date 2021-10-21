@@ -30,6 +30,7 @@
     margin: 0;
     padding: 0;
     z-index: 1;
+    display: none;
 }
 .upload-icons {
     display: flex;
@@ -69,4 +70,9 @@ textarea {
     color: #000 !important;
     position: relative;
     text-decoration: none;
+}
+.upload div {
+    width: 180px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }

@@ -30,6 +30,10 @@
     height: 150px;
     position: relative;
 }
+video {
+    width: 100%;
+    object-fit: cover;
+}
 
 .complete_profile .top_part .form_area .btom_file .profileImg_area .img_div img {
     width: 100%;

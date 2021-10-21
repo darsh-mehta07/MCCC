@@ -12,9 +12,9 @@
     border: 0 !important;
     box-shadow: none}
 .faq a {color: hsl(0deg 0% 0%);text-decoration: none;}
-.faq .card-header {background: #fff; padding: 15px;border:0;}
+.faq .card-header {background: #fff; padding: 15px 0;border:0; }
 .faq .card {border: 0; border-bottom: 1px solid #6c757d !important;}
-.faq .card-body { padding: 10px; border: 0 !important;}
+.faq .card-body { padding: 10px 0; border: 0 !important;text-align: justify;}
 .faq h5 i { float: right;font-size: 20px;}
 .faq p {font-size: 14px;margin: 0;}
 .faq-heading { align-items: baseline;display: flex;justify-content: space-between;}
