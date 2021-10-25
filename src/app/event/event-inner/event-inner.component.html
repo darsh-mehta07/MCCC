@@ -15,20 +15,20 @@
               <h5 [innerHtml]="appEvents.description"></h5>
               <p>
                  <i class="fa fa-calendar" aria-hidden="true"></i>
-                 {{eventDate}}
+                 {{appEvents.start_dt}} - {{appEvents.end_dt}}
               </p>
               <p>
                  <i class="fa fa-clock-o" aria-hidden="true"></i>
-                 {{appEvents.start_date | date:"h:mm a"}} - {{appEvents.end_date | date:"h:mm a"}}
+                 {{appEvents.start_time}} - {{appEvents.end_time}}
               </p>
                <p>
                 <i class="fa fa-map-marker" aria-hidden="true"></i>
                  {{appEvents.address}}
               </p>
-             <!-- <div class="card-icons">
+             <div class="card-icons">
                 <i (click)="bookmark(appEvents.id)" [ngClass]="bookmarks != '1'?'fa fa-bookmark-o':'fa fa-bookmark'" aria-hidden="true"></i>
              
-              </div> -->
+              </div>
               <div class="evt-btn" *ngIf="this.checkData.data == 'No Data' && prevDate ">
                 <a [routerLink]="['/workshop-registration-form/',appEvents.id,1]">ENROLL NOW</a>
                 <h6 *ngIf="this.checkData.data == 'No Data' && prevDate ">Enroll now to confirm your seat</h6>

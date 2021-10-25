@@ -89,4 +89,10 @@ export class DashboardService {
     getUserBookmark(data:any){
       return this.http.post<any>(`${Config.BasePath}/get_user_bookmark`,data);
     }
+    getUserBookmarkEvent(data:any){
+      return this.http.post<any>(`${Config.BasePath}/get_user_bookmark_event`,data);
+    }
+    getUserBookmarkWorkshop(data:any){
+      return this.http.post<any>(`${Config.BasePath}/get_user_bookmark_workshop`,data);
+    }
 }

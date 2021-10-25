@@ -49,10 +49,65 @@
                         </div>         
                       </div>
       </div>
+
+      <div class="tabs" *ngIf="!eventbookmarkNoData">
+        <h2>Events
+            <hr class="on">
+            <hr class="tw">
+        </h2>
+        </div>
+        <div class="card-tbs" *ngFor="let upcoming of eventBookmarkData;">      
+          
+          <h3 (click)="eventInner(upcoming.id)">Title: {{upcoming.title | titlecase}}</h3> 
+           <p class="toggle-sec" [innerHtml]="upcoming.description.substr(0, 50)">
+            <a (click)="eventInner(upcoming.id)" class="read-more">More...</a>
+           </p>
+          <div class="details">
+             <div class="details-icons">
+              <i class="fa fa-map-marker" aria-hidden="true"></i>
+              <h4>{{upcoming.location | titlecase}}</h4>
+            </div>
+            <div class="details-icons">
+              <i class="fa fa-clock-o" aria-hidden="true"></i> 
+              <h4>{{upcoming.start_date | date : "MMM,d,y"}}</h4>
+            </div>
+            <div class="details-icons">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+              <h4>{{upcoming.start_date | date : "h:mm a"}}</h4>
+            </div>
+            </div>
+            </div> 
+        <div class="tabs" *ngIf="!workshopbookmarkNoData">
+          <h2>Workshop
+              <hr class="on">
+              <hr class="tw">
+          </h2>
+          </div> 
+          <div class="card-tbs" *ngFor="let data of workshopBookmarkData">
+            
+            <h3 class="yto" [routerLink]="['/workshop-registration/',data.id]">{{data.title}}</h3> 
+            <p class="toggle-sec" [innerHtml]="data.description.substr(0, 35)">
+            <a [routerLink]="['/workshop-registration/',data.id]" class="read-more">More...</a></p>
+            <div class="details">
+               <div class="details-icons">
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                <h4>{{data.location}}</h4>
+              </div>
+              <div class="details-icons">
+                <i class="fa fa-calendar" aria-hidden="true"></i>
+                <h4>{{data.start_date | date :'mediumDate'}}</h4>
+              </div>
+              <div class="details-icons">
+               <i class="fa fa-clock-o" aria-hidden="true"></i>
+                <h4>{{data.start_time_1}}</h4>
+              </div>
+            </div>
+         </div>
+
       <div class="item" *ngIf="!loading">
         <ngx-skeleton-loader count="12"></ngx-skeleton-loader>
       </div>
-      <div *ngIf="bookmarkNoData && loading" class="no-data">
+      <div *ngIf="workshopbookmarkNoData && eventbookmarkNoData && bookmarkNoData && loading" class="no-data">
         <img src="../../../assets/img/image.png">
         <h2>No Data Available</h2>
       </div>

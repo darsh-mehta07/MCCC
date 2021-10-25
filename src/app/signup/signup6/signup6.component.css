@@ -4,3 +4,34 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .sign-content input {    
     color: #000 !important;
 }
+.mat-form-field{
+    display: block !important;
+}
+::ng-deep .mat-focused .mat-form-field-label {
+    /*change color of label*/
+    color: #8b8585 !important;
+   }
+   
+   ::ng-deep.mat-form-field-underline {
+    /*change color of underline*/
+    /* background-color: white !important; */
+   } 
+   
+   ::ng-deep.mat-form-field-ripple {
+    /*change color of underline when focused*/
+    /* background-color: white !important;; */
+   }
+   
+   ::ng-deep .mat-form-field-label {
+    /*change color of label*/
+    color: #8b8585 !important;
+   }
+   ::ng-deep .mat-form-field-flex{
+    height: 120px;
+    background-color: #fff !important;
+   }
+   
+   
+   mat-datepicker-toggle {
+    color: #8b8585 !important;
+   }

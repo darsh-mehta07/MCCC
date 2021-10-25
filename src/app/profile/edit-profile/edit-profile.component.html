@@ -65,12 +65,12 @@
             <select *ngIf="dataTrue" nice-select class="select"><option>{{city}}</option></select>
         </div>
           <div class="select_div" *ngIf="!cityVisible">
-            <select *ngIf="dataTrue" nice-select class="select" formControlName="select_city" [ngClass]="{ 'is-invalid': submitted && f.city.errors }">
+            <select *ngIf="dataTrue" nice-select class="select" formControlName="select_city" [ngClass]="{ 'is-invalid': submitted && f.select_city.errors }">
                 <option selected disabled>City</option>
                 <option *ngFor="let city of cities" [value]="city.id">{{city.name}}</option>
             </select>
-            <div *ngIf="submitted && f.city.errors" class="invalid-feedback">
-                <div *ngIf="f.city.errors.required">City is required</div>
+            <div *ngIf="submitted && f.select_city.errors" class="invalid-feedback">
+                <div *ngIf="f.select_city.errors.required">City is required</div>
             </div>
         </div>
 

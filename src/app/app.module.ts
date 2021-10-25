@@ -93,6 +93,11 @@ import { GamesComponent } from './games/games.component';
 import { TermConditionComponent } from './term-condition/term-condition.component';
 import { BookmarkComponent } from './bookmark/bookmark.component';
 
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { DateFormatPipe } from 'src/app/_helpers/DateFormatPipe';
 // import { CustomReuseStrategy, Routing } from './shared/routing';
 
 @NgModule({
@@ -168,7 +173,7 @@ import { BookmarkComponent } from './bookmark/bookmark.component';
       GamesComponent,
       TermConditionComponent,
       BookmarkComponent,
-
+      DateFormatPipe,
 
   ],
   imports: [
@@ -187,6 +192,10 @@ import { BookmarkComponent } from './bookmark/bookmark.component';
     SlickCarouselModule,
     NgxSkeletonLoaderModule.forRoot(), 
     ConnectionServiceModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatFormFieldModule,
+    MatInputModule,
     // EventModule,
   ],
   providers: [ DatePipe,
@@ -202,17 +211,26 @@ import { BookmarkComponent } from './bookmark/bookmark.component';
       providers: [
         {
           id: GoogleLoginProvider.PROVIDER_ID,
+          // MCCC
+          // Client ID : 727905192800-hp1qn4bal47d4243tibbq4ie4dnnf4ih.apps.googleusercontent.com
           provider: new GoogleLoginProvider(
-            '733441649382-gkoiqopf4lvf3edcdvjoj5jvhn9a0531.apps.googleusercontent.com'
+            '727905192800-hp1qn4bal47d4243tibbq4ie4dnnf4ih.apps.googleusercontent.com'
           )
         },{
           id: FacebookLoginProvider.PROVIDER_ID,
+          // App Name : MCCCWD
+          // App id : 629080598116548
+          // this is the web platform App ID
+          // Site url : https://mcccapp.in/
+
+
+          // test app
+          // App id : 908282646448240
+          // App Name : MCCCWD-aws
+
           provider: new FacebookLoginProvider(
-            '390016662788825'
-          )
-          // provider: new FacebookLoginProvider(
-          //   '132519988987129'
-          // )
+            '629080598116548'
+          )          
         }
       ]
     } as SocialAuthServiceConfig,

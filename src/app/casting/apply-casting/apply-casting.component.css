@@ -117,3 +117,6 @@ image-cropper {
 @media only screen and (max-width: 320px) {
     .upload-img .box { min-width: 70px;}
 }
+.modal-body .error {
+    color: red;
+}

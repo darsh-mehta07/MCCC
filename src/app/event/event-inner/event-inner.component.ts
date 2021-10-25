@@ -4,6 +4,7 @@ import { DashboardService } from 'src/app/_service/dashboard.service';
 import { ActivatedRoute, Router,ParamMap } from '@angular/router';
 import { Config } from 'src/app/_config/config';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import { NotificationService } from 'src/app/_service/notification.service';
 
 @Component({
   selector: 'app-event-inner',
@@ -24,7 +25,7 @@ export class EventInnerComponent implements OnInit {
   bmkStatus:any;
   checkData: any;
   prevDate: boolean = true;
-  constructor(public datepipe: DatePipe,private actRoute:ActivatedRoute,
+  constructor(private notifyService : NotificationService,public datepipe: DatePipe,private actRoute:ActivatedRoute,
     private route : Router,private location:Location,private dashboardService : DashboardService) { }
 
   ngOnInit(): void {
@@ -77,13 +78,15 @@ export class EventInnerComponent implements OnInit {
         this.bmkStatus = this.resData.data[0];
         if(this.bmkStatus === 'Bookmark removed'){
           this.bookmarks = 0;
+          this.notifyService.showSuccess("Bookmark removed", "")
 
         }else if(this.bmkStatus === 'Bookmark Added'){
           this.bookmarks = 1;
+          this.notifyService.showSuccess("Bookmark Added", "")
         }
-        // this.showToasterSuccess();      
+            
       });
-  }
+  } 
   
   
 isDatesEqual(date1:any, date2:any) {

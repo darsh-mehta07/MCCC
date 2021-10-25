@@ -29,11 +29,11 @@
     color: hsl(6deg 88% 68%);
     border-bottom: 1px solid hsl(6deg 88% 68%);
 }
-#tb2 a:hover {
+#tb2 a.active {
     color: hsl(89deg 47% 66%);
     border-bottom: 1px solid hsl(89deg 47% 66%);
 }
-#tb3 a:hover {
+#tb3 a.active {
     color: hsl(43deg 86% 61%);
     border-bottom: 1px solid hsl(43deg 86% 61%);
 }

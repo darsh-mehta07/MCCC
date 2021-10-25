@@ -50,12 +50,12 @@
               <h4>{{onGoing.location | titlecase}}</h4>
             </div>
             <div class="details-icons">
-              <i class="fa fa-clock-o" aria-hidden="true"></i> 
-              <h4>{{onGoing.start_date | date: 'MMM d, y'}}</h4>
+              <i class="fa fa-calendar" aria-hidden="true"></i>               
+              <h4>{{onGoing.start_dt}}</h4>
             </div>
             <div class="details-icons">
-              <i class="fa fa-calendar" aria-hidden="true"></i>
-              <h4>{{onGoing.start_date | date:"h:mm a"}}</h4>
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              <h4>{{onGoing.start_time}}</h4>
             </div>
             </div>
             </div>
@@ -105,12 +105,12 @@
           <h4>{{upcoming.location | titlecase}}</h4>
         </div>
         <div class="details-icons">
-          <i class="fa fa-clock-o" aria-hidden="true"></i> 
-          <h4>{{upcoming.start_date | date : "MMM,d,y"}}</h4>
+          <i class="fa fa-calendar" aria-hidden="true"></i> 
+          <h4>{{upcoming.start_dt}}</h4>
         </div>
         <div class="details-icons">
-          <i class="fa fa-calendar" aria-hidden="true"></i>
-          <h4>{{upcoming.start_date | date : "h:mm a"}}</h4>
+          <i class="fa fa-clock-o" aria-hidden="true"></i>
+          <h4>{{upcoming.start_time}}</h4>
         </div>
         </div>
         </div>
@@ -162,12 +162,12 @@
           <h4>{{eventforu.location | titlecase}}</h4>
         </div>
         <div class="details-icons">
-          <i class="fa fa-clock-o" aria-hidden="true"></i> 
-          <h4>{{eventforu.start_date | date:"MMM,d,y"}}</h4>
+          <i class="fa fa-calendar" aria-hidden="true"></i> 
+          <h4>{{eventforu.start_dt}}</h4>
         </div>
         <div class="details-icons">
          <i class="fa fa-clock-o" aria-hidden="true"></i>
-          <h4>{{eventforu.start_date | date:"h:mm a"}}</h4>
+          <h4>{{eventforu.start_time}}</h4>
         </div>
       </div>
     </div>

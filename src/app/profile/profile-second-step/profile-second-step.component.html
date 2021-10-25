@@ -25,13 +25,15 @@
                             <input type="file" id="files" formControlName="files" (change)="onFileChange($event)"/>
                             <span class="btn">Choose</span>
                             <span id="fileName">No file Selected</span>
+                            
                         </label>
+                        <div class="error" *ngIf="fileSizeaInKB">Please Select file less then 2 MB</div>
                     </div>
                     <div class="btom_file">
                         <div class="profileImg_area">
                             <video [src]="url" *ngIf="format==='video' && url" height="200" controls></video>
                         </div>
-                        <button *ngIf="format==='video'" class="next_btn">Next </button>
+                        <button *ngIf="format==='video' && fileSelected && !fileSizeaInKB" class="next_btn">Next </button>
                     </div>
                 </form>
             </div>

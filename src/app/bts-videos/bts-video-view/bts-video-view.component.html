@@ -40,9 +40,9 @@
                         <div class="icon"><img src="../../assets/img/play.png"></div>
                     </a>
                     <div class="more-txt">
-                        <a [routerLink]="['/bts-video-view/',data.id,btsCategoryId]"><h3 >{{data.title}}</h3></a>
+                        <a [routerLink]="['/bts-video-view/',data.id,btsCategoryId]"><h3 >{{data.title | titlecase}}</h3></a>
                         <!-- <p>{{data.description}}</p> -->
-                            <p [innerHTML]="data.description.substr(0, 35)">  </p>
+                            <p [innerHTML]="data.description.substr(0, 35) | titlecase">  </p>
                             <a [routerLink]="['/bts-video-view/',data.id,btsCategoryId]" class="read-more"> More...</a>
                     </div>
                 </li>

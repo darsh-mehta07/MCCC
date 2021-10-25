@@ -56,6 +56,7 @@ export class CastingAllComponent implements OnInit {
         this.resData = res;        
         this.castings = this.resData.data;  
         if(this.castings.length > 0){
+          console.log(this.castingData);
           this.castingData = false;
         } 
       });
@@ -105,7 +106,7 @@ export class CastingAllComponent implements OnInit {
       });
   }
   showToasterSuccess(){
-    this.notifyService.showSuccess("Data saved successfully !!", "")
+    this.notifyService.showSuccess("Casting Call saved successfully !!", "")
 }
  
 showToasterError(){

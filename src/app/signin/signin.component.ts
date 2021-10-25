@@ -58,6 +58,24 @@ export class SigninComponent implements OnInit {
                     if(data.profileStatus === 'false'){
                       this.router.navigate(['/profile_first_step']);
                     }else{
+                      sessionStorage.setItem('name',data.userDetails.name);
+                      sessionStorage.setItem('dob',data.userDetails.dob);
+                      if(data.userDetails.height != null && data.userDetails.height != ''){
+                      sessionStorage.setItem('height',data.userDetails.height);
+                      }
+                      sessionStorage.setItem('phone',data.userDetails.phone);
+                      if(data.userDetails.language_id != null && data.userDetails.language_id != ''){
+                      sessionStorage.setItem('language_id',data.userDetails.language_id);
+                      }
+                      sessionStorage.setItem('city_id',data.userDetails.city_id);
+                      sessionStorage.setItem('city',data.userDetails.city);
+                      sessionStorage.setItem('state_id',data.userDetails.state_id);
+                      if(data.userDetails.home_town != null && data.userDetails.home_town != ''){
+                        sessionStorage.setItem('home_town',data.userDetails.home_town);
+                      }
+                      if(data.userDetails.hobbies != null && data.userDetails.hobbies != ''){
+                        sessionStorage.setItem('hobbies',data.userDetails.hobbies);
+                      }
                       this.router.navigate(['/home']);
                     }
                   }
@@ -66,6 +84,19 @@ export class SigninComponent implements OnInit {
                   this.alertService.error(error);
                   this.loading = false;
                 });
+  }
+  signup(){
+    sessionStorage.removeItem('name');
+    sessionStorage.removeItem('email');
+    sessionStorage.removeItem('phone');
+    sessionStorage.removeItem('otp');
+    sessionStorage.removeItem('gender');
+    sessionStorage.removeItem('dob');
+    sessionStorage.removeItem('state');
+    sessionStorage.removeItem('city');
+    sessionStorage.removeItem('password');
+    sessionStorage.removeItem('confirm_password');
+    this.router.navigate(['/signup-name']);
   }
 
 }
