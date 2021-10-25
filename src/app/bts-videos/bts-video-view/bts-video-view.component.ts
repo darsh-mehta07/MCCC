@@ -62,7 +62,7 @@ export class BtsVideoViewComponent implements OnInit {
                     }); 
     
   }
-  back(): void {
+  back(){
     this.location.back()
   }
 

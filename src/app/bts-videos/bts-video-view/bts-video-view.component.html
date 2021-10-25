@@ -2,7 +2,7 @@
     <div class="scrolling">
         <div class="bts_video" >
         <div class="top_txt">
-            <a [routerLink]="['/bts-video']"><img src="../assets/img/back2.png"></a>
+            <a (click)="back()"><img src="../assets/img/back2.png"></a>
             <h3>Videos </h3>
         </div>
         <div class="video-play">
@@ -17,7 +17,7 @@
                         {{desc.substr(0, 29) | titlecase}}
                      <span (click)="expanded = this.BtsVideos[0].id"
                        class="text-green"><b>{{expanded==  this.BtsVideos[0].id ?'View less':'View more'}}</b></span></p>
-                    <p  *ngIf="expanded ==  this.BtsVideos[0].id ">{{desc}}
+                    <p  *ngIf="expanded ==  this.BtsVideos[0].id ">{{desc | titlecase}}
                      <span (click)="expanded = 0"
                        class="text-green"><b>{{expanded==  this.BtsVideos[0].id ?'View less':'View more'}}</b></span></p>
                        <span>{{BtsVideos[0].viewsCount}} views </span>

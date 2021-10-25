@@ -2,7 +2,7 @@
   <app-header></app-header>
   <div class="bkmark">
   <div class="container">
-      <div class="tabs" >
+      <div class="tabs" *ngIf="!bookmarkNoData">
       <h2>Casting Calls
           <hr class="on">
           <hr class="tw">
@@ -12,11 +12,11 @@
       <div class="card-tbs" *ngFor="let bookmark of bookmarkData; let i=index;">
     
                       <div class='dt-tabs'>
-                        <div class="show-hidden-menu">
+                        <!-- <div class="show-hidden-menu">
                           <span></span>
                           <span></span>
                           <span></span>
-                        </div>
+                        </div> -->
                         <!-- <div class="hidden-menu" style="display: none;">
                           <ul>
                             <li>Save</li>
@@ -48,6 +48,13 @@
                           <a href="#">{{tag}}</a>
                         </div>         
                       </div>
+      </div>
+      <div class="item" *ngIf="!loading">
+        <ngx-skeleton-loader count="12"></ngx-skeleton-loader>
+      </div>
+      <div *ngIf="bookmarkNoData && loading" class="no-data">
+        <img src="../../../assets/img/image.png">
+        <h2>No Data Available</h2>
       </div>
   </div>
 </div>

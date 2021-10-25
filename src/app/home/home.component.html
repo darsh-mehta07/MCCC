@@ -219,7 +219,7 @@
           <hr class="on">
           <hr class="tw">
         </h2>
-        <a [routerLink]="['/event/4']">View All</a>
+        <a [routerLink]="['/event/5']">View All</a>
       </div>
       <div class="card-tbs" *ngFor="let upcoming of upcomingsEvents">
         <div *ngIf="upcoming.noData">No Data Found</div>
@@ -278,7 +278,7 @@
           <hr class="on">
           <hr class="tw">
         </h2>
-        <a [routerLink]="['/event/5']">View All</a>
+        <a [routerLink]="['/event/6']">View All</a>
       </div>
       <div class="card-tbs" *ngFor="let eventforu of event_for_u">
         <div *ngIf="eventforu.noData">No Data Found</div>
@@ -454,7 +454,7 @@
               </div>
               <div class="details-icons">
                 <i class="fa fa-calendar" aria-hidden="true"></i>
-                <h4>{{data.start_date}} to {{data.closing_date}}</h4>
+                <h4>{{data.start_date | date:"MMM,d,y"}} to {{data.closing_date | date:"MMM,d,y"}}</h4>
               </div>
            </div>
       </div>
@@ -495,7 +495,7 @@
             </ul>
           </div>
         </div>
-        <h3> (click)="workshopInner(data.id)">{{data.title | titlecase}}</h3>
+        <h3 (click)="workshopInner(data.id)">{{data.title | titlecase}}</h3>
             <p class="toggle-sec">{{data.description}}
               <a (click)="workshopInner(data.id)" class="read-more">More...</a>
             </p>
@@ -510,7 +510,7 @@
               </div>
               <div class="details-icons">
                 <i class="fa fa-calendar" aria-hidden="true"></i>
-                <h4>{{data.start_date}} to {{data.closing_date}}</h4>
+                <h4>{{data.start_date | date:"MMM,d,y" }} to {{data.closing_date | date:"MMM,d,y"}}</h4>
               </div>
            </div>
       </div>
@@ -561,7 +561,7 @@
               </div>
               <div class="details-icons">
                 <i class="fa fa-calendar" aria-hidden="true"></i>
-                <h4>{{data.start_date}} to {{data.closing_date}}</h4>
+                <h4>{{data.start_date | date:"MMM,d,y"}} to {{data.closing_date | date:"MMM,d,y"}}</h4>
               </div>
            </div>
         </div>

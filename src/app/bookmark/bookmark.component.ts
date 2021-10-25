@@ -11,6 +11,7 @@ export class BookmarkComponent implements OnInit {
   bookmarkData: any;
   catId:any;
   pageName = 'bookmark';
+  bookmarkNoData : boolean = true;
   constructor(private dashboardService:DashboardService,
     private route : Router,) { }
 
@@ -20,6 +21,9 @@ export class BookmarkComponent implements OnInit {
         .subscribe(res => {
           this.loading = true;
               this.bookmarkData = res.data;
+              if(this.bookmarkData.length > 0){
+                this.bookmarkNoData = false;
+              }
               console.log(this.bookmarkData);
         });
   }

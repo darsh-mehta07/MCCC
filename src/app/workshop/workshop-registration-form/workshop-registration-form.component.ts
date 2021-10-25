@@ -14,6 +14,7 @@ import { AbstractControl, FormGroup, FormBuilder, Validators,FormControl } from 
   styleUrls: ['./workshop-registration-form.component.css']
 })
 export class WorkshopRegistrationFormComponent implements OnInit {
+  pageName = "Workshop";
   id: any;
   type:any;
   bgImage: any;

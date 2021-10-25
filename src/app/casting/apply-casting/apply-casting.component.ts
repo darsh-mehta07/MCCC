@@ -201,11 +201,11 @@ export class ApplyCastingComponent implements OnInit {
     }
   }  
   save(){
-    
     this.submitted = true;
     if (this.form.invalid) {
       return;
     }else{
+      
       if(this.newVideoAdded){
         console.log('newVideoAdded');
            this.videoArray = null;
@@ -213,15 +213,15 @@ export class ApplyCastingComponent implements OnInit {
       }
       this.loading = false;
       let totalimg = this.imgArray.length+this.cropimages.length; 
-      if(this.videoArray!= null && this.videoArray.videos != '' && this.videoArray.videos != null){
+      if(this.videoArray!= null){
         this.oldvideo = 1;
       }else{
         this.oldvideo = 0;
       }
       let totalvideo = this.videos.length + this.oldvideo;
-
+      
       if(totalimg < 7 && totalvideo == 1){
-        
+        console.log('213123');
         this.patchOldImageValues();
         this.patchOldVideoValues();
         this.patchSaveValues();
