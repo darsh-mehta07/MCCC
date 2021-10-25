@@ -39,6 +39,8 @@ export class VideoComponent implements OnInit {
   submitted = false;
   uploading:boolean=false;
   active:any=0;
+  fileSizeaInKB : boolean = false;
+  fileselected : boolean = false;
   baseUrl :string = Config.Host+'backend2/';
   videoPath = this.baseUrl+'public/uploads/UserVideos/';
   constructor(  private modalService: NgbModal,private notification : NotificationService,private formBuilder: FormBuilder,private location:Location,private route:Router,
@@ -136,7 +138,10 @@ export class VideoComponent implements OnInit {
       this.newVideoAdded = true;      
       this.videosaved = [];
     }
+
     closevideomodel(content:any) {
+      this.fileselected = false;
+      this.fileSizeaInKB = false;
       this.videosaved = [];
       // this.videos = [];
       this.modalService.dismissAll(content);
@@ -150,8 +155,10 @@ export class VideoComponent implements OnInit {
       });
     }
     onVideoFileChange(event: any){
+      this.fileSizeaInKB = false;
       let newVideo :string [] = [];
       if (event.target.files && event.target.files[0]) {
+        this.fileselected = true;
         const file = event.target.files && event.target.files[0];
         var filesAmount = event.target.files.length;
         for (let i = 0; i < filesAmount; i++) {
@@ -161,6 +168,12 @@ export class VideoComponent implements OnInit {
             // this.alertService.error('please select mp4 video', true);
           } else if (file.type.indexOf('video') > -1) {
             this.format = 'video';
+            const fileSizeInKB = Math.round(file.size / 1024);
+            if(fileSizeInKB > 2048){
+              this.fileSizeaInKB = true;
+            }
+            console.log('size', file.size);
+            console.log('type', file.type);
           }
           reader.onload = (event: any) => {
             this.url = (<FileReader>event.target).result;

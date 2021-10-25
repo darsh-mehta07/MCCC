@@ -9,10 +9,10 @@
         </div>
         <div class="form_inner ">
           <h2>{{workshopData.title}}       
-            <hr class="on">
-            <hr class="tw">
+            <!-- <hr class="on">
+            <hr class="tw"> -->
           </h2>
-          <h5>{{workshopData.description}}</h5>
+          <h5 [innerHTML]="workshopData.description"></h5>
           <p>
              <i class="fa fa-calendar" aria-hidden="true"></i>
              {{eventDate }} 

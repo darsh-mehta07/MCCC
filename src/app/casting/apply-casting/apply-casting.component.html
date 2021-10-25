@@ -10,7 +10,7 @@
       <div class="upper-txt">
         <h4>Submit Your Details</h4>
         <h2>{{casting_title | titlecase}}</h2>
-        <h3>Date: {{casting_date | date:'mediumDate'}}</h3>
+        <h3>Date: {{casting_date}}</h3>
       </div>
       <div class="form_areas">
         <form [formGroup]="form">
@@ -40,14 +40,14 @@
 
           <label>Home Town<span class="text-danger">*</span></label>
           <input type="text" formControlName="home_town" placeholder="type here"
-            [ngClass]="{ 'is-invalid': submitted && f.home_town.errors }" >
+            [ngClass]="{ 'is-invalid': submitted && f.home_town.errors }" readonly>
             <div *ngIf="submitted && f.home_town.errors" class="invalid-feedback">
               <div *ngIf="f.home_town.errors.required">Home Town is required</div>
             </div>
 
           <label>Hobbies<span class="text-danger">*</span></label>
           <input type="text" formControlName="hobbies" placeholder="type here"
-            [ngClass]="{ 'is-invalid': submitted && f.hobbies.errors }" >
+            [ngClass]="{ 'is-invalid': submitted && f.hobbies.errors }" readonly>
             <div *ngIf="submitted && f.hobbies.errors" class="invalid-feedback">
               <div *ngIf="f.hobbies.errors.required">Hobbies is required</div>
             </div>
@@ -68,11 +68,11 @@
                   </div>
                 </div>
               </div>
-              <div class="box" *ngFor='let url of cropimages; let j=index;'>
+              <div class="box" *ngFor='let url of scropimages; let j=index;'>
                 <img class="js--image-preview" [src]="url" />
                 <div class="upload-options">
                   <div class='multi-field'>
-                    <button type="button" class="close" (click)="removeSelectedImage(url)">X</button>
+                    <button type="button" class="close" (click)="removeSelectedImages(url)">X</button>
                   </div>
                 </div>
               </div>
@@ -133,7 +133,7 @@
     <div class="crooping-modal"> 
       <div class="modal-header">
         <h4 class="modal-title" id="modal-basic-title">Select More Photos</h4>
-        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <button type="button" class="close" aria-label="Close" (click)="closeimgmodel(null)">
           <span aria-hidden="true">×</span>
         </button>     
   </div>
@@ -177,7 +177,7 @@
     <div class="crooping-modal"> 
     <div class="modal-header">
       <h4 class="modal-title" id="modal-basic-title">Select More Video</h4>
-        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <button type="button" class="close" aria-label="Close" (click)="closevideomodel('close click')">
           <span aria-hidden="true">×</span>
         </button>
   </div>
@@ -185,6 +185,7 @@
       <div class="form-group">
         <div class="input-group">
           <input type="file" class="image-upload" accept="video/*" (change)="onVideoFileChange($event)" />
+          <div class="error" *ngIf="fileSizeaInKB">Please Select file less then 2 MB</div>
         </div>
       </div>
       <hr>
@@ -204,7 +205,7 @@
     </div>
     <div class="modal-footer">
       <button type="button" class="btn btn-secondary" (click)="closevideomodel('close click')">Close</button>
-      <button type="button" class="btn btn-primary" (click)="savevideomodel('close click')">Save changes</button>
+      <button *ngIf="!fileSizeaInKB && fileSelected" type="button" class="btn btn-primary" (click)="savevideomodel('close click')">Save changes</button>
   </div>
 </div>
   </ng-template>

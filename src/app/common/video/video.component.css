@@ -37,3 +37,6 @@ button.btn.btn-secondary {
     display: flex;
     justify-content: space-between !important;
 }
+.modal-body .error {
+    color: red;
+}

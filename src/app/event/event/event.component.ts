@@ -51,9 +51,9 @@ export class EventComponent implements OnInit {
         this.appEvents = this.resData.data;   
         this.on_going = this.resData.data.on_going;
         this.upcomings = this.resData.data.upcoming;
-        console.log(this.upcomings);
+        // console.log(this.upcomings);
         this.event_for_u = this.resData.data.event_for_u;
-        console.log(this.event_for_u);
+        // console.log(this.event_for_u);
       });
   }
   eventInner(id:any){

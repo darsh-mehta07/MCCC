@@ -34,3 +34,8 @@ button.btn.btn-secondary {
     display: flex;
     justify-content: space-between;
 }
+.profile-dtl .pht .upload-options {
+    height: 110px;
+    bottom: 110px;
+    position: relative;
+}

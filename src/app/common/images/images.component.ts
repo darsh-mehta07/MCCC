@@ -141,8 +141,13 @@ export class ImagesComponent implements OnInit {
       this.imageChangedEvent = null; //reset the image changes event
       this.cropedfile = null; // reset the croped file
     }
-    removeSelectedImage(url:any){    
+    removeSelectedImages(url:any){    
       this.cropimages = this.cropimages.filter(img => (img != url));
+      this.patchValues();
+    }
+    removeSelectedImage(url:any){    
+      this.savedimages = this.savedimages.filter(img => (img != url));
+      this.cropimages = this.savedimages;
       this.patchValues();
     }
     open(content:any) {
@@ -181,29 +186,30 @@ saveImage(){
   this.saveimgmodel('save');   
   this.savedimages = [];// reset the variable
   this.saveCropImage = false; // save button disabled     
-  this.imageChangedEvent = null; //reset the image changes event
-  this.cropedfile = null; // reset the croped file               
+  // this.imageChangedEvent = null; //reset the image changes event
+  // this.cropedfile = null; // reset the croped file               
 }
 cropImage(){
 const file = this.cropedfile;
   var filesAmount = 1;
         for (let i = 0; i < filesAmount; i++) {
                 var reader = new FileReader();  
-                if(file.type.indexOf('image')> -1){
-                  this.format = 'image';
-                } else if(file.type.indexOf('video')> -1){
-                    this.alertService.error('please select image',true);
-                  this.format = 'video';
-                } 
+                // if(file.type.indexOf('image')> -1){
+                //   this.format = 'image';
+                // } else if(file.type.indexOf('video')> -1){
+                //     this.alertService.error('please select image',true);
+                //   this.format = 'video';
+                // } 
                 reader.onload = (event:any) => {
                   this.url = (<FileReader>event.target).result;
-                  if(this.cropimages.length < 3){
+                  if(this.savedimages.length < 3){
                   //  this.cropimages.push(event.target.result); 
                    this.savedimages.push(event.target.result);   
+                   console.log("savedimages : ",this.savedimages);
                    this.patchValues();
                    this.saveCropImage = true;
-                   if(this.cropimages.length == 3){
-                    this.saveimgmodel('save');
+                   if(this.savedimages.length == 3){
+                    // this.saveimgmodel('save');
                     this.imageChangedEvent ='';                     
                    }
                   }

@@ -93,6 +93,11 @@ import { GamesComponent } from './games/games.component';
 import { TermConditionComponent } from './term-condition/term-condition.component';
 import { BookmarkComponent } from './bookmark/bookmark.component';
 
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { DateFormatPipe } from 'src/app/_helpers/DateFormatPipe';
 // import { CustomReuseStrategy, Routing } from './shared/routing';
 
 @NgModule({
@@ -168,7 +173,7 @@ import { BookmarkComponent } from './bookmark/bookmark.component';
       GamesComponent,
       TermConditionComponent,
       BookmarkComponent,
-
+      DateFormatPipe,
 
   ],
   imports: [
@@ -187,6 +192,10 @@ import { BookmarkComponent } from './bookmark/bookmark.component';
     SlickCarouselModule,
     NgxSkeletonLoaderModule.forRoot(), 
     ConnectionServiceModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatFormFieldModule,
+    MatInputModule,
     // EventModule,
   ],
   providers: [ DatePipe,

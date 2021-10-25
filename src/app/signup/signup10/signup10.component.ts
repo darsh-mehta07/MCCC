@@ -98,8 +98,8 @@ export class Signup10Component implements OnInit {
                     this.route.navigate(['/signup-success']);
                 },
                 error => {
-                  // console.log('Registration successful',error.error.message);
-                  this.alertService.error(error.error.message,true);
+                  console.log('Registration successful',error);
+                  this.alertService.error(error,true);
                     this.loading = true;
                 });      
     }

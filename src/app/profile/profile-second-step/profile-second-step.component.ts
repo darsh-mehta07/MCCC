@@ -21,6 +21,8 @@ export class ProfileSecondStepComponent implements OnInit {
   url: any;
   responseData: any;
   uploading:boolean=false;
+  fileSizeaInKB : boolean = false;
+  fileSelected : boolean = false;
   constructor(
     private formBuilder: FormBuilder,
     private route: Router,
@@ -54,7 +56,9 @@ export class ProfileSecondStepComponent implements OnInit {
     return this.form.controls;
   }
   onFileChange(event: any) {
+    this.fileSizeaInKB = false;
     if (event.target.files && event.target.files[0]) {
+      this.fileSelected = true;
       const file = event.target.files && event.target.files[0];
       var filesAmount = event.target.files.length;
       for (let i = 0; i < filesAmount; i++) {
@@ -64,6 +68,10 @@ export class ProfileSecondStepComponent implements OnInit {
           this.alertService.error('please select mp4 video', true);
         } else if (file.type.indexOf('video') > -1) {
           this.format = 'video';
+          const fileSizeInKB = Math.round(file.size / 1024);
+            if(fileSizeInKB > 2048){
+              this.fileSizeaInKB = true;
+            }
         }
         reader.onload = (event: any) => {
           this.url = (<FileReader>event.target).result;

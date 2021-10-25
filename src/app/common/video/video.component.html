@@ -60,7 +60,7 @@
   <div class="crooping-modal"> 
   <div class="modal-header">
     <h4 class="modal-title" id="modal-basic-title">Select More Videos</h4>
-      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <button type="button" class="close" aria-label="Close" (click)="closevideomodel('close click')">
         <span aria-hidden="true">×</span>
       </button>
 </div>
@@ -68,6 +68,7 @@
     <div class="form-group">
       <div class="input-group">
         <input type="file" class="image-upload" accept="video/*"  (change)="onVideoFileChange($event)" />
+        <div class="error" *ngIf="fileSizeaInKB">Please Select file less then 2 MB</div>
       </div>
     </div>
     <hr>
@@ -87,7 +88,7 @@
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-secondary" (click)="closevideomodel('close click')">Close</button>
-    <button type="button" class="btn btn-primary" (click)="savevideomodel('close click')">Save changes</button>
+    <button *ngIf="!fileSizeaInKB && fileselected" type="button" class="btn btn-primary" (click)="savevideomodel('close click')">Save changes</button>
 </div>
 </div>
 </ng-template>

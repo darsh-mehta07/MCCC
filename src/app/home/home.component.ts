@@ -270,7 +270,8 @@ export class HomeComponent implements OnInit {
       .subscribe(res => {
         // this.resData = res;        
         // this.callEnding = this.resData.data; 
-        this.showToasterSuccess();      
+        // this.showToasterSuccess(); 
+        this.notifyService.showSuccess("Casting Call saved successfully !!", "")     
       });
   }
   deleteUser(id: number) {
@@ -303,6 +304,18 @@ showToasterWarning(){
 }
 eventInner(id:any){
   this.route.navigate(['event-inner',id]);
+}
+bookmarkEvent(id:any){
+  this.dashboardService.bookmarkWorkshopEvents({event_id:id,type:'event'})
+    .subscribe(res => {
+      this.notifyService.showSuccess("Event saved successfully !!", "")    
+    });
+}
+bookmarkWorkshop(id:any){
+  this.dashboardService.bookmarkWorkshopEvents({event_id:id,type:'workshop'})
+    .subscribe(res => {
+      this.notifyService.showSuccess("Workshop saved successfully !!", "")    
+    });
 }
 
 }

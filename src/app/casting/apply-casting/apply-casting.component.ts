@@ -3,7 +3,7 @@ import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { Config } from 'src/app/_config/config';
 import { AuthenticationService } from 'src/app/_service/authentication.service';
 import { DashboardService } from 'src/app/_service/dashboard.service';
-import { Location } from '@angular/common';
+import { DatePipe, Location } from '@angular/common';
 import { first } from 'rxjs/operators';
 import { AbstractControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AlertService } from 'src/app/_service/alert.service';
@@ -37,6 +37,7 @@ export class ApplyCastingComponent implements OnInit {
   
 
   cropimages : string[] = [];
+  scropimages : string[] = [];
   imageChangedEvent: any = '';
     croppedImage: any = '';
     canvasRotation = 0;
@@ -57,6 +58,8 @@ export class ApplyCastingComponent implements OnInit {
     thrvidbox :boolean = true;
     saveCropImage : boolean = false;
     newVideoAdded:boolean = false;
+    fileSizeaInKB : boolean = false;
+    fileSelected :boolean = false;
   constructor(
     private actRoute:ActivatedRoute,
     private route : Router,
@@ -67,6 +70,7 @@ export class ApplyCastingComponent implements OnInit {
     private alertService: AlertService,
     private modalService: NgbModal,
     private notification : NotificationService,
+    
     ) {
       this.dashboardService.listen().subscribe((e:any)=>{
         this.ngOnInit();
@@ -257,6 +261,8 @@ export class ApplyCastingComponent implements OnInit {
     this.modalService.dismissAll(content);
   }
   closevideomodel(content:any) {
+    this.fileSizeaInKB = false;
+    this.fileSelected = false;
     this.newVideoAdded = false;
     this.videos = [];
     this.modalService.dismissAll(content);
@@ -303,8 +309,10 @@ export class ApplyCastingComponent implements OnInit {
   }
 
   onVideoFileChange(event: any){
+    this.fileSizeaInKB = false;
     let newVideo :string [] = [];
       if (event.target.files && event.target.files[0]) {
+        this.fileSelected = true;
         const file = event.target.files && event.target.files[0];
         var filesAmount = event.target.files.length;
         for (let i = 0; i < filesAmount; i++) {
@@ -314,6 +322,10 @@ export class ApplyCastingComponent implements OnInit {
             this.alertService.error('please select mp4 video', true);
           } else if (file.type.indexOf('video') > -1) {
             this.format = 'video';
+            const fileSizeInKB = Math.round(file.size / 1024);
+            if(fileSizeInKB > 2048){
+              this.fileSizeaInKB = true;
+            }
           }
           reader.onload = (event: any) => {
             this.url = (<FileReader>event.target).result;
@@ -342,10 +354,16 @@ export class ApplyCastingComponent implements OnInit {
       });
       this.threeimgerror = false;
     }
-    removeSelectedImage(url:any){  
+    removeSelectedImages(url:any){  
       this.threeimgerror = false;  
       this.cropimages = this.cropimages.filter(img => (img != url));
-      // this.patchValues();
+      this.patchValues();
+    }
+    removeSelectedImage(url:any){  
+      this.threeimgerror = false;  
+      this.scropimages = this.scropimages.filter(img => (img != url));
+      this.cropimages = this.scropimages;
+      this.patchValues();
     }
     removePrimaryVideo() {
       console.log('removeprimaryvideo');
@@ -365,8 +383,11 @@ export class ApplyCastingComponent implements OnInit {
     
 }
 saveImage(){     
+  this.scropimages = this.cropimages;
   this.patchValues();                     
   this.saveimgmodel('save');
+  this.cropimages = [];
+  // this.scropimages = [];
   this.imageChangedEvent ='';                   
 }
 cropImage(){
@@ -387,7 +408,7 @@ cropImage(){
                      this.patchValues();
                      this.saveCropImage = true;
                      if(this.cropimages.length == 3){
-                      this.saveimgmodel('save');
+                      // this.saveimgmodel('save');
                       this.imageChangedEvent ='';                     
                      }
                     }
@@ -395,6 +416,7 @@ cropImage(){
                   reader.readAsDataURL(this.cropedfile);
           }
           this.imageChangedEvent = null;
+          this.cropedfile = null;
 }
 imageLoaded() {
     this.showCropper = true;

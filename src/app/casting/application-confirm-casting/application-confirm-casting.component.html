@@ -10,7 +10,7 @@
         <div class="form_areas">
           <h2>Confirm Details</h2>
           <h3>{{casting_title | titlecase}}</h3>
-          <h4>Date: {{casting_date | date:'mediumDate'}}</h4>
+          <h4>Date: {{casting_date}}</h4>
           <form [formGroup]="form" (ngSubmit)="submit()">
           <label>First Name<span class="text-danger">*</span></label>
           <input type="text" formControlName="name" readonly>

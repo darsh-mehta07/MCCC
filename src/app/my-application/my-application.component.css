@@ -1,8 +1,9 @@
 .appli .form_areas {
     position: absolute;
     top: 10%;
-    height: auto;
+    height: 100%;
     padding-bottom: 100px;
+    height: auto;
 }
 .appl h3 {
     color: hsl(7deg 88% 68%);

@@ -107,4 +107,17 @@ export class WelcomeComponent implements OnInit {
   signOut(): void {
     this.socialAuthService.signOut();
   }
+  signup(){
+    sessionStorage.removeItem('name');
+    sessionStorage.removeItem('email');
+    sessionStorage.removeItem('phone');
+    sessionStorage.removeItem('otp');
+    sessionStorage.removeItem('gender');
+    sessionStorage.removeItem('dob');
+    sessionStorage.removeItem('state');
+    sessionStorage.removeItem('city');
+    sessionStorage.removeItem('password');
+    sessionStorage.removeItem('confirm_password');
+    this.route.navigate(['/signup-name']);
+  }
 }

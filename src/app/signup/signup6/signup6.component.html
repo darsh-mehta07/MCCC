@@ -10,14 +10,28 @@
       <h2>When's your birthday? </h2>      
     <form [formGroup]="form" (ngSubmit)="submit()">
       <label>Enter Date of Birth</label>
-        <div class="form-group">
+        <!-- <div class="form-group">
           <input type="text" placeholder="Birth Date" onfocus="(this.type='date')" onblur="if(this.value==''){this.type='text'}" autofocus formControlName="dob" maxlength="10" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.dob.errors }"/>
           <div *ngIf="submitted && f.dob.errors" class="invalid-feedback">
             <div *ngIf="f.dob.errors.required">Date of Birth is required</div>  
             <div *ngIf="f.dob.errors.lessthen13">Your age is bellow 13 years</div>
             <div *ngIf="f.dob.errors.above54">Your age is above 54 years</div>          
           </div> 
-        </div>
+        </div> -->
+        <div class="form-group">
+        <mat-form-field appearance="fill">
+          <mat-label>Date of Birth (dd/mm/yyyy)</mat-label>
+          <input matInput [matDatepicker]="dp" formControlName="dob" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.dob.errors }">
+          
+          <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+          <mat-datepicker #dp></mat-datepicker>
+          <div *ngIf="submitted && f.dob.errors" class="invalid-feedback">
+            <div *ngIf="f.dob.errors.required">Date of Birth is required</div>  
+            <div *ngIf="f.dob.errors.lessthen13">Your age is bellow 13 years</div>
+            <div *ngIf="f.dob.errors.above54">Your age is above 54 years</div>          
+          </div>
+        </mat-form-field>        
+      </div>
         <div class="nt-btn">
           <button class="fw-btn">Next <i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>
         </div>

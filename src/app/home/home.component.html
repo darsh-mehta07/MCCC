@@ -67,7 +67,7 @@
           </div>
         </div>
 
-        <div class="card-btn">
+        <div class="card-btn" *ngIf="casting.tags.length > 0">
           <div class="slide-btn" *ngFor="let tag of casting.tags;">
             <a>{{tag}}</a>
           </div>         
@@ -122,7 +122,7 @@
               <h4>{{casting.location}}</h4>
             </div>
           </div>  
-          <div class="card-btn">
+          <div class="card-btn" *ngIf="casting.tags.length > 0">
             <div class="slide-btn" *ngFor="let tag of casting.tags;">
               <a>{{tag}}</a>
             </div>
@@ -178,7 +178,7 @@
             <h4>{{casting.location}}</h4>
           </div>
         </div>
-        <div class="card-btn">
+        <div class="card-btn" *ngIf="casting.tags.length > 0">
           <div class="slide-btn" *ngFor="let tag of casting.tags;">
             <a>{{tag}}</a>
           </div>
@@ -224,29 +224,24 @@
       <div class="card-tbs" *ngFor="let upcoming of upcomingsEvents">
         <div *ngIf="upcoming.noData">No Data Found</div>
         <div *ngIf="!upcoming.noData">
-        <div class="more">
-          <button id="more-btn" class="more-btn">
-            <span class="more-dot"></span>
-            <span class="more-dot"></span>
-            <span class="more-dot"></span>
-          </button>
-          <div class="more-menu">
-            <div class="more-menu-caret">
-              <div class="more-menu-caret-outer"></div>
-              <div class="more-menu-caret-inner"></div>
+          <div class='dt-tabs'>
+            <div class="show-hidden-menu" (click)="clickEvent(upcoming.id)">
+              <span></span>
+              <span></span>
+              <span></span>
             </div>
-            <ul class="more-menu-items" tabindex="-1" role="menu" aria-labelledby="more-btn" aria-hidden="true">
-              <li class="more-menu-item" role="presentation">
-                <button type="button" class="more-menu-btn" role="menuitem">Save</button>
-              </li>
-              <li class="more-menu-item" role="presentation">
-                <button type="button" class="more-menu-btn" role="menuitem">Share</button>
-              </li>
-            </ul>
+            <div class="hidden-menu" *ngIf="status && upcoming.id == cardnum ? 'active':''">
+              <div class="arrow">
+                <i class="fa fa-caret-up" aria-hidden="true"></i>
+            </div>
+              <ul>
+                <li (click)="bookmarkEvent(upcoming.id)">Save</li>
+                <!-- <li>Share</li> -->
+              </ul>
+            </div>
           </div>
-        </div>
         <h3 (click)="eventInner(upcoming.id)">Title: {{upcoming.title | titlecase}}</h3>
-        <p class="toggle-sec">{{upcoming.description}}
+        <p class="toggle-sec" [innerHTML]="upcoming.description.substr(0, 50)">
           <a (click)="eventInner(upcoming.id)">More</a>
         </p>
         <div class="details">
@@ -256,11 +251,11 @@
           </div>
           <div class="details-icons">
             <i class="fa fa-calendar" aria-hidden="true"></i>
-            <h4>{{upcoming.start_date | date : "MMM,d,y"}}</h4>
+            <h4>{{upcoming.start_dt}}</h4>
           </div>
           <div class="details-icons">
             <i class="fa fa-clock-o" aria-hidden="true"></i>
-            <h4>{{upcoming.start_date | date : "h:mm a"}}</h4>
+            <h4>{{upcoming.start_time}}</h4>
           </div>
         </div>
         </div>
@@ -283,29 +278,24 @@
       <div class="card-tbs" *ngFor="let eventforu of event_for_u">
         <div *ngIf="eventforu.noData">No Data Found</div>
         <div *ngIf="!eventforu.noData">
-        <div class="more">
-          <button id="more-btn" class="more-btn">
-            <span class="more-dot"></span>
-            <span class="more-dot"></span>
-            <span class="more-dot"></span>
-          </button>
-          <div class="more-menu">
-            <div class="more-menu-caret">
-              <div class="more-menu-caret-outer"></div>
-              <div class="more-menu-caret-inner"></div>
+          <div class='dt-tabs'>
+            <div class="show-hidden-menu" (click)="clickEvent(eventforu.id)">
+              <span></span>
+              <span></span>
+              <span></span>
             </div>
-            <ul class="more-menu-items" tabindex="-1" role="menu" aria-labelledby="more-btn" aria-hidden="true">
-              <li class="more-menu-item" role="presentation">
-                <button type="button" class="more-menu-btn" role="menuitem">Save</button>
-              </li>
-              <li class="more-menu-item" role="presentation">
-                <button type="button" class="more-menu-btn" role="menuitem">Share</button>
-              </li>
-            </ul>
+            <div class="hidden-menu" *ngIf="status && eventforu.id == cardnum ? 'active':''">
+              <div class="arrow">
+                <i class="fa fa-caret-up" aria-hidden="true"></i>
+            </div>
+              <ul>
+                <li (click)="bookmarkEvent(eventforu.id)">Save</li>
+                <!-- <li>Share</li> -->
+              </ul>
+            </div>
           </div>
-        </div>
         <h3 (click)="eventInner(eventforu.id)">Title: {{eventforu.title | titlecase}}</h3>
-        <p class="toggle-sec">{{eventforu.description}}
+        <p class="toggle-sec" [innerHTML]="eventforu.description.substr(0, 50)">
           <a (click)="eventInner(eventforu.id)">More</a>
         </p>
         <div class="details">
@@ -314,12 +304,12 @@
             <h4>{{eventforu.location | titlecase}}</h4>
           </div>
           <div class="details-icons">
-            <i class="fa fa-clock-o" aria-hidden="true"></i>
-            <h4>{{eventforu.start_date | date : "MMM,d,y"}}</h4>
+            <i class="fa fa-calendar" aria-hidden="true"></i>
+            <h4>{{eventforu.start_dt}}</h4>
           </div>
           <div class="details-icons">
-            <i class="fa fa-calendar" aria-hidden="true"></i>
-            <h4>{{eventforu.start_date | date : "h:mm a"}}</h4>
+            <i class="fa fa-clock-o" aria-hidden="true"></i>
+            <h4>{{eventforu.start_time}}</h4>
           </div>
         </div>
         
@@ -426,21 +416,24 @@
         <a *ngIf="upcomingData != 'No Data' " [routerLink]="['/workshop/1']">View All</a>
       </div>
       <div class="card-tbs" *ngFor="let data of upcomingData">
-        <div class='tabs'>
-          <div class="show-hidden-menu">
+        <div class='dt-tabs'>
+          <div class="show-hidden-menu" (click)="clickEvent(data.id)">
             <span></span>
             <span></span>
             <span></span>
           </div>
-          <div class="hidden-menu" style="display: none;">
+          <div class="hidden-menu" *ngIf="status && data.id == cardnum ? 'active':''">
+            <div class="arrow">
+              <i class="fa fa-caret-up" aria-hidden="true"></i>
+          </div>
             <ul>
-              <li>Save</li>
-              <li>Share</li>
+              <li (click)="bookmarkWorkshop(data.id)">Save</li>
+              <!-- <li>Share</li> -->
             </ul>
           </div>
         </div>
         <h3 (click)="workshopInner(data.id)">{{data.title | titlecase}}</h3>
-            <p class="toggle-sec">{{data.description}}
+            <p class="toggle-sec" [innerHTML]="data.description.substr(0, 50)">
               <a (click)="workshopInner(data.id)" class="read-more">More...</a>
             </p>
             <div class="details">
@@ -454,7 +447,7 @@
               </div>
               <div class="details-icons">
                 <i class="fa fa-calendar" aria-hidden="true"></i>
-                <h4>{{data.start_date | date:"MMM,d,y"}} to {{data.closing_date | date:"MMM,d,y"}}</h4>
+                <h4>{{data.start_date | date :'mediumDate'}} to {{data.closing_date | date :'mediumDate'}}</h4>
               </div>
            </div>
       </div>
@@ -474,29 +467,24 @@
         <a *ngIf="endingsoonData != '' " [routerLink]="['/workshop/2']">View All</a>
       </div>
       <div class="card-tbs" *ngFor="let data of endingsoonData">
-        <div class="more">
-          <button id="more-btn" class="more-btn">
-            <span class="more-dot"></span>
-            <span class="more-dot"></span>
-            <span class="more-dot"></span>
-          </button>
-          <div class="more-menu">
-            <div class="more-menu-caret">
-              <div class="more-menu-caret-outer"></div>
-              <div class="more-menu-caret-inner"></div>
-            </div>
-            <ul class="more-menu-items" tabindex="-1" role="menu" aria-labelledby="more-btn" aria-hidden="true">
-              <li class="more-menu-item" role="presentation">
-                <button type="button" class="more-menu-btn" role="menuitem">Save</button>
-              </li>
-              <li class="more-menu-item" role="presentation">
-                <button type="button" class="more-menu-btn" role="menuitem">Share</button>
-              </li>
+        <div class='dt-tabs'>
+          <div class="show-hidden-menu" (click)="clickEvent(data.id)">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div class="hidden-menu" *ngIf="status && data.id == cardnum ? 'active':''">
+            <div class="arrow">
+              <i class="fa fa-caret-up" aria-hidden="true"></i>
+          </div>
+            <ul>
+              <li (click)="bookmarkWorkshop(data.id)">Save</li>
+              <!-- <li>Share</li> -->
             </ul>
           </div>
         </div>
         <h3 (click)="workshopInner(data.id)">{{data.title | titlecase}}</h3>
-            <p class="toggle-sec">{{data.description}}
+            <p class="toggle-sec" [innerHTML]="data.description.substr(0, 50)">
               <a (click)="workshopInner(data.id)" class="read-more">More...</a>
             </p>
             <div class="details">
@@ -510,7 +498,7 @@
               </div>
               <div class="details-icons">
                 <i class="fa fa-calendar" aria-hidden="true"></i>
-                <h4>{{data.start_date | date:"MMM,d,y" }} to {{data.closing_date | date:"MMM,d,y"}}</h4>
+                <h4>{{data.start_date | date :'mediumDate'}} to {{data.closing_date | date :'mediumDate'}}</h4>
               </div>
            </div>
       </div>
@@ -531,23 +519,24 @@
             <a _ngcontent-xmm-c57="" *ngIf="previosData != '' " [routerLink]="['/workshop/3']">View All</a>
         </div>
         <div _ngcontent-xmm-c57="" class="card-tbs" *ngFor="let data of previosData">
-            <div _ngcontent-xmm-c57="" class="more">
-                <button _ngcontent-xmm-c57="" id="more-btn" class="more-btn">
-                    <span ngcontent-xmm-c57="" class="more-dot"></span><span ngcontent-xmm-c57="" class="more-dot"></span><span _ngcontent-xmm-c57="" class="more-dot"></span>
-                </button>
-                <div _ngcontent-xmm-c57="" class="more-menu">
-                    <div _ngcontent-xmm-c57="" class="more-menu-caret">
-                        <div _ngcontent-xmm-c57="" class="more-menu-caret-outer"></div>
-                        <div _ngcontent-xmm-c57="" class="more-menu-caret-inner"></div>
-                    </div>
-                    <ul _ngcontent-xmm-c57="" tabindex="-1" role="menu" aria-labelledby="more-btn" aria-hidden="true" class="more-menu-items">
-                        <li ngcontent-xmm-c57="" role="presentation" class="more-menu-item"><button ngcontent-xmm-c57="" type="button" role="menuitem" class="more-menu-btn">Save</button></li>
-                        <li ngcontent-xmm-c57="" role="presentation" class="more-menu-item"><button ngcontent-xmm-c57="" type="button" role="menuitem" class="more-menu-btn">Share</button></li>
-                    </ul>
-                </div>
+          <div class='dt-tabs'>
+            <div class="show-hidden-menu" (click)="clickEvent(data.id)">
+              <span></span>
+              <span></span>
+              <span></span>
             </div>
+            <div class="hidden-menu" *ngIf="status && data.id == cardnum ? 'active':''">
+              <div class="arrow">
+                <i class="fa fa-caret-up" aria-hidden="true"></i>
+            </div>
+              <ul>
+                <li (click)="bookmarkWorkshop(data.id)">Save</li>
+                <!-- <li>Share</li> -->
+              </ul>
+            </div>
+          </div>
             <h3 (click)="workshopInner(data.id)">{{data.title | titlecase}}</h3>
-            <p class="toggle-sec">{{data.description}}
+            <p class="toggle-sec" [innerHTML]="data.description.substr(0, 50)">
               <a (click)="workshopInner(data.id)" class="read-more">More...</a>
             </p>
             <div class="details">
@@ -561,7 +550,7 @@
               </div>
               <div class="details-icons">
                 <i class="fa fa-calendar" aria-hidden="true"></i>
-                <h4>{{data.start_date | date:"MMM,d,y"}} to {{data.closing_date | date:"MMM,d,y"}}</h4>
+                <h4>{{data.start_date | date :'mediumDate'}} to {{data.closing_date | date :'mediumDate'}}</h4>
               </div>
            </div>
         </div>
