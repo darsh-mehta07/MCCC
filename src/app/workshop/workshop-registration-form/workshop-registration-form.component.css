@@ -30,11 +30,10 @@
     margin: 0;
     padding: 0;
     z-index: 1;
-    display: none;
 }
 .upload-icons {
     display: flex;
-    width: 30%;
+    width: 30% ! important;
     float: right;
     position: relative;
     bottom: 20px;

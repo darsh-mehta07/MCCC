@@ -867,10 +867,10 @@ body {
     .card-tbs-btn:focus-visible { outline: 0;}
     .card-tbs-btn:focus {outline: 0;}
     .application img {width: 100%;}
-    .upper-txt {position: absolute; top: 10%; text-align: center; width: 90%; left: 20px;}
+    .upper-txt {position: absolute; top: 10%; text-align: center; width: 90%; left: 20px;margin-bottom: 15px;}
     .upper-txt h4 {font-size: 16px; color: #fff;}
     .upper-txt h3 {font-size: 16px; color: #fff;}
-    .upper-txt h2 {font-size: 21px; color: #fff;}
+    .upper-txt h2 {font-size: 18px; color: #fff;}
     .hd-icons {top: 0; left: 0; display: flex; align-items: center; justify-content: space-between; }
     .form_areas {width: 90%;background: #fff;margin: 0 auto ; padding: 25px; border-radius: 20px; position: absolute; top: 23%; height: auto; left: 0; right: 0;}
     .form_areas label { width: 100%; font-size: 12px; margin-bottom: 8px; font-weight:600;}
@@ -893,7 +893,7 @@ body {
     .details-btn {text-align: center; background: #78cfff; width: fit-content; margin: 0 auto; padding: 10px 40px; border-radius: 25px; color: #fff940;}
     .details-btn a {color: #fff940  !important; font-size: 16px !important; margin-top: 0 !important;}
     .conform-details a {text-align: center;margin-top: 10px; width: auto; font-size: 13px; display: flex; justify-content: center;color: #000; text-decoration: none;}
-    .details-btn i {display: flex;align-items: center;padding-left: 2px;}
+    .details-btn i {display: flex;align-items: center;padding-left: 2px;line-height: 18px;}
     .conform-details h2 {font-size: 28px; font-weight: 600;}
     .conform-details h3 {font-size: 14px;}
     .conform-details h4 { font-size: 14px;}
@@ -1200,7 +1200,7 @@ p.lht-txt {color: hsl(0deg 0% 66%);}
 
 
 @media screen and (max-width: 412px) {
-    .application .form_areas { top: 28%;}
+    .application .form_areas { top: 30%;}
     .conform-details .form_areas {top: 12%;}
     .profile-dtl .form_areas { top: 14%;}
     .splash7 button.sign-up {  margin-top: 35px;}
@@ -1613,8 +1613,8 @@ p.lht-txt {color: hsl(0deg 0% 66%);}
     margin: 0 auto;
 }
 .wrapper .complete_profile .top_part .logo img {
-    -o-object-fit: cover;
-    object-fit: cover;
+    -o-object-fit: contain;
+    object-fit: contain;
     width: 55%;
     left: 0;
 }
@@ -1750,8 +1750,8 @@ p.lht-txt {color: hsl(0deg 0% 66%);}
 }
 .wrapper .complete_profile_with_img .top_part .profileImg_area .img_div a img {
     width: 100%;
-    -o-object-fit: cover;
-    object-fit: cover;
+    -o-object-fit: contain;
+    object-fit: contain;
     height: 100%;
 }
 .wrapper .complete_profile_with_img .top_part .profileImg_area .img_div .close_btn {
@@ -2604,12 +2604,14 @@ video {
     .inner-tabs[_ngcontent-gor-c77] {
         width: 100%;
         overflow: scroll;
-        position: absolute;
+        position: initial;
         top: 0;
         z-index: 9999!important;
     }
     .inner-btn{margin-top: 0; margin-bottom: 100px;}
+    .icons-tabs{box-shadow: none;}
  }
+
  .toast-container .ngx-toastr {
     margin: 5px auto !important;
 }
@@ -2622,4 +2624,10 @@ video {
     justify-content: center !important;
     align-items: center;
     margin: 0 auto;
+}
+h4.place {
+    min-width: 85px;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    display: contents;
 }

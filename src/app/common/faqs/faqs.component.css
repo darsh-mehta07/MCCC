@@ -10,7 +10,8 @@
     padding: 0;
     background: #fff;
     border: 0 !important;
-    box-shadow: none}
+    box-shadow: none;
+    font-weight: 600;}
 .faq a {color: hsl(0deg 0% 0%);text-decoration: none;}
 .faq .card-header {background: #fff; padding: 15px 0;border:0; }
 .faq .card {border: 0; border-bottom: 1px solid #6c757d !important;}
