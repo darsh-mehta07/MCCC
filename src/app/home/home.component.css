@@ -61,8 +61,8 @@ a.img_link {
 }
 .behinde-screen_sliders .slider {
     height: 100px;
-    margin: 0 8px;
-    width: 70px !IMPORTANT;
+    margin: 0 6px;
+    width: 86px !IMPORTANT;
     background-image: url(../../assets/img/play.png);
     background-position: center center;
     background-size: 30%;
