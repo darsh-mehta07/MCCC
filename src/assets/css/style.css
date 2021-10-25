@@ -849,7 +849,7 @@ body {
     .card-tbs p {font-size: 13px; margin-bottom:15px;}
     span#dots { font-weight: 400;}
     .card-tbs h3 span {color: #ff6e61;}
-    .details-icons h4 {font-size: 15px; margin-bottom: 0; margin-left: 5px;}	
+    .details-icons h4 {font-size: 15px; margin-bottom: 0; margin-left: 5px; display:contents;}	
     .details i { margin-right: 5px; }	
     .details-icons  {display: flex;align-items: baseline; justify-content: left;width: auto;padding: 0 10px;margin: 8px 0;}
     .details-icons:last-child {border-right: 0;}
@@ -2576,8 +2576,10 @@ input#phone::placeholder {
     border-bottom: 1px solid #000;
     border-radius: 0;
     padding: 0;
-    height: 44px;
+    height: 25px;
     font-weight: bold;
+    display: flex;
+    align-items: center;
 }
 video {
     width: 100%;
@@ -2610,6 +2612,9 @@ video {
     }
     .inner-btn{margin-top: 0; margin-bottom: 100px;}
     .icons-tabs{box-shadow: none;}
+    .notify-cont[_ngcontent-tra-c125] i[_ngcontent-tra-c125] {
+        position: absolute;
+        right: 35px;}
  }
 
  .toast-container .ngx-toastr {
@@ -2630,4 +2635,10 @@ h4.place {
     overflow-x: hidden;
     text-overflow: ellipsis;
     display: contents;
+}
+.edit-profile-pg select.select.ng-untouched.ng-pristine.ng-invalid {
+    margin-bottom: 15px;
+}
+[type=button], [type=reset], [type=submit], button {
+    -webkit-appearance: none;
 }

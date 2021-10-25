@@ -8,7 +8,7 @@
 .notify_tab {width: 100%;padding: 15px;box-shadow: 0 0.25rem 0.75rem rgb(0 0 0 / 10%);backdrop-filter: blur(10px);margin-bottom: 20px;}
 .notify-cont p {font-size: 14px;margin: 0;}
 .notifys h3 {font-size: 17px;}
-.notify-cont { height: auto; display: flex;align-items: baseline;padding: 3px 0;width: 100%;}
+.notify-cont { height: auto; display: flex;align-items: end;padding: 3px 0;width: 100%;}
 .notify-foot {display: flex;justify-content: space-between; align-items: flex-end;}
 .notify-foot h5 {font-size: 12px;margin: 0 !important;}
 .notification .profile-icons img {filter: brightness(0.5) invert(1);}
