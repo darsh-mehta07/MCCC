@@ -325,7 +325,7 @@ export class ApplyCastingComponent implements OnInit {
           } else if (file.type.indexOf('video') > -1) {
             this.format = 'video';
             const fileSizeInKB = Math.round(file.size / 1024);
-            if(fileSizeInKB > 2048){
+            if(fileSizeInKB > 102400){
               this.fileSizeaInKB = true;
             }
           }
