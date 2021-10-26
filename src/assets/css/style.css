@@ -846,12 +846,12 @@ body {
     #more {display: none;}
     .card-tbs {margin: 15px 0; background: #fff;border-radius: 25px; border: 1px solid #8c8c8c; padding: 25px 15px; position: sticky;}
     .card-tbs h3 a {font-size: 18px;font-weight: 600; color: #000; text-decoration:none;}
-    .card-tbs p {font-size: 13px; margin-bottom:15px;}
+    .card-tbs p {font-size: 13px; margin-bottom:15px;color: #000;padding-right: 2px;}
     span#dots { font-weight: 400;}
     .card-tbs h3 span {color: #ff6e61;}
     .details-icons h4 {font-size: 15px; margin-bottom: 0; margin-left: 5px; display:contents;}	
     .details i { margin-right: 5px; }	
-    .details-icons  {display: flex;align-items: baseline; justify-content: left;width: auto;padding: 0 10px;margin: 8px 0;}
+    .details-icons  {display: flex;align-items: baseline; justify-content: left;width: auto;padding: 0 7px;margin: 8px 0;}
     .details-icons:last-child {border-right: 0;}
     .details {clear: both;padding-top: 0; display: block; justify-content: flex-start; margin:  0;}	
     .required-tbs .details, .recommended-tbs .details-icons, .call-ending-tbs .details-icons  {  display: flex;}	
@@ -870,7 +870,7 @@ body {
     .upper-txt {position: absolute; top: 10%; text-align: center; width: 90%; left: 20px;margin-bottom: 15px;}
     .upper-txt h4 {font-size: 16px; color: #fff;}
     .upper-txt h3 {font-size: 16px; color: #fff;}
-    .upper-txt h2 {font-size: 18px; color: #fff;}
+    .upper-txt h2 {font-size: 16px; color: #fff;}
     .hd-icons {top: 0; left: 0; display: flex; align-items: center; justify-content: space-between; }
     .form_areas {width: 90%;background: #fff;margin: 0 auto ; padding: 25px; border-radius: 20px; position: absolute; top: 23%; height: auto; left: 0; right: 0;}
     .form_areas label { width: 100%; font-size: 12px; margin-bottom: 8px; font-weight:600;}
@@ -970,7 +970,7 @@ body {
     .form_inner p a {text-decoration: underline #949494;}
     .inner-btn a {color: #000; background: hsl(207deg 87% 63%);  padding: 10px 20px; border-radius: 25px; font-weight: 600;line-height: 1;}
     .inner-btn i { font-size: 16px;}
-    .inner-btn {text-align: center;margin-top: 15px;position: absolute;display: flex;justify-content: center;align-items: center;width: 100%;left: 0;margin-bottom: 100px;}
+    .inner-btn {text-align: center;margin-top: 15px;position: absolute;display: flex;justify-content: center;align-items: center;width: 100%;left: 0;margin-bottom: 100px;padding-bottom: 80px;}
     .form_inner p { font-size: 14px; font-weight: 600;margin-left: 20px; line-height: 1.4;}
     .tabs h2 hr.on {width: 15%;float: left;margin: 0; border: 1px solid #787878; border-width: thin; animation: rainbow linear 1s infinite alternate;}
     .tabs h2 hr.tw {width: 25%; margin: 5px 0;border: 1px solid #787878;border-width: thin; animation: rainbows linear 0.9s infinite alternate;}
@@ -2260,8 +2260,16 @@ a:focus {
     margin-top: 10px;
     height: 285px !important;
 }
+.on_going-events-tbs a.read-more, .upcoming-events-tbs a.read-more, .events-tbs a.read-more, .upcoming-workshop-tbs a.read-more, .workshop-ending-tbs , .Previous-workshops-tbs a.read-more  {
+    display: flex;
+    flex-direction: row-reverse;
+    font-size: 13px;
+    float: left;
+    color: #188aff !important;
+}
 a.read-more {
     color: #188aff !important;
+    
 }
 .tbs a {
     text-decoration: none;
@@ -2601,20 +2609,20 @@ video {
 .details-btn i:first-child {
     padding-left: 4px;
 }
-@supports (-webkit-touch-callout: none) {
-    /* CSS specific to iOS devices */ 
+/* @supports (-webkit-touch-callout: none) {
+    
     .inner-tabs[_ngcontent-gor-c77] {
         width: 100%;
         overflow: scroll;
         position: initial;
-        top: 0;
-        z-index: 9999!important;
-    }
+        top: 0!important;  z-index: 9999!important;}
     .inner-btn{margin-top: 0; margin-bottom: 100px;}
     .icons-tabs{box-shadow: none;}
-    .notify-cont[_ngcontent-tra-c125] i[_ngcontent-tra-c125] {
-        position: absolute;
-        right: 35px;}
+    .notify-cont[_ngcontent-tra-c125] i[_ngcontent-tra-c125] {position: absolute;right: 35px;}
+ } */
+ .upload > input.ng-untouched.ng-pristine.ng-invalid.is-invalid{
+     margin-bottom: 40px;
+     position: relative;
  }
 
  .toast-container .ngx-toastr {
@@ -2641,4 +2649,8 @@ h4.place {
 }
 [type=button], [type=reset], [type=submit], button {
     -webkit-appearance: none;
+}
+
+.select_div {
+    margin-bottom: 15px;
 }
