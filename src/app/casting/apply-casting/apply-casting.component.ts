@@ -10,6 +10,7 @@ import { AlertService } from 'src/app/_service/alert.service';
 import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import { base64ToFile, Dimensions, ImageCroppedEvent, ImageTransform } from 'ngx-image-cropper';
 import { NotificationService } from 'src/app/_service/notification.service';
+import { CommonService } from 'src/app/_service/common.service';
 @Component({
   selector: 'app-apply-casting',
   templateUrl: './apply-casting.component.html',
@@ -70,6 +71,7 @@ export class ApplyCastingComponent implements OnInit {
     private alertService: AlertService,
     private modalService: NgbModal,
     private notification : NotificationService,
+    private commonService:CommonService
     
     ) {
       this.dashboardService.listen().subscribe((e:any)=>{
@@ -155,21 +157,21 @@ export class ApplyCastingComponent implements OnInit {
           }else{
             sessionStorage.removeItem('image_3');
           }
-          if(this.resData.data.image_4){
-          sessionStorage.setItem('image_4',this.resData.data.image_4);
-          }else{
-            sessionStorage.removeItem('image_4');
-          }
-          if(this.resData.data.image_5){
-          sessionStorage.setItem('image_5',this.resData.data.image_5);
-          }else{
-            sessionStorage.removeItem('image_5');
-          }
-          if(this.resData.data.image_6){
-          sessionStorage.setItem('image_6',this.resData.data.image_6);
-          }else{
-            sessionStorage.removeItem('image_6');
-          }
+          // if(this.resData.data.image_4){
+          // sessionStorage.setItem('image_4',this.resData.data.image_4);
+          // }else{
+          //   sessionStorage.removeItem('image_4');
+          // }
+          // if(this.resData.data.image_5){
+          // sessionStorage.setItem('image_5',this.resData.data.image_5);
+          // }else{
+          //   sessionStorage.removeItem('image_5');
+          // }
+          // if(this.resData.data.image_6){
+          // sessionStorage.setItem('image_6',this.resData.data.image_6);
+          // }else{
+          //   sessionStorage.removeItem('image_6');
+          // }
           if(this.resData.data.video_1){
           sessionStorage.setItem('video_1',this.resData.data.video_1);
           }else{
@@ -349,7 +351,7 @@ export class ApplyCastingComponent implements OnInit {
   // Remove Image
     removePrimaryImage(element: number) {
       this.imgArray.forEach((value:any,index:any)=>{
-          if(index==element) this.imgArray.splice(index,1);
+          if(index==element) this.imgArray.splice(index,1);          
           this.patchOldImageValues();
       });
       this.threeimgerror = false;
