@@ -789,7 +789,7 @@ body {
         display: block;
         align-items: center;
         z-index: 99999;
-        position: fixed;
+        position: sticky;
         top: 0;
     }
     .sidenav {height: 100%; width: 0; position: fixed; z-index: 1; top: 0; left: 0; background-color: #fff; overflow-x: hidden;  padding-top: 35px;  transition: 0.5s;}
@@ -1048,7 +1048,7 @@ body {
     .inner-tabs ul li a.active { color: hsl(201deg 72% 60%);}
     .icons-tabs::-webkit-scrollbar, .inner-tabs::-webkit-scrollbar, .card-btn::-webkit-scrollbar {display: none;}
     .inner-tabs ul.nav.nav-pills li.active { color: hsl(201deg 100% 74%);}
-    .sticky {position: -webkit-fixed;  position: fixed; top: 75px; background-color: #fff; font-size: 20px;}
+    .sticky {position: -webkit-sticky;  position: sticky; top: 75px; background-color: #fff; font-size: 20px;}
     .upcoming-events-tbs .card-tbs, .events-tbs .card-tbs { padding: 15px 10px;}
     .behinde-screen_sliders .slick-track {display: -webkit-box; width: 100% !important;}
     .trner {position: relative; padding-bottom: 50px;}
