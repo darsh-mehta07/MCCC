@@ -241,9 +241,10 @@
             </div>
           </div>
         <h3 (click)="eventInner(upcoming.id)">Title: {{upcoming.title | titlecase}}</h3>
+        <a (click)="eventInner(upcoming.id)" class="read-more">More
         <p class="toggle-sec" [innerHTML]="upcoming.description.substr(0, 50)">
-          <a (click)="eventInner(upcoming.id)">More</a>
-        </p>
+          
+        </p></a>
         <div class="details">
           <div class="details-icons">
             <i class="fa fa-map-marker" aria-hidden="true"></i>
@@ -295,9 +296,10 @@
             </div>
           </div>
         <h3 (click)="eventInner(eventforu.id)">Title: {{eventforu.title | titlecase}}</h3>
+        <a (click)="eventInner(eventforu.id)" class="read-more">More
         <p class="toggle-sec" [innerHTML]="eventforu.description.substr(0, 50)">
-          <a (click)="eventInner(eventforu.id)">More</a>
-        </p>
+          
+        </p></a>
         <div class="details">
           <div class="details-icons">
             <i class="fa fa-map-marker" aria-hidden="true"></i>
@@ -433,9 +435,8 @@
           </div>
         </div>
         <h3 (click)="workshopInner(data.id)">{{data.title | titlecase}}</h3>
-            <p class="toggle-sec" [innerHTML]="data.description.substr(0, 50)">
-              <a (click)="workshopInner(data.id)" class="read-more">More...</a>
-            </p>
+        <a (click)="workshopInner(data.id)" class="read-more">More...
+        <p class="toggle-sec" [innerHTML]="data.description.substr(0, 50)"></p></a>
             <div class="details">
               <div class="details-icons">
                 <i class="fa fa-map-marker" aria-hidden="true"></i>
@@ -484,9 +485,8 @@
           </div>
         </div>
         <h3 (click)="workshopInner(data.id)">{{data.title | titlecase}}</h3>
-            <p class="toggle-sec" [innerHTML]="data.description.substr(0, 50)">
-              <a (click)="workshopInner(data.id)" class="read-more">More...</a>
-            </p>
+        <a (click)="workshopInner(data.id)" class="read-more">More...
+        <p class="toggle-sec" [innerHTML]="data.description.substr(0, 50)"></p></a>
             <div class="details">
               <div class="details-icons">
                 <i class="fa fa-map-marker" aria-hidden="true"></i>
@@ -536,9 +536,8 @@
             </div>
           </div>
             <h3 (click)="workshopInner(data.id)">{{data.title | titlecase}}</h3>
-            <p class="toggle-sec" [innerHTML]="data.description.substr(0, 50)">
-              <a (click)="workshopInner(data.id)" class="read-more">More...</a>
-            </p>
+            <a (click)="workshopInner(data.id)" class="read-more">More...
+            <p class="toggle-sec" [innerHTML]="data.description.substr(0, 50)"></p></a>
             <div class="details">
               <div class="details-icons">
                 <i class="fa fa-map-marker" aria-hidden="true"></i>

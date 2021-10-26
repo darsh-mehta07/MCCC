@@ -2260,7 +2260,7 @@ a:focus {
     margin-top: 10px;
     height: 285px !important;
 }
-.on_going-events-tbs a.read-more, .upcoming-events-tbs a.read-more, .events-tbs a.read-more, .upcoming-workshop-tbs a.read-more, .workshop-ending-tbs , .Previous-workshops-tbs a.read-more  {
+.on_going-events-tbs a.read-more, .upcoming-events-tbs a.read-more, .events-tbs a.read-more, .upcoming-workshop-tbs a.read-more, .workshop-ending-tbs a.read-more, .Previous-workshops-tbs a.read-more  {
     display: flex;
     flex-direction: row-reverse;
     font-size: 13px;
