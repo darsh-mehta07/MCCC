@@ -1,0 +1,33 @@
+input[type="date"]::-webkit-calendar-picker-indicator {
+    background: none;
+}
+.select select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 100%;
+}
+.select select option{
+   margin:10px;
+}
+.complete_profile .top_part .form_area .btom_file .next_btn {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+.profile_next_btn button {
+    display: block;
+    width: 130px;
+    background: #a9cf7a;
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    height: 35px;
+    text-align: center;
+    line-height: 35px;
+    border-radius: 20px;
+    margin: 2rem auto 0;
+    border:0;
+}
+.wrapper .profile_final_step .top_part .form_area .profile_content .input_group .input{
+    display:block!important;
+}

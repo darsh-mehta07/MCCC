@@ -1,0 +1,20 @@
+/* @import "~jquery-nice-select/css/style.css"; */
+.nt-btn {
+    margin-top: 2rem;
+}
+button.fw-btn {
+    background: #78cfff;
+    width: 100%;
+    color: #FDFD64;
+    text-transform: uppercase;
+    border-radius: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 35px;
+    border: 0;
+    margin: 0 auto;
+    position: relative;
+    top: 0 !important;
+    height: 50px;
+}

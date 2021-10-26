@@ -1,0 +1,74 @@
+<body class="hm_pg">
+  <app-header></app-header>
+  <app-sticky-menu [stickymenu]='stickymenu'></app-sticky-menu>
+   
+    <div class="behinde_screen bts">
+      <div class="container">
+        <img src="../assets/img/bts1.png" class="logo">
+        <div class="tabs behinde">
+          <h2>Popular BTS</h2>
+          <a [routerLink]="['/bts-inner/1']">View All</a>
+        </div>
+
+        <ngx-slick-carousel *ngIf="loadData" class="carousel behinde-screen_sliders" #slickModal="slick-carousel" [config]="trns_sliders"
+        (init)="slickInit($event)" (breakpoint)="breakpoint($event)" (afterChange)="afterChange($event)"
+        (beforeChange)="beforeChange($event)">
+          <div *ngFor = " let vid of popularBtsVideos" [routerLink]="['/bts-video-view/',vid.id,1]"  ngxSlickItem class="slider">
+            <img  src="{{hostUrl}}{{vid.thumbnail_path}}{{vid.thumbnail}}">
+            <img *ngIf="vid.youtube_thumbnail == null " src="{{hostUrl}}{{vid.thumbnail_path}}{{vid.thumbnail}}">
+					  <img *ngIf="vid.youtube_thumbnail != null " src="{{vid.youtube_thumbnail}}">
+          </div>
+        </ngx-slick-carousel>
+        
+        <div class="item" *ngIf="!loadData">
+          <ngx-skeleton-loader count="4" appearance="circle" [theme]="{
+            width: '80px',
+            height: '85px',
+            'border-radius': '10px'
+          }">
+            </ngx-skeleton-loader>
+          </div>
+        <div class="video-img">
+          <div class="video-txt">
+            <h2>Top BTS</h2>
+            <a [routerLink]="['/bts-inner/2']">View All</a>
+          </div>
+          <div class="vd-icon" *ngFor="let vid of topBtsVideos">
+            <a class='img_link' [routerLink]="['/bts-video-view/',vid.id,2]" >
+              <!-- <img  src="{{hostUrl}}{{vid.thumbnail_path}}{{vid.thumbnail}}"> -->
+              <img *ngIf="vid.youtube_thumbnail == null " src="{{hostUrl}}{{vid.thumbnail_path}}{{vid.thumbnail}}">
+					    <img *ngIf="vid.youtube_thumbnail != null " src="{{vid.youtube_thumbnail}}">
+          
+              <div class="icon"><img  src="../../assets/img/play.png"></div>
+            </a>
+          </div>
+          <div class="vd-icon" >
+            <div class="item" *ngIf="!loadData">
+              <ngx-skeleton-loader count="4"></ngx-skeleton-loader>
+            </div>  
+            <div class="item" *ngIf="!loadData">
+              <ngx-skeleton-loader count="4"></ngx-skeleton-loader>
+            </div>  
+          </div>
+          
+        </div>
+  
+        <div class="video-opt opt">
+            <div class="slide-hd">
+                <h2>Watch more videos</h2>
+              <!-- <a href="#">View All</a> -->
+            </div>
+            <ngx-slick-carousel class="carousel video_slider" #slickModal="slick-carousel" [config]="trns_sliders"
+            (init)="slickInit($event)" (breakpoint)="breakpoint($event)" (afterChange)="afterChange($event)"
+            (beforeChange)="beforeChange($event)">
+              <div *ngFor="let catg of categories; let i=index;" [routerLink]="['/bts-inner/',catg.id]" [ngStyle]="{'background': category_color[i]}" ngxSlickItem class="slider vide1 vdSliderTxt">
+                  <h3>{{catg.category}}</h3>
+              </div>
+            </ngx-slick-carousel>
+        </div>
+      </div>
+    </div>
+    <app-footer></app-footer>
+  
+  
+</body>

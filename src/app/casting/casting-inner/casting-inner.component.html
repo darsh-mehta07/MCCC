@@ -1,0 +1,35 @@
+<body class="hm_pg inner">
+<div class="casting-inner">
+  <!-- <img *ngIf="Apiloading" src="../../../assets/img/inner.png" class="hd-img"> -->
+    <img *ngIf="!Apiloading" src="{{image}}" class="hd-img">
+    <div class="container" *ngIf="loading">
+      <div class="header hd-icons"> 
+        <a (click)="back()"><img src="../../../assets/img/back2.png" /></a>
+        <a [routerLink]="['/home']"><img src="../../../assets/img/home2.png" class="home2"/></a>
+      </div>      
+      <div class="form_inner">
+          <div [innerHTML]="long_description"></div>
+       <div class="card-icons">
+          <i (click)="bookmark(castingId)" [ngClass]="bookmarks != '1'?'fa fa-bookmark-o':'fa fa-bookmark'" aria-hidden="true"></i>
+          <!-- <i class="fa fa-share-alt" aria-hidden="true"></i> -->
+        </div>
+        <div class="inner-btn">
+          <a *ngIf="applySt == 0" (click)="applyCasting()"> Swipe to Apply
+            <i class="fa fa-angle-right delay1" aria-hidden="true"></i>
+            <i class="fa fa-angle-right delay2" aria-hidden="true"></i>
+            <i class="fa fa-angle-right delay3" aria-hidden="true"></i>
+          </a>
+          <a *ngIf="applySt == 1"> Applied
+            <!-- <i class="fa fa-angle-right delay1" aria-hidden="true"></i>
+            <i class="fa fa-angle-right delay2" aria-hidden="true"></i>
+            <i class="fa fa-angle-right delay3" aria-hidden="true"></i> -->
+          </a>
+        </div>
+      </div>      
+    </div>
+    <div class="item" *ngIf="!loading">
+      <ngx-skeleton-loader count="12" ></ngx-skeleton-loader>
+    </div>
+  </div>
+  <app-footer [pageName]='pageName'></app-footer>
+</body>

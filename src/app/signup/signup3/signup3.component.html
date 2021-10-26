@@ -1,0 +1,27 @@
+<header>
+  <div class="sign_btn">
+    <i class="fa fa-angle-left" aria-hidden="true"></i>
+    <a href="signup-email">Back</a>
+  </div>
+</header>
+
+<div class="container">
+  <div class="sign-content">
+    <h2>Enter your phone number </h2>
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <div class="form-group">
+        <label>Phone Number</label>
+        <input autofocus formControlName="phone" id="phone" type="tel" maxlength="10"class="form-control" placeholder="0000000000"
+          [ngClass]="{ 'is-invalid': submitted && f.phone.errors }">
+        <div *ngIf="submitted && f.phone.errors" class="invalid-feedback">
+          <div *ngIf="f.phone.errors.required">Phone is required</div>
+          <div *ngIf="f.phone.errors.pattern">Please Enter 10 digit's mobile number</div>
+          <div *ngIf="f.phone.errors.phoneTaken">Phone number is already taken.</div>
+        </div>
+      </div>
+      <div class="nt-btn">
+        <button class="fw-btn">Next <i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>
+      </div>
+    </form>
+  </div>
+</div>

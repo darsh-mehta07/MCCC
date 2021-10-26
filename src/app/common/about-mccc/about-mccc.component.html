@@ -1,0 +1,28 @@
+<body class="hm_pg">
+    <div class="about_us">
+        <img class="bgimg" src="../../../assets/img/About-MCCc.png">
+        <div class="container">
+            <div class="logo">
+                <img src="../../../assets/img/logo.png"/>
+            </div>
+            <div class="header hd-icons">
+                <a (click)="back()"><img src="../../../assets/img/back.png" /></a>
+        <a [routerLink]="['/home']"><img src="../../../assets/img/home.png"></a>
+            </div>
+
+            <div class="form_areas">
+                <h2>About Us</h2>
+                {{data}}
+                <!-- <p>From being an incidental cog in the enormous wheel of the film industry to becoming the backbone of good cinema; the casting fraternity in India has indeed come a long way. In this journey, Mukesh Chhabra Casting Company; incepted in 2008, has evolved in a short span to become one of the premier casting companies catering to a worldwide clientele.</p>
+
+                <p>MCCC’s exceptional dexterity, method and consistency has spotted and honed the very best of acting talent in line with the exact requirements of feature films, TV commercials and other mediums. MCCC also handpicks and trains competent artistes to portray challenging roles that are seemingly in complete contrast to their inherent psyche and potential. In the process, MCCC has helped a host of versatile lead and background artistes carve their niche in the big, bustling world of Hindi cinema.</p>
+
+                <p>At the core of MCCC’s work culture is its unflinching commitment to fulfill the exact requirements of the defined screen roles.The MCCC team analyzes each character and its underlying motivations - whether subtle, implied, derived or pronounced. This helps in a thorough scan of aspirants to evaluate their perceived competence for the given role. The chosen artistes are trained through tailored workshops to help them translate their potential into performance that the audience would cherish.</p> -->
+                <div class="item" *ngIf="!loading">
+                    <ngx-skeleton-loader count="12" ></ngx-skeleton-loader>
+                  </div>
+            </div>
+        </div>  
+    </div>
+    <app-footer [pageName] = "pageName"></app-footer>
+</body>

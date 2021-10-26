@@ -1,0 +1,22 @@
+.Profile .dt-tabs span {background: hsl(0deg 0% 100%);}
+.notification .form_areas { height: 90vh;position: absolute;top: 10%;}
+.notification h3 {font-size: 18px;padding-bottom: 7px;}
+.notify_tab h3 {font-size: 15px;padding-bottom: 0;}
+.notifys {position: relative;top: 18px;}
+.notify_tab {width: 100%;padding: 15px;box-shadow: 0 0.25rem 0.75rem rgb(0 0 0 / 10%);backdrop-filter: blur(10px);margin-bottom: 20px;}
+.notify-cont p {font-size: 14px;margin: 0;}
+.notifys h3 {font-size: 17px;}
+.notify-cont { height: auto; display: flex;align-items: end;padding: 3px 0;width: 100%;}
+.notify-foot {display: flex;justify-content: space-between; align-items: flex-end;}
+.notify-foot h5 {font-size: 12px;margin: 0 !important;}
+.notification .profile-icons img {filter: brightness(0.5) invert(1);}
+.notification .dt-tabs {top: 0;right: 0}
+.notify-cont i {position: absolute; right: 30px; font-weight: 100;font-size: 14px;}
+.notification img { width: 100%;}
+.notification .header.profile-icons { position: absolute; top: 0; display: flex; justify-content: space-between;  left: 0;}
+.notification img { width: 100%;}
+.notification .form_areas { top: 10%;  height: auto; margin-bottom: 50px;}
+.notification {  height: 100%; position: relative;overflow-y: auto; overflow-x: hidden;}
+.no-data { display: flex;align-items: center;justify-content: center;height: 100%;flex-direction: column;overflow: hidden;}
+.no-data h2 {font-size: 16px;}
+.notification .container {height: auto;}

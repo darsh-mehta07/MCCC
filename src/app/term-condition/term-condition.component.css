@@ -1,0 +1,14 @@
+.term-condition img {width: 100%;}
+.term-condition .form_areas {position: absolute; top: 10%; height: auto; padding-bottom: 75px;}
+.terms h3 {color: #000; font-size: 22px;}
+.terms h5 {font-size: 14px;text-decoration: none;color: #000;display: flex; align-items: center; justify-content: space-between;}
+.terms a {color: hsl(0deg 0% 0%);text-decoration: none;}
+.terms .card-header {background: #fff; padding: 15px;border:0;display: flex;}
+.terms .card {border: 0; border-bottom: 1px solid #6c757d !important;}
+.terms .card-body { padding: 10px; border: 0 !important;}
+.terms h5 i { float: right;font-size: 20px;margin-right: 20px;}
+.terms p {font-size: 14px;}
+.term-condition .card .card-header a:not(.collapsed) .rotate-icon2 { -webkit-transform: rotate(90deg); transform: rotate(90deg);}
+.terms a.collapsed { width: 100%; display: flex;justify-content: flex-start;}
+.term-condition { height: 100%;position: relative; overflow-y: auto; overflow-x: hidden;}
+.term-condition .container {height: auto;}

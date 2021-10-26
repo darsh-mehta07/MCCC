@@ -1,0 +1,110 @@
+<body class="hm_pg">
+    <div class="conform-details ">
+      <img src="../../../assets/img/details.png">
+      <div class="container">
+        <div class="header hd-icons">
+          <a (click)="back()"><img src="../../../assets/img/back.png" /></a>
+          <a [routerLink]="['/home']"><img src="../../../assets/img/home.png" /></a>
+        </div>
+        
+        <div class="form_areas">
+          <h2>Confirm Details</h2>
+          <h3>{{casting_title | titlecase}}</h3>
+          <h4>Date: {{casting_date}}</h4>
+          <form [formGroup]="form" (ngSubmit)="submit()">
+          <label>First Name<span class="text-danger">*</span></label>
+          <input type="text" formControlName="name" readonly>
+  
+          <label>Age<span class="text-danger">*</span></label>
+          <input type="text" formControlName="age" readonly>
+  
+          <label>Height<span class="text-danger">*</span></label>
+          <input type="text" formControlName="height" readonly>
+  
+          <label>Contact Number<span class="text-danger">*</span></label>
+          <input type="tel" formControlName="phone" readonly>
+  
+          <label>Language<span class="text-danger">*</span></label>
+          <input type="text" formControlName="language" readonly>
+  
+          <label>Current City<span class="text-danger">*</span></label>
+          <input type="text" formControlName="city" readonly>
+  
+          <label>Home Town<span class="text-danger">*</span></label>
+          <input type="text" formControlName="home_town" readonly>
+  
+          <label>Hobbies<span class="text-danger">*</span></label>
+          <input type="text" formControlName="hobbies" readonly>
+          
+                  <div class="pht">
+              <h3>Selected Photos</h3>
+          <div class="upload-img">
+            <div class="box" *ngIf="image_1">
+                <img class="js--image-preview" src="{{imagePath+image_1}}"/> 
+                  <div class="upload-options"></div>
+              </div>
+              <div class="box" *ngIf="image_2">
+                <img class="js--image-preview" src="{{imagePath+image_2}}"/> 
+                  <div class="upload-options"></div>
+              </div>
+              <div class="box" *ngIf="image_3">
+                <img class="js--image-preview" src="{{imagePath+image_3}}"/> 
+                  <div class="upload-options"></div>
+              </div>
+              <div class="box" *ngIf="image_4">
+                <img class="js--image-preview" src="{{imagePath+image_4}}"/> 
+                  <div class="upload-options"></div>
+              </div>
+              <div class="box" *ngIf="image_5">
+                <img class="js--image-preview" src="{{imagePath+image_5}}"/> 
+                  <div class="upload-options"></div>
+              </div>
+              <div class="box" *ngIf="image_6">
+                <img class="js--image-preview" src="{{imagePath+image_6}}"/> 
+                  <div class="upload-options"></div>
+              </div>
+          </div>
+          
+          </div>
+          <div class="vdi">
+              <h3>Selected Video</h3>
+          <div class="upload-video">
+            <div class="box" *ngIf="video_1">
+                <video class="js--image-preview" width="30%" height="110px" controls>
+                  <source src="{{videoPath+video_1}}" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+                  <!-- <div class="upload-options"></div> -->
+              </div>
+              <!-- <div class="box" *ngIf="video_2">
+                <video class="js--image-preview" width="30%" height="110px" controls>
+                  <source src="{{videoPath+video_2}}" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+                  <div class="upload-options"></div>
+              </div> -->
+              <!-- <div class="box" *ngIf="video_3">
+                <video class="js--image-preview" width="30%" height="110px" controls>
+                  <source src="{{videoPath+video_3}}" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+                  <div class="upload-options"></div>
+              </div> -->
+              <!-- <div class="box" *ngIf="secvidbox"></div>
+              <div class="box" *ngIf="thrvidbox"></div> -->
+          </div>          
+          </div>
+          <div class="details-btn">
+            <button type="submit"> Swipe to Submit
+              <i class="fa fa-angle-right" aria-hidden="true"></i>
+              <i class="fa fa-angle-right" aria-hidden="true"></i>
+              <i class="fa fa-angle-right" aria-hidden="true"></i>
+            </button>
+          </div>
+        </form>
+          <a (click)="back()">Go back to edit</a>
+        </div>
+      </div>
+    </div>
+    <app-footer [pageName]='pageName'></app-footer>
+</body>

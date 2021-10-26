@@ -1,0 +1,57 @@
+<div [ngClass]="[ uploading ? 'loader_parent' : '']"></div>
+<div class="wrapper" >
+    <div class="complete_profile">
+        <div class="top_part">
+            <div class="header">
+                <!-- <a (click)="back()"><img src="https://img.icons8.com/material-rounded/30/000000/back--v1.png" /></a> -->
+                <!-- <a [routerLink]="['/home']"><img src="https://img.icons8.com/material-outlined/25/000000/home--v2.png" /></a> -->
+            </div>
+            <div class="logo">
+                <img src="../../../assets/img/logo.png" alt="logo">
+            </div>
+            <div class="form_area">
+                <h2>Complete Your Profile</h2>
+                <form [formGroup]="form" (ngSubmit)="submit()">
+                    <div class="progressbar">
+                        <span class='active'>1</span>
+                        <span>2</span>
+                        <span>3</span>
+                    </div>
+                    <div class="content">
+                        <p>Upload any 3 Profile Picture</p>
+                    </div>
+                    <div class="input_file">
+                        <label class="uploadBtnWrap" for="files">
+                            <input type="file" id="files" formControlName="files" (change)="fileChangeEvent($event)" />
+                            <span class="btn">Choose</span>
+                            <span id="fileName">No file Selected</span>
+                        </label>
+                    </div>
+                    <div class="btom_file">                       
+                        
+                        <div *ngIf="cropperarea">
+                            <image-cropper  [imageChangedEvent]="imageChangedEvent" [maintainAspectRatio]="true"
+                                    [containWithinAspectRatio]="containWithinAspectRatio" [aspectRatio]="3 / 4"
+                                    [resizeToWidth]="256" [cropperMinWidth]="128" [onlyScaleDown]="true"
+                                    [roundCropper]="false" [canvasRotation]="canvasRotation" [transform]="transform"
+                                    [alignImage]="'left'" [style.display]="showCropper ? null : 'none'" format="png"
+                                    (imageCropped)="imageCropped($event)" (imageLoaded)="imageLoaded()"
+                                    (cropperReady)="cropperReady($event)" (loadImageFailed)="loadImageFailed()">
+                                </image-cropper>
+                        </div>
+                        <div class="profileImg_area">
+                            <div class="after_Img" style='display: none;'></div>
+                            <div class="img_div" *ngFor='let url of images'>
+                                <img class="imageThumb" [src]="url">
+                                <div class="close_btn" (click)="removeImage(url)"><span>+</span></div>
+                            </div>                            
+                        </div>
+                        <button *ngIf="format==='image' && images.length > 2" class="next_btn">Next </button>
+                        <button type="button" *ngIf="cropperbutton && images.length < 3" class="next_btn" (click)="saveImage()">Crop </button>
+                    </div>                    
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="loader_screen" *ngIf="uploading"></div>
+</div>

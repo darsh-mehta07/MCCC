@@ -1,0 +1,117 @@
+<div [ngClass]="[ !loading ? 'loader_parent' : '']"></div>
+<body class="hm_pg">
+  <div class="event-regist">
+    <img src="../../assets/img/apply.png">
+    <div class="container">
+      <div class="header hd-icons">
+        <a (click)="back()"><img src="../../assets/img/back2.png" /></a>
+        <a [routerLink]="['/home']"><img src="../../assets/img/home2.png" class="home2"/></a>
+      </div>
+      <div class="form_areas">
+          <form [formGroup]="form">
+          <h1>{{workshopData.title}}</h1>
+          <p [innerHTML]="workshopData.description"></p>
+          <p>The name and photo associated with your in App account will be recorded when you upload file and submit this form</p>
+          
+        <label>First Name<span class="text-danger">*</span></label>
+        <input type="text" value="{{currentUser.userDetails.name}}" readonly placeholder="name">
+        
+        <label>Age<span class="text-danger">*</span></label>
+        <input type="text" value="{{userData.data.age}}" readonly placeholder="type here">
+        
+        <label>Sex<span class="text-danger">*</span></label>
+        <input type="text"  value="{{currentUser.userDetails.gender}}" placeholder="type here" readonly>
+        
+
+        <label>Date of Birth<span class="text-danger">*</span></label>
+        <input type="tel"  value="{{currentUser.userDetails.dob}}" placeholder="type here" readonly>
+        
+
+        <label>Email Id<span class="text-danger">*</span></label>
+        <input type="text"  value="{{currentUser.userDetails.email}}" placeholder="type here" readonly>
+        
+        <label>Contact Number<span class="text-danger">*</span></label>
+        <input type="text" value="{{currentUser.userDetails.phone}}" placeholder="type here" readonly>
+        
+
+        <label>Secondary Contact<span class="text-danger">*</span></label>
+        <input type="text" formControlName="sos_phone" value="" minlength="10" maxlength="10" placeholder="type here" [ngClass]="{ 'is-invalid': submitted && f.sos_phone.errors }">
+        <div *ngIf="submitted && f.sos_phone.errors" class="invalid-feedback">
+          <div *ngIf="f.sos_phone.errors.required">Please provide Emergency Contact No. in case your Default number is not reachable.</div>
+          <div *ngIf="f.sos_phone.errors.minlength">
+            contact number must be at least 10 digit.
+          </div>
+          <div *ngIf="f.sos_phone.errors.maxlength">
+            contact number must be at least 10 digit.
+          </div>
+        </div>
+        
+
+        <label>School/College<span class="text-danger">*</span></label>
+        <input type="text" formControlName="edu_details" maxlength="100" value="Bechelor's in Theater from NSD" placeholder="type here" [ngClass]="{ 'is-invalid': submitted && f.edu_details.errors }">
+        
+        <div *ngIf="submitted && f.edu_details.errors" class="invalid-feedback">
+          <div *ngIf="f.edu_details.errors.required">School/College required</div>
+        </div>
+        <label>Address<span class="text-danger">*</span></label>
+        <textarea placeholder="type here" formControlName="address" [ngClass]="{ 'is-invalid': submitted && f.address.errors }"> </textarea>
+        <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
+          <div *ngIf="f.address.errors.required">Please provide your Address details.</div>
+        </div>
+
+        <label>Current City<span class="text-danger">*</span></label>
+        <input type="text" value="{{userData.data.user_details.city_name}}" readonly placeholder="type here">
+        
+
+        <label for="add-more1">Aadhar Card<span class="text-danger">*</span></label>
+        <div class="upload">            
+            <input #fileInputa type="file" formControlName="aadhar_file"   placeholder="type here" (change)="onFileChange2($event)" [ngClass]="{ 'is-invalid': submitted && f.aadhar_file.errors }">
+            <div *ngIf="aadharfileChoosen">{{aadharfileName}}</div>
+            <div class="upload-icons" (click)="fileInputa.click()">
+                <i class="fa fa-upload" aria-hidden="true"></i>
+                <h5>Add More</h5>
+            </div>
+            <div *ngIf="submitted && f.aadhar_file.errors" class="invalid-feedback">
+              <div *ngIf="f.aadhar_file.errors.required">Please upload Aadhar card photo.</div>
+            </div>
+        </div>
+        
+        <label for="add-more2">Pan Card<span class="text-danger">*</span></label>
+        <div class="upload">
+            <input #fileInput type="file" formControlName="pan_file"  placeholder="type here" (change)="onFileChange($event)" [ngClass]="{ 'is-invalid': submitted && f.pan_file.errors }">
+            <div *ngIf="panfileChoosen">{{panfileName}}</div>
+            <div class="upload-icons" (click)="fileInput.click()">
+                <i class="fa fa-upload" aria-hidden="true"></i>
+                <h5>Add More</h5>
+            </div>
+            <div *ngIf="submitted && f.pan_file.errors" class="invalid-feedback">
+              <div *ngIf="f.pan_file.errors.required">Please upload Pan card photo.</div>
+            </div>
+        </div>
+        
+        
+        <label *ngIf="type == 1">Why you want to attend this event?<span class="text-danger">*</span></label>
+        <label *ngIf="type == 2">Why you want to attend this workshop?<span class="text-danger">*</span></label>
+        <textarea placeholder="Your Answer" formControlName="about_workshop" [ngClass]="{ 'is-invalid': submitted && f.about_workshop.errors }"></textarea>
+        <div *ngIf="submitted && f.about_workshop.errors" class="invalid-feedback">
+          <div *ngIf="f.about_workshop.errors.required">This field is required.</div>
+        </div>
+        
+
+        <div class="apply-btn">
+          <a type="submit" (click)="submit()"> submit</a>
+        </div>
+        <!-- <div class="edit-profile">
+          <a [routerLink]="['/edit-profile']" class="edit-prf">
+            <i class="fa fa-pencil" aria-hidden="true"></i>
+            Edit Profile</a>
+        </div> -->
+        
+        
+      </form>
+      </div>
+    </div>
+  </div>
+  <div class="loader_screen" *ngIf="!loading"></div>
+  <app-footer [pageName]='pageName'></app-footer>
+</body>
