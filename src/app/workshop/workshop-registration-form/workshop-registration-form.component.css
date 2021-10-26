@@ -82,3 +82,9 @@ textarea {
     overflow: hidden;
     text-overflow: ellipsis;
 }
+.upload-icons {
+    width: auto !IMPORTANT;
+    display: flex;
+    position: absolute;
+    right: 30px;
+}
