@@ -53,6 +53,7 @@ export class EditProfileComponent implements OnInit {
     this.actRoute.paramMap.subscribe((params: ParamMap) => {                 
       this.castingId = params.get('id');
     });
+    this.userProfile();
     this.registerService.state().pipe(first()).subscribe(res => {
       this.response = res;
       if (this.response.data !== 'undefined' && this.response.data.length > 0) {
@@ -65,7 +66,56 @@ export class EditProfileComponent implements OnInit {
       this.alertService.error(error);
       this.loading = false;
     });
-    this.city = sessionStorage.getItem('city');    
+    
+    this.form = this.formBuilder.group({
+      name : ['',[Validators.required,Validators.pattern('^[a-zA-Z]{2,}(?: [a-zA-Z]+){0,2}$')]],
+      dob : ['',Validators.required],
+      height : ['',[Validators.required,Validators.pattern("^[0-9]+(.[0-9]{0,2})?$")]],
+      phone : ['',[Validators.required]],
+      state : ['',Validators.required],
+      language_id : ['',Validators.required],
+      select_city : ['',Validators.required],
+      home_town : ['',Validators.required],
+      hobbies : ['',Validators.required],
+    },{
+      validator: AgeBetween13To54('dob')
+  });   
+  }
+  get f(): { [key: string]: AbstractControl } {
+    return this.form.controls;
+  } 
+  userProfile(){
+    this.dashboardService.userDetailsForPeofile()
+        .subscribe(res => {
+          this.resData = res; 
+          this.userdetail = this.resData.data.user_details;
+          this.form.controls['name'].setValue(this.userdetail.name);
+          this.form.controls['dob'].setValue(this.userdetail.dob);
+          this.form.controls['height'].setValue(this.userdetail.height);
+          this.form.controls['phone'].setValue(this.userdetail.phone);
+          this.form.controls['language_id'].setValue(this.userdetail.language_id);
+          this.form.controls['select_city'].setValue(this.userdetail.city_id);
+          this.form.controls['state'].setValue(this.userdetail.state_id);
+          this.form.controls['home_town'].setValue(this.userdetail.home_town);
+          this.form.controls['hobbies'].setValue(this.userdetail.hobbies);
+
+
+          // sessionStorage.setItem('name',this.userdetail.name);
+          // sessionStorage.setItem('dob',this.userdetail.dob);
+          // sessionStorage.setItem('height',this.userdetail.height);
+          // sessionStorage.setItem('phone',this.userdetail.phone);
+          sessionStorage.setItem('language_id',this.userdetail.language_id);
+          // sessionStorage.setItem('language',this.userdetail.language);
+          sessionStorage.setItem('city',this.userdetail.city_name);
+          // sessionStorage.setItem('city_id',this.userdetail.city_id);
+          sessionStorage.setItem('state_id',this.userdetail.state_id);
+          // if(this.userdetail.home_town != null && this.userdetail.home_town != '' && this.userdetail.home_town != 'null'){
+          //   sessionStorage.setItem('home_town',this.userdetail.home_town);
+          // }
+          // if(this.userdetail.hobbies != null && this.userdetail.hobbies != ''){
+          //   sessionStorage.setItem('hobbies',this.userdetail.hobbies);
+          // }
+          this.city = sessionStorage.getItem('city');    
     this.registerService.languages().pipe(first()).subscribe(res => {
       this.response = res;
       if (this.response.data !== 'undefined' && this.response.data.length > 0) {
@@ -80,23 +130,8 @@ export class EditProfileComponent implements OnInit {
       this.alertService.error(error);
       this.loading = false;
     });
-    this.form = this.formBuilder.group({
-      name : [sessionStorage.getItem('name'),[Validators.required,Validators.pattern('^[a-zA-Z]{2,}(?: [a-zA-Z]+){0,2}$')]],
-      dob : [sessionStorage.getItem('dob'),Validators.required],
-      height : [sessionStorage.getItem('height'),[Validators.required,Validators.pattern("^[0-9]+(.[0-9]{0,2})?$")]],
-      phone : [sessionStorage.getItem('phone'),[Validators.required]],
-      state : [sessionStorage.getItem('state_id'),Validators.required],
-      language_id : [sessionStorage.getItem('language_id'),Validators.required],
-      select_city : [sessionStorage.getItem('city_id'),Validators.required],
-      home_town : [sessionStorage.getItem('home_town'),Validators.required],
-      hobbies : [sessionStorage.getItem('hobbies'),Validators.required],
-    },{
-      validator: AgeBetween13To54('dob')
-  });   
+        });
   }
-  get f(): { [key: string]: AbstractControl } {
-    return this.form.controls;
-  } 
   submit(){
     this.submitted = true;
     if (this.form.invalid) {

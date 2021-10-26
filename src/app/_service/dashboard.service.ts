@@ -38,6 +38,9 @@ export class DashboardService {
     userDetails(data:any){
       return this.http.post(`${Config.BasePath}/user_details`,data);
     }
+    userDetailsForPeofile(){
+      return this.http.post(`${Config.BasePath}/user_profile`,null);
+    }
     editUserDetail(data:any){
       return this.http.post(`${Config.BasePath}/user_edit`,data);
     }
