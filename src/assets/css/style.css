@@ -846,7 +846,7 @@ body {
     #more {display: none;}
     .card-tbs {margin: 15px 0; background: #fff;border-radius: 25px; border: 1px solid #8c8c8c; padding: 25px 15px; position: sticky;}
     .card-tbs h3 a {font-size: 18px;font-weight: 600; color: #000; text-decoration:none;}
-    .card-tbs p {font-size: 13px; margin-bottom:15px;color: #000;padding-right: 2px;}
+    .card-tbs p {font-size: 13px; margin-bottom:15px;color: #000;}
     span#dots { font-weight: 400;}
     .card-tbs h3 span {color: #ff6e61;}
     .details-icons h4 {font-size: 15px; margin-bottom: 0; margin-left: 5px; display:contents;}	
@@ -874,7 +874,7 @@ body {
     .hd-icons {top: 0; left: 0; display: flex; align-items: center; justify-content: space-between; }
     .form_areas {width: 90%;background: #fff;margin: 0 auto ; padding: 25px; border-radius: 20px; position: absolute; top: 23%; height: auto; left: 0; right: 0;}
     .form_areas label { width: 100%; font-size: 12px; margin-bottom: 8px; font-weight:600;}
-    .form_areas input {width: 100%; height: 22px;border: 0; border-bottom: 1px solid #000; margin-bottom: 15px; font-size: 15px; font-weight:600;background: transparent;padding-bottom: 5px;}
+    .form_areas input {width: 100%; height: 22px;border: 0; border-bottom: 1px solid #000; margin-bottom: 10px; font-size: 15px; font-weight:600;background: transparent;padding-bottom: 5px;}
     .event-regist .invalid-feedback {
         margin-top: 0;
         margin-bottom: 10px;
@@ -2620,10 +2620,10 @@ video {
     .icons-tabs{box-shadow: none;}
     .notify-cont[_ngcontent-tra-c125] i[_ngcontent-tra-c125] {position: absolute;right: 35px;}
  } */
- .upload > input.ng-untouched.ng-pristine.ng-invalid.is-invalid{
+ /* .upload > input.ng-untouched.ng-pristine.ng-invalid.is-invalid{
      margin-bottom: 40px;
      position: relative;
- }
+ } */
 
  .toast-container .ngx-toastr {
     margin: 5px auto !important;

@@ -49,9 +49,15 @@
           </div>
         </div>        
         <h3 (click)="castingInner(casting.id)">{{casting.title | titlecase}}</h3>
+<<<<<<< HEAD
+        <a (click)="castingInner(casting.id)" class="read-more">More...
+          <p class="toggle-sec">{{casting.short_description.substr(0, 50)}}</p>
+        </a>
+=======
         <p class="toggle-sec" [innerHTML]="doHtmlDisplay(casting.short_description)">
           <!-- <a (click)="castingInner(casting.id)" class="read-more">More</a> -->
         </p>
+>>>>>>> f58ae41755c37962e61a74329faabf47d51e3c87
         <div class="details">
           <div class="details-icons">
             <i class="fa fa-transgender-alt" aria-hidden="true"></i>
@@ -106,8 +112,13 @@
           </div>
         </div> 
         <h3 class="grn" (click)="castingInner(casting.id)">{{casting.title | titlecase}}</h3>
+<<<<<<< HEAD
+        <a (click)="castingInner(casting.id)" class="read-more">More...
+          <p class="toggle-sec">{{casting.short_description.substr(0, 50)}}</p></a>
+=======
         <p class="toggle-sec" [innerHTML]="doHtmlDisplay(casting.short_description)">
           <!-- <a (click)="castingInner(casting.id)" class="read-more">More...</a> -->
+>>>>>>> f58ae41755c37962e61a74329faabf47d51e3c87
           <div class="details">
             <div class="details-icons">
               <i class="fa fa-transgender-alt" aria-hidden="true"></i>
@@ -241,9 +252,15 @@
             </div>
           </div>
         <h3 (click)="eventInner(upcoming.id)">Title: {{upcoming.title | titlecase}}</h3>
+<<<<<<< HEAD
+        <p class="toggle-sec" [innerHTML]="upcoming.description.substr(0, 50)">
+          <a (click)="eventInner(upcoming.id)" class="read-more">More</a>
+        </p>
+=======
         <!-- <a (click)="eventInner(upcoming.id)" class="read-more">More -->
         <p class="toggle-sec" [innerHTML]="doHtmlDisplay(upcoming.description)"></p>
       <!-- </a> -->
+>>>>>>> f58ae41755c37962e61a74329faabf47d51e3c87
         <div class="details">
           <div class="details-icons">
             <i class="fa fa-map-marker" aria-hidden="true"></i>
@@ -295,11 +312,17 @@
             </div>
           </div>
         <h3 (click)="eventInner(eventforu.id)">Title: {{eventforu.title | titlecase}}</h3>
+<<<<<<< HEAD
+        <p class="toggle-sec" [innerHTML]="eventforu.description.substr(0, 50)">
+          <a (click)="eventInner(eventforu.id)" class="read-more">More</a>
+        </p>
+=======
         <!-- <a (click)="eventInner(eventforu.id)" class="read-more">More -->
         <p class="toggle-sec" [innerHTML]="doHtmlDisplay(eventforu.description)">
           
         </p>
       <!-- </a> -->
+>>>>>>> f58ae41755c37962e61a74329faabf47d51e3c87
         <div class="details">
           <div class="details-icons">
             <i class="fa fa-map-marker" aria-hidden="true"></i>
@@ -435,9 +458,15 @@
           </div>
         </div>
         <h3 (click)="workshopInner(data.id)">{{data.title | titlecase}}</h3>
+<<<<<<< HEAD
+        <p class="toggle-sec" [innerHTML]="data.description.substr(0, 50)">
+          <a (click)="workshopInner(data.id)" class="read-more">More...</a>
+        </p>
+=======
         <!-- <a (click)="workshopInner(data.id)" class="read-more">More... -->
         <p class="toggle-sec" [innerHTML]="doHtmlDisplay(data.description)"></p>
       <!-- </a> -->
+>>>>>>> f58ae41755c37962e61a74329faabf47d51e3c87
             <div class="details">
               <div class="details-icons">
                 <i class="fa fa-map-marker" aria-hidden="true"></i>
@@ -486,9 +515,16 @@
           </div>
         </div>
         <h3 (click)="workshopInner(data.id)">{{data.title | titlecase}}</h3>
+<<<<<<< HEAD
+        
+        <p class="toggle-sec" [innerHTML]="data.description.substr(0, 50)">
+          <a (click)="workshopInner(data.id)" class="read-more">More...</a>
+        </p>
+=======
         <!-- <a (click)="workshopInner(data.id)" class="read-more">More... -->
         <p class="toggle-sec" [innerHTML]="doHtmlDisplay(data.description)"></p>
       <!-- </a> -->
+>>>>>>> f58ae41755c37962e61a74329faabf47d51e3c87
             <div class="details">
               <div class="details-icons">
                 <i class="fa fa-map-marker" aria-hidden="true"></i>
@@ -538,9 +574,15 @@
             </div>
           </div>
             <h3 (click)="workshopInner(data.id)">{{data.title | titlecase}}</h3>
+<<<<<<< HEAD
+            <p class="toggle-sec" [innerHTML]="data.description.substr(0, 50)">
+              <a (click)="workshopInner(data.id)" class="read-more">More...</a>
+            </p>
+=======
             <!-- <a (click)="workshopInner(data.id)" class="read-more">More... -->
             <p class="toggle-sec" [innerHTML]="doHtmlDisplay(data.description)"></p>
           <!-- </a> -->
+>>>>>>> f58ae41755c37962e61a74329faabf47d51e3c87
             <div class="details">
               <div class="details-icons">
                 <i class="fa fa-map-marker" aria-hidden="true"></i>

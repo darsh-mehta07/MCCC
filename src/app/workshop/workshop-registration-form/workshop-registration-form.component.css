@@ -23,12 +23,11 @@
 .upload {
     font-size: 13px;
     border-bottom: 1px solid hsl(0deg 0% 0%);
-    margin-bottom: 10px;
+    margin-bottom: 25px;
     height: 30px;
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
-    
 }
 .event-regist input[type="file"] {
     opacity: 0;
@@ -60,10 +59,10 @@ textarea {
     height: 35px;
     line-height: 25px;
     border-bottom: 1px solid hsl(0deg 0% 0%);
-    margin-bottom: 10px;
+    margin-bottom: 0;
     font-size: 15px;
     font-weight: 500;
-    padding-bottom: 5px;
+    padding-bottom: 0;
     overflow-y: scroll;
 }
 .event-regist .apply-btn {
@@ -77,14 +76,22 @@ textarea {
     position: relative;
     text-decoration: none;
 }
-.upload div {
-    width: 180px;
+.upload .file-name {
+    width: 180px !IMPORTANT;
     overflow: hidden;
     text-overflow: ellipsis;
+    white-space: nowrap;
 }
 .upload-icons {
     width: auto !IMPORTANT;
     display: flex;
     position: absolute;
     right: 30px;
+}
+.upload .error-dw {
+    position: absolute;
+}
+.upload .invalid-feedback {
+    position: relative;
+    top: 16px;
 }
