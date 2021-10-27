@@ -49,7 +49,7 @@
           </div>
         </div>        
         <h3 (click)="castingInner(casting.id)">{{casting.title | titlecase}}</h3>
-        <p class="toggle-sec">{{casting.short_description.substr(0, 50)}} ...
+        <p class="toggle-sec" [innerHTML]="doHtmlDisplay(casting.short_description)">
           <!-- <a (click)="castingInner(casting.id)" class="read-more">More</a> -->
         </p>
         <div class="details">
@@ -106,7 +106,7 @@
           </div>
         </div> 
         <h3 class="grn" (click)="castingInner(casting.id)">{{casting.title | titlecase}}</h3>
-        <p class="toggle-sec">{{casting.short_description.substr(0, 50)}} ...
+        <p class="toggle-sec" [innerHTML]="doHtmlDisplay(casting.short_description)">
           <!-- <a (click)="castingInner(casting.id)" class="read-more">More...</a> -->
           <div class="details">
             <div class="details-icons">
@@ -161,7 +161,7 @@
           </div>
         </div> 
         <h3 class="yto" (click)="castingInner(casting.id)">{{casting.title | titlecase}}</h3>
-        <p class="toggle-sec">{{casting.short_description.substr(0, 50)}} ...
+        <p class="toggle-sec" [innerHTML]="doHtmlDisplay(casting.short_description)">
           <!-- <a (click)="castingInner(casting.id)" class="read-more">More...</a> -->
         </p>
         <div class="details">
@@ -242,7 +242,7 @@
           </div>
         <h3 (click)="eventInner(upcoming.id)">Title: {{upcoming.title | titlecase}}</h3>
         <!-- <a (click)="eventInner(upcoming.id)" class="read-more">More -->
-        <p class="toggle-sec" [innerHTML]="upcoming.description.substr(0, 50)"></p> ...
+        <p class="toggle-sec" [innerHTML]="doHtmlDisplay(upcoming.description)"></p>
       <!-- </a> -->
         <div class="details">
           <div class="details-icons">
@@ -296,7 +296,7 @@
           </div>
         <h3 (click)="eventInner(eventforu.id)">Title: {{eventforu.title | titlecase}}</h3>
         <!-- <a (click)="eventInner(eventforu.id)" class="read-more">More -->
-        <p class="toggle-sec" [innerHTML]="eventforu.description.substr(0, 50)">
+        <p class="toggle-sec" [innerHTML]="doHtmlDisplay(eventforu.description)">
           
         </p>
       <!-- </a> -->
@@ -436,7 +436,7 @@
         </div>
         <h3 (click)="workshopInner(data.id)">{{data.title | titlecase}}</h3>
         <!-- <a (click)="workshopInner(data.id)" class="read-more">More... -->
-        <p class="toggle-sec" [innerHTML]="data.description.substr(0, 50)"></p>
+        <p class="toggle-sec" [innerHTML]="doHtmlDisplay(data.description)"></p>
       <!-- </a> -->
             <div class="details">
               <div class="details-icons">
@@ -487,7 +487,7 @@
         </div>
         <h3 (click)="workshopInner(data.id)">{{data.title | titlecase}}</h3>
         <!-- <a (click)="workshopInner(data.id)" class="read-more">More... -->
-        <p class="toggle-sec" [innerHTML]="data.description.substr(0, 50)"></p>
+        <p class="toggle-sec" [innerHTML]="doHtmlDisplay(data.description)"></p>
       <!-- </a> -->
             <div class="details">
               <div class="details-icons">
@@ -539,7 +539,7 @@
           </div>
             <h3 (click)="workshopInner(data.id)">{{data.title | titlecase}}</h3>
             <!-- <a (click)="workshopInner(data.id)" class="read-more">More... -->
-            <p class="toggle-sec" [innerHTML]="data.description.substr(0, 50)"></p>
+            <p class="toggle-sec" [innerHTML]="doHtmlDisplay(data.description)"></p>
           <!-- </a> -->
             <div class="details">
               <div class="details-icons">

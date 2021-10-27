@@ -14,7 +14,7 @@
              <a [routerLink]="['/my-casting/'+application.casting_id]" *ngFor="let application of applications; let i=index;">
                  <div class="appli-content" *ngIf="application.confirm == 1">
                  <h3>{{application.get_user_casting_model.title | titlecase}}</h3>
-                 <p>{{application.get_user_casting_model.short_description}}</p>
+                 <p [innerHTML]="doHtmlDisplay(application.get_user_casting_model.short_description)"></p>
              </div>
              </a>   
              <div class="item" *ngIf="!loading">

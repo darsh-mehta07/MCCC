@@ -40,10 +40,8 @@
             </ul>
           </div>
         </div>
-          <h3 (click)="eventInner(onGoing.id)">Title: {{onGoing.title | titlecase}}</h3> 
-          <a (click)="eventInner(onGoing.id)" class="read-more">More...
-          <p class="toggle-sec" [innerHtml]="onGoing.description.substr(0, 50)"></p>
-          </a>
+          <h3 (click)="eventInner(onGoing.id)">Title: {{onGoing.title | titlecase}}</h3>          
+          <p class="toggle-sec" [innerHtml]="doHtmlDisplay(onGoing.description)"></p>
           <div class="details">
              <div class="details-icons">
               <i class="fa fa-map-marker" aria-hidden="true"></i>
@@ -96,9 +94,7 @@
           </div>
         </div>
       <h3 (click)="eventInner(upcoming.id)">Title: {{upcoming.title | titlecase}}</h3> 
-      <a (click)="eventInner(upcoming.id)" class="read-more">More...
-        <p class="toggle-sec" [innerHtml]="upcoming.description.substr(0, 50)"></p>
-      </a> 
+        <p class="toggle-sec" [innerHtml]="doHtmlDisplay(upcoming.description)"></p>
       <div class="details">
          <div class="details-icons">
           <i class="fa fa-map-marker" aria-hidden="true"></i>
@@ -153,9 +149,8 @@
         </div>
          
        <h3  class="yto" (click)="eventInner(eventforu.id)">Title: {{eventforu.title | titlecase}}</h3> 
-       <a (click)="eventInner(eventforu.id)" class="read-more">More...
-       <p  class="toggle-sec" [innerHtml]="eventforu.description.substr(0, 50)"></p>
-      </a>
+       
+       <p  class="toggle-sec" [innerHtml]="doHtmlDisplay(eventforu.description)"></p>
       <div class="details">
          <div class="details-icons">
           <i class="fa fa-map-marker" aria-hidden="true"></i>
