@@ -36,9 +36,7 @@
                     </div>
                   </div> 
                     <h3 (click)="castingInner(casting.id)">{{casting.title | titlecase}}</h3>
-                    <p class="toggle-sec">{{casting.short_description.substr(0, 50)}}
-                      <a (click)="castingInner(casting.id)" class="read-more">More...</a>
-                    </p>
+                    <p class="toggle-sec" [innerHTML]="doHtmlDisplay(casting.short_description)"></p>
                     <div class="details">
                       <div class="details-icons">
                         <i class="fa fa-transgender-alt" aria-hidden="true"></i>
@@ -99,8 +97,7 @@
                     </div>
                   </div> 
                     <h3 class="grn" (click)="castingInner(rcasting.id)">{{rcasting.title}}</h3>
-                    <p class="toggle-sec">{{rcasting.short_description.substr(0, 50)}}
-                      <a (click)="castingInner(rcasting.id)" class="read-more">More...</a>
+                    <p class="toggle-sec" [innerHTML]="doHtmlDisplay(rcasting.short_description)"></p>
                     <div class="details">
                         <div class="details-icons">
                             <i class="fa fa-transgender-alt" aria-hidden="true"></i>
@@ -158,9 +155,7 @@
                     </div>
                   </div> 
                     <h3 (click)="castingInner(casting.id)">{{casting.title | titlecase}}</h3>
-                    <p class="toggle-sec">{{casting.short_description.substr(0, 50)}}
-                      <a (click)="castingInner(casting.id)" class="read-more">More...</a>
-                    </p>
+                    <p class="toggle-sec" [innerHTML]="doHtmlDisplay(casting.short_description)"></p>
                     <div class="details">
                       <div class="details-icons">
                         <i class="fa fa-transgender-alt" aria-hidden="true"></i>
