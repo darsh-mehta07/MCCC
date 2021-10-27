@@ -39,7 +39,12 @@
                       </div>
                     </div> -->
                   </div>  
-                  </div>               
+                  </div>   
+                   <!-- Progress Bar -->
+        <div class="progress form-group" *ngIf="progress > 0">
+          <div class="progress-bar progress-bar-striped bg-success" role="progressbar" [style.width.%]="progress">{{progress}}
+          </div>
+      </div>           
               </div>
               <div class="vdi-btn">
                   <i class="fa fa-plus-circle" aria-hidden="true"> </i>
