@@ -9,6 +9,7 @@ import { Location } from '@angular/common';
 import { Config } from 'src/app/_config/config';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { NotificationService } from 'src/app/_service/notification.service';
+import { HttpEvent, HttpEventType } from '@angular/common/http';
 
 @Component({
   selector: 'app-video',
@@ -16,6 +17,8 @@ import { NotificationService } from 'src/app/_service/notification.service';
   styleUrls: ['./video.component.css']
 })
 export class VideoComponent implements OnInit {
+  progress: number = 0;
+  state: 'PENDING' | 'IN_PROGRESS' | 'DONE' | any;
   closeResult:any;
   videoArray:any;
   videos : string[] = [];
@@ -92,10 +95,30 @@ export class VideoComponent implements OnInit {
         console.log('if');
         this.patchOldVideoValues();
         this.commonService.updateVideo(this.form.value)
-        .subscribe(res => {
-          this.loading = true;
-          this.notification.showSuccess('Video saved Successfully.','');
-          this.resData = res;        
+        .subscribe((event: HttpEvent<any>) => {
+          console.log("event : ", event);
+          switch (event.type) {
+            case HttpEventType.Sent:
+              console.log('Request has been made!');
+              break;
+            case HttpEventType.ResponseHeader:
+              console.log('Response header has been received!');
+              break;
+            case HttpEventType.UploadProgress:
+              let total:any = event.total;
+              this.progress = Math.round(event.loaded / total * 100);
+              console.log(`Uploaded! ${this.progress}%`);
+              break;
+            case HttpEventType.Response:
+              console.log('User successfully created!', event.body);
+              setTimeout(() => {
+                this.progress = 0;
+	              this.loading = true;
+          	    this.notification.showSuccess('Video saved Successfully.','');
+          	    this.resData = event;
+              }, 1500);
+    
+          }
         });
       }else{    
         console.log('else');
@@ -169,7 +192,7 @@ export class VideoComponent implements OnInit {
           } else if (file.type.indexOf('video') > -1) {
             this.format = 'video';
             const fileSizeInKB = Math.round(file.size / 1024);
-            if(fileSizeInKB > 2048){
+            if(fileSizeInKB > 102400){
               this.fileSizeaInKB = true;
             }
             console.log('size', file.size);

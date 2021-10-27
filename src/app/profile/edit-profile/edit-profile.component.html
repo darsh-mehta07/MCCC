@@ -61,9 +61,9 @@
         </div>          
            
           <label>City<span class="text-danger">*</span></label>
-          <div class="select_div" *ngIf="cityVisible">
-            <select *ngIf="dataTrue" nice-select class="select"><option>{{city}}</option></select>
-        </div>
+          <!-- <div class="select_div" *ngIf="cityVisible">
+            <select *ngIf="dataTrue" nice-select class="select"><option>{{scity}} Bablu</option></select>
+        </div> -->
           <div class="select_div" *ngIf="!cityVisible">
             <select *ngIf="dataTrue" nice-select class="select" formControlName="select_city" [ngClass]="{ 'is-invalid': submitted && f.select_city.errors }">
                 <option selected disabled>City</option>

@@ -31,7 +31,7 @@ export class EditProfileComponent implements OnInit {
   response: any;
   states: any;
   cities: any;
-  city:any;
+  scity:any;
   languages: any;
   responseData: any;
   cityVisible:boolean = true;
@@ -106,6 +106,23 @@ export class EditProfileComponent implements OnInit {
           // sessionStorage.setItem('phone',this.userdetail.phone);
           sessionStorage.setItem('language_id',this.userdetail.language_id);
           // sessionStorage.setItem('language',this.userdetail.language);
+          if(this.userdetail.city_name != null && this.userdetail.city_name !=''){
+            this.dataTrue = true;            
+            this.cityVisible = true;
+            this.registerService.cities({ state_id: this.userdetail.state_id }).subscribe(res => {
+              this.response = res;
+              if (this.response.data !== 'undefined' && this.response.data.length > 0) {
+                this.dataTrue = true;
+                this.cityVisible = false;
+                this.cities = this.response.data;
+              } else {
+                this.dataTrue = false;
+              }
+            }, error => {
+              this.alertService.error(error);
+              this.loading = false;
+            });
+          }
           sessionStorage.setItem('city',this.userdetail.city_name);
           // sessionStorage.setItem('city_id',this.userdetail.city_id);
           sessionStorage.setItem('state_id',this.userdetail.state_id);
@@ -115,7 +132,7 @@ export class EditProfileComponent implements OnInit {
           // if(this.userdetail.hobbies != null && this.userdetail.hobbies != ''){
           //   sessionStorage.setItem('hobbies',this.userdetail.hobbies);
           // }
-          this.city = sessionStorage.getItem('city');    
+              
     this.registerService.languages().pipe(first()).subscribe(res => {
       this.response = res;
       if (this.response.data !== 'undefined' && this.response.data.length > 0) {
@@ -151,6 +168,7 @@ export class EditProfileComponent implements OnInit {
           sessionStorage.setItem('phone',this.form.value.phone);
           // sessionStorage.setItem('language_id',this.userdetail.language_id);
           // sessionStorage.setItem('language',this.userdetail.language);
+         
           sessionStorage.setItem('city',this.userdetail.city_name);
           sessionStorage.setItem('city_id',this.userdetail.city);
           sessionStorage.setItem('state_id',this.userdetail.state);
