@@ -66,26 +66,26 @@
         <label for="add-more1">Aadhar Card<span class="text-danger">*</span></label>
         <div class="upload">            
             <input #fileInputa type="file" formControlName="aadhar_file"   placeholder="type here" (change)="onFileChange2($event)" [ngClass]="{ 'is-invalid': submitted && f.aadhar_file.errors }">
-            <div *ngIf="aadharfileChoosen">{{aadharfileName}}</div>
+            <div *ngIf="aadharfileChoosen" class="file-name">{{aadharfileName}}</div>
             <div class="upload-icons" (click)="fileInputa.click()">
                 <i class="fa fa-upload" aria-hidden="true"></i>
                 <h5>Add More</h5>
             </div>
             <div *ngIf="submitted && f.aadhar_file.errors" class="invalid-feedback">
-              <div *ngIf="f.aadhar_file.errors.required">Please upload Aadhar card photo.</div>
+              <div *ngIf="f.aadhar_file.errors.required" class="error-dw">Please upload Aadhar card photo.</div>
             </div>
         </div>
         
         <label for="add-more2">Pan Card<span class="text-danger">*</span></label>
         <div class="upload">
             <input #fileInput type="file" formControlName="pan_file"  placeholder="type here" (change)="onFileChange($event)" [ngClass]="{ 'is-invalid': submitted && f.pan_file.errors }">
-            <div *ngIf="panfileChoosen">{{panfileName}}</div>
+            <div *ngIf="panfileChoosen" class="file-name">{{panfileName}}</div>
             <div class="upload-icons" (click)="fileInput.click()">
                 <i class="fa fa-upload" aria-hidden="true"></i>
                 <h5>Add More</h5>
             </div>
             <div *ngIf="submitted && f.pan_file.errors" class="invalid-feedback">
-              <div *ngIf="f.pan_file.errors.required">Please upload Pan card photo.</div>
+              <div *ngIf="f.pan_file.errors.required" class="error-dw">Please upload Pan card photo.</div>
             </div>
         </div>
         
