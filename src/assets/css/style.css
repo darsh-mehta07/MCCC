@@ -2654,3 +2654,6 @@ h4.place {
 .select_div {
     margin-bottom: 15px;
 }
+.no-data h2 {
+    color: hsl(6deg 88% 68%);
+}

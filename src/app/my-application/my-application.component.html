@@ -12,15 +12,15 @@
              <h3>My Application</h3>
              <h5>Most Recent</h5>
              <a [routerLink]="['/my-casting/'+application.casting_id]" *ngFor="let application of applications; let i=index;">
-                 <div class="appli-content" *ngIf="application.confirm == 1">
-                 <h3>{{application.get_user_casting_model.title | titlecase}}</h3>
-                 <p [innerHTML]="doHtmlDisplay(application.get_user_casting_model.short_description)"></p>
-             </div>
+                <div class="appli-content" *ngIf="application.confirm == 1">
+                    <h3>{{application.get_user_casting_model.title | titlecase}}</h3>
+                    <p [innerHTML]="doHtmlDisplay(application.get_user_casting_model.short_description)"></p>
+                </div>
              </a>   
              <div class="item" *ngIf="!loading">
               <ngx-skeleton-loader count="12"></ngx-skeleton-loader>
             </div>    
-            <div *ngIf="!noData" class="no-data">
+            <div *ngIf="!noData" class="no-data appli-content">
               <img src="../../../assets/img/image.png">
               <h2>No Data Available</h2>
             </div>      

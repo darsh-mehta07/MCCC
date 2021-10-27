@@ -61,12 +61,12 @@
                   <div class="item" *ngIf="!loading">
                     <ngx-skeleton-loader count="15"></ngx-skeleton-loader>
                   </div>
-                  
-                  <div *ngIf="castingData" class="no-data">
-                    <img src="../../../assets/img/image.png">
-                    <h2>No Data Available</h2>
-                  </div>
-                  
+                  <div class="card-tbs" *ngIf="castingData">
+                    <div  class="no-data">
+                      <img src="../../../assets/img/image.png">
+                      <h2>No Data Available</h2>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -96,7 +96,7 @@
                       </ul>
                     </div>
                   </div> 
-                    <h3 class="grn" (click)="castingInner(rcasting.id)">{{rcasting.title}}</h3>
+                    <h3 class="grn" (click)="castingInner(rcasting.id)">{{rcasting.title | titlecase}}</h3>
                     <p class="toggle-sec" [innerHTML]="doHtmlDisplay(rcasting.short_description)"></p>
                     <div class="details">
                         <div class="details-icons">
@@ -120,11 +120,13 @@
                 </div>                
                 <div class="item" *ngIf="!loading">
                     <ngx-skeleton-loader count="15"></ngx-skeleton-loader>
-                  </div>
-                  <div *ngIf="recommendData" class="no-data">
-                    <img src="../../../assets/img/image.png">
-                    <h2>No Data Available</h2>
-                  </div>
+                  </div>                  
+                  <div class="card-tbs" *ngIf="recommendData">
+                    <div  class="no-data">
+                      <img src="../../../assets/img/image.png">
+                      <h2>No Data Available</h2>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -180,10 +182,12 @@
                   <div class="item" *ngIf="!loading">
                     <ngx-skeleton-loader count="15"></ngx-skeleton-loader>
                   </div>
-                  <div *ngIf="endingSoonData" class="no-data">
-                    <img src="../../../assets/img/image.png">
-                    <h2>No Data Available</h2>
-                  </div>
+                  <div class="card-tbs" *ngIf="endingSoonData">
+                    <div  class="no-data">
+                      <img src="../../../assets/img/image.png">
+                      <h2>No Data Available</h2>
+                    </div>
+                </div>                 
             </div>
         </div>
     </div>

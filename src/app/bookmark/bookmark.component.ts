@@ -58,5 +58,13 @@ export class BookmarkComponent implements OnInit {
   tab(data:any){
     this.catId = data;
   }
+  doHtmlDisplay(text:any, limit = 50) {
+    if (text.length > limit) {
+     text = text.substring(0, limit) + '...';
+    } else {
+     text;
+    }
+    return text;
+   }
 
 }

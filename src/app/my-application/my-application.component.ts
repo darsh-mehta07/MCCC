@@ -22,10 +22,8 @@ export class MyApplicationComponent implements OnInit {
    }
 
   ngOnInit(): void {
-          this.getMyApplication();
-    
-  }
-  
+          this.getMyApplication();    
+  }  
   getMyApplication(){
     this.dashboardService.myApplication(null)
     .subscribe(

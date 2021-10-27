@@ -221,8 +221,11 @@ export class HomeComponent implements OnInit {
       .subscribe(res => {
         this.loadingnc = true;
         this.resData = res;        
-        this.newCasting = this.resData.data; 
-        if(this.newCasting == 'No Record Found'){
+        this.newCasting = this.resData.data;
+        if(this.newCasting.length  == 0){
+          this.loadingnc = false;
+          this.nonewcall = true;
+        }else if(this.newCasting == 'No Record Found'){
           this.nonewcall = true;
         }       
       });
@@ -235,7 +238,10 @@ export class HomeComponent implements OnInit {
         this.callEnding = this.resData.data; 
         if(this.callEnding == 'No Record Found'){
           this.nocallend = true;
-        }       
+        }else if(this.callEnding.length == 0){
+          this.nocallend = true;
+          this.loadingnce = false;
+        }      
       });
   }
   getRecomendedData(){
@@ -246,6 +252,9 @@ export class HomeComponent implements OnInit {
         this.recomended = this.resData.data; 
         if(this.recomended == 'No Record Found'){
           this.norecomended = true;
+        }else if(this.recomended.length == 0){
+          this.norecomended = true;
+          this.loadingnr = false;
         }  
         console.log(this.recomended);      
       });
