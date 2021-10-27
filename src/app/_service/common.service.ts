@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Config } from '../_config/config';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -52,8 +53,8 @@ export class CommonService {
     myVideo(){
       return this.http.get(`${Config.BasePath}/display_user_video_data`);
     }
-    updateVideo(data:any){
-      return this.http.post(`${Config.BasePath}/update_user_video_data`,data);
+    updateVideo(data:any): Observable<any>{
+      return this.http.post(`${Config.BasePath}/update_user_video_data`,data,{reportProgress: true,observe: 'events'});
     }
     
 }

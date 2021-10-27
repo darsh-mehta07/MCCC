@@ -1,4 +1,4 @@
-import { Component, NgModule, OnInit } from '@angular/core';
+import { Component, NgModule, OnInit,ViewChild, ElementRef } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import {BtsVideosService} from '../../_service/bts-videos.service';
 import { SafePipe } from '../../_config/safe.pipe';
@@ -11,6 +11,7 @@ import { Location } from '@angular/common';
   styleUrls: ['./bts-video-view.component.css']
 })
 export class BtsVideoViewComponent implements OnInit {
+  @ViewChild("iframe") iframe: ElementRef | any;
   btsCategoryId: any;
   btsVideoId: any;
   dataLoad: any = false;
@@ -48,6 +49,7 @@ export class BtsVideoViewComponent implements OnInit {
                         this.BtsVideos = data.data;
                         this.upNext = data.category_videos;
                         this.vid = this.BtsVideos[0].video_url+'?autoplay=1&modestbranding=1&showinfo=0&amp';
+                        this.iframe.nativeElement.contentWindow.location.replace(this.vid);
                         // this.vid = this.BtsVideos[0].video_url+'?autoplay=1&mute=1&enablejsapi=1';
                         console.log(this.vid);
                         this.desc = this.BtsVideos[0].description;
