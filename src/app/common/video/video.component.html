@@ -41,10 +41,11 @@
                   </div>  
                   </div>   
                    <!-- Progress Bar -->
-        <!-- <div class="progress form-group" *ngIf="progress > 0">
-          <div class="progress-bar progress-bar-striped bg-success" role="progressbar" [style.width.%]="progress">{{progress}}
-          </div>
-      </div>            -->
+        <!-- <div class="progress form-group" *ngIf="progress">
+          <div class="progress-bar progress-bar-striped bg-success" role="progressbar" [style.width]="progress + '%'">{{progress}}%
+          </div>          
+      </div>   
+      <span *ngIf="waitText">Please wait...</span>         -->
               </div>
               <div class="vdi-btn">
                   <i class="fa fa-plus-circle" aria-hidden="true"> </i>
@@ -60,6 +61,12 @@
         </div>
     </div>
     <div class="loader_screen" *ngIf="!loading"></div>
+    <div class="loaders" *ngIf="!videoloading">
+      <div class="loading-container">
+        <div class="loading"></div>
+        <div id="loading-text">Please wait...</div>
+      </div>
+    </div>
 </div>
 <ng-template #video let-modal>
   <div class="crooping-modal"> 

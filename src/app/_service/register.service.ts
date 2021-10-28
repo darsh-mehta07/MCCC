@@ -33,6 +33,9 @@ export class RegisterService {
   languages(){
     return this.http.get(`${Config.BasePath}/languages`);
   }
+  isEmailcheck(date:any){
+    return this.http.post(`${Config.BasePath}/check_email`,date);    
+  }
   isEmailTaken(email: string): Observable<boolean> {
     let url = `${Config.BasePath}/check_email`;
 

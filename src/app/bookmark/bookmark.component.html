@@ -83,7 +83,7 @@
           </div> 
           <div class="card-tbs" *ngFor="let data of workshopBookmarkData">
             
-            <h3 class="yto" [routerLink]="['/workshop-registration/',data.id]">{{data.title}}</h3> 
+            <h3 [routerLink]="['/workshop-registration/',data.id]">{{data.title}}</h3> 
             <p class="toggle-sec" [innerHtml]="doHtmlDisplay(data.description)">
             <a [routerLink]="['/workshop-registration/',data.id]" class="read-more">More...</a></p>
             <div class="details">

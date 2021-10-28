@@ -17,6 +17,7 @@ import { HttpEvent, HttpEventType } from '@angular/common/http';
   styleUrls: ['./video.component.css']
 })
 export class VideoComponent implements OnInit {
+  waitText :boolean = false;
   progress: number = 0;
   state: 'PENDING' | 'IN_PROGRESS' | 'DONE' | any;
   closeResult:any;
@@ -36,6 +37,7 @@ export class VideoComponent implements OnInit {
   pageName="images";
   currentUser: User;
   loading:boolean = true;
+  videoloading : boolean = true;
   datas : any;
   resData:any;
   form: FormGroup | any;
@@ -83,7 +85,7 @@ export class VideoComponent implements OnInit {
            this.patchOldVideoValues();
       }
       //video update section
-      this.loading = false;
+      this.videoloading = false;
       if(this.videoArray!= null){
         this.oldvideo = 1;
       }else{
@@ -95,33 +97,24 @@ export class VideoComponent implements OnInit {
         console.log('if');
         this.patchOldVideoValues();
         this.commonService.updateVideo(this.form.value)
-        .subscribe((event: HttpEvent<any>) => {
-          console.log("event : ", event);
-          switch (event.type) {
-            case HttpEventType.Sent:
-              console.log('Request has been made!');
-              break;
-            case HttpEventType.ResponseHeader:
-              console.log('Response header has been received!');
-              break;
-            case HttpEventType.UploadProgress:
-              let total:any = event.total;
-              this.progress = Math.round(event.loaded / total * 100);
-              console.log(`Uploaded! ${this.progress}%`);
-              break;
-            case HttpEventType.Response:
-              console.log('User successfully created!', event.body);
-              setTimeout(() => {
-                this.progress = 0;
-	              this.loading = true;
-          	    this.notification.showSuccess('Video saved Successfully.','');
-          	    this.resData = event;
-              }, 1500);
-    
+        .subscribe(
+          (event: HttpEvent<any>) => {
+          if (event.type == HttpEventType.UploadProgress) {
+            let total:any = event.total;
+            this.progress = Math.round((100 / total) * event.loaded);
+            this.waitText = true;
+            this.videoloading = false;
+          } else if (event.type == HttpEventType.Response) {
+            this.videoloading = true;
+            this.progress = 0;
+            this.waitText = false;
+            this.notification.showSuccess('Video saved Successfully.','');
+            this.resData = event;
           }
         });
       }else{    
         console.log('else');
+        this.videoloading = true;
         this.loading = true;    
          if(totalvideo > 4){
           this.videoerror = 'Please Select Only One Video';

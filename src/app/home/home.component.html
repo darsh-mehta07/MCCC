@@ -485,7 +485,7 @@
             </ul>
           </div>
         </div>
-        <h3 (click)="workshopInner(data.id)">{{data.title | titlecase}}</h3>
+        <h3 (click)="workshopInner(data.id)" class="grn">{{data.title | titlecase}}</h3>
         <!-- <a (click)="workshopInner(data.id)" class="read-more">More... -->
         <p class="toggle-sec" [innerHTML]="doHtmlDisplay(data.description)"></p>
       <!-- </a> -->
@@ -537,7 +537,7 @@
               </ul>
             </div>
           </div>
-            <h3 (click)="workshopInner(data.id)">{{data.title | titlecase}}</h3>
+            <h3 (click)="workshopInner(data.id)" class="yto">{{data.title | titlecase}}</h3>
             <!-- <a (click)="workshopInner(data.id)" class="read-more">More... -->
             <p class="toggle-sec" [innerHTML]="doHtmlDisplay(data.description)"></p>
           <!-- </a> -->

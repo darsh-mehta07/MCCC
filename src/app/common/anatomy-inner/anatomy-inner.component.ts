@@ -69,7 +69,7 @@ export class AnatomyInnerComponent implements OnInit {
           data => {  
             this.uploading = false;     
             this.active=0;   
-            this.notification.showSuccess('Update Successfully','');
+            this.notification.showSuccess('Updated Successfully','');
           },
           error => {
             this.notification.showError(error.error.message,true);
