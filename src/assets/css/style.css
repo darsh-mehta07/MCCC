@@ -2647,3 +2647,6 @@ h4.place {
 .select_div {
     margin-bottom: 15px;
 }
+.upcoming-workshop-tbs .no-data h2 {
+    font-weight: 500 !important;
+}
