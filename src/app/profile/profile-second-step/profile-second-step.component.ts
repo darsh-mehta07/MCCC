@@ -21,6 +21,7 @@ export class ProfileSecondStepComponent implements OnInit {
   url: any;
   responseData: any;
   uploading:boolean=false;
+  videoloading :boolean = false;
   fileSizeaInKB : boolean = false;
   fileSelected : boolean = false;
   constructor(
@@ -85,13 +86,13 @@ export class ProfileSecondStepComponent implements OnInit {
     }
   }
   submit() {
-    this.uploading = true;
+    this.videoloading = true;
     this.submitted = true;
     if (this.form.invalid) {
       return;
     } else {
       this.userService.upload_video(this.form.value).pipe(first()).subscribe(res => {
-        this.uploading = false;  
+        this.videoloading = false;  
         this.responseData = res;
         if (this.responseData.status == 'true') {
           this.route.navigate(['/profile_final_step']);
@@ -99,7 +100,7 @@ export class ProfileSecondStepComponent implements OnInit {
           this.alertService.success('File uploaded Successfully', true);
         }
       },error=>{
-        this.uploading = false;
+        this.videoloading = false;
       });
     }
   }
