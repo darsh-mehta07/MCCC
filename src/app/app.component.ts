@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { Spinkit } from 'ng-http-loader';
 import { ConnectionService } from 'ng-connection-service'; 
-
+import { Config } from './_config/config';
 import { Location } from '@angular/common';
+import { AuthenticationService } from './_service/authentication.service';
 
 import { ActivatedRoute, ParamMap,Router, NavigationEnd  } from '@angular/router';
 @Component({
@@ -16,9 +17,23 @@ export class AppComponent {
   isConnected = true;  
   noInternetConnection!: boolean;  
   
-  constructor(private connectionService: ConnectionService,
+  constructor(private authenticationService: AuthenticationService,private connectionService: ConnectionService,
     private route:Router,
     private location: Location,) { 
+      // redirect to home if already logged in
+    // if (sessionStorage.getItem('social_login') === 'true') {
+    //   if (sessionStorage.getItem('profile_status') === 'true') {
+    //     this.route.navigate([Config.AfterLogin]);
+    //   }
+    // } else {
+    //   if (this.authenticationService.currentUserValue) {
+    //     if (sessionStorage.getItem('profile_status') === 'true') {
+    //       this.route.navigate([Config.AfterLogin]);
+    //     }
+    //   } else {
+    //     this.route.navigate(['/signin']);
+    //   }
+    // }
       
     //   this.route.events.subscribe((e) => {
     //     if (e instanceof NavigationEnd) {

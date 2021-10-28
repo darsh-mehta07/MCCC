@@ -66,26 +66,26 @@ export class ProfileFinalStepComponent implements OnInit {
         gender: ['', Validators.required],
         state: ['', Validators.required],
         city: ['', Validators.required],
-        tag_line: ['', [Validators.required,Validators.maxLength(50)]],
-        short_bio: ['', [Validators.required,Validators.maxLength(200)]],
+        // tag_line: ['', [Validators.required,Validators.maxLength(50)]],
+        // short_bio: ['', [Validators.required,Validators.maxLength(200)]],
         work_experiences: this.formBuilder.array([this.createExperience()]),
         qualifications: this.formBuilder.array([this.createQualification()]),
         language_id: [''],
         social_links: this.formBuilder.array([this.createSocialLinks()]),
-        skin_color:['',Validators.required],
+        // skin_color:['',Validators.required],
         height:['',[Validators.required,Validators.pattern("^[0-9]+(.[0-9]{0,2})?$")]]
       }, {
         validator: AgeBetween13To54('dob')
     });
     } else {
       this.form = this.formBuilder.group({
-        tag_line: ['', [Validators.required,Validators.maxLength(50)]],
-        short_bio: ['', [Validators.required,Validators.maxLength(200)]],
+        // tag_line: ['', [Validators.required,Validators.maxLength(50)]],
+        // short_bio: ['', [Validators.required,Validators.maxLength(200)]],
         work_experiences: this.formBuilder.array([this.createExperience()]),
         qualifications: this.formBuilder.array([this.createQualification()]),
         language_id: [''],
         social_links: this.formBuilder.array([this.createSocialLinks()]),
-        skin_color:['',Validators.required],
+        // skin_color:['',Validators.required],
         height:['',[Validators.required,Validators.pattern("^[0-9]+(.[0-9]{0,2})?$")]]
       });
     }
