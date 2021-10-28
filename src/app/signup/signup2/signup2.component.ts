@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/_service/authentication.service';
 import { Config } from 'src/app/_config/config';
 import { EmailExistsValidator } from 'src/app/_helpers/email-exists-validator';
+import { RegisterService } from 'src/app/_service/register.service';
 
 @Component({
   selector: 'app-signup2',
@@ -13,19 +14,19 @@ import { EmailExistsValidator } from 'src/app/_helpers/email-exists-validator';
 export class Signup2Component implements OnInit {
   form: FormGroup | any;
   submitted = false;
-
+  emailTaken = false;
   constructor(
     private formBuilder: FormBuilder,
     private route : Router,
     private authenticationService: AuthenticationService,
     private emailExists : EmailExistsValidator,
+    private registerService : RegisterService,
     ) {
     // redirect to home if already logged in
     if (this.authenticationService.currentUserValue) {
          this.route.navigate([Config.AfterLogin]);
      }
  }
-
   ngOnInit(): void {
     this.form = this.formBuilder.group({
       email : [sessionStorage.getItem('email'),[
@@ -43,8 +44,13 @@ export class Signup2Component implements OnInit {
     if (this.form.invalid) {
       return;
     }else{
-      sessionStorage.setItem('email',this.form.value.email);
-      this.route.navigate(['/signup-phone']);
+      this.registerService.isEmailcheck(this.form.value).subscribe(
+        data => {
+          if(!data){
+            sessionStorage.setItem('email',this.form.value.email);
+            this.route.navigate(['/signup-phone']);
+          }
+        });
     }
   }
 
