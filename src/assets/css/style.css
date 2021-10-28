@@ -849,9 +849,9 @@ body {
     .card-tbs p {font-size: 13px; margin-bottom:15px;color: #000;}
     span#dots { font-weight: 400;}
     .card-tbs h3 span {color: #ff6e61;}
-    .details-icons h4 {font-size: 14px; margin-bottom: 0; margin-left: 5px; display:contents;}	
+    .details-icons h4 {font-size: 15px; margin-bottom: 0; margin-left: 5px; display:contents;}	
     .details i { margin-right: 5px; }	
-    .details-icons  {display: flex;align-items: baseline; justify-content: left;width: auto;padding: 0 5px;margin: 8px 0;}
+    .details-icons  {display: flex;align-items: baseline; justify-content: left;width: auto;padding: 0 7px;margin: 8px 0;}
     .details-icons:last-child {border-right: 0;}
     .details {clear: both;padding-top: 0; display: block; justify-content: flex-start; margin:  0;}	
     .required-tbs .details, .recommended-tbs .details-icons, .call-ending-tbs .details-icons  {  display: flex;}	
@@ -1155,6 +1155,13 @@ p.lht-txt {color: hsl(0deg 0% 66%);}
     font-weight: 600;
     font-size: 14px;
 }
+
+
+
+
+
+
+
 
 .hero__modal { height: 100%;width: 100%;overflow-x:hidden;}
 .hero__modal a { width: 100%;height: 100%;}
@@ -2646,7 +2653,4 @@ h4.place {
 
 .select_div {
     margin-bottom: 15px;
-}
-.no-data h2 {
-    color: hsl(6deg 88% 68%);
 }
