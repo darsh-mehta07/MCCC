@@ -867,10 +867,10 @@ body {
     .card-tbs-btn:focus-visible { outline: 0;}
     .card-tbs-btn:focus {outline: 0;}
     .application img {width: 100%;}
-    .upper-txt {position: absolute; top: 10%; text-align: center; width: 90%; left: 20px;margin-bottom: 15px;}
-    .upper-txt h4 {font-size: 16px; color: #fff;}
-    .upper-txt h3 {font-size: 16px; color: #fff;}
-    .upper-txt h2 {font-size: 16px; color: #fff;}
+    .upper-txt {position: absolute; top: 8%; text-align: center; width: 90%; left: 20px;margin-bottom: 15px;}
+    .upper-txt h4 {font-size: 14px; color: #fff;}
+    .upper-txt h3 {font-size: 15px; color: #fff;}
+    .upper-txt h2 {font-size: 14px; color: #fff;}
     .hd-icons {top: 0; left: 0; display: flex; align-items: center; justify-content: space-between; }
     .form_areas {width: 90%;background: #fff;margin: 0 auto ; padding: 25px; border-radius: 20px; position: absolute; top: 23%; height: auto; left: 0; right: 0;}
     .form_areas label { width: 100%; font-size: 12px; margin-bottom: 8px; font-weight:600;}
@@ -1245,7 +1245,7 @@ p.lht-txt {color: hsl(0deg 0% 66%);}
     .inner-content h2 {font-size: 40px;}
     .form_inner p {font-size: 13px;}
     .inner-btn { text-align: center; margin-top: 0;}
-    .upper-txt h2 {font-size: 21px;}
+    .upper-txt h2 {font-size: 16px;}
     .notify img { width: 25px;}
     .search img { width: 20px;}
     .conform-details h2 {font-size: 25px;}
@@ -1267,7 +1267,7 @@ p.lht-txt {color: hsl(0deg 0% 66%);}
     .form_areas input {font-size: 15px;}
     .pht-btn i, .vdi-btn i {margin-right: 5px;}
     .pht-btn, .vdi-btn { font-size: 14px;}
-    .upper-txt h2 {font-size: 18px;}
+    .upper-txt h2 {font-size: 15px;}
     .application .form_areas { top: 28%;}
     .conform-details .form_areas {top: 15%;}
     .profile-dtl .form_areas { top: 14%;}
@@ -1329,7 +1329,7 @@ p.lht-txt {color: hsl(0deg 0% 66%);}
     .sign-content label { margin-bottom: 5px;}
     a.nt-btn.submit { position: relative;  top: 34%; margin-top:0;}
     button.fw-btn.proceed { display: flex; justify-content: center; position: relative;top: 0; padding: 4px 5px;height: 40px;}
-    .upper-txt h2 { font-size: 16px;}
+    .upper-txt h2 { font-size: 14px;}
     .application .form_areas { top: 30%;}
     .conform-details .form_areas { top: 18%;}
     .training-btn { padding-bottom: 70px;}
@@ -1350,6 +1350,9 @@ p.lht-txt {color: hsl(0deg 0% 66%);}
     
 
     button.fw-btn {  line-height: 2.2; height: 40px;}
+    .upper-txt {
+        left: 16px;
+    }
 
 
 
