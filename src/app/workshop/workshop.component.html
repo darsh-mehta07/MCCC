@@ -39,13 +39,8 @@
                 </div>
               </div>
             <h3 [routerLink]="['/workshop-registration/',data.id]">{{data.title}}</h3> 
-<<<<<<< HEAD
-            <p class="toggle-sec" [innerHtml]="data.description.substr(0, 35)">
-              <a [routerLink]="['/workshop-registration/',data.id]" class="read-more">More...</a>
-=======
             
             <p class="toggle-sec" [innerHtml]="doHtmlDisplay(data.description)">
->>>>>>> f58ae41755c37962e61a74329faabf47d51e3c87
             </p>
             <div class="details">
                <div class="details-icons">
@@ -67,10 +62,15 @@
          <div class="item" *ngIf="!loading">
           <ngx-skeleton-loader count="15"></ngx-skeleton-loader>
         </div>
-         <div *ngIf="upcomingData == ''" class="no-data">
-          <img src="../../../assets/img/image.png">
-          <h2>No Data Available</h2>
-        </div>
+         
+        
+
+        <div class="card-tbs" *ngIf="upcomingData == ''">
+          <div  class="no-data tabs">
+            <img src="../../../assets/img/image.png">
+            <h2 style="font-size: calc(1.325rem + .9vw);">No Data Available</h2>
+          </div>
+      </div> 
         
           
         </div>
@@ -103,13 +103,8 @@
               </div>
             </div>
             <h3 class="grn" [routerLink]="['/workshop-registration/',data.id]">{{data.title}}</h3> 
-<<<<<<< HEAD
-            <p class="toggle-sec" [innerHtml]="data.description.substr(0, 35)">
-              <a [routerLink]="['/workshop-registration/',data.id]" class="read-more">More...</a>
-=======
            
             <p class="toggle-sec" [innerHtml]="doHtmlDisplay(data.description)">
->>>>>>> f58ae41755c37962e61a74329faabf47d51e3c87
             </p>
             <div class="details">
                <div class="details-icons">
@@ -131,10 +126,15 @@
          <div class="item" *ngIf="!loading">
           <ngx-skeleton-loader count="15"></ngx-skeleton-loader>
         </div>
-         <div *ngIf="endingsoonData == ''" class="no-data">
-          <img src="../../../assets/img/image.png">
-          <h2>No Data Available</h2>
-        </div>
+         
+
+        <div class="card-tbs" *ngIf="endingsoonData == ''">
+          <div  class="no-data tabs">
+            <img src="../../../assets/img/image.png">
+            <h2 style="font-size: calc(1.325rem + .9vw);">No Data Available</h2>
+          </div>
+      </div> 
+
         </div>
       </div>
         <div class="Previous-workshops-tbs tab-pane " [ngClass]="catId == 3 ? 'active':''" id="tab3">
@@ -166,13 +166,8 @@
                 </div>
               </div>
             <h3 class="yto" [routerLink]="['/workshop-registration/',data.id]">{{data.title}}</h3> 
-<<<<<<< HEAD
-            <p class="toggle-sec" [innerHtml]="data.description.substr(0, 35)">
-              <a [routerLink]="['/workshop-registration/',data.id]" class="read-more">More...</a>
-=======
             
             <p class="toggle-sec" [innerHtml]="doHtmlDisplay(data.description)">
->>>>>>> f58ae41755c37962e61a74329faabf47d51e3c87
             </p>
             <div class="details">
                <div class="details-icons">
@@ -193,10 +188,14 @@
         <div class="item" *ngIf="!loading">
           <ngx-skeleton-loader count="15"></ngx-skeleton-loader>
         </div>
-        <div *ngIf="previosData == ''" class="no-data">
-          <img src="../../../assets/img/image.png">
-          <h2>No Data Available</h2>
-        </div>
+
+        <div class="card-tbs" *ngIf="previosData == ''">
+          <div  class="no-data tabs">
+            <img src="../../../assets/img/image.png">
+            <h2 style="font-size: calc(1.325rem + .9vw);">No Data Available</h2>
+          </div>
+      </div> 
+        
           </div>
       </div>
     <div class="train-banner">

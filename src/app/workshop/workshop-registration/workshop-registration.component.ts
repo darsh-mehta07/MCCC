@@ -49,9 +49,9 @@ export class WorkshopRegistrationComponent implements OnInit {
         let date1 = new Date(this.workshopData.start_date); 
         let date2 = new Date(this.workshopData.closing_date);
         if(this.isDatesEqual(date1,date2)){        
-          this.eventDate = this.datepipe.transform(this.workshopData.start_date, 'MMM d,y');
+          this.eventDate = this.datepipe.transform(this.workshopData.start_date, 'MMM d, y');
         }else{
-          this.eventDate = this.datepipe.transform(this.workshopData.start_date, 'MMM d,y') +' - '+this.datepipe.transform(this.workshopData.closing_date, 'MMM d,y');
+          this.eventDate = this.datepipe.transform(this.workshopData.start_date, 'MMM d, y') +' - '+this.datepipe.transform(this.workshopData.closing_date, 'MMM d, y');
         }
         console.log(this.workshopData.start_date);
         this.bgImage = this.hostUrl+this.workshopData.banner_img_path+'/'+this.workshopData.banner_image;

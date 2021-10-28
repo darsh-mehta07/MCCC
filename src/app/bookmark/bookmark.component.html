@@ -25,9 +25,7 @@
                         </div> -->
                       </div>
                       <h3 (click)="castingInner(bookmark.id)">{{bookmark.title}}</h3>
-                      <p class="toggle-sec">{{bookmark.short_description}}
-                        <a (click)="castingInner(bookmark.id)" class="read-more">More...</a>
-                      </p>
+                      <p class="toggle-sec" [innerHtml]="doHtmlDisplay(bookmark.short_description)"></p>
                       <div class="details">
                         <div class="details-icons">
                           <i class="fa fa-transgender-alt" aria-hidden="true"></i>
@@ -59,7 +57,7 @@
         <div class="card-tbs" *ngFor="let upcoming of eventBookmarkData;">      
           
           <h3 (click)="eventInner(upcoming.id)">Title: {{upcoming.title | titlecase}}</h3> 
-           <p class="toggle-sec" [innerHtml]="upcoming.description.substr(0, 50)">
+           <p class="toggle-sec" [innerHtml]="doHtmlDisplay(upcoming.description)">
             <a (click)="eventInner(upcoming.id)" class="read-more">More...</a>
            </p>
           <div class="details">
@@ -86,7 +84,7 @@
           <div class="card-tbs" *ngFor="let data of workshopBookmarkData">
             
             <h3 class="yto" [routerLink]="['/workshop-registration/',data.id]">{{data.title}}</h3> 
-            <p class="toggle-sec" [innerHtml]="data.description.substr(0, 35)">
+            <p class="toggle-sec" [innerHtml]="doHtmlDisplay(data.description)">
             <a [routerLink]="['/workshop-registration/',data.id]" class="read-more">More...</a></p>
             <div class="details">
                <div class="details-icons">
@@ -107,7 +105,7 @@
       <div class="item" *ngIf="!loading">
         <ngx-skeleton-loader count="12"></ngx-skeleton-loader>
       </div>
-      <div *ngIf="workshopbookmarkNoData && eventbookmarkNoData && bookmarkNoData && loading" class="no-data">
+      <div *ngIf="workshopbookmarkNoData && eventbookmarkNoData && bookmarkNoData && loading" class="no-data card-tbs">
         <img src="../../../assets/img/image.png">
         <h2>No Data Available</h2>
       </div>
