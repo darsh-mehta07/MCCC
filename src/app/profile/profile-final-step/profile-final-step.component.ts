@@ -10,18 +10,13 @@ import { RegisterService } from 'src/app/_service/register.service';
 import { PhoneExistsValidator } from 'src/app/_helpers/phone-exists-validator';
 import{ AgeBetween13To54 } from "../../_helpers/custom-DOB.validator";
 
-import { BehaviorSubject, Observable } from 'rxjs';
-import { User } from '../../_models/user';
-
 @Component({
   selector: 'app-profile-final-step',
   templateUrl: './profile-final-step.component.html',
   styleUrls: ['./profile-final-step.component.css']
 })
 export class ProfileFinalStepComponent implements OnInit {
-  private currentUserSubject: BehaviorSubject<User>;
-  public currentUser: Observable<User>;
-    emptyData = null;
+
   submitted: boolean = false;
   form: FormGroup | any;
   experiences: FormArray | any;
@@ -37,7 +32,6 @@ export class ProfileFinalStepComponent implements OnInit {
   responseData: any;
   statesTrue = false;
   uploading:boolean=false;
-  localData:any = [];
   constructor(private formBuilder: FormBuilder,
     private router: ActivatedRoute,
     private route: Router,
@@ -47,11 +41,6 @@ export class ProfileFinalStepComponent implements OnInit {
     private registerService: RegisterService,
     private phoneExists : PhoneExistsValidator,
   ) {
-    // if (sessionStorage.getItem('social_login')) {
-        this.localData = localStorage.getItem('currentUser');
-        this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(this.localData));
-        this.currentUser = this.currentUserSubject.asObservable();
-    // }
     // redirect to home if already logged in
     if (sessionStorage.getItem('social_login') === 'true') {
       if (sessionStorage.getItem('profile_status') === 'true') {
@@ -67,9 +56,7 @@ export class ProfileFinalStepComponent implements OnInit {
       }
     }
   }
-  public get currentUserValue(): User {
-    return this.currentUserSubject.value;
-}
+
   ngOnInit(): void {
     if (sessionStorage.getItem('social_login')) {
       this.social_login = true;
@@ -197,17 +184,10 @@ export class ProfileFinalStepComponent implements OnInit {
       return;
     }
     this.loading = true;
-    this.userService.profile_final_stap(this.form.value).subscribe(
+    this.userService.profile_final_stap(this.form.value).pipe(first()).subscribe(
       data => {
         this.uploading = false;
         this.responseData = data;
-        if(this.responseData.status != 'false'){         
-          localStorage.setItem('currentUser', JSON.stringify(this.responseData));
-          this.localData = localStorage.getItem('currentUser');
-          this.currentUserSubject.next(null as any);
-          this.currentUserSubject.next(this.responseData);
-        }
-        
         if (this.responseData.status == "true") {
           this.route.navigate(['/thankyou']);
         } else {
