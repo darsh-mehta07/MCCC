@@ -34,13 +34,15 @@
                             </div> 
                             <div class="input_group plus">
                             <label>What is your gender?</label>
-                            <div class="form-group">                               
+                            <div class="form-group"> 
+                                <div class="radio-toolbar">                              
                                 <label>Female  <input type="radio" formControlName="gender"  value="Female"></label>                               
                                 <label>Male <input type="radio" formControlName="gender"  value="Male"></label>                                
                                 <label>Transgender<input type="radio" formControlName="gender"  value="Transgender" ></label> 
                                 <label>Genderqueer<input type="radio" formControlName="gender"  value="Genderqueer" ></label> 
                                 <label>LGBT<input type="radio" formControlName="gender"  value="LGBT"></label> 
                                 <div *ngIf="submitted && f.gender.errors" class="invalid-feedback">Gender is required</div>
+                            </div>
                             </div>
                             </div>
                             <div class="input_group plus">
@@ -56,7 +58,7 @@
                             </div>
                             <div class="input_group plus">                       
                             <label>Your State and City</label>
-                            <div class="select_div">
+                            <div class="select_div  state-city">
                                 <select *ngIf="dataTrue" nice-select class="select" (change)="changeSuit($event)" formControlName="state" [ngClass]="{ 'is-invalid': submitted && f.state.errors }">
                                     <option selected disabled>State</option>
                                     <option *ngFor="let state of states" [value]="state.id">
@@ -69,7 +71,7 @@
                             </div>
                             </div>
                             <div class="input_group plus">
-                            <div class="select_div" *ngIf="statesTrue">
+                            <div class="select_div state-city" *ngIf="statesTrue">
                                 <select *ngIf="dataTrue" nice-select class="select" formControlName="city" [ngClass]="{ 'is-invalid': submitted && f.city.errors }">
                                     <option selected disabled>City</option>
                                     <option *ngFor="let city of cities" [value]="city.id">{{city.name}}</option>

@@ -999,7 +999,7 @@ body {
     .event-inner .form_inner p {margin-bottom: 5px; font-size: 13px;}
    .training-inner h2 {font-size: 20px;color: hsl(7deg 88% 68%);font-weight: 600;margin-bottom: 15px;}
    .training-inner .form_inner {border-radius: 20px 20px 0 0;}
-   .training-inner .form_inner p {font-size: 14px; position: relative; left: 11px; display: flex; align-items: baseline;}
+   .training-inner .form_inner p {font-size: 14px; position: relative; left: 0; margin-left:10px; display: flex; align-items: baseline;}
    .training-inner i {position: relative; right: 10px;}
    .training-inner h2 hr.on {width: 15%; float: left; margin: 0; border: 1px solid hsl(0deg 0% 47%); border-width: thin; animation: evt1 linear 1s infinite alternate;position: absolute;}
    .training-inner h2 hr.tw {width: 25%; margin: 5px 0; border: 1px solid hsl(0deg 0% 47%); border-width: thin; animation: evt2 linear 0.9s infinite alternate;}
@@ -1978,6 +1978,7 @@ a:focus {
     .wrapper .profile_final_step .top_part .form_area .profile_content .plus input {
         margin: 0 !important;
         height: 30px !important;
+        padding: 0;
     }
     .wrapper .profile_final_step .top_part .form_area .save_btns {
         display: -webkit-box;
@@ -2662,4 +2663,31 @@ h4.place {
 }
 .edit-profile-pg .upper-txt h2{
     font-size: 23px;
+}
+.casting-inner .form_inner p {
+    margin-left: 0;
+}
+.profile_content .radio-toolbar input {
+    top: -36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.profile_content .radio-toolbar label {
+    margin: 10px 0;
+    line-height: 3;
+    height: 45px;
+    padding: 0;
+}
+.state-city .select {
+    border: 0;
+    border-bottom: 1px solid #e5e5e5;
+    border-radius: 0 !IMPORTANT;
+    height: 30px !important;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin: 0 !important;
+    margin-bottom: 20px !important;
 }
