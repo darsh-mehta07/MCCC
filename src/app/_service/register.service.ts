@@ -36,6 +36,9 @@ export class RegisterService {
   isEmailcheck(date:any){
     return this.http.post(`${Config.BasePath}/check_email`,date);    
   }
+  isPhonecheck(date:any){
+    return this.http.post(`${Config.BasePath}/phone_number_check`,date);    
+  }
   isEmailTaken(email: string): Observable<boolean> {
     let url = `${Config.BasePath}/check_email`;
 

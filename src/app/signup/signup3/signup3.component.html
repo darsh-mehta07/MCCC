@@ -11,17 +11,24 @@
     <form [formGroup]="form" (ngSubmit)="submit()">
       <div class="form-group">
         <label>Phone Number</label>
-        <input autofocus formControlName="phone" id="phone" type="tel" maxlength="10"class="form-control" placeholder="0000000000"
+        <input autofocus formControlName="phone" id="phone" type="tel" (keyup)="inputchange()" maxlength="10" class="form-control" placeholder="0000000000"
           [ngClass]="{ 'is-invalid': submitted && f.phone.errors }">
         <div *ngIf="submitted && f.phone.errors" class="invalid-feedback">
           <div *ngIf="f.phone.errors.required">Phone is required</div>
           <div *ngIf="f.phone.errors.pattern">Please Enter 10 digit's mobile number</div>
           <div *ngIf="f.phone.errors.phoneTaken">Phone number is already taken.</div>
         </div>
+        <div class="invalid-feedback error" style="display: block;" *ngIf="phoneExist">Phone number is already taken.</div> 
       </div>
       <div class="nt-btn">
         <button class="fw-btn">Next <i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>
       </div>
     </form>
+  </div>
+</div>
+<div class="loaders" *ngIf="phoneTaken">
+  <div class="loading-container">
+    <div class="loading"></div>
+    <div id="loading-text">Please wait...</div>
   </div>
 </div>

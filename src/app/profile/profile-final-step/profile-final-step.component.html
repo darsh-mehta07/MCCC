@@ -23,7 +23,7 @@
                             <div class="input_group plus">
                             <label>Phone</label>
                             <div class="form-group">                               
-                                <input autofocus formControlName="phone" id="phone" type="number" class="form-control" placeholder="0 0 0 0 0 0 0 0 0 0 "
+                                <input autofocus formControlName="phone" id="phone" type="number" maxlength="10" class="form-control" placeholder="0 0 0 0 0 0 0 0 0 0 "
                                 [ngClass]="{ 'is-invalid': submitted && f.phone.errors }">
                               <div *ngIf="submitted && f.phone.errors" class="invalid-feedback">
                                 <div *ngIf="f.phone.errors.required">Phone is required</div>

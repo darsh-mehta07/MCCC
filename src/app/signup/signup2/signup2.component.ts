@@ -13,8 +13,9 @@ import { RegisterService } from 'src/app/_service/register.service';
 })
 export class Signup2Component implements OnInit {
   form: FormGroup | any;
-  submitted = false;
-  emailTaken = false;
+  submitted :boolean = false;
+  emailTaken :boolean = false;
+  emailExist :boolean = false;
   constructor(
     private formBuilder: FormBuilder,
     private route : Router,
@@ -33,7 +34,7 @@ export class Signup2Component implements OnInit {
         Validators.required,
         // Validators.email,
         Validators.pattern(/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)
-      ],this.emailExists.validate.bind(this.emailExists)]
+      ]]
     });
   }
   get f(): { [key: string]: AbstractControl } {
@@ -44,14 +45,25 @@ export class Signup2Component implements OnInit {
     if (this.form.invalid) {
       return;
     }else{
+      this.emailTaken = true;
       this.registerService.isEmailcheck(this.form.value).subscribe(
         data => {
           if(!data){
+            this.emailExist = false;
+            this.emailTaken = false;
             sessionStorage.setItem('email',this.form.value.email);
             this.route.navigate(['/signup-phone']);
+          }else{
+            this.emailExist = true;
+            this.emailTaken = false;
           }
         });
     }
+    
   }
-
+  inputchange(){
+    console.log("Input change");
+    this.emailExist = false;
+    this.emailTaken = false;
+  }
 }

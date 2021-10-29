@@ -1,5 +1,6 @@
 import { JsonpClientBackend } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { DashboardService } from 'src/app/_service/dashboard.service';
 declare var $:any;
 
 @Component({
@@ -14,7 +15,11 @@ export class Splash1Component implements OnInit {
     {"no": 3,class1:"event",class2:"event-content",class3:"slide-btn3",img: "../../assets/img/events.svg",title:"Events",des:"Be a part of the most exciting events at Indian Cinema just by signing-up on your smartphone.",link:"/splash4"},
     {"no": 4,class1:"bTs",class2:"bTs-content",class3:"slide-btn4",img: "../../assets/img/bts-logo.svg",title:"BTS",des:"Get the most of what's happening 'Behind The Screen'. Anywhere. Everywhere.",link:"/welcome"}
   ];
-  constructor() { }
+  constructor(private dashboardService : DashboardService) {
+    this.dashboardService.listen().subscribe((e:any)=>{
+      this.slickInit(e);
+    });
+   }
   //-----slick slider------------//    
   slideConfig = {"slidesToShow": 1, "slidesToScroll": 1,"dots": false,"autoplay": false,
   fade: true,

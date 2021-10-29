@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { DashboardService } from '../_service/dashboard.service';
 
 @Component({
   selector: 'app-logo',
@@ -8,11 +9,12 @@ import { Router } from '@angular/router';
 })
 export class LogoComponent implements OnInit {
 
-  constructor(private route : Router) { }
+  constructor(private route : Router,private dashboardService : DashboardService) { }
 
   ngOnInit(): void {
     //redirect to navigate page after 3 milisecond
     setTimeout(()=>{                           
+          this.dashboardService.filter('applyed');
           this.route.navigate(['/splash1']);
     }, 3000);
   }
