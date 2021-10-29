@@ -5,6 +5,7 @@ import { OtpService } from 'src/app/_service/otp.service';
 import { AuthenticationService } from 'src/app/_service/authentication.service';
 import { Config } from 'src/app/_config/config';
 import { PhoneExistsValidator } from 'src/app/_helpers/phone-exists-validator';
+import { RegisterService } from 'src/app/_service/register.service';
 
 @Component({
   selector: 'app-signup3',
@@ -16,7 +17,9 @@ export class Signup3Component implements OnInit {
   form: FormGroup | any;
   submitted = false;
   otp : string = '1111';
-  constructor(private phoneExists : PhoneExistsValidator,public otpService:OtpService,private formBuilder: FormBuilder, private route : Router,private authenticationService: AuthenticationService,) {
+  phoneTaken :boolean = false;
+  phoneExist :boolean = false;
+  constructor(private registerService : RegisterService,private phoneExists : PhoneExistsValidator,public otpService:OtpService,private formBuilder: FormBuilder, private route : Router,private authenticationService: AuthenticationService,) {
     // redirect to home if already logged in
     if (this.authenticationService.currentUserValue) {
          this.route.navigate([Config.AfterLogin]);
@@ -25,7 +28,7 @@ export class Signup3Component implements OnInit {
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
-      phone : [sessionStorage.getItem('phone'), [Validators.required],this.phoneExists.validate.bind(this.phoneExists)],
+      phone : [sessionStorage.getItem('phone'), [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
       email : [sessionStorage.getItem('email')]
     });
   }
@@ -37,17 +40,33 @@ export class Signup3Component implements OnInit {
     this.submitted = true;
     if (this.form.invalid) {
       return;
-    }else{       
-      sessionStorage.setItem('phone',this.form.value.phone);
-      this.otpService.get_response(this.form.value).subscribe((res: any) => {
-        // console.log(res.otp);
-        this.otp = res.otp;
-        if(res.status && res.code == 200){
-          sessionStorage.setItem('otp',this.otp);
-          this.route.navigate(['/signup-otp']);
-        }        
-      });
+    }else{   
+      
+      this.phoneTaken = true;
+      this.registerService.isPhonecheck(this.form.value).subscribe(
+        data => {
+          if(!data){
+            sessionStorage.setItem('phone',this.form.value.phone);
+            this.otpService.get_response(this.form.value).subscribe((res: any) => {
+              // console.log(res.otp);
+              this.otp = res.otp;
+              if(res.status && res.code == 200){
+                this.phoneExist = false;
+                this.phoneTaken = false;
+                sessionStorage.setItem('otp',this.otp);
+                this.route.navigate(['/signup-otp']);
+              }        
+            });
+          }else{
+            this.phoneExist = true;
+            this.phoneTaken = false;
+          }
+        });
     }
   }
-
+  inputchange(){
+    console.log("Input change");
+    this.phoneExist = false;
+    this.phoneTaken = false;
+  }
 }

@@ -19,6 +19,7 @@ import { CommonService } from 'src/app/_service/common.service';
 export class ApplyCastingComponent implements OnInit {
   pageName = 'applycasting';
   loading :boolean = false;
+  videoloading : boolean = true;
   castingId:any;
   resData:any;
   baseUrl :string = Config.Host+'backend2/';
@@ -122,7 +123,7 @@ export class ApplyCastingComponent implements OnInit {
            this.patchOldVideoValues();
       }
       //video update section
-      this.loading = false;
+      this.videoloading = false;
       let totalimg = this.imgArray.length+this.cropimages.length;
       console.log("videoArray : " , this.videoArray);
       if(this.videoArray!= null){
@@ -140,7 +141,7 @@ export class ApplyCastingComponent implements OnInit {
         this.patchOldVideoValues(); 
         this.dashboardService.applyForCasting(this.form.value)     
         .subscribe(res => {
-          this.loading = true;
+          this.videoloading = true;
           this.resData = res;   
           if(this.resData.data.image_1){
           sessionStorage.setItem('image_1',this.resData.data.image_1);
@@ -192,7 +193,7 @@ export class ApplyCastingComponent implements OnInit {
         });
         
       }else{
-        this.loading = true;
+        this.videoloading = true;
         console.log("image count :" + totalimg);
         console.log("video count :" + totalvideo);
         if(totalimg > 3){
@@ -217,7 +218,7 @@ export class ApplyCastingComponent implements OnInit {
            this.videoArray = null;
            this.patchOldVideoValues();
       }
-      this.loading = false;
+      this.videoloading = false;
       let totalimg = this.imgArray.length+this.cropimages.length; 
       if(this.videoArray!= null){
         this.oldvideo = 1;
@@ -234,13 +235,13 @@ export class ApplyCastingComponent implements OnInit {
         this.dashboardService.applyForCasting(this.form.value)
         .pipe(first())
         .subscribe(res => {
-          this.loading = true;
+          this.videoloading = true;
           this.notification.showSuccess('Casting call saved Successfully.','');
           this.resData = res;   
           this.route.navigate(['/home']);       
         });
       }else{
-        this.loading = true;    
+        this.videoloading = true;    
         if(totalimg > 7){
           this.imageerror = 'Please Select Only Three Photos';
         this.threeimgerror = true;

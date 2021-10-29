@@ -23,13 +23,14 @@
                             <div class="input_group plus">
                             <label>Phone</label>
                             <div class="form-group">                               
-                                <input autofocus formControlName="phone" id="phone" type="number" class="form-control" placeholder="0 0 0 0 0 0 0 0 0 0 "
+                                <input autofocus formControlName="phone" id="phone" type="number" maxlength="10" class="form-control" placeholder="0 0 0 0 0 0 0 0 0 0 "
                                 [ngClass]="{ 'is-invalid': submitted && f.phone.errors }">
                               <div *ngIf="submitted && f.phone.errors" class="invalid-feedback">
                                 <div *ngIf="f.phone.errors.required">Phone is required</div>
                                 <div *ngIf="f.phone.errors.pattern">Please Enter 10 digit's mobile number</div>
                                 <div *ngIf="f.phone.errors.phoneTaken">Phone is already taken.</div>
                               </div>
+                              <div class="invalid-feedback error" style="display: block;" *ngIf="phoneExist">Phone number is already taken.</div>
                             </div>  
                             </div> 
                             <div class="input_group plus">
@@ -37,7 +38,7 @@
                             <div class="form-group">                               
                                 <label>Female  <input type="radio" formControlName="gender"  value="Female"></label>                               
                                 <label>Male <input type="radio" formControlName="gender"  value="Male"></label>                                
-                                <label>Not To Disclose <input type="radio" formControlName="gender"  value="Not To Disclose" ></label> 
+                                <label>Transgender, Genderqueer, LGBT <input type="radio" formControlName="gender"  value="Transgender, Genderqueer, LGBT" ></label> 
                                 <div *ngIf="submitted && f.gender.errors" class="invalid-feedback">Gender is required</div>
                             </div>
                             </div>
@@ -89,22 +90,22 @@
                               </div> -->
                         </div>
                         <!-- Social Login end -->
-                        <div class="input_group plus">
+                        <!-- <div class="input_group plus">
                             <label>Add Tag Line for Your Profile</label>
                             <input type="text" formControlName="tag_line" maxlength="50" placeholder="Write here........." [ngClass]="{ 'is-invalid': submitted && f.tag_line.errors }">
                             <div *ngIf="submitted && f.tag_line.errors" class="invalid-feedback">
                                 <div *ngIf="f.tag_line.errors.required">Tag is required</div>
                                 <div *ngIf="f.tag_line.errors.maxlength">Only 50 character allowed</div>
                             </div>
-                        </div>
-                        <div class="input_group plus">
+                        </div> -->
+                        <!-- <div class="input_group plus">
                             <label>Add short Bio</label>
                             <input type="text" formControlName="short_bio" maxlength="500" placeholder="Type Here........." [ngClass]="{ 'is-invalid': submitted && f.short_bio.errors }">
                             <div *ngIf="submitted && f.short_bio.errors" class="invalid-feedback">
                                 <div *ngIf="f.short_bio.errors.required">Bio is required</div>
                                 <div *ngIf="f.short_bio.errors.maxlength">Only 200 character allowed</div>
                             </div>
-                        </div>      
+                        </div>       -->
                         <div class="input_group plus">
                             <label>Height</label>
                             <input type="tel" formControlName="height" maxlength="50" placeholder="Write here........." [ngClass]="{ 'is-invalid': submitted && f.height.errors }">
@@ -113,13 +114,13 @@
                                 <div *ngIf="f.height.errors.pattern">Height must be numeric</div>
                             </div>
                         </div>
-                        <div class="input_group plus">
+                        <!-- <div class="input_group plus">
                             <label>Skin color</label>
                             <input type="text" formControlName="skin_color" maxlength="500" placeholder="Write here........." [ngClass]="{ 'is-invalid': submitted && f.skin_color.errors }">
                             <div *ngIf="submitted && f.skin_color.errors" class="invalid-feedback">
                                 <div *ngIf="f.skin_color.errors.required">Skin color is required</div>
                             </div>
-                        </div>                  
+                        </div>                   -->
                         <div class="input_group plus" id="add_work_wxperince">
                             <label>Work Experience</label>
                             <div class="input"  formArrayName="work_experiences" *ngFor="let item of form.get('work_experiences')['controls']; let i = index;">
@@ -186,3 +187,9 @@
     </div>
 </div>
 <div class="loader_screen" *ngIf="uploading"></div>
+<div class="loaders" *ngIf="phoneTaken">
+    <div class="loading-container">
+      <div class="loading"></div>
+      <div id="loading-text">Please wait...</div>
+    </div>
+  </div>
