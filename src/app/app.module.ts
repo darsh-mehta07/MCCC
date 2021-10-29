@@ -213,8 +213,11 @@ import { DateFormatPipe } from 'src/app/_helpers/DateFormatPipe';
           id: GoogleLoginProvider.PROVIDER_ID,
           // MCCC
           // Client ID : 727905192800-hp1qn4bal47d4243tibbq4ie4dnnf4ih.apps.googleusercontent.com
+
+          //  MCCC LOCALHOST https://localhost:4200/
+          //Client ID : 924038754600-c3g1f7vn84aipjnumsgs7uid0ovus5gr.apps.googleusercontent.com
           provider: new GoogleLoginProvider(
-            '727905192800-hp1qn4bal47d4243tibbq4ie4dnnf4ih.apps.googleusercontent.com'
+            '924038754600-c3g1f7vn84aipjnumsgs7uid0ovus5gr.apps.googleusercontent.com'
           )
         },{
           id: FacebookLoginProvider.PROVIDER_ID,
