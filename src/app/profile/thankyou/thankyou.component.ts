@@ -13,10 +13,12 @@ export class ThankyouComponent implements OnInit {
 
     // redirect to home if already logged in
     if (sessionStorage.getItem('social_login') === 'true') {
+      console.log('social login');
       if (sessionStorage.getItem('profile_status') === 'true') {
         this.route.navigate([Config.AfterLogin]);
       }
     } else {
+      console.log('normal login');
       if (this.authenticationService.currentUserValue) {
         if (sessionStorage.getItem('profile_status') === 'true') {
           this.route.navigate([Config.AfterLogin]);

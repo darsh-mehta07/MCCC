@@ -23,14 +23,13 @@
                             <div class="input_group plus">
                             <label>Phone</label>
                             <div class="form-group">                               
-                                <input autofocus formControlName="phone" id="phone" type="number" maxlength="10" class="form-control" placeholder="0 0 0 0 0 0 0 0 0 0 "
+                                <input autofocus formControlName="phone" type="tel" maxlength="10" class="form-control" placeholder="0 0 0 0 0 0 0 0 0 0 "
                                 [ngClass]="{ 'is-invalid': submitted && f.phone.errors }">
                               <div *ngIf="submitted && f.phone.errors" class="invalid-feedback">
                                 <div *ngIf="f.phone.errors.required">Phone is required</div>
                                 <div *ngIf="f.phone.errors.pattern">Please Enter 10 digit's mobile number</div>
                                 <div *ngIf="f.phone.errors.phoneTaken">Phone is already taken.</div>
                               </div>
-                              <div class="invalid-feedback error" style="display: block;" *ngIf="phoneExist">Phone number is already taken.</div>
                             </div>  
                             </div> 
                             <div class="input_group plus">
@@ -187,9 +186,3 @@
     </div>
 </div>
 <div class="loader_screen" *ngIf="uploading"></div>
-<div class="loaders" *ngIf="phoneTaken">
-    <div class="loading-container">
-      <div class="loading"></div>
-      <div id="loading-text">Please wait...</div>
-    </div>
-  </div>

@@ -40,6 +40,7 @@ export class WelcomeComponent implements OnInit {
       password: ['', Validators.required]
     }); 
     this.socialAuthService.authState.subscribe((user) => {
+      console.log('Login :',user);
       this.socialUser = user;
       this.isLoggedin = (user != null);
       console.log(this.socialUser.provider);      

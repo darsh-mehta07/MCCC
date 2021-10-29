@@ -16,8 +16,7 @@ import{ AgeBetween13To54 } from "../../_helpers/custom-DOB.validator";
   styleUrls: ['./profile-final-step.component.css']
 })
 export class ProfileFinalStepComponent implements OnInit {
-  phoneTaken :boolean = false;
-  phoneExist :boolean = false;
+
   submitted: boolean = false;
   form: FormGroup | any;
   experiences: FormArray | any;
@@ -62,7 +61,7 @@ export class ProfileFinalStepComponent implements OnInit {
     if (sessionStorage.getItem('social_login')) {
       this.social_login = true;
       this.form = this.formBuilder.group({
-        phone: ['', [Validators.required,Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
+        phone: ['', [Validators.required,Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")],this.phoneExists.validate.bind(this.phoneExists)],
         dob: ['', Validators.required],
         gender: ['', Validators.required],
         state: ['', Validators.required],
@@ -184,34 +183,6 @@ export class ProfileFinalStepComponent implements OnInit {
       this.uploading = false;
       return;
     }
-    if(this.social_login){
-      this.phoneTaken = true;
-      this.registerService.isPhonecheck(this.form.value).subscribe(
-        data => {
-          if(!data){
-            this.loading = true;
-            this.userService.profile_final_stap(this.form.value).pipe(first()).subscribe(
-              data => {
-                this.phoneExist = false;
-                this.phoneTaken = false;
-                this.uploading = false;
-                this.responseData = data;
-                if (this.responseData.status == "true") {
-                  this.route.navigate(['/thankyou']);
-                } else {
-                  this.alertService.success(this.responseData.data);
-                }
-              }, error => {
-                this.uploading = false;
-                this.alertService.error(error);
-                this.loading = false;
-              });
-          }else{
-            this.phoneExist = true;
-            this.phoneTaken = false;
-          }
-        });
-    }else{
     this.loading = true;
     this.userService.profile_final_stap(this.form.value).pipe(first()).subscribe(
       data => {
@@ -227,6 +198,5 @@ export class ProfileFinalStepComponent implements OnInit {
         this.alertService.error(error);
         this.loading = false;
       });
-    }
   }
 }
