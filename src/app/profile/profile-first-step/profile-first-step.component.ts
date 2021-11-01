@@ -8,6 +8,7 @@ import { UserService } from 'src/app/_service/user.service';
 import { AlertService } from 'src/app/_service/alert.service';
 import { Dimensions,ImageCroppedEvent, ImageTransform,base64ToFile} from 'ngx-image-cropper';
 import { Location } from '@angular/common';
+import { NotificationService } from 'src/app/_service/notification.service';
 
 
 @Component({
@@ -25,7 +26,7 @@ export class ProfileFirstStepComponent implements OnInit {
   imgChangeEvt: any = '';
   cropImgPreview: any = '';  
   responseData :any;
-
+  imagenotload : boolean = false;
   imageChangedEvent: any = '';
     croppedImage: any = '';
     canvasRotation = 0;
@@ -38,7 +39,7 @@ export class ProfileFirstStepComponent implements OnInit {
     uploading:boolean = false;
     cropperbutton:boolean = false;
     cropperarea : boolean = true;
-  
+    fileTypes = ['png','jpg','jpeg'];  //acceptable file types
   constructor(
     private formBuilder: FormBuilder,
     private route : Router,
@@ -46,6 +47,7 @@ export class ProfileFirstStepComponent implements OnInit {
     private userService : UserService,
     private alertService : AlertService,
     private location:Location,
+    private notification:NotificationService,
     ) {
      // redirect to home if already logged in
      if(sessionStorage.getItem('social_login') === 'true'){
@@ -64,7 +66,14 @@ export class ProfileFirstStepComponent implements OnInit {
   } 
 
   fileChangeEvent(event: any): void {
+    var extension = event.target.files[0].name.split('.').pop().toLowerCase();
+    var isSuccess = this.fileTypes.indexOf(extension) > -1;
+    if (isSuccess) { 
+    this.imagenotload = false;
     this.imageChangedEvent = event;
+    }else{
+      this.notification.showInfo('Select image (jpg,jpeg,png) only.','');
+    }
 }
 
 imageCropped(event: ImageCroppedEvent) {
@@ -73,16 +82,19 @@ imageCropped(event: ImageCroppedEvent) {
 }
 
 imageLoaded() {
+  this.imagenotload = false;
     this.showCropper = true;
     console.log('Image loaded');    
 }
 
 cropperReady(sourceImageDimensions: Dimensions) {  
     this.cropperbutton = true;
-    // console.log('Cropper ready', sourceImageDimensions);
+    console.log('Cropper ready : ', sourceImageDimensions);
 }
 
 loadImageFailed() {
+  this.imagenotload = true;
+  this.notification.showInfo('Load failed.','');
     console.log('Load failed');
 }
 
@@ -162,7 +174,7 @@ saveImage(){
                   if(file.type.indexOf('image')> -1){
                     this.format = 'image';
                   } else if(file.type.indexOf('video')> -1){
-                      this.alertService.error('please select image',true);
+                    this.notification.showSuccess('please select image.','');
                     this.format = 'video';
                   } 
                   reader.onload = (event:any) => {
@@ -242,7 +254,7 @@ saveImage(){
         if(this.responseData.status == 'true'){
             this.route.navigate(['/profile_second_step']);
         }else{
-          this.alertService.success('File uploaded Successfully',true);
+          this.notification.showSuccess('Somthing Wrong.','');
         }
         
       },error=>{

@@ -62,6 +62,9 @@ export class ApplyCastingComponent implements OnInit {
     newVideoAdded:boolean = false;
     fileSizeaInKB : boolean = false;
     fileSelected :boolean = false;
+    fileTypes = ['png','jpg','jpeg'];  //acceptable file types
+    videofileTypes = ['mp4'];  //acceptable file types
+    imagenotload : boolean = false;
   constructor(
     private actRoute:ActivatedRoute,
     private route : Router,
@@ -315,37 +318,35 @@ export class ApplyCastingComponent implements OnInit {
     this.fileSizeaInKB = false;
     let newVideo :string [] = [];
       if (event.target.files && event.target.files[0]) {
-        this.fileSelected = true;
         const file = event.target.files && event.target.files[0];
-        var filesAmount = event.target.files.length;
-        for (let i = 0; i < filesAmount; i++) {
-          var reader = new FileReader();
-          if (file.type.indexOf('image') > -1) {
-            this.format = 'image';
-            this.alertService.error('please select mp4 video', true);
-          } else if (file.type.indexOf('video') > -1) {
-            this.format = 'video';
-            const fileSizeInKB = Math.round(file.size / 1024);
-            if(fileSizeInKB > 102400){
-              this.fileSizeaInKB = true;
+        var extension = event.target.files[0].name.split('.').pop().toLowerCase();
+        var isSuccess = this.videofileTypes.indexOf(extension) > -1;
+
+        if (isSuccess && file.type.indexOf('video') > -1) { 
+        this.fileSelected = true;
+        const fileSizeInKB = Math.round(file.size / 1024);
+        if(fileSizeInKB > 102400){
+          this.fileSizeaInKB = true;             
+          this.notification.showInfo('Please Select file less then 100 MB.','');
+        }else{
+          var filesAmount = event.target.files.length;
+          this.format = 'video';
+          for (let i = 0; i < filesAmount; i++) {
+            var reader = new FileReader();         
+            reader.onload = (event: any) => {
+              this.url = (<FileReader>event.target).result;
+              newVideo.push(event.target.result);            
+              this.form.patchValue({
+                newvideofileSource: newVideo
+              });  
+              this.videos = newVideo;         
+              this.newVideoAdded = true;
             }
+            reader.readAsDataURL(event.target.files[i]);
           }
-          reader.onload = (event: any) => {
-            this.url = (<FileReader>event.target).result;
-            newVideo.push(event.target.result);
-            // if(newVideo.length == 1){
-            //   this.secvidbox = false;
-            // }
-            // if(newVideo.length == 2){
-            //   this.thrvidbox = false;
-            // }
-            this.form.patchValue({
-              newvideofileSource: newVideo
-            });  
-            this.videos = newVideo;         
-            this.newVideoAdded = true;
-          }
-          reader.readAsDataURL(event.target.files[i]);
+        }
+        }else{
+          this.notification.showInfo('please select mp4 video.','');
         }
       }
     }
@@ -378,7 +379,14 @@ export class ApplyCastingComponent implements OnInit {
     }
   //--------image crop--------------//
   fileChangeEvent(event: any): void {
+    var extension = event.target.files[0].name.split('.').pop().toLowerCase();
+    var isSuccess = this.fileTypes.indexOf(extension) > -1;
+    if (isSuccess) { 
+    this.imagenotload = false;
     this.imageChangedEvent = event;
+    }else{
+      this.notification.showInfo('Select image (jpg,jpeg,png) only.','');
+    }
 }
   imageCropped(event: ImageCroppedEvent) {
     this.croppedImage = event.base64;    
@@ -422,14 +430,17 @@ cropImage(){
           this.cropedfile = null;
 }
 imageLoaded() {
+    this.imagenotload = false;
     this.showCropper = true;
-    console.log('Image loaded');    
+    console.log('Image loaded'); 
+
 }
 cropperReady(sourceImageDimensions: Dimensions) {  
     console.log('Cropper ready', sourceImageDimensions);
 }
 loadImageFailed() {
-    console.log('Load failed');
+  this.imagenotload = true;
+  this.notification.showInfo('Load failed.','');
 }
 rotateLeft() {
     this.canvasRotation--;

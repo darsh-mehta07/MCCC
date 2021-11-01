@@ -17,6 +17,8 @@ import { NotificationService } from 'src/app/_service/notification.service';
   styleUrls: ['./images.component.css']
 })
 export class ImagesComponent implements OnInit {
+  fileTypes = ['png','jpg','jpeg'];  //acceptable file types
+  imagenotload : boolean = false;
   pageName="images";
   currentUser: User;
   loading:boolean = true;
@@ -168,7 +170,14 @@ export class ImagesComponent implements OnInit {
     }
  //--------image crop--------------//
  fileChangeEvent(event: any): void {
-  this.imageChangedEvent = event;
+  var extension = event.target.files[0].name.split('.').pop().toLowerCase();
+    var isSuccess = this.fileTypes.indexOf(extension) > -1;
+    if (isSuccess) { 
+    this.imagenotload = false;
+    this.imageChangedEvent = event;
+    }else{
+      this.notification.showInfo('Select image (jpg,jpeg,png) only.','');
+    }
 }
 imageCropped(event: ImageCroppedEvent) {
   this.croppedImage = event.base64;    
@@ -220,14 +229,17 @@ const file = this.cropedfile;
         this.cropedfile = null;
 }
 imageLoaded() {
-  this.showCropper = true;
-  console.log('Image loaded');    
+  this.imagenotload = false;
+    this.showCropper = true;
+    console.log('Image loaded');    
 }
 cropperReady(sourceImageDimensions: Dimensions) {  
   console.log('Cropper ready', sourceImageDimensions);
 }
 loadImageFailed() {
-  console.log('Load failed');
+  this.imagenotload = true;
+  this.notification.showInfo('Load failed.','');
+    console.log('Load failed');
 }
 rotateLeft() {
   this.canvasRotation--;

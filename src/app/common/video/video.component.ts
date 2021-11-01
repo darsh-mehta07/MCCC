@@ -17,6 +17,7 @@ import { HttpEvent, HttpEventType } from '@angular/common/http';
   styleUrls: ['./video.component.css']
 })
 export class VideoComponent implements OnInit {
+  currentPlayingVideo: HTMLVideoElement | any;
   waitText :boolean = false;
   progress: number = 0;
   state: 'PENDING' | 'IN_PROGRESS' | 'DONE' | any;
@@ -48,10 +49,27 @@ export class VideoComponent implements OnInit {
   fileselected : boolean = false;
   baseUrl :string = Config.Host+'backend2/';
   videoPath = this.baseUrl+'public/uploads/UserVideos/';
+  fileTypes = ['mp4'];  //acceptable file types
   constructor(  private modalService: NgbModal,private notification : NotificationService,private formBuilder: FormBuilder,private location:Location,private route:Router,
     private authenticationService: AuthenticationService,private commonService:CommonService) {
       this.currentUser = this.authenticationService.currentUserValue;
      }
+     onPlayingVideo(event:any) {
+      event.preventDefault();
+      // play the first video that is chosen by the user
+      if (this.currentPlayingVideo === undefined) {
+        console.log('video playing');
+          this.currentPlayingVideo = event.target;
+          this.currentPlayingVideo.play();
+      } else {
+      // if the user plays a new video, pause the last one and play the new one
+          if (event.target !== this.currentPlayingVideo) {         
+              this.currentPlayingVideo.pause();
+              // this.currentPlayingVideo = event.target;
+              // this.currentPlayingVideo.play();
+          }
+      }
+  }
 
      ngOnInit(): void {
       this.form = this.formBuilder.group({
@@ -174,34 +192,36 @@ export class VideoComponent implements OnInit {
       this.fileSizeaInKB = false;
       let newVideo :string [] = [];
       if (event.target.files && event.target.files[0]) {
-        this.fileselected = true;
         const file = event.target.files && event.target.files[0];
-        var filesAmount = event.target.files.length;
-        for (let i = 0; i < filesAmount; i++) {
-          var reader = new FileReader();
-          if (file.type.indexOf('image') > -1) {
-            this.format = 'image';
-            // this.alertService.error('please select mp4 video', true);
-          } else if (file.type.indexOf('video') > -1) {
-            this.format = 'video';
-            const fileSizeInKB = Math.round(file.size / 1024);
-            if(fileSizeInKB > 102400){
-              this.fileSizeaInKB = true;
+        var extension = event.target.files[0].name.split('.').pop().toLowerCase();
+        
+        var isSuccess = this.fileTypes.indexOf(extension) > -1;
+        if (isSuccess && file.type.indexOf('video') > -1) { 
+          this.fileselected = true;   
+        const fileSizeInKB = Math.round(file.size / 1024);
+        if(fileSizeInKB > 102400){
+          this.fileSizeaInKB = true;             
+          this.notification.showInfo('Please Select file less then 100 MB.','');
+        }else{
+          var filesAmount = event.target.files.length;
+          this.format = 'video';
+          for (let i = 0; i < filesAmount; i++) {
+            var reader = new FileReader();         
+            reader.onload = (event: any) => {
+              this.url = (<FileReader>event.target).result;
+              newVideo.push(event.target.result);
+              this.form.patchValue({
+                newvideofileSource: newVideo
+              });  
+              this.videosaved = newVideo;         
+              this.newVideoAdded = false;           
             }
-            console.log('size', file.size);
-            console.log('type', file.type);
+            reader.readAsDataURL(event.target.files[i]);
           }
-          reader.onload = (event: any) => {
-            this.url = (<FileReader>event.target).result;
-            newVideo.push(event.target.result);
-            this.form.patchValue({
-              newvideofileSource: newVideo
-            });  
-            this.videosaved = newVideo;         
-            this.newVideoAdded = false;           
-          }
-          reader.readAsDataURL(event.target.files[i]);
         }
+      }else{
+        this.notification.showInfo('please select mp4 video.','');
+      }
       }
     }
 
