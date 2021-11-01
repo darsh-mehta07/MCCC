@@ -756,7 +756,7 @@ body {
     button.btn.btn-primary:focus:active { box-shadow: none;}
     .btn-check:focus+.btn-secondary, .btn-secondary:focus { box-shadow: none;}
     .proceed i.fa.fa-angle-right { padding: 0 4px; position: relative; top: -1px; left: 4px; font-size: 18px;}
-    .proceed-txt p { position: relative;top: 25px;text-align: center;font-size: 14px; margin: 0 15px;}
+    .proceed-txt p { position: relative;top: 25px;text-align: center;padding-bottom: 20px;font-size: 14px; margin: 0 15px;}
     .container { width: 100%; height: 100%;}
     .field-icon {float: right; margin-right: 10px;  position: relative; z-index: 2;bottom: 50px;font-size: 18px;}
     .select_div select { appearance: none;}
@@ -2690,4 +2690,12 @@ h4.place {
     padding: 0;
     margin: 0 !important;
     margin-bottom: 20px !important;
+}
+.radio {
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.radio .nt-btn {
+    top: 3rem;
 }
