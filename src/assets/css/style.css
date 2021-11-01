@@ -948,13 +948,13 @@ body {
     .evnts_sliders img {margin-top: 10px;}
     .thnk .form_areas { width: 90%;font-family: 'Gilroy'; text-align:center; background: #fff;margin: 2rem auto 0;padding: 30px;border-radius: 20px; position: absolute; top: 31px; height: 90vh; left: 0; right: 0;}
    
-    .thnk .form_areas img { width: 110px !important; display: flex;  align-items: center; margin: 20px auto;}
+    .thnk .form_areas img { width: 110px !important; display: flex;  align-items: center; margin: 50px auto;}
     .thnk h1 {font-weight: 600; font-size: 35px;}
     .thnk h3 { font-size: 18px; color: #9e9e9e; font-weight: 600;}
     .thnk h4 {font-size: 16px;}
     .thnk h5 {font-size: 13px;}
     .thnk-btn a { color: #000; border: 1px solid #000; text-decoration: none; padding: 10px 15px;  border-radius: 25px; position: relative; top:28px;line-height: 2;}
-    .thnk-btn {position: absolute;left: 0;  right: 0;}
+    .thnk-btn {position: absolute;left: 0;  right: 0;margin-top: 35px;}
     .thnk hr {width: 25%; border: 0.3px solid #2196f3; margin-top: 5px}
     .inner .casting-inner {background: #fff; height: 100%;}
     .casting-inner .hd-icons img {width: 8px !IMPORTANT;}
