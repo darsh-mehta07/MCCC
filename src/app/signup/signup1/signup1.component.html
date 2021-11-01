@@ -13,7 +13,7 @@
         <input autofocus formControlName="name" id="name" type="text" class="form-control" placeholder="Full Name" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" maxlength="28">
         <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
           <div *ngIf="f.name.errors.required">Name is required</div>
-          <div *ngIf="f.name.errors.pattern">Name must be two characters</div>
+          <div *ngIf="f.name.errors.pattern">Characters and space are allowed, It's length should be minimum two characters</div>
         </div>
       </div>
       <div class="nt-btn">

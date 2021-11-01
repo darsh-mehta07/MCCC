@@ -6,6 +6,8 @@ import { Config } from 'src/app/_config/config';
 import { first } from 'rxjs/operators';
 import { UserService } from 'src/app/_service/user.service';
 import { AlertService } from 'src/app/_service/alert.service';
+import { NotificationService } from 'src/app/_service/notification.service';
+
 
 @Component({
   selector: 'app-profile-second-step',
@@ -13,7 +15,7 @@ import { AlertService } from 'src/app/_service/alert.service';
   styleUrls: ['./profile-second-step.component.css']
 })
 export class ProfileSecondStepComponent implements OnInit {
-
+  currentPlayingVideo: HTMLVideoElement | any;
   form: FormGroup | any;
   submitted = false;
   images: string[] = [];
@@ -24,12 +26,14 @@ export class ProfileSecondStepComponent implements OnInit {
   videoloading :boolean = false;
   fileSizeaInKB : boolean = false;
   fileSelected : boolean = false;
+  fileTypes = ['mp4'];  //acceptable file types
   constructor(
     private formBuilder: FormBuilder,
     private route: Router,
     private authenticationService: AuthenticationService,
     private userService: UserService,
-    private alertService: AlertService
+    private alertService: AlertService,
+    private notification:NotificationService,
   ) {
     // redirect to home if already logged in
     // redirect to home if already logged in
@@ -47,6 +51,22 @@ export class ProfileSecondStepComponent implements OnInit {
       }
     }
   }
+  onPlayingVideo(event:any) {
+    event.preventDefault();
+    // play the first video that is chosen by the user
+    if (this.currentPlayingVideo === undefined) {
+      console.log('video playing');
+        this.currentPlayingVideo = event.target;
+        this.currentPlayingVideo.play();
+    } else {
+    // if the user plays a new video, pause the last one and play the new one
+        if (event.target !== this.currentPlayingVideo) {         
+            this.currentPlayingVideo.pause();
+            // this.currentPlayingVideo = event.target;
+            // this.currentPlayingVideo.play();
+        }
+    }
+}
   ngOnInit(): void {
     this.form = this.formBuilder.group({
       files: ['', Validators.required],
@@ -59,29 +79,33 @@ export class ProfileSecondStepComponent implements OnInit {
   onFileChange(event: any) {
     this.fileSizeaInKB = false;
     if (event.target.files && event.target.files[0]) {
-      this.fileSelected = true;
       const file = event.target.files && event.target.files[0];
-      var filesAmount = event.target.files.length;
-      for (let i = 0; i < filesAmount; i++) {
-        var reader = new FileReader();
-        if (file.type.indexOf('image') > -1) {
-          this.format = 'image';
-          this.alertService.error('please select mp4 video', true);
-        } else if (file.type.indexOf('video') > -1) {
-          this.format = 'video';
-          const fileSizeInKB = Math.round(file.size / 1024);
-            if(fileSizeInKB > 102400){
-              this.fileSizeaInKB = true;
+      var extension = event.target.files[0].name.split('.').pop().toLowerCase();
+      
+      var isSuccess = this.fileTypes.indexOf(extension) > -1;
+      if (isSuccess && file.type.indexOf('video') > -1) { 
+        this.fileSelected = true;     
+        const fileSizeInKB = Math.round(file.size / 1024);
+        if(fileSizeInKB > 102400){
+          this.fileSizeaInKB = true;             
+          this.notification.showInfo('Please Select file less then 100 MB.','');
+        }else{
+          this.format = 'video';        
+              var filesAmount = event.target.files.length;            
+              for (let i = 0; i < filesAmount; i++) {
+                var reader = new FileReader();        
+                reader.onload = (event: any) => {
+                  this.url = (<FileReader>event.target).result;
+                  this.images.push(event.target.result);
+                  this.form.patchValue({
+                    fileSource: this.images
+                  });
+                }
+                reader.readAsDataURL(event.target.files[i]);
+              }
             }
-        }
-        reader.onload = (event: any) => {
-          this.url = (<FileReader>event.target).result;
-          this.images.push(event.target.result);
-          this.form.patchValue({
-            fileSource: this.images
-          });
-        }
-        reader.readAsDataURL(event.target.files[i]);
+      }else{
+        this.notification.showInfo('please select mp4 video.','');
       }
     }
   }
@@ -95,11 +119,15 @@ export class ProfileSecondStepComponent implements OnInit {
         this.videoloading = false;  
         this.responseData = res;
         if (this.responseData.status == 'true') {
+          // console.log('video else');
+          //   this.currentPlayingVideo.pause();
           this.route.navigate(['/profile_final_step']);
         } else {
-          this.alertService.success('File uploaded Successfully', true);
+          this.notification.showInfo(this.responseData.status,'');
+          this.notification.showInfo(this.responseData,'');
         }
       },error=>{
+        this.notification.showInfo(error,'');
         this.videoloading = false;
       });
     }

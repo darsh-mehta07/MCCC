@@ -38,7 +38,9 @@
                                 <div class="radio-toolbar">                              
                                 <label>Female  <input type="radio" formControlName="gender"  value="Female"></label>                               
                                 <label>Male <input type="radio" formControlName="gender"  value="Male"></label>                                
-                                <label>Transgender, Genderqueer, LGBT <input type="radio" formControlName="gender"  value="Transgender, Genderqueer, LGBT" ></label> 
+                                <label>Transgender<input type="radio" formControlName="gender"  value="Transgender" ></label> 
+                                <label>Genderqueer<input type="radio" formControlName="gender"  value="Genderqueer" ></label> 
+                                <label>LGBT<input type="radio" formControlName="gender"  value="LGBT"></label> 
                                 <div *ngIf="submitted && f.gender.errors" class="invalid-feedback">Gender is required</div>
                             </div>
                             </div>

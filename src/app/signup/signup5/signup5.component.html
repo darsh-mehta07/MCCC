@@ -17,8 +17,12 @@
             <label>Female</label>
             <input type="radio" formControlName="gender"  value="Male" checked [ngClass]="{ 'is-invalid': submitted && f.gender.errors }">
             <label>Male</label>
-            <input type="radio" formControlName="gender"  value="Transgender, Genderqueer, LGBT" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }">
-            <label>Transgender, Genderqueer, LGBT</label> 
+            <input type="radio" formControlName="gender"  value="Transgender" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }">
+            <label>Transgender</label> 
+            <input type="radio" formControlName="gender"  value="Genderqueer" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }">
+            <label>Genderqueer</label>
+            <input type="radio" formControlName="gender"  value="LGBT" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }">
+            <label>LGBT</label>
             <div *ngIf="submitted && f.gender.errors" class="invalid-feedback">
               <div *ngIf="f.gender.errors.required">Gender is required</div>
               

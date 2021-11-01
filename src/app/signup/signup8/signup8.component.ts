@@ -22,7 +22,7 @@ export class Signup8Component implements OnInit {
 
   ngOnInit(): void {    
     this.form = this.formBuilder.group({
-      password: [sessionStorage.getItem('password'),[Validators.required,Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,}') ]]
+      password: ['',[Validators.required,Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,}') ]]
     });
   }
   get f(): { [key: string]: AbstractControl } {

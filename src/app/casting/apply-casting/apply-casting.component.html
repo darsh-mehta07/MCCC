@@ -144,6 +144,8 @@
         </div>
       </div>
        <!-- [autoCrop]="false"  -->
+       <div class="error" *ngIf="imagenotload">(Only png,jpeg and jpg are allowed)</div>
+       <div *ngIf="showCropper" class="info">Choose another picture, If picture not loaded.</div>
       <image-cropper [imageChangedEvent]="imageChangedEvent" [maintainAspectRatio]="true"
         [containWithinAspectRatio]="containWithinAspectRatio" [aspectRatio]="3 / 4" [resizeToWidth]="256"
         [cropperMinWidth]="128" [onlyScaleDown]="true" [roundCropper]="false" 

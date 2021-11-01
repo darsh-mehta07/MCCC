@@ -2,9 +2,12 @@
     <div class="container">
         <div class="thx-content">
             <img src="../../../assets/img/logo.png">
-            <h2>THANK<br>YOU</h2>
+            <h2>THANK<br>YOU!</h2>
             <p>for Completing Your Profile</p>
-            <a [routerLink]="['/home']">
+            <a *ngIf="socialloginType" (click)="relogin()">
+                <button>Let's Explore</button>
+            </a>
+            <a *ngIf="!socialloginType" (click)="homePage()">
                 <button>Let's Explore</button>
             </a>
         </div>

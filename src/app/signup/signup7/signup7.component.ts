@@ -14,7 +14,8 @@ import { faCity } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./signup7.component.css']
 })
 export class Signup7Component implements OnInit {
-
+  emailTaken :boolean = false;
+  emailExist :boolean = false;
   form: FormGroup | any;
   submitted = false;
   loading = false;
@@ -72,15 +73,22 @@ export class Signup7Component implements OnInit {
   changeSuit(e:any) {
     if(e.target.value > 0){
       this.statesTrue = true;
+      this.emailTaken = true;
       this.registerService.cities({state_id:e.target.value}).pipe(first()).subscribe(res=>{
         this.response = res;
         if(this.response.data !== 'undefined' && this.response.data.length > 0){
+          this.emailExist = false;
+          this.emailTaken = false;
           this.dataTrue = true;
           this.cities = this.response.data;  
         }else{
+          this.emailExist = true;
+            this.emailTaken = false;
           this.dataTrue = false;
         }
       },error=>{
+        this.emailExist = true;
+            this.emailTaken = false;
         this.alertService.error(error);
         this.loading = false;
       });

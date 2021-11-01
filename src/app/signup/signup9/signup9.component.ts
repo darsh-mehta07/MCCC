@@ -25,7 +25,7 @@ export class Signup9Component implements OnInit {
   ngOnInit(): void {    
     this.storePassword = sessionStorage.getItem('password');
     this.form = this.formBuilder.group({
-      confirm_password: [sessionStorage.getItem('confirm_password'),Validators.required]
+      confirm_password: ['',Validators.required]
     }, {
       validator: MustMatch(this.storePassword,'confirm_password')
   });

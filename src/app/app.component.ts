@@ -16,7 +16,8 @@ export class AppComponent {
   title = 'web';
   isConnected = true;  
   noInternetConnection!: boolean;  
-  
+  files : any;
+  fileName : string ='https://mcccapp.in/assets/img/image2.png';
   constructor(private authenticationService: AuthenticationService,private connectionService: ConnectionService,
     private route:Router,
     private location: Location,) { 
@@ -58,12 +59,14 @@ export class AppComponent {
         this.noInternetConnection=false;  
         this.location.back();
       }  
-      else {  
+      else {         
         this.route.navigate(['/no-internet']);
         this.noInternetConnection=true;  
       }  
     })  
-
+   
     
   } 
+
+
 }

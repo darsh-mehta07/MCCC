@@ -31,7 +31,7 @@
                     </div>
                     <div class="btom_file">
                         <div class="profileImg_area">
-                            <video [src]="url" *ngIf="format==='video' && url" height="200" controls></video>
+                            <video (playing)="onPlayingVideo($event)" [src]="url" *ngIf="format==='video' && url" height="200" controls></video>
                         </div>
                         <button *ngIf="format==='video' && fileSelected && !fileSizeaInKB" class="next_btn">Next </button>
                     </div>
