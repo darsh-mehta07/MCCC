@@ -142,6 +142,7 @@ export class VideoComponent implements OnInit {
     }
     }
     back(): void {
+      this.closevideomodel('close click');
       this.location.back();
     }
     open(content:any) {

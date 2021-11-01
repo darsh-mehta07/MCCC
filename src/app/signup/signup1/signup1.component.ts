@@ -16,7 +16,10 @@ export class Signup1Component implements OnInit {
   constructor(private formBuilder: FormBuilder, private route : Router,private authenticationService: AuthenticationService,) {
      // redirect to home if already logged in
      if (this.authenticationService.currentUserValue) {
-          this.route.navigate([Config.AfterLogin]);
+       let Auth =  JSON.stringify(this.authenticationService.currentUserValue.status);
+        if(Auth === 'true'){
+            this.route.navigate([Config.AfterLogin]);
+        }
       }
   }
 

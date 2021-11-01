@@ -126,6 +126,7 @@ export class ImagesComponent implements OnInit {
     } 
 
     back(): void {
+      this.closemodel();
       this.location.back();
     }
     patchValues(){
