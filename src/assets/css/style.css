@@ -1049,7 +1049,7 @@ body {
     .icons-tabs::-webkit-scrollbar, .inner-tabs::-webkit-scrollbar, .card-btn::-webkit-scrollbar {display: none;}
     .inner-tabs ul.nav.nav-pills li.active { color: hsl(201deg 100% 74%);}
     .sticky {position: -webkit-sticky;  position: sticky; top: 75px; background-color: #fff; font-size: 20px;}
-    .upcoming-events-tbs .card-tbs, .events-tbs .card-tbs { padding: 15px 10px;}
+
     .behinde-screen_sliders .slick-track {display: -webkit-box; width: 100% !important;}
     .trner {position: relative; padding-bottom: 50px;}
     .trns_sliders .slick-track {margin-bottom: 35px; width: 100%;}
