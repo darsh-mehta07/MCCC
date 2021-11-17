@@ -2490,7 +2490,6 @@ input#phone::placeholder {
 
 .video-opt .slick-track{
     display: flex;
-    width: 100% !important;
     height: 100%;
 }
 .header button.skip {
