@@ -8,7 +8,9 @@
 .terms .card-body { padding: 10px; border: 0 !important;}
 .terms h5 i { float: right;font-size: 20px;margin-right: 20px;}
 .terms p {font-size: 14px;}
-.term-condition .card .card-header a:not(.collapsed) .rotate-icon2 { -webkit-transform: rotate(90deg); transform: rotate(90deg);}
+/* .term-condition .card .card-header a.collapsed .rotate-icon2 {transform: rotate(90deg);} */
 .terms a.collapsed { width: 100%; display: flex;justify-content: flex-start;}
 .term-condition { height: 100%;position: relative; overflow-y: auto; overflow-x: hidden;}
 .term-condition .container {height: auto;}
+.term-condition .card .card-header a h5 i{transform: rotate(0deg);}
+.term-condition .card .card-header a.rotate h5 i{transform: rotate(90deg);}
