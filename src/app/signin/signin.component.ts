@@ -16,6 +16,7 @@ export class SigninComponent implements OnInit {
   signinForm : FormGroup | any;
   loading = false;
   returnUrl: string | undefined;
+  splaceScreen : any = 0;
   constructor(private formBuilder : FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
@@ -76,7 +77,14 @@ export class SigninComponent implements OnInit {
                       if(data.userDetails.hobbies != null && data.userDetails.hobbies != ''){
                         sessionStorage.setItem('hobbies',data.userDetails.hobbies);
                       }
-                      this.router.navigate(['/home']);
+                      this.splaceScreen = data.splashScreen;
+                      if(this.splaceScreen == 1){
+                        this.router.navigate(['/splash1']);
+                      }else{                        
+                        this.router.navigate(['/home']);                        
+                      }
+                      
+                      
                     }
                   }
                 },

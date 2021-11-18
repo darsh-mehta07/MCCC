@@ -4,7 +4,7 @@
 <div ngxSlickItem *ngFor="let slide of slides" class="slide">
 <div class="header">
     <button class="skip">
-        <a [routerLink]="['/welcome']">SKIP</a>
+        <a [routerLink]="['/home']">SKIP</a>
     </button>
 </div>
 <div class="{{slide.class1}}">
@@ -24,7 +24,7 @@
             <a *ngIf="slide.no != 4" (click)="slickModal.slickGoTo(slide.no)" class="{{ slide.class3 }}">
                 <button><i class="fa fa-angle-right"></i></button>
               </a>
-              <a *ngIf="slide.no == 4" [routerLink]="['/welcome']" class="{{ slide.class3 }}">
+              <a *ngIf="slide.no == 4" [routerLink]="['/home']" class="{{ slide.class3 }}">
                 <button><i class="fa fa-angle-right"></i></button>
               </a>
         

@@ -16,8 +16,8 @@ export class AppComponent {
   title = 'web';
   isConnected = true;  
   noInternetConnection!: boolean;  
-  files : any;
-  fileName : string ='https://mcccapp.in/assets/img/image2.png';
+  // files : any;
+  // fileName : string ='https://mcccapp.in/assets/img/image2.png';
   constructor(private authenticationService: AuthenticationService,private connectionService: ConnectionService,
     private route:Router,
     private location: Location,) { 

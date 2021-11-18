@@ -128,7 +128,7 @@
                             <label>Work Experience</label>
                             <div class="input"  formArrayName="work_experiences" *ngFor="let item of form.get('work_experiences')['controls']; let i = index;">
                                 <div [formGroupName]="i">
-                                <input type="text" formControlName="experience" maxlength="200" placeholder="Lead Role In Vastav" [ngClass]="{ 'is-invalid': submitted && f.work_experiences.errors }">
+                                <input type="text" formControlName="experience" maxlength="200" [ngClass]="{ 'is-invalid': submitted && f.work_experiences.errors }">
                                 <span  (click)="addExperience()"><img src="https://img.icons8.com/android/12/000000/plus.png"/></span>
                                 <span *ngIf="i > 0"(click)="removeExperience(i)"><img src="https://img.icons8.com/android/12/000000/minus.png"/></span>
                             </div>                                
