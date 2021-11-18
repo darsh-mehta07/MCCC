@@ -15,7 +15,7 @@ export class LogoComponent implements OnInit {
     //redirect to navigate page after 3 milisecond
     setTimeout(()=>{                           
           this.dashboardService.filter('applyed');
-          this.route.navigate(['/splash1']);
+          this.route.navigate(['/welcome']);
     }, 3000);
   }
 }
