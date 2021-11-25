@@ -28,8 +28,10 @@ export class AuthenticationService {
                 if(user.status != 'false'){
                 // store user details and jwt token in local storage to keep user logged in between page refreshes
                 localStorage.setItem('currentUser', JSON.stringify(user));
-                }
                 this.currentUserSubject.next(user);
+                }else{
+                    this.currentUserSubject.next(null as any);
+                }                
                 return user;
             }));
     }
@@ -39,8 +41,10 @@ export class AuthenticationService {
             if(user.status != 'false'){
                 // store user details and jwt token in local storage to keep user logged in between page refreshes
                 localStorage.setItem('currentUser', JSON.stringify(user));
-                }
-            this.currentUserSubject.next(user);
+                this.currentUserSubject.next(user);
+                }else{
+                    this.currentUserSubject.next(null as any);
+                }            
             return user;
         }));
     }
@@ -50,9 +54,11 @@ export class AuthenticationService {
             if(user.status != 'false'){
                 // store user details and jwt token in local storage to keep user logged in between page refreshes
                 localStorage.setItem('currentUser', JSON.stringify(user));
-                }
                 this.currentUserSubject.next(null as any);
-            this.currentUserSubject.next(user);
+                this.currentUserSubject.next(user);
+                }else{
+                    this.currentUserSubject.next(null as any);
+                }               
             return user;
         }));
     }

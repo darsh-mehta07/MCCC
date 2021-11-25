@@ -60,7 +60,7 @@
     <div class="modal-body">
       <div class="form-group">
         <div class="input-group">
-          <input type="file" name="file" class="form-control" (change)="fileChangeEvent($event)">          
+          <input type="file" name="file" accept="image/*" class="form-control" (change)="fileChangeEvent($event)">          
         </div>
       </div>
       <div class="error" *ngIf="imagenotload">(Only png,jpeg and jpg are allowed)</div>

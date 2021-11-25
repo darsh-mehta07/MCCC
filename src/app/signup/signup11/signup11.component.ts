@@ -15,7 +15,10 @@ export class Signup11Component implements OnInit {
   constructor(private notification:NotificationService,private route : Router,private authenticationService: AuthenticationService) {
     // redirect to home if already logged in
     if (this.authenticationService.currentUserValue) {
-         this.route.navigate([Config.AfterLogin]);
+      let Auth =  JSON.stringify(this.authenticationService.currentUserValue.status);
+      if(Auth){
+          this.route.navigate([Config.AfterLogin]);
+      }
      }
  } 
   ngOnInit(): void {

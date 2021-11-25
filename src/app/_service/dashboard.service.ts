@@ -65,6 +65,7 @@ export class DashboardService {
       return this._listners.asObservable();
     }
     filter(filterBy:string){
+      // console.log('filterBy :',filterBy);
       this._listners.next(this.filter)
     }
     getEvents(){

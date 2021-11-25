@@ -313,6 +313,9 @@ body {
 }
 
 @media only screen and (max-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(3, 120px);
+    }
     .profilenav {
         height: 100%;
         width: 0;
@@ -1844,6 +1847,10 @@ a:focus {
 }
 
 @media (max-width: 768px) {
+
+    .play-btn{       
+        padding-bottom: 0px !important;
+    }
     .wrapper {
         overflow-x: hidden;
     }
@@ -2697,4 +2704,27 @@ h4.place {
 }
 .radio .nt-btn {
     top: 3rem;
+}
+/*-----game css-----------*/
+.text-center {
+    text-align: center;
+}
+
+.p-8 {
+    padding: 8px;
+}
+
+.p-16 {
+    padding: 16px;
+}
+
+.p-32 {
+    padding: 32px;
+}
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 120px);
+    gap: 16px;
+
+    justify-content: center;
 }

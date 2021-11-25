@@ -5,6 +5,7 @@ import { first } from 'rxjs/operators';
 import { AuthenticationService } from '../_service/authentication.service';
 import { AlertService } from '../_service/alert.service';
 import { Config } from '../_config/config';
+import { DashboardService } from '../_service/dashboard.service';
 
 @Component({
   selector: 'app-signin',
@@ -21,10 +22,14 @@ export class SigninComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private authenticationService: AuthenticationService,
-    private alertService: AlertService) {
+    private alertService: AlertService,
+    private dashboardService:DashboardService) {
        // redirect to home if already logged in
        if (this.authenticationService.currentUserValue) {
+        let Auth =  JSON.stringify(this.authenticationService.currentUserValue.status);
+        if(Auth === 'true'){
             this.router.navigate([Config.AfterLogin]);
+        }
         }
      }
 
@@ -79,12 +84,11 @@ export class SigninComponent implements OnInit {
                       }
                       this.splaceScreen = data.splashScreen;
                       if(this.splaceScreen == 1){
+                        this.dashboardService.filter('applyed');
                         this.router.navigate(['/splash1']);
                       }else{                        
                         this.router.navigate(['/home']);                        
                       }
-                      
-                      
                     }
                   }
                 },

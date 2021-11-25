@@ -32,12 +32,13 @@
             <div *ngIf="f.height.errors.pattern">Height must be numeric</div>
           </div>
           <label>Contact Number<span class="text-danger">*</span></label>
-          <input type="tel" formControlName="phone" placeholder="type here" [ngClass]="{ 'is-invalid': submitted && f.phone.errors }">
+          <input type="tel" maxlength="10" formControlName="phone" placeholder="type here" [ngClass]="{ 'is-invalid': submitted && f.phone.errors }">
           <div *ngIf="submitted && f.phone.errors" class="invalid-feedback">
             <div *ngIf="f.phone.errors.required">Phone is required</div>
           <div *ngIf="f.phone.errors.pattern">Please Enter 10 digit's mobile number</div>
           <div *ngIf="f.phone.errors.phoneTaken">Phone is already taken.</div>
           </div>
+          
           <label>Language You Know<span class="text-danger">*</span></label> 
           <div class="select_div">
         <select multiple class="select" formControlName="language_id" [(ngModel)]="language_ids" required [ngClass]="{ 'is-invalid': submitted && f.language_id.errors }">

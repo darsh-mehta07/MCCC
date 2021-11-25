@@ -65,47 +65,58 @@ import { NotificationComponent } from './notification/notification.component';
 import { GamesComponent } from './games/games.component';
 import { TermConditionComponent } from './term-condition/term-condition.component';
 import { BookmarkComponent } from './bookmark/bookmark.component';
+import { PasswordComponent } from './password/password.component';
+import { GameComponent } from './game/game.component';
 
 
 
 const routes: Routes = [
   {    
     path: '',    
-    redirectTo: 'logo',    
+    redirectTo: 'password',    
     pathMatch: 'full',    
   },    
+  {    
+    path: 'password',component: PasswordComponent,    
+    data: {title: 'password Page'}    
+  },
+  // {    
+  //   path: '',    
+  //   redirectTo: 'logo',    
+  //   pathMatch: 'full',    
+  // },    
   {    
     path: 'logo',component: LogoComponent,    
     data: {title: 'Logo Page'}    
   },    
   {    
     path: 'splash1',component: Splash1Component,    
-    data: {storeRoute: true,title: 'Casting Page'}    
+    data: {storeRoute: false,title: 'Casting Page'}    
   }, 
   {    
     path: 'splash2',component: Splash2Component,    
-    data: {storeRoute: true,title: 'Traning Page'}    
+    data: {storeRoute: false,title: 'Traning Page'}    
   },
   {    
     path: 'splash3',component: Splash3Component,    
-    data: {storeRoute: true,title: 'Events Page'}    
+    data: {storeRoute: false,title: 'Events Page'}    
   },
   {    
     path: 'welcome',component: WelcomeComponent,    
-    data: {storeRoute: true,title: 'Welcome Page'}    
+    data: {storeRoute: false,title: 'Welcome Page'}    
   },
   {    
     path: 'signin',component: SigninComponent,    
     data: {storeRoute: false,title: 'Signin Page'}    
   }, 
-  {    
-    path: 'splash2',component: Splash2Component,    
-    data: {storeRoute: true, title: 'Traning Page'}    
-  },
-  {    
-    path: 'splash3',component: Splash3Component,    
-    data: {storeRoute: true, title: 'Events Page'}    
-  },
+  // {    
+  //   path: 'splash2',component: Splash2Component,    
+  //   data: {storeRoute: true, title: 'Traning Page'}    
+  // },
+  // {    
+  //   path: 'splash3',component: Splash3Component,    
+  //   data: {storeRoute: true, title: 'Events Page'}    
+  // },
   {    
     path: 'welcome',component: WelcomeComponent,    
     data: {storeRoute: true, title: 'Welcome Page'}    
@@ -337,7 +348,10 @@ const routes: Routes = [
     path: 'bookmark',component: BookmarkComponent,    
     data: {title: 'bookmark'}    
   },
-  
+  {
+    path: 'game',component: GameComponent,    
+    data: {title: 'game'}    
+  },
 
 
 ];

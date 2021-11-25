@@ -16,7 +16,7 @@
           [ngClass]="{ 'is-invalid': submitted && f.password.errors }"/>
         <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
           <div *ngIf="f.password.errors.required">Password is required</div>
-          <div *ngIf="f.password.errors.pattern">One capital case, one lower case, one number and 8 character </div>
+          <div *ngIf="f.password.errors.pattern">One capital case, one lower case, one number and total 8 character only</div>
         </div>
       </div>
       <div class="nt-btn">

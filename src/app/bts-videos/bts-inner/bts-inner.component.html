@@ -2,9 +2,9 @@
 	<div class="bts_inner" *ngIf="loadData">
 	     <div class="header hd-icons">
             <a [routerLink]="['/bts-video']"><img src="../assets/img/back2.png" /></a>
-			<h6><b>{{topBtsVideos[0].category}}</b></h6>
+			<h6 *ngIf="!videoNotFound"><b>{{topBtsVideos[0].category}}</b></h6>
         </div>
-		<div class="hero__overlay">
+		<div class="hero__overlay" *ngIf="!videoNotFound">
 			<div class="hero__modal" *ngFor="let data of topBtsVideos">
 				<a class='img_link' (click) = 'videoClick(data.id)' [routerLink]="['/bts-video-view/',data.id,btsCategoryId]" >
 				    <img *ngIf="data.youtube_thumbnail == null " src="{{hostUrl}}{{data.thumbnail_path}}{{data.thumbnail}}">
@@ -13,18 +13,32 @@
 				</a>
 				<div class="hero__modal-content">
 					<!-- <p>{{data.description}}</p> -->
-					<p  *ngIf="data.description.length > 29 && expanded !=  data.id">
-                               {{data.description.substr(0, 29)}}
+					<div  *ngIf="data.description.length > 29 && expanded !=  data.id">
+                               <p [innerHTML]="data.description.substr(0, 29)"></p>
                                 <span (click)="expanded = data.id"
-                                  class="text-green"><b>{{expanded==  data.id ?'View less':'View more'}}</b></span></p>
-                              <p  *ngIf="expanded ==  data.id ">{{data.description}}
+                                  class="text-green"><b>{{expanded==  data.id ?'View less':'View more'}}</b></span>
+					</div>
+                              <div *ngIf="expanded ==  data.id ">
+								  <p [innerHTML]="data.description"></p>
                                 <span (click)="expanded = 0"
-                                  class="text-green"><b>{{expanded==  data.id ?'View less':'View more'}}</b></span></p>
+                                  class="text-green"><b>{{expanded==  data.id ?'View less':'View more'}}</b></span>
+							  </div>
 					<h5>{{data.viewsCount}} views {{data.created_at | date:'mediumDate'}}</h5>
 				</div>
 			</div>	
 			
 		</div>
+
+
+		<div class="container" *ngIf="videoNotFound">
+			<div class="card-tbs">
+			<div  class="no-data" style="text-align: center;">
+				<img src="../../../assets/img/image.png">
+				<h2>No Data Available</h2>
+			  </div>
+			</div>  
+		</div> 
+
 		</div>
 		<div class="item" *ngIf="!loadData">
 			<ngx-skeleton-loader count="20"></ngx-skeleton-loader>

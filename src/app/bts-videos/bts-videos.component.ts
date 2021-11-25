@@ -7,6 +7,7 @@ import { Config } from '../_config/config';
   styleUrls: ['./bts-videos.component.css']
 })
 export class BtsVideosComponent implements OnInit {
+  loadingtopbts : boolean = false;
   stickymenu = 'bts';
   constructor(private btsVideosService: BtsVideosService,) { }
   loadData: any = false;
@@ -44,8 +45,14 @@ export class BtsVideosComponent implements OnInit {
                   });
               this.btsVideosService.get_bts_videos({'limit': 2,'category_id':2}).subscribe(
                   data => { 
+                    this.loadData = true;
+                    if(data.data.length > 0){
+                      this.loadingtopbts = true;
+                      // console.log(data.data);
                       this.topBtsVideos = data.data;
-                      this.loadData = true;
+                    }else{
+                      this.loadingtopbts = false;
+                    }
                   });    
               this.btsVideosService.get_categories().subscribe(
                 data => { 

@@ -116,7 +116,7 @@
             </div>
             <div class="vdi-btn">
               <i class="fa fa-plus-circle" aria-hidden="true"> </i>
-              <p (click)="open(video)">Select More Videos</p>
+              <p (click)="open(video)">Select More Videos</p> <span style="margin: 5px;" class="fa fa-info-circle" placement="top" tooltip="select <strong>mp4</strong> video at the size of less than <strong>100mb</strong> !"></span>
             </div>
           </div>
           <div class="apply-btn">
@@ -140,7 +140,7 @@
     <div class="modal-body">
       <div class="form-group">
         <div class="input-group">
-          <input type="file" name="file" class="form-control" (change)="fileChangeEvent($event)">          
+          <input type="file" name="file" class="form-control" accept="image/*" (change)="fileChangeEvent($event)">          
         </div>
       </div>
        <!-- [autoCrop]="false"  -->

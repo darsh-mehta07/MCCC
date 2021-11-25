@@ -5,21 +5,26 @@
             <a (click)="back()"><img src="../assets/img/back2.png"></a>
             <h3>Videos </h3>
         </div>
-        <div class="video-play">
+        <div class="video-play" *ngIf="!videoNotFound">
             <iframe #iframe  width="560" height="315" class="e2e-trusted-url ivideo"  src="about:blank" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;" allowfullscreen=""></iframe>
         </div>
     </div>
-    <div class="upNext">
+    <div class="upNext"  *ngIf="!videoNotFound">
     <div class="video-nt">
             <div class="video-icons" *ngIf="getUpnextVideos">
-                <!-- <p>{{desc}}</p> -->
-                    <p  *ngIf="desc.length > 29 && expanded !=  this.BtsVideos[0].id">
-                        {{desc.substr(0, 29) | titlecase}}
-                     <span (click)="expanded = this.BtsVideos[0].id"
-                       class="text-green"><b>{{expanded==  this.BtsVideos[0].id ?'View less':'View more'}}</b></span></p>
-                    <p  *ngIf="expanded ==  this.BtsVideos[0].id ">{{desc | titlecase}}
+                <!-- <p>{{desc}}</p> -->               
+                    <div  *ngIf="desc.length > 29 && expanded !=  this.BtsVideos[0].id" >
+                        <p [innerHTML]="desc.substr(0, 29) | titlecase"></p>
+                    <span (click)="expanded = this.BtsVideos[0].id"
+                       class="text-green"><b>{{expanded==  this.BtsVideos[0].id ?'View less':'View more'}}</b>
+                    </span>
+                </div>
+                    <div  *ngIf="expanded ==  this.BtsVideos[0].id ">
+                        <p [innerHTML]="desc | titlecase"></p>
                      <span (click)="expanded = 0"
-                       class="text-green"><b>{{expanded==  this.BtsVideos[0].id ?'View less':'View more'}}</b></span></p>
+                       class="text-green"><b>{{expanded==  this.BtsVideos[0].id ?'View less':'View more'}}</b>
+                    </span>
+                </div>
                        <span>{{BtsVideos[0].viewsCount}} views </span>
             </div>
             <div class="item" *ngIf="!getUpnextVideos">
@@ -141,6 +146,17 @@
 
     </div>
     </div>
+
+
+    <div class="container" *ngIf="videoNotFound">
+        <div class="card-tbs">
+        <div  class="no-data" style="text-align: center;">
+            <img src="../../../assets/img/image.png">
+            <h2>No Data Available</h2>
+          </div>
+        </div>  
+    </div>     
+
     </div>
 
     <!-- <div class="item" *ngIf="!dataLoad">

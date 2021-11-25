@@ -24,8 +24,12 @@ export class Signup2Component implements OnInit {
     private registerService : RegisterService,
     ) {
     // redirect to home if already logged in
+    
     if (this.authenticationService.currentUserValue) {
-         this.route.navigate([Config.AfterLogin]);
+      let Auth =  JSON.stringify(this.authenticationService.currentUserValue.status);
+      if(Auth){
+          this.route.navigate([Config.AfterLogin]);
+      }
      }
  }
   ngOnInit(): void {
