@@ -47,6 +47,7 @@ export class HomeComponent implements OnInit {
     loadingtraining:boolean = false;
     loadingwork:boolean = false;
     loadingtrner:boolean = false;
+    loadingtopbts : boolean = false;
 
     popularBtsVideos : any;
     topBtsVideos: any;
@@ -80,9 +81,15 @@ export class HomeComponent implements OnInit {
       console.log('const');
        // redirect to home if already logged in
         if(this.authenticationService.currentUserValue) {
-            if(sessionStorage.getItem('profile_status') === 'false'){
-              this.route.navigate(['/profile_first_step']);
-            }          
+            let Auth =  JSON.stringify(this.authenticationService.currentUserValue.status);
+            console.log("Auth : " , Auth);
+            if(Auth){
+              if(sessionStorage.getItem('profile_status') === 'false'){
+                this.route.navigate(['/profile_first_step']);
+              }
+            }else{
+              this.route.navigate(['/signin']);
+            }                      
         }else{
           this.route.navigate(['/signin']);
         }
@@ -138,8 +145,14 @@ export class HomeComponent implements OnInit {
     this.btsVideosService.get_bts_videos({'limit': 2,'category_id':2}).subscribe(
       data => { 
         this.loadingbts = true;
+        if(data.data.length > 0){
+          this.loadingtopbts = true;
           // console.log(data.data);
           this.topBtsVideos = data.data;
+        }else{
+          this.loadingtopbts = false;
+        }
+        
       }); 
     this.btsVideosService.get_categories().subscribe(
         data => { 
@@ -196,7 +209,7 @@ export class HomeComponent implements OnInit {
         this.upcomingsEvents = this.resData.data.upcoming;
         console.log(this.upcomingsEvents);
         this.event_for_u = this.resData.data.event_for_u;
-        console.log(this.event_for_u);
+        // console.log(this.event_for_u);
       });
   }
   castingSliderApi(){
@@ -219,7 +232,7 @@ export class HomeComponent implements OnInit {
   newCastingCallApi(){
     this.dashboardService.castingCall({limit:5})
       .subscribe(res => {
-        this.loadingnc = true;
+        
         this.resData = res;        
         this.newCasting = this.resData.data;
         if(this.newCasting.length  == 0){
@@ -227,27 +240,30 @@ export class HomeComponent implements OnInit {
           this.nonewcall = true;
         }else if(this.newCasting == 'No Record Found'){
           this.nonewcall = true;
-        }       
+        }else{
+          this.loadingnc = true;
+        }        
       });
   }
   callEndingSoonAPI(){
     this.dashboardService.callEndingSoon({limit:5})
-      .subscribe(res => {
-        this.loadingnce = true;
+      .subscribe(res => {       
         this.resData = res;        
         this.callEnding = this.resData.data; 
-        if(this.callEnding == 'No Record Found'){
+        if(this.callEnding == 'No data found'){
           this.nocallend = true;
         }else if(this.callEnding.length == 0){
           this.nocallend = true;
           this.loadingnce = false;
+        }else{
+          this.loadingnce = true;
         }      
       });
   }
   getRecomendedData(){
     this.dashboardService.recomendedCasting({limit:5})
       .subscribe(res => {
-        this.loadingnr = true;
+        
         this.resData = res;        
         this.recomended = this.resData.data; 
         if(this.recomended == 'No Record Found'){
@@ -255,8 +271,10 @@ export class HomeComponent implements OnInit {
         }else if(this.recomended.length == 0){
           this.norecomended = true;
           this.loadingnr = false;
+        }else{
+          this.loadingnr = true;
         }  
-        console.log(this.recomended);      
+        // console.log(this.recomended);      
       });
   }
   castingInner(id:any){

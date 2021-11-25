@@ -29,8 +29,12 @@ export class WelcomeComponent implements OnInit {
      private notification :NotificationService
      ) {     
     // redirect to home if already logged in
+    
     if (this.authenticationService.currentUserValue) {
-         this.route.navigate([Config.AfterLogin]);
+      let Auth =  JSON.stringify(this.authenticationService.currentUserValue.status);
+      if(Auth){
+          this.route.navigate([Config.AfterLogin]);
+      }
      }
  }
 

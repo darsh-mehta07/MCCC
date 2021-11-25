@@ -23,6 +23,10 @@ export class HeaderComponent implements OnInit {
     private authenticationService: AuthenticationService,
     private dashboardService: DashboardService) {
       this.currentUser = this.authenticationService.currentUserValue;
+      // this.dashboardService.listen().subscribe((e:any)=>{
+      //   // console.log('close footer :', e);
+      //   this.closeNav();
+      // });
      }
 
   ngOnInit(): void {
@@ -51,6 +55,7 @@ export class HeaderComponent implements OnInit {
   }
   openNav(){
     this.openMenu = true;
+    this.dashboardService.filter('header');
   }
   closeNav(){
     this.openMenu = false;

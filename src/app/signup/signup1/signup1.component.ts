@@ -17,7 +17,7 @@ export class Signup1Component implements OnInit {
      // redirect to home if already logged in
      if (this.authenticationService.currentUserValue) {
        let Auth =  JSON.stringify(this.authenticationService.currentUserValue.status);
-        if(Auth === 'true'){
+        if(Auth){
             this.route.navigate([Config.AfterLogin]);
         }
       }
@@ -36,6 +36,7 @@ export class Signup1Component implements OnInit {
     if (this.form.invalid) {
       return;
     }else{
+      console.log("name else");
       sessionStorage.setItem('name',this.form.value.name);
       this.route.navigate(['/signup-email']);
     }

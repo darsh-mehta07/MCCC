@@ -10,7 +10,7 @@
     </div>
     <div class="tab-content clearfix">
         <div class="required-tbs tab-pane" [ngClass]="catId == 1 ? 'active':''" id="tab1">
-            <div class="container">
+            <div class="container" *ngIf="shownw">
                 <div class="tabs" *ngIf="!castingData">
                     <h2>New Casting Calls
                         <hr class="on">
@@ -42,9 +42,9 @@
                         <i class="fa fa-transgender-alt" aria-hidden="true"></i>
                         <h4>{{casting.gender}}</h4>
                       </div>
-                      <div class="details-icons" *ngIf="casting.closing_date != null">
+                      <div class="details-icons" *ngIf="casting.created_at != null">
                         <i class="fa fa-calendar" aria-hidden="true"></i>
-                        <h4 >{{casting.closing_date}}</h4>
+                        <h4 >{{casting.created_at}}</h4>
                       </div>
                       <div class="details-icons">
                         <i class="fa fa-map-marker" aria-hidden="true"></i>
@@ -57,21 +57,23 @@
                         <a>{{tag}}</a>
                       </div>         
                     </div>
-                  </div>
-                  <div class="item" *ngIf="!loading">
-                    <ngx-skeleton-loader count="15"></ngx-skeleton-loader>
-                  </div>
-                  <div class="card-tbs" *ngIf="castingData">
-                    <div  class="no-data tabs">
-                      <img src="../../../assets/img/image.png">
-                      <h2>No Data Available</h2>
-                    </div>
+                  </div>                  
+            </div>
+            <div class="container">
+              <div class="item" *ngIf="!loading">
+                <ngx-skeleton-loader count="15"></ngx-skeleton-loader>
+              </div>
+              <div class="card-tbs" *ngIf="castingData">
+                <div  class="no-data tabs">
+                  <img src="../../../assets/img/image.png">
+                  <h2>No Data Available</h2>
                 </div>
+            </div>
             </div>
         </div>
 
         <div class="recommended-tbs tab-pane" [ngClass]="catId == 2 ? 'active':''" id="tab2">
-            <div class="container">
+            <div class="container" *ngIf="showre">
                 <div class="tabs" *ngIf="!recommendData">
                     <h2>Recommended Calls
                         <hr class="on">
@@ -103,9 +105,9 @@
                             <i class="fa fa-transgender-alt" aria-hidden="true"></i>
                             <h4>{{rcasting.gender}}</h4>
                         </div>
-                        <div class="details-icons" *ngIf="rcasting.closing_date != null">
+                        <div class="details-icons" *ngIf="rcasting.created_at != null">
                           <i class="fa fa-calendar" aria-hidden="true"></i>
-                            <h4 >{{rcasting.closing_date}}</h4>
+                            <h4 >{{rcasting.created_at}}</h4>
                         </div>
                         <div class="details-icons">
                             <i class="fa fa-map-marker" aria-hidden="true"></i>
@@ -117,21 +119,23 @@
                             <a>{{tag}}</a>
                         </div>
                     </div>
-                </div>                
-                <div class="item" *ngIf="!loading">
-                    <ngx-skeleton-loader count="15"></ngx-skeleton-loader>
-                  </div>                  
-                  <div class="card-tbs" *ngIf="recommendData">
-                    <div  class="no-data tabs">
-                      <img src="../../../assets/img/image.png">
-                      <h2>No Data Available</h2>
-                    </div>
+                </div> 
+            </div>
+            <div class="container">
+              <div class="item" *ngIf="!loading">
+                <ngx-skeleton-loader count="15"></ngx-skeleton-loader>
+              </div>                  
+              <div class="card-tbs" *ngIf="recommendData">
+                <div  class="no-data tabs">
+                  <img src="../../../assets/img/image.png">
+                  <h2>No Data Available</h2>
                 </div>
+            </div>
             </div>
         </div>
 
         <div class="call-ending-tbs tab-pane" [ngClass]="catId == 3 ? 'active':''" id="tab3">
-            <div class="container">
+            <div class="container" *ngIf="showen">
                 <div class="tabs" *ngIf="!endingSoonData">
                     <h2>Call Ending Soon
                         <hr class="on">
@@ -163,9 +167,9 @@
                         <i class="fa fa-transgender-alt" aria-hidden="true"></i>
                         <h4>{{casting.gender}}</h4>
                       </div>
-                      <div class="details-icons" *ngIf="casting.closing_date != null">
+                      <div class="details-icons" *ngIf="casting.created_at != null">
                         <i class="fa fa-calendar" aria-hidden="true"></i>
-                        <h4 >{{casting.closing_date}}</h4>
+                        <h4 >{{casting.created_at}}</h4>
                       </div>
                       <div class="details-icons">
                         <i class="fa fa-map-marker" aria-hidden="true"></i>
@@ -179,7 +183,10 @@
                       </div>         
                     </div>
                   </div>                  
-                  <div class="item" *ngIf="!loading">
+                                   
+            </div>
+            <div class="container">
+            <div class="item" *ngIf="!loading">
                     <ngx-skeleton-loader count="15"></ngx-skeleton-loader>
                   </div>
                   <div class="card-tbs" *ngIf="endingSoonData">
@@ -187,8 +194,8 @@
                       <img src="../../../assets/img/image.png">
                       <h2>No Data Available</h2>
                     </div>
-                </div>                 
-            </div>
+                </div>
+              </div>
         </div>
     </div>
     <app-footer [pageName]="pageName"></app-footer>   

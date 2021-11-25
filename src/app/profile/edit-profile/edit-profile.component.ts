@@ -18,7 +18,7 @@ import{ AgeBetween13To54 } from "../../_helpers/custom-DOB.validator";
   styleUrls: ['./edit-profile.component.css']
 })
 export class EditProfileComponent implements OnInit {
-
+  phoneTaken : boolean = false;
   castingId:any;
   resData:any;
   baseUrl :string = Config.Host+'backend2/';
@@ -46,7 +46,7 @@ export class EditProfileComponent implements OnInit {
     private registerService: RegisterService,
     private formBuilder:FormBuilder,
     private notification:NotificationService,
-    private phoneExists : PhoneExistsValidator
+    private phoneExists : PhoneExistsValidator,
     ) {
     } 
   ngOnInit(): void {    
@@ -158,10 +158,17 @@ export class EditProfileComponent implements OnInit {
       this.dashboardService.editUserDetail(this.form.value).pipe(first()).subscribe(res=>{
         this.loading = false;
         this.resData = res;
-        this.age = this.resData.data.age; 
+        if(this.resData.code == '500' && this.resData.status == 'false'){
+          let message = this.resData.message;
+          this.notification.showError(message,'');
+        }else{
+          this.phoneTaken = false;
+          this.age = this.resData.data.age; 
         this.userdetail = this.resData.data;
-        this.notification.showSuccess('Profile Updated Successfully.','');
+        let message = this.resData.message;
+        this.notification.showSuccess(message,'');
           sessionStorage.setItem('name',this.form.value.name);
+          this.authenticationService.currentUserValue.userDetails.name = this.form.value.name;
           // sessionStorage.setItem('age',this.age);
           sessionStorage.setItem('dob',this.form.value.dob);
           sessionStorage.setItem('height',this.form.value.height);
@@ -179,7 +186,9 @@ export class EditProfileComponent implements OnInit {
             sessionStorage.setItem('hobbies',this.form.value.hobbies);
           // }     
           this.dashboardService.filter('applyed');
+        }
       },error=>{
+        console.log('error message' , error);
         this.loading = false;
       });
     }

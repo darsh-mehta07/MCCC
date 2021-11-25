@@ -14,7 +14,7 @@
         (init)="slickInit($event)" (breakpoint)="breakpoint($event)" (afterChange)="afterChange($event)"
         (beforeChange)="beforeChange($event)">
           <div *ngFor = " let vid of popularBtsVideos" [routerLink]="['/bts-video-view/',vid.id,1]"  ngxSlickItem class="slider">
-            <img  src="{{hostUrl}}{{vid.thumbnail_path}}{{vid.thumbnail}}">
+            <!-- <img  src="{{hostUrl}}{{vid.thumbnail_path}}{{vid.thumbnail}}"> -->
             <img *ngIf="vid.youtube_thumbnail == null " src="{{hostUrl}}{{vid.thumbnail_path}}{{vid.thumbnail}}">
 					  <img *ngIf="vid.youtube_thumbnail != null " src="{{vid.youtube_thumbnail}}">
           </div>
@@ -28,7 +28,7 @@
           }">
             </ngx-skeleton-loader>
           </div>
-        <div class="video-img">
+        <div class="video-img" *ngIf="loadingtopbts">
           <div class="video-txt">
             <h2>Top BTS</h2>
             <a [routerLink]="['/bts-inner/2']">View All</a>

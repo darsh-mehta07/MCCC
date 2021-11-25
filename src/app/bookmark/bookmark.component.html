@@ -31,9 +31,9 @@
                           <i class="fa fa-transgender-alt" aria-hidden="true"></i>
                           <h4>{{bookmark.gender}}</h4>
                         </div>
-                        <div class="details-icons" *ngIf="bookmark.closing_date != null">
-                          <i class="fa fa-clock-o" aria-hidden="true"></i>
-                          <h4 >{{bookmark.closing_date}}</h4>
+                        <div class="details-icons" *ngIf="bookmark.created_at != null">
+                          <i class="fa fa-calendar" aria-hidden="true"></i> 
+                          <h4 >{{bookmark.created_at | date : "mediumDate"}}</h4>
                         </div>
                         <div class="details-icons">
                           <i class="fa fa-map-marker" aria-hidden="true"></i>
@@ -43,7 +43,7 @@
               
                       <div class="card-btn">
                         <div class="slide-btn" *ngFor="let tag of bookmark.tags.split(',');">
-                          <a href="#">{{tag}}</a>
+                          <a>{{tag}}</a>
                         </div>         
                       </div>
       </div>
@@ -66,11 +66,11 @@
               <h4>{{upcoming.location | titlecase}}</h4>
             </div>
             <div class="details-icons">
-              <i class="fa fa-clock-o" aria-hidden="true"></i> 
-              <h4>{{upcoming.start_date | date : "MMM,d,y"}}</h4>
+              <i class="fa fa-calendar" aria-hidden="true"></i>              
+              <h4>{{upcoming.start_date | date : "mediumDate"}}</h4>
             </div>
             <div class="details-icons">
-              <i class="fa fa-calendar" aria-hidden="true"></i>
+              <i class="fa fa-clock-o" aria-hidden="true"></i> 
               <h4>{{upcoming.start_date | date : "h:mm a"}}</h4>
             </div>
             </div>

@@ -22,7 +22,10 @@ export class Signup3Component implements OnInit {
   constructor(private registerService : RegisterService,private phoneExists : PhoneExistsValidator,public otpService:OtpService,private formBuilder: FormBuilder, private route : Router,private authenticationService: AuthenticationService,) {
     // redirect to home if already logged in
     if (this.authenticationService.currentUserValue) {
-         this.route.navigate([Config.AfterLogin]);
+      let Auth =  JSON.stringify(this.authenticationService.currentUserValue.status);
+      if(Auth){
+          this.route.navigate([Config.AfterLogin]);
+      }
      }
  }  
 

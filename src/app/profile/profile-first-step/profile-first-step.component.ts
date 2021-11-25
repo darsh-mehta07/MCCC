@@ -72,7 +72,7 @@ export class ProfileFirstStepComponent implements OnInit {
     this.imagenotload = false;
     this.imageChangedEvent = event;
     }else{
-      this.notification.showInfo('Select image (jpg,jpeg,png) only.','');
+      this.notification.showInfo('  Select image (jpg,jpeg,png) only.','');
     }
 }
 
@@ -174,7 +174,7 @@ saveImage(){
                   if(file.type.indexOf('image')> -1){
                     this.format = 'image';
                   } else if(file.type.indexOf('video')> -1){
-                    this.notification.showSuccess('please select image.','');
+                    this.notification.showSuccess(' please select image.','');
                     this.format = 'video';
                   } 
                   reader.onload = (event:any) => {
@@ -254,7 +254,7 @@ saveImage(){
         if(this.responseData.status == 'true'){
             this.route.navigate(['/profile_second_step']);
         }else{
-          this.notification.showSuccess('Somthing Wrong.','');
+          this.notification.showSuccess(' Somthing Wrong.','');
         }
         
       },error=>{

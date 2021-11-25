@@ -17,6 +17,7 @@ export class BtsVideoViewComponent implements OnInit {
   dataLoad: any = false;
   expanded = 0;
   hostUrl:string = Config.Host+'backend2/';
+  videoNotFound :boolean = false;
   constructor(private actRoute:ActivatedRoute,
     private route : Router,
     private btsVideosService: BtsVideosService,
@@ -45,14 +46,21 @@ export class BtsVideoViewComponent implements OnInit {
  this.btsVideosService.bts_videos_by_id({'video_id': this.btsVideoId})
           .subscribe(
                     data => { 
-                        console.log(data);
+                        console.log("bts_videos_by_id : " ,data);
                         this.BtsVideos = data.data;
-                        this.upNext = data.category_videos;
-                        this.vid = this.BtsVideos[0].video_url+'?autoplay=1&modestbranding=1&showinfo=0&amp';
-                        this.iframe.nativeElement.contentWindow.location.replace(this.vid);
-                        // this.vid = this.BtsVideos[0].video_url+'?autoplay=1&mute=1&enablejsapi=1';
-                        console.log(this.vid);
-                        this.desc = this.BtsVideos[0].description;
+                        if(this.BtsVideos[0].video_url != null && this.BtsVideos[0].video_url != ''){
+                          this.upNext = data.category_videos;
+                          this.vid = this.BtsVideos[0].video_url+'?autoplay=1&modestbranding=1&showinfo=0&amp';
+                          this.iframe.nativeElement.contentWindow.location.replace(this.vid);
+                          // this.vid = this.BtsVideos[0].video_url+'?autoplay=1&mute=1&enablejsapi=1';
+                          console.log("vid : ",this.vid);
+                          this.desc = this.BtsVideos[0].description;
+                          this.videoNotFound = false;
+                        }else{
+                          this.videoNotFound = true;
+                          console.log("vid not found: ");
+                        }
+                       
                       }); 
 
     this.btsVideosService.get_bts_videos({'limit': null,'category_id':this.btsCategoryId})

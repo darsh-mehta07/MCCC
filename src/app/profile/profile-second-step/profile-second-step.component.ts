@@ -88,7 +88,7 @@ export class ProfileSecondStepComponent implements OnInit {
         const fileSizeInKB = Math.round(file.size / 1024);
         if(fileSizeInKB > 102400){
           this.fileSizeaInKB = true;             
-          this.notification.showInfo('Please Select file less then 100 MB.','');
+          this.notification.showInfo('  Please Select file less then 100 MB.','');
         }else{
           this.format = 'video';        
               var filesAmount = event.target.files.length;            
@@ -105,7 +105,7 @@ export class ProfileSecondStepComponent implements OnInit {
               }
             }
       }else{
-        this.notification.showInfo('please select mp4 video.','');
+        this.notification.showInfo('  please select mp4 video.','');
       }
     }
   }

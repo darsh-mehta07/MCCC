@@ -65,7 +65,7 @@
 
         <label for="add-more1">Aadhar Card<span class="text-danger">*</span></label>
         <div class="upload">            
-            <input #fileInputa type="file" formControlName="aadhar_file"   placeholder="type here" (change)="onFileChange2($event)" [ngClass]="{ 'is-invalid': submitted && f.aadhar_file.errors }">
+            <input #fileInputa type="file" accept="image/*" formControlName="aadhar_file"   placeholder="type here" (change)="onFileChange2($event)" [ngClass]="{ 'is-invalid': submitted && f.aadhar_file.errors }">
             <div *ngIf="aadharfileChoosen" class="file-name">{{aadharfileName}}</div>
             <div class="upload-icons" (click)="fileInputa.click()">
                 <i class="fa fa-upload" aria-hidden="true"></i>
@@ -78,7 +78,7 @@
         
         <label for="add-more2">Pan Card<span class="text-danger">*</span></label>
         <div class="upload">
-            <input #fileInput type="file" formControlName="pan_file"  placeholder="type here" (change)="onFileChange($event)" [ngClass]="{ 'is-invalid': submitted && f.pan_file.errors }">
+            <input #fileInput type="file" accept="image/*" formControlName="pan_file"  placeholder="type here" (change)="onFileChange($event)" [ngClass]="{ 'is-invalid': submitted && f.pan_file.errors }">
             <div *ngIf="panfileChoosen" class="file-name">{{panfileName}}</div>
             <div class="upload-icons" (click)="fileInput.click()">
                 <i class="fa fa-upload" aria-hidden="true"></i>

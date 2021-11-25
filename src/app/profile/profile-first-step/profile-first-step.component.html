@@ -22,7 +22,7 @@
                     </div>
                     <div class="input_file">
                         <label class="uploadBtnWrap" for="files">
-                            <input type="file" id="files" formControlName="files"  (change)="fileChangeEvent($event)" />
+                            <input type="file" accept="image/*" id="files" formControlName="files"  (change)="fileChangeEvent($event)" />
                             <span class="btn">Choose</span>
                             <span id="fileName">No file Selected</span>
                         </label>

@@ -2,6 +2,7 @@ import { Component, OnInit,Input} from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from '../_models/user';
 import { AuthenticationService } from '../_service/authentication.service';
+import { DashboardService } from '../_service/dashboard.service';
 
 @Component({
   selector: 'app-footer',
@@ -13,15 +14,19 @@ export class FooterComponent implements OnInit {
   pagename :any;
   openprofilenav:boolean = false;
   currentUser: User;
-  constructor( private route:Router,
+  constructor( private route:Router,private dashboardService: DashboardService,
     private authenticationService: AuthenticationService,) {
       this.currentUser = this.authenticationService.currentUserValue;
+      this.dashboardService.listen().subscribe((e:any)=>{
+        this.closeprofile();
+      });
      }
   ngOnInit(): void {
   }
   openprofile(){
     this.pageName = 'profile';
     this.openprofilenav = true;
+    // this.dashboardService.filter('footer');
   }
   home(){
     this.pageName = 'home';

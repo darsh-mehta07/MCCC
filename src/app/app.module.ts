@@ -97,9 +97,21 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDialogModule } from '@angular/material/dialog';
+
 import { DateFormatPipe } from 'src/app/_helpers/DateFormatPipe';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { PasswordComponent } from './password/password.component';
+import { GameCardComponent } from './game-card/game-card.component';
+import { RestartDialogComponent } from './restart-dialog/restart-dialog.component';
+import { TooltipModule } from 'ng2-tooltip-directive';
+import { CubicCardComponent } from './cubic-card/cubic-card.component';
+import { GameComponent } from './game/game.component';
+import { HeaderWithLogoComponent } from './header-with-logo/header-with-logo.component';
 // import { CustomReuseStrategy, Routing } from './shared/routing';
 
 @NgModule({
@@ -176,6 +188,12 @@ import { environment } from '../environments/environment';
       TermConditionComponent,
       BookmarkComponent,
       DateFormatPipe,
+      PasswordComponent,
+      GameCardComponent,
+      RestartDialogComponent,
+      CubicCardComponent,
+      GameComponent,
+      HeaderWithLogoComponent,
 
   ],
   imports: [
@@ -198,6 +216,11 @@ import { environment } from '../environments/environment';
     MatNativeDateModule,
     MatFormFieldModule,
     MatInputModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule,
+    MatDialogModule,
+    TooltipModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
       // Register the ServiceWorker as soon as the app is stable
@@ -225,7 +248,7 @@ import { environment } from '../environments/environment';
           //  MCCC LOCALHOST https://localhost:4200/
           //Client ID : 924038754600-c3g1f7vn84aipjnumsgs7uid0ovus5gr.apps.googleusercontent.com
           provider: new GoogleLoginProvider(
-            '924038754600-c3g1f7vn84aipjnumsgs7uid0ovus5gr.apps.googleusercontent.com'
+            '727905192800-hp1qn4bal47d4243tibbq4ie4dnnf4ih.apps.googleusercontent.com'
           )
         },{
           id: FacebookLoginProvider.PROVIDER_ID,
@@ -240,7 +263,7 @@ import { environment } from '../environments/environment';
           // App Name : MCCCWD-aws
 
           provider: new FacebookLoginProvider(
-            '629080598116548'
+            '499325081131217'
           )          
         }
       ]

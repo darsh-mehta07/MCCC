@@ -9,6 +9,7 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
   styleUrls: ['./bts-inner.component.css']
 })
 export class BtsInnerComponent implements OnInit {
+  videoNotFound :boolean =false;
   btsCategoryId: any;
   expanded = 0;
   hostUrl:string = Config.Host+'backend2/';
@@ -26,7 +27,15 @@ export class BtsInnerComponent implements OnInit {
                     data => { 
                         console.log(data.data);
                         this.topBtsVideos = data.data;
+
+                        console.log("topBtsVideos : " , this.topBtsVideos);
                         this.loadData = true;
+                        if(this.topBtsVideos.length > 0 ){
+                          this.videoNotFound = false;
+                        }else{
+                          this.videoNotFound = true;
+                        }
+                        
                        
                     }); 
                     

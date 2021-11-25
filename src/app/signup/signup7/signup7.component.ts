@@ -34,7 +34,10 @@ export class Signup7Component implements OnInit {
     private alertService : AlertService) {
     // redirect to home if already logged in
     if (this.authenticationService.currentUserValue) {
-         this.route.navigate([Config.AfterLogin]);
+      let Auth =  JSON.stringify(this.authenticationService.currentUserValue.status);
+      if(Auth){
+          this.route.navigate([Config.AfterLogin]);
+      }
      }
      this.registerService.state().pipe(first()).subscribe(res=>{          
       this.response = res;
