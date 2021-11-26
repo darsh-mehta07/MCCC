@@ -1,0 +1,75 @@
+<div [ngClass]="[ uploading ? 'loader_parent' : '']"></div>
+<div class="profile-dtl">
+    <img src="../../../assets/img/application.png">
+    <div class="container">
+      <div class="header profile-icons">
+        <a (click)="back()"><img src="../../../assets/img/back2.png" /></a>
+        <div class="Profile">
+            <img src="../../../assets/img/profile.svg">
+            <a [routerLink]= "['/home']">Hello {{currentUser.userDetails.name}}</a>
+        </div>
+      </div>
+      
+      <div class="form_areas">
+          <h5>Anatomy</h5>
+          <form [formGroup]="form" (ngSubmit)="submit()">            
+          <!-- <div class="form-group">
+        <label>Weight<span class="text-danger">*</span></label>
+        <input type="text" [ngClass]="{ 'is-invalid': submitted && f.weight.errors }" class="form-control" formControlName="weight" placeholder="106kg">
+        <div *ngIf="submitted && f.weight.errors" class="invalid-feedback">
+            <div *ngIf="f.weight.errors.required">Weight is required</div>
+          </div>
+    </div> -->
+    <!-- <div class="form-group">
+        <label>Skin Colour<span class="text-danger">*</span></label>
+        <input type="text" [ngClass]="{ 'is-invalid': submitted && f.skin_color.errors }" class="form-control" formControlName="skin_color" placeholder="Black">
+        <div *ngIf="submitted && f.skin_color.errors" class="invalid-feedback">
+            <div *ngIf="f.skin_color.errors.required">Skin Colour is required</div>
+          </div>
+    </div> -->
+    <div class="form-group">
+        <label>Waist<span class="text-danger">*</span></label>
+        <input type="tel" [ngClass]="{ 'is-invalid': submitted && f.waist.errors }" class="form-control" formControlName="waist"  placeholder="36">
+        <div *ngIf="submitted && f.waist.errors" class="invalid-feedback">
+            <div *ngIf="f.waist.errors.required">Waist is required</div>
+          </div>
+    </div>
+    <div class="form-group">
+        <label>Chest<span class="text-danger">*</span></label>
+        <input type="text" [ngClass]="{ 'is-invalid': submitted && f.chest.errors }" class="form-control" formControlName="chest" placeholder="56 widee">
+        <div *ngIf="submitted && f.chest.errors" class="invalid-feedback">
+            <div *ngIf="f.chest.errors.required">Chest is required</div>
+          </div>
+    </div>
+    <div class="form-group">
+        <label>Bust<span class="text-danger">*</span></label>
+        <input type="text" [ngClass]="{ 'is-invalid': submitted && f.bust.errors }" class="form-control" formControlName="bust" placeholder="32 underbust">
+        <div *ngIf="submitted && f.bust.errors" class="invalid-feedback">
+            <div *ngIf="f.bust.errors.required">Bust is required</div>
+          </div>
+    </div>
+    <div class="form-group">
+        <label>Hair<span class="text-danger">*</span></label>
+        <input type="text" [ngClass]="{ 'is-invalid': submitted && f.hair.errors }" class="form-control" formControlName="hair" placeholder="Black">
+        <div *ngIf="submitted && f.hair.errors" class="invalid-feedback">
+            <div *ngIf="f.hair.errors.required">Hair is required</div>
+          </div>
+    </div>
+    <div class="form-group">
+        <label>Tattoo<span class="text-danger">*</span></label>
+        <input type="text" [ngClass]="{ 'is-invalid': submitted && f.tattoo.errors }" class="form-control" formControlName="tattoo" placeholder="Tattoo">
+        <div *ngIf="submitted && f.tattoo.errors" class="invalid-feedback">
+            <div *ngIf="f.tattoo.errors.required">Tattoo is required</div>
+          </div>
+    </div>
+        <div class="profil-btn">
+            <button type="submit" [attr.disabled] = "active === 1 ? 'disabled' : null"> Save </button>
+          <a (click)="back()" class="wht"> Cancel</a>
+        </div>
+    </form>   
+      </div>
+    </div>
+    <div class="loader_screen" *ngIf="uploading"></div>
+
+  </div>
+  <app-footer [pageName]="pageName"></app-footer>

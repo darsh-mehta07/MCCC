@@ -1,0 +1,30 @@
+<body class="hm_pg">  
+    <app-header></app-header>
+    <app-sticky-menu [stickymenu]='stickymenu'></app-sticky-menu>
+<!-- <div class="comming-soon">
+    <div class="cms">
+            <img src="../../assets/img/image9.png">
+            <h3>Coming Soon...</h3>
+    </div>
+</div> -->
+
+  <div class="p-16">
+      <div class="card-tbs" (click)="show()">
+        <h3>Bollywood Memory Cards</h3>
+        <p class="text-center1" >
+          Tap on a card to flip it. You can only flip a maximum of two cards at a time. A match will
+      remove
+      those cards!
+        </p>
+        <div class="evt-btn play-btn">
+          <a>Play Now</a>
+        </div>
+       </div>
+    <!-- <div class="grid p-16" *ngIf="active">
+      <app-game-card *ngFor="let c of cards; let idx=index" [data]="c" (cardClicked)="cardClicked(idx)">
+      </app-game-card>
+    </div> -->
+  </div>
+  
+<app-footer [pageName]="pageName"></app-footer>
+</body>

@@ -1,0 +1,31 @@
+.card-tbs {
+    margin: 15px 0;
+    background: #fff;
+    border-radius: 25px;
+    border: 1px solid #8c8c8c;
+    padding: 25px 15px;
+}
+.card-tbs {
+    padding: 15px;
+}
+.bkmark .tabs {
+    margin-top: 15px;
+}
+.bkmark {
+    position: relative;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-bottom: 60px;
+}
+.bkmark .container {
+    height: auto;
+}
+.no-data {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    flex-direction: column;
+    overflow: hidden;
+}

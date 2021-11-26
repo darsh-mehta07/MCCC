@@ -1,0 +1,33 @@
+<div class="login">
+    <img src="../../assets/img/login-bg.png">
+          <div class="container">
+              <div class="login-content">
+        <img src="../../assets/img/logo.png">
+          <div class="form">
+            <div class="login-form">
+                <form [formGroup]="signinForm" (ngSubmit)="onSubmit()"> 
+                    <div class="form-group">
+                        <input autofocus type="text" formControlName="email_or_mobile" placeholder="Phone or email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email_or_mobile.errors }" maxlength="28"/>     
+                        <div *ngIf="submitted && f.email_or_mobile.errors" class="invalid-feedback">
+                            <div *ngIf="f.email_or_mobile.errors.required">Phone or Email is required</div>
+                          </div>                  
+                    </div>
+                    <div class="form-group">
+                        <input type="password" formControlName="password" placeholder="Password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" maxlength="8" minlength="6"/>    
+                        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                            <div *ngIf="f.password.errors.required">Password is required</div>
+                            <div *ngIf="f.password.errors.incorrect">Email or Password is wrong</div>
+                          </div>                   
+                    </div> 
+              <button type="submit" class="login-button">Log in</button>
+            </form> 
+              <a href="forgot-password" class="forgot-ps">Forgot Password?</a>             
+
+              <p>Not a Member Yet?</p>
+              <a (click)="signup()" class="join-now"><button>Join Now</button></a>
+
+            </div>
+        </div>
+              </div>
+          </div>
+      </div>

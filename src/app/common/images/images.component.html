@@ -1,0 +1,94 @@
+<div [ngClass]="[ !loading ? 'loader_parent' : '']"></div>
+<div class="profile-dtl" >
+    <img src="../../../assets/img/apply.png">
+    <div class="container">
+        <div class="header profile-icons">
+            <a (click)="back()"><img src="../../../assets/img/back2.png" /></a>
+            <div class="Profile">
+                <img src="../../../assets/img/profile.svg">
+                <a [routerLink]="['/home']">Hello {{currentUser.userDetails.name}}</a>
+            </div>
+          </div>
+      
+        <div class="form_areas">
+          <h5>Images</h5>
+          <form [formGroup]="form">
+            <div class="pht">               
+            <div class="upload-img">
+                <div class="box" *ngFor="let img of datas;let i=index;">
+                  <img class="js--image-preview" src="{{imagePath+img.image}}" />
+                  <div class="upload-options">
+                    <div class='multi-field'>
+                      <button type="button" class="close" (click)="removePrimaryImage(i)">X</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="box" *ngFor='let url of cropimages; let j=index;'>
+                  <img class="js--image-preview" [src]="url" />
+                  <div class="upload-options">
+                    <div class='multi-field'>
+                      <button type="button" class="close" (click)="removeSelectedImages(url)">X</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="error" *ngIf="threeimgerror">{{imageerror}}</div>
+              </div>
+                <div class="pht-btn">
+            <i class="fa fa-plus-circle" aria-hidden="true"></i>
+            <p (click)="open(content)">Select More Photos</p>
+        </div>
+            </div>
+        
+            <div class="profil-btn">
+                <button (click)="submit()" type="button" [attr.disabled] = "active === 1 ? 'disabled' : null"> Save </button>
+              <a (click)="back()" class="wht"> Cancel</a>
+            </div>
+        </form>
+        </div>
+    </div>
+    <div class="loader_screen" *ngIf="!loading"></div>
+</div>
+
+<ng-template #content let-modal>
+    <div class="crooping-modal"> 
+      <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Select More Photos</h4>
+        <button type="button" class="close" aria-label="Close" (click)="closemodel()">
+          <span aria-hidden="true">×</span>
+        </button>     
+  </div>
+    <div class="modal-body">
+      <div class="form-group">
+        <div class="input-group">
+          <input type="file" name="file" accept="image/*" class="form-control" (change)="fileChangeEvent($event)">          
+        </div>
+      </div>
+      <div class="error" *ngIf="imagenotload">(Only png,jpeg and jpg are allowed)</div>
+      <div *ngIf="showCropper" class="info">Choose another picture, If picture not loaded.</div>
+       <!-- [autoCrop]="false"  -->
+      <image-cropper [imageChangedEvent]="imageChangedEvent" [maintainAspectRatio]="true"
+        [containWithinAspectRatio]="containWithinAspectRatio" [aspectRatio]="3 / 4" [resizeToWidth]="256"
+        [cropperMinWidth]="128" [onlyScaleDown]="true" [roundCropper]="false" 
+        [transform]="transform" [alignImage]="'center'" [style.display]="showCropper ? null : 'none'" format="png"
+        (imageCropped)="imageCropped($event)" (imageLoaded)="imageLoaded()" (cropperReady)="cropperReady($event)"
+        (loadImageFailed)="loadImageFailed()">
+      </image-cropper>
+      <div class="upload-img">
+        <div class="box" *ngFor='let url of savedimages'>
+          <img class="js--image-preview" [src]="url" />
+          <div class="upload-options">
+            <div class='multi-field'>
+              <input type="file" class="image-upload" accept="image/*">
+              <button type="button" class="close" (click)="removeSelectedImage(url)">X</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-primary" (click)="cropImage()">Crop</button>
+      <button *ngIf="saveCropImage" type="button" class="btn btn-secondary" (click)="saveImage()">Save</button>
+  </div>
+</div>
+  </ng-template>
+<app-footer [pageName]="pageName"></app-footer>

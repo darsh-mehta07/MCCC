@@ -1,0 +1,177 @@
+
+<app-header></app-header>
+<app-sticky-menu [stickymenu]='stickymenu'></app-sticky-menu>
+<div id="exTab1" class="inner-tabs">	
+    <ul class="nav nav-pills twtbs" >
+      <li [ngClass]="catId == 4 ? 'active':''" id="tb4"><a  (click)="tab(4)"data-toggle="tab" [ngClass]="catId == 4 ? 'active':''">On Going </a></li>
+		<li [ngClass]="catId == 5 ? 'active':''" id="tb5"><a  (click)="tab(5)"data-toggle="tab" [ngClass]="catId == 5 ? 'active':''">Upcoming </a></li>
+		<li [ngClass]="catId == 6 ? 'active':''" id="tb6"><a (click)="tab(6)"data-toggle="tab" [ngClass]="catId == 6 ? 'active':''">Events For You</a></li>
+	</ul>
+  </div>
+  
+  <div class="tab-content clearfix">
+    <div class="on_going-events-tbs tab-pane" [ngClass]="catId == 4 ? 'active':''"  id="tab4">
+      <div class="container">
+        <div class="tabs" *ngIf="!on_going[0].noData">
+          <h2>On Going events
+            <hr class="on">
+            <hr class="tw">
+          </h2>
+        </div>
+        <div class="card-tbs" *ngFor="let onGoing of on_going;">
+          <div *ngIf="on_going[0].noData" class="no-data">
+            <img src="../../../assets/img/image.png">
+            <h2>No Data Available</h2>
+          </div>
+      <div *ngIf="!onGoing.noData">
+        <div class='dt-tabs'>
+          <div class="show-hidden-menu" (click)="clickEvent(onGoing.id)">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div class="hidden-menu" *ngIf="status && onGoing.id == cardnum ? 'active':''">
+            <div class="arrow">
+              <i class="fa fa-caret-up" aria-hidden="true"></i>
+          </div>
+            <ul>
+              <li (click)="bookmarkEvent(onGoing.id)">Save</li>
+              <!-- <li>Share</li> -->
+            </ul>
+          </div>
+        </div>
+          <h3 (click)="eventInner(onGoing.id)">Title: {{onGoing.title | titlecase}}</h3>          
+          <p class="toggle-sec" [innerHtml]="doHtmlDisplay(onGoing.description)"></p>
+          <div class="details">
+             <div class="details-icons">
+              <i class="fa fa-map-marker" aria-hidden="true"></i>
+              <h4>{{onGoing.location | titlecase}}</h4>
+            </div>
+            <div class="details-icons">
+              <i class="fa fa-calendar" aria-hidden="true"></i>               
+              <h4>{{onGoing.start_dt}}</h4>
+            </div>
+            <div class="details-icons">
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              <h4>{{onGoing.start_time}}</h4>
+            </div>
+            </div>
+            </div>
+            <div class="item" *ngIf="!on_going_loding">
+              <ngx-skeleton-loader count="12"></ngx-skeleton-loader>
+            </div>
+            </div>
+      </div>
+    </div>
+    <div class="upcoming-events-tbs tab-pane" [ngClass]="catId == 5 ? 'active':''"  id="tab5">
+  <div class="container">
+    <div class="tabs" *ngIf="!upcomings[0].noData">
+      <h2>Upcoming events
+        <hr class="on">
+        <hr class="tw">
+      </h2>
+    </div>
+    <div class="card-tbs" *ngFor="let upcoming of upcomings;">
+      <div *ngIf="upcomings[0].noData" class="no-data">
+        <img src="../../../assets/img/image.png">
+        <h2>No Data Available</h2>
+      </div>
+      <div *ngIf="!upcoming.noData">
+        <div class='dt-tabs'>
+          <div class="show-hidden-menu" (click)="clickEvent(upcoming.id)">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div class="hidden-menu" *ngIf="status && upcoming.id == cardnum ? 'active':''">
+            <div class="arrow">
+              <i class="fa fa-caret-up" aria-hidden="true"></i>
+          </div>
+            <ul>
+              <li (click)="bookmarkEvent(upcoming.id)">Save</li>
+              <!-- <li>Share</li> -->
+            </ul>
+          </div>
+        </div>
+      <h3 (click)="eventInner(upcoming.id)">Title: {{upcoming.title | titlecase}}</h3> 
+        <p class="toggle-sec" [innerHtml]="doHtmlDisplay(upcoming.description)"></p>
+      <div class="details">
+         <div class="details-icons">
+          <i class="fa fa-map-marker" aria-hidden="true"></i>
+          <h4>{{upcoming.location | titlecase}}</h4>
+        </div>
+        <div class="details-icons">
+          <i class="fa fa-calendar" aria-hidden="true"></i> 
+          <h4>{{upcoming.start_dt}}</h4>
+        </div>
+        <div class="details-icons">
+          <i class="fa fa-clock-o" aria-hidden="true"></i>
+          <h4>{{upcoming.start_time}}</h4>
+        </div>
+        </div>
+        </div>
+        <div class="item" *ngIf="!upcomings_loding">
+          <ngx-skeleton-loader count="12"></ngx-skeleton-loader>
+        </div>
+        </div>
+  </div>
+</div>
+    
+  <div class="events-tbs tab-pane " [ngClass]="catId == 6 ? 'active':''" id="tab6">
+  <div class="container">
+    <div class="tabs" *ngIf="!event_for_u[0].noData">
+      <h2>Events for You
+        <hr class="on">
+        <hr class="tw">
+      </h2>
+    </div>
+    <div class="card-tbs" *ngFor="let eventforu of event_for_u;">
+      <div *ngIf="event_for_u[0].noData" class="no-data">
+        <img src="../../../assets/img/image.png">
+        <h2>No Data Available</h2>
+      </div>
+      <div *ngIf="!eventforu.noData">
+        <div class='dt-tabs'>
+          <div class="show-hidden-menu" (click)="clickEvent(eventforu.id)">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div class="hidden-menu" *ngIf="status && eventforu.id == cardnum ? 'active':''">
+            <div class="arrow">
+              <i class="fa fa-caret-up" aria-hidden="true"></i>
+          </div>
+            <ul>
+              <li (click)="bookmarkEvent(eventforu.id)">Save</li>
+              <!-- <li>Share</li> -->
+            </ul>
+          </div>
+        </div>
+         
+       <h3  class="yto" (click)="eventInner(eventforu.id)">Title: {{eventforu.title | titlecase}}</h3> 
+       
+       <p  class="toggle-sec" [innerHtml]="doHtmlDisplay(eventforu.description)"></p>
+      <div class="details">
+         <div class="details-icons">
+          <i class="fa fa-map-marker" aria-hidden="true"></i>
+          <h4>{{eventforu.location | titlecase}}</h4>
+        </div>
+        <div class="details-icons">
+          <i class="fa fa-calendar" aria-hidden="true"></i> 
+          <h4>{{eventforu.start_dt}}</h4>
+        </div>
+        <div class="details-icons">
+         <i class="fa fa-clock-o" aria-hidden="true"></i>
+          <h4>{{eventforu.start_time}}</h4>
+        </div>
+      </div>
+    </div>
+    </div>
+    
+    <div class="item" *ngIf="!forU_loding">
+      <ngx-skeleton-loader count="12"></ngx-skeleton-loader>
+    </div>
+  </div>
+</div>
+</div>
+<app-footer [pageName]="pageName"></app-footer> 

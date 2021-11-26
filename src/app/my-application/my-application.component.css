@@ -1,0 +1,70 @@
+.appli .form_areas {
+    position: absolute;
+    top: 10%;
+    height: 100%;
+    padding-bottom: 100px;
+    height: auto;
+}
+.appl h3 {
+    color: hsl(7deg 88% 68%);
+    font-size: 22px;
+}
+.appl h5 {
+    font-size: 14px;
+    position: relative;
+    top: 15px;
+    text-decoration: underline;
+    color: hsl(0deg 0% 44%);
+}
+.appl a {
+    color: hsl(0deg 0% 0%);
+    text-decoration: none;
+}
+.appli-content {
+    position: relative;
+    top: 15px;
+    border: 1px solid hsl(0deg 3% 82%);
+    padding: 20px 10px;
+    border-radius: 25px;
+    margin-bottom: 15px;
+}
+.appli-content h3 {
+    color: hsl(0deg 0% 0%);
+    font-size: 17px;
+}
+.appli-content p {
+    line-height: 18px;
+    margin-bottom: 0;
+    font-size: 14px;
+}
+.card-tbs {
+    margin: 15px 0;
+    background: #fff;
+    border-radius: 25px;
+    border: 1px solid #8c8c8c;
+    padding: 25px 15px;
+}
+.appli img {
+    width: 100%;
+}
+.item{
+    top: 25px;
+    position: relative;
+}
+.appli .container {
+    height: auto;
+}
+.appli {
+    position: relative;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.no-data {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    flex-direction: column;
+    overflow: hidden;
+}
