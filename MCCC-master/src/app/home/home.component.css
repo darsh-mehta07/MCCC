@@ -1,0 +1,92 @@
+.hm_pg{
+    overflow: auto !important;
+    background: #efefef;
+    overflow-x: hidden !important;
+}
+
+/* bts css */
+.vd-icon {position: relative;}
+a.img_link {
+    position: relative;
+    display: block;
+    overflow: hidden;
+}
+.icon img{
+    width: 40px!important;
+    height: 40px!important;
+    margin: 0 !IMPORTANT;
+}
+.icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 40px;
+    height: 40px;
+    transform: translate(-50%, -50%);
+}
+
+.video-txt {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.video-txt h2 {
+    font-size: 16px;
+    font-weight: 600;
+}
+.video-txt a {
+    text-decoration: none;
+    color: hsl(0deg 0% 0%);
+    font-family: 'Gilroy';
+    margin-bottom: 0;
+    font-weight: 500;
+    font-size: 15px;
+}
+.video-img img {
+    width: 100%;
+    margin: 10px 0 15px 0;
+    position: relative;
+    height: 200px;
+    border-radius: 25px;
+    object-fit: cover;
+    object-position: center;
+}
+.video-opt {
+    padding-bottom: 10px;
+}
+
+.behinde-screen_sliders .slick-track {
+    display: -webkit-box;
+    width: 100% !important;
+}
+.behinde-screen_sliders .slider {
+    height: 100px;
+    margin: 0 6px;
+    width: 86px !IMPORTANT;
+    background-image: url(../../assets/img/play.png);
+    background-position: center center;
+    background-size: 30%;
+    position: relative;
+    background-repeat: no-repeat;
+}
+.behinde-screen_sliders .slider img {
+    width: 100%;
+    position: relative;
+    z-index: -1;
+    height: 100%;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+.no-data {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+.no-data h2 {
+    font-size: 16px;
+}
+.behinde-screen_sliders {
+    margin-bottom: 30px;
+}

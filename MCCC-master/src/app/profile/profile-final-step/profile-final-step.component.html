@@ -1,0 +1,192 @@
+<div [ngClass]="[ uploading ? 'loader_parent' : '']"></div>
+<div class="wrapper">
+    <div class="complete_profile profile_final_step">
+        <div class="top_part">
+            <div class="header">
+                <!-- <a  [routerLink]="['/profile_second_step']"> <img src="https://img.icons8.com/material-rounded/30/000000/back--v1.png" /></a>
+                <a [routerLink]="['/home']"><img src="https://img.icons8.com/material-outlined/25/000000/home--v2.png" /></a> -->
+            </div>
+            <div class="logo">
+                <img src="../../../assets/img/logo.png" alt="logo">
+            </div>
+            <div class="form_area">
+                <h2>Complete Your Profile</h2>
+                <form [formGroup]="form" (ngSubmit)="onSubmit()"> 
+                    <div class="progressbar">
+                        <span class='active'>1</span>
+                        <span>2</span>
+                        <span>3</span>
+                    </div>
+                    <div class="profile_content">
+                        <!-- Social Login Start -->
+                        <div *ngIf="social_login" class="input_group">
+                            <div class="input_group plus">
+                            <label>Phone</label>
+                            <div class="form-group">                               
+                                <input autofocus formControlName="phone" type="tel" maxlength="10" class="form-control" placeholder="0 0 0 0 0 0 0 0 0 0 "
+                                [ngClass]="{ 'is-invalid': submitted && f.phone.errors }">
+                              <div *ngIf="submitted && f.phone.errors" class="invalid-feedback">
+                                <div *ngIf="f.phone.errors.required">Phone is required</div>
+                                <div *ngIf="f.phone.errors.pattern">Please Enter 10 digit's mobile number</div>
+                                <div *ngIf="f.phone.errors.phoneTaken">Phone is already taken.</div>
+                              </div>
+                            </div>  
+                            </div> 
+                            <div class="input_group plus">
+                            <label>What is your gender?</label>
+                            <div class="form-group"> 
+                                <div class="radio-toolbar">                              
+                                <label>Female  <input type="radio" formControlName="gender"  value="Female"></label>                               
+                                <label>Male <input type="radio" formControlName="gender"  value="Male"></label>                                
+                                <label>Transgender<input type="radio" formControlName="gender"  value="Transgender" ></label> 
+                                <label>Genderqueer<input type="radio" formControlName="gender"  value="Genderqueer" ></label> 
+                                <!-- <label>LGBT<input type="radio" formControlName="gender"  value="LGBT"></label>  -->
+                                <div *ngIf="submitted && f.gender.errors" class="invalid-feedback">Gender is required</div>
+                            </div>
+                            </div>
+                            </div>
+                            <div class="input_group plus">
+                            <label>Enter Date of Birth</label>
+                            <div class="form-group">
+                                <input autofocus type="date" formControlName="dob" maxlength="10" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.dob.errors }"/>
+                                <div *ngIf="submitted && f.dob.errors" class="invalid-feedback">
+                                    <div *ngIf="f.dob.errors.required">Date of Birth is required</div>  
+                                    <div *ngIf="f.dob.errors.lessthen13">Your age is bellow 13 years</div>
+                                    <div *ngIf="f.dob.errors.above54">Your age is above 54 years</div>          
+                                </div> 
+                            </div> 
+                            </div>
+                            <div class="input_group plus">                       
+                            <label>Your State and City</label>
+                            <div class="select_div  state-city">
+                                <select *ngIf="dataTrue" nice-select class="select" (change)="changeSuit($event)" formControlName="state" [ngClass]="{ 'is-invalid': submitted && f.state.errors }">
+                                    <option selected disabled>State</option>
+                                    <option *ngFor="let state of states" [value]="state.id">
+                                    {{state.name}}
+                                    </option>
+                                </select>          
+                                <div *ngIf="submitted && f.state.errors" class="invalid-feedback">
+                                    <div *ngIf="f.state.errors.required">State is required</div>
+                                </div> 
+                            </div>
+                            </div>
+                            <div class="input_group plus">
+                            <div class="select_div state-city" *ngIf="statesTrue">
+                                <select *ngIf="dataTrue" nice-select class="select" formControlName="city" [ngClass]="{ 'is-invalid': submitted && f.city.errors }">
+                                    <option selected disabled>City</option>
+                                    <option *ngFor="let city of cities" [value]="city.id">{{city.name}}</option>
+                                </select>
+                                <div *ngIf="submitted && f.city.errors" class="invalid-feedback">
+                                    <div *ngIf="f.city.errors.required">City is required</div>
+                                </div>
+                            </div> 
+                            </div>                           
+                            <!-- <label>Password</label>
+                             <div class="form-group">
+                                <input autofocus formControlName="password" type="password" maxlength="8" minlength="6" class="form-control ps" placeholder="4A890"
+                                  [ngClass]="{ 'is-invalid': submitted && f.password.errors }"/>
+                                <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                                  <div *ngIf="f.password.errors.required">Password is required</div>
+                                  <div *ngIf="f.password.errors.max">Maximum 8 charector allow</div>
+                                  <div *ngIf="f.password.errors.min">Minimum 6 charector allow</div>
+                                </div>
+                              </div> -->
+                        </div>
+                        <!-- Social Login end -->
+                        <!-- <div class="input_group plus">
+                            <label>Add Tag Line for Your Profile</label>
+                            <input type="text" formControlName="tag_line" maxlength="50" placeholder="Write here........." [ngClass]="{ 'is-invalid': submitted && f.tag_line.errors }">
+                            <div *ngIf="submitted && f.tag_line.errors" class="invalid-feedback">
+                                <div *ngIf="f.tag_line.errors.required">Tag is required</div>
+                                <div *ngIf="f.tag_line.errors.maxlength">Only 50 character allowed</div>
+                            </div>
+                        </div> -->
+                        <!-- <div class="input_group plus">
+                            <label>Add short Bio</label>
+                            <input type="text" formControlName="short_bio" maxlength="500" placeholder="Type Here........." [ngClass]="{ 'is-invalid': submitted && f.short_bio.errors }">
+                            <div *ngIf="submitted && f.short_bio.errors" class="invalid-feedback">
+                                <div *ngIf="f.short_bio.errors.required">Bio is required</div>
+                                <div *ngIf="f.short_bio.errors.maxlength">Only 200 character allowed</div>
+                            </div>
+                        </div>       -->
+                        <div class="input_group plus">
+                            <label>Height</label>
+                            <input type="tel" formControlName="height" maxlength="50" placeholder="Write here........." [ngClass]="{ 'is-invalid': submitted && f.height.errors }">
+                            <div *ngIf="submitted && f.height.errors" class="invalid-feedback">
+                                <div *ngIf="f.height.errors.required">Height is required</div>
+                                <div *ngIf="f.height.errors.pattern">Height must be numeric</div>
+                            </div>
+                        </div>
+                        <!-- <div class="input_group plus">
+                            <label>Skin color</label>
+                            <input type="text" formControlName="skin_color" maxlength="500" placeholder="Write here........." [ngClass]="{ 'is-invalid': submitted && f.skin_color.errors }">
+                            <div *ngIf="submitted && f.skin_color.errors" class="invalid-feedback">
+                                <div *ngIf="f.skin_color.errors.required">Skin color is required</div>
+                            </div>
+                        </div>                   -->
+                        <div class="input_group plus" id="add_work_wxperince">
+                            <label>Work Experience</label>
+                            <div class="input"  formArrayName="work_experiences" *ngFor="let item of form.get('work_experiences')['controls']; let i = index;">
+                                <div [formGroupName]="i">
+                                <input type="text" formControlName="experience" maxlength="200" [ngClass]="{ 'is-invalid': submitted && f.work_experiences.errors }">
+                                <span  (click)="addExperience()"><img src="https://img.icons8.com/android/12/000000/plus.png"/></span>
+                                <span *ngIf="i > 0"(click)="removeExperience(i)"><img src="https://img.icons8.com/android/12/000000/minus.png"/></span>
+                            </div>                                
+                                <div *ngIf="submitted && f.work_experiences.errors" class="invalid-feedback">
+                                    <div *ngIf="f.work_experiences.errors.required">Worke experience is required</div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="input_group plus" id="add_qualification">
+                            <label>Qualification</label>
+                            <div class="input" formArrayName="qualifications" *ngFor="let item of form.get('qualifications')['controls']; let j = index;">
+                                <div [formGroupName]="j">
+                                    <input type="text" formControlName="qualification" maxlength="200" placeholder="Bachelor in Theater from NSD" [ngClass]="{ 'is-invalid': submitted && f.qualifications.errors }">
+                                    <span  (click)="addQualification()"><img src="https://img.icons8.com/android/12/000000/plus.png"/></span>
+                                <span *ngIf="j > 0"(click)="removeQualification(j)"><img src="https://img.icons8.com/android/12/000000/minus.png"/></span>
+                                </div>
+                                <div *ngIf="submitted && f.qualifications.errors" class="invalid-feedback">
+                                    <div *ngIf="f.qualifications.errors.required">Qualificaton is required</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input_group plus">
+                            <label>Language You Know</label>
+                            <div class="select">
+                                <select required class='multiple' formControlName="language_id" multiple [ngClass]="{ 'is-invalid': submitted && f.language_id.errors }">
+                                    <option value="" disabled>Language You Know</option>
+                                    <option *ngFor="let language of languages;" value="{{language.id}}">{{language.name}}</option>
+                                    
+                                </select>
+                                <div *ngIf="submitted && f.language_id.errors" class="invalid-feedback">
+                                    <div *ngIf="f.language_id.errors.required">Language is required</div>
+                                </div>
+                                <!-- <div class="arrow_down">
+                                    <img src="https://img.icons8.com/material-rounded/20/000000/expand-arrow--v1.png" />
+                                </div> -->
+                            </div>
+                        </div>
+                        <div class="input_group plus" id="add_social_links">
+                            <label>Social Links / Video Links</label>
+                            <div class="input"formArrayName="social_links" *ngFor="let item of form.get('social_links')['controls']; let i = index;">
+                                <div [formGroupName]="i">
+                                <input type="text" formControlName="social_link" maxlength="200" placeholder="https://www.facebook.com/tseriesmusic/videos/730159777602363/" [ngClass]="{ 'is-invalid': submitted && f.social_links.errors }">
+                                <span  (click)="addSocialLinks()"><img src="https://img.icons8.com/android/12/000000/plus.png"/></span>
+                                <span *ngIf="i > 0"(click)="removeSocialLinks(i)"><img src="https://img.icons8.com/android/12/000000/minus.png"/></span>
+                                </div>
+                                <div *ngIf="submitted && f.social_links.errors" class="invalid-feedback">
+                                    <div *ngIf="f.social_links.errors.required">Social link is required</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="profile_next_btn" style="" wfd-invisible="true"><button type="submit">Next</button></div>
+                    
+                    <!-- <div class="save_btns"></div> -->
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="loader_screen" *ngIf="uploading"></div>

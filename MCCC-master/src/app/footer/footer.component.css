@@ -1,0 +1,8 @@
+#profiles{
+    width:auto;
+}
+.profilenav {
+    right: 0;
+    background: hsl(0deg 0% 100%);
+    z-index: 99999;
+}

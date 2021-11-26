@@ -1,0 +1,254 @@
+<body class="hm_pg">
+    <app-header></app-header>
+    <app-sticky-menu [stickymenu]='stickymenu'></app-sticky-menu>
+
+    <div id="exTab1" class="inner-tabs">	
+        <ul class="nav nav-pills">
+    		<li [ngClass]="catId == 1 ? 'active':''" id="tb1"><a (click)="tab(1)"data-toggle="tab" [ngClass]="catId == 1 ? 'active':''">Upcoming </a></li>
+    		<li [ngClass]="catId == 2 ? 'active':''" id="tb2"><a (click)="tab(2)" data-toggle="tab" [ngClass]="catId == 2 ? 'active':''">Ending Soon</a></li>
+    		<li [ngClass]="catId == 3 ? 'active':''" id="tb3"><a (click)="tab(3)"data-toggle="tab" [ngClass]="catId == 3 ? 'active':''">Previous </a></li>
+    	</ul>
+    </div>
+
+    <div class="tab-content clearfix trns">
+        <div class="upcoming-workshop-tbs tab-pane " [ngClass]="catId == 1 ? 'active':''" id="tab1">
+        <div class="container">
+          <div class="tabs" *ngIf="upcomingData != '' ">
+            <h2>Upcoming Workshops
+              <hr class="on">
+              <hr class="tw">
+            </h2>
+            <!--<a href="#">View All</a>-->
+          </div>
+          <div class="card-tbs" *ngFor="let data of upcomingData">
+            <div *ngIf="upcomingData != '' ">
+              <div class='dt-tabs'>
+                <div class="show-hidden-menu" (click)="clickEvent(data.id)">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+                <div class="hidden-menu" *ngIf="status && data.id == cardnum ? 'active':''">
+                  <div class="arrow">
+                    <i class="fa fa-caret-up" aria-hidden="true"></i>
+                </div>
+                  <ul>
+                    <li (click)="bookmarkEvent(data.id)">Save</li>
+                    <!-- <li>Share</li> -->
+                  </ul>
+                </div>
+              </div>
+            <h3 [routerLink]="['/workshop-registration/',data.id]">{{data.title}}</h3> 
+            
+            <p class="toggle-sec" [innerHtml]="doHtmlDisplay(data.description)">
+            </p>
+            <div class="details">
+               <div class="details-icons">
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                <h4>{{data.city_name}}</h4>
+               </div>
+              <div class="details-icons">
+                <i class="fa fa-calendar" aria-hidden="true"></i>
+                <h4>{{data.start_date | date :'mediumDate'}}</h4>
+              </div>
+              <div class="details-icons">
+               <i class="fa fa-clock-o" aria-hidden="true"></i>
+                <h4>{{data.start_time_1}}</h4>
+              </div>
+            </div>
+          </div>
+           
+         </div>
+         <div class="item" *ngIf="!loading">
+          <ngx-skeleton-loader count="15"></ngx-skeleton-loader>
+        </div>
+         
+        
+
+        <div class="card-tbs" *ngIf="upcomingData == ''">
+          <div  class="no-data tabs">
+            <img src="../../../assets/img/image.png">
+            <h2 style="font-size: calc(1.325rem + .9vw);">No Data Available</h2>
+          </div>
+      </div> 
+        
+          
+        </div>
+      </div>
+        <div class="workshop-ending-tbs tab-pane " [ngClass]="catId == 2 ? 'active':''" id="tab2">
+        <div class="container">
+          <div class="tabs" *ngIf="endingsoonData != ''">
+            <h2>Workshop Ending Soon
+              <hr class="on">
+              <hr class="tw">
+            </h2>
+          </div>
+         <div class="card-tbs" *ngFor="let data of endingsoonData">
+          
+          <div *ngIf="endingsoonData != '' ">
+            <div class='dt-tabs'>
+              <div class="show-hidden-menu" (click)="clickEvent(data.id)">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <div class="hidden-menu" *ngIf="status && data.id == cardnum ? 'active':''">
+                <div class="arrow">
+                  <i class="fa fa-caret-up" aria-hidden="true"></i>
+              </div>
+                <ul>
+                  <li (click)="bookmarkEvent(data.id)">Save</li>
+                  <!-- <li>Share</li> -->
+                </ul>
+              </div>
+            </div>
+            <h3 class="grn" [routerLink]="['/workshop-registration/',data.id]">{{data.title}}</h3> 
+           
+            <p class="toggle-sec" [innerHtml]="doHtmlDisplay(data.description)">
+            </p>
+            <div class="details">
+               <div class="details-icons">
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                <h4>{{data.city_name}}</h4>
+              </div>
+              <div class="details-icons">
+                <i class="fa fa-calendar" aria-hidden="true"></i>
+                <h4>{{data.start_date | date :'mediumDate'}}</h4>
+              </div>
+              <div class="details-icons">
+               <i class="fa fa-clock-o" aria-hidden="true"></i>
+                <h4>{{data.start_time_1}}</h4>
+              </div>
+            </div>
+         </div>
+         
+         </div>
+         <div class="item" *ngIf="!loading">
+          <ngx-skeleton-loader count="15"></ngx-skeleton-loader>
+        </div>
+         
+
+        <div class="card-tbs" *ngIf="endingsoonData == ''">
+          <div  class="no-data tabs">
+            <img src="../../../assets/img/image.png">
+            <h2 style="font-size: calc(1.325rem + .9vw);">No Data Available</h2>
+          </div>
+      </div> 
+
+        </div>
+      </div>
+        <div class="Previous-workshops-tbs tab-pane " [ngClass]="catId == 3 ? 'active':''" id="tab3">
+        <div class="container">
+          <div class="tabs"  *ngIf="previosData != '' ">
+            <h2>Previous Workshops
+              <hr class="on">
+              <hr class="tw">
+            </h2>
+            <!--<a href="#">View All</a>-->
+          </div>
+          <div class="card-tbs" *ngFor="let data of previosData">
+            
+            <div *ngIf="previosData != '' ">
+              <div class='dt-tabs'>
+                <div class="show-hidden-menu" (click)="clickEvent(data.id)">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+                <div class="hidden-menu" *ngIf="status && data.id == cardnum ? 'active':''">
+                  <div class="arrow">
+                    <i class="fa fa-caret-up" aria-hidden="true"></i>
+                </div>
+                  <ul>
+                    <li (click)="bookmarkEvent(data.id)">Save</li>
+                    <!-- <li>Share</li> -->
+                  </ul>
+                </div>
+              </div>
+            <h3 class="yto" [routerLink]="['/workshop-registration/',data.id]">{{data.title}}</h3> 
+            
+            <p class="toggle-sec" [innerHtml]="doHtmlDisplay(data.description)">
+            </p>
+            <div class="details">
+               <div class="details-icons">
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                <h4>{{data.city_name}}</h4>
+              </div>
+              <div class="details-icons">
+                <i class="fa fa-calendar" aria-hidden="true"></i>
+                <h4>{{data.start_date | date :'mediumDate'}}</h4>
+              </div>
+              <div class="details-icons">
+               <i class="fa fa-clock-o" aria-hidden="true"></i>
+                <h4>{{data.start_time_1}}</h4>
+              </div>
+            </div>
+         </div>
+        </div>
+        <div class="item" *ngIf="!loading">
+          <ngx-skeleton-loader count="15"></ngx-skeleton-loader>
+        </div>
+
+        <div class="card-tbs" *ngIf="previosData == ''">
+          <div  class="no-data tabs">
+            <img src="../../../assets/img/image.png">
+            <h2 style="font-size: calc(1.325rem + .9vw);">No Data Available</h2>
+          </div>
+      </div> 
+        
+          </div>
+      </div>
+    <div class="train-banner">
+        <div class="container">
+            <img src="../../assets/img/train3.png">
+            <div class="traine-txt">
+                <h2>Workshop <br> <span class="tr-hd">BY Mukesh</span></h2>
+                <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p> -->
+            </div>
+        </div>
+    </div>
+    <div class="trner">
+    <div class="container">
+      <ngx-slick-carousel class="carousel trns_sliders" #slickModal="slick-carousel" [config]="trns_sliders"
+      (init)="slickInit($event)" (breakpoint)="breakpoint($event)" (afterChange)="afterChange($event)"
+      (beforeChange)="beforeChange($event)">
+      <div ngxSlickItem class="slider">
+        <div class="vdo-slide">
+          <img src="../../../assets/img/trainer1.png">
+          <div class="slider-txt hv1">
+            <h3>Anupam Kher</h3>
+          </div>
+        </div>
+      </div>
+      <div ngxSlickItem class="slider">
+        <div class="vdo-slide">
+          <img src="../../../assets/img/trainer2.png">
+          <div class="slider-txt hv2">
+            <h3>Sunu Sood</h3>
+          </div>
+        </div>
+      </div>
+      <div ngxSlickItem class="slider">
+        <div class="vdo-slide">
+          <img src="../../../assets/img/trainer3.png">
+          <div class="slider-txt hv3">
+            <h3>Mukesh Khanna</h3>
+          </div>
+        </div>
+      </div>
+      <div ngxSlickItem class="slider">
+        <div class="vdo-slide">
+          <img src="../../../assets/img/trainer4.png">
+          <div class="slider-txt hv4">
+            <h3>Amitabh Bacchan</h3>
+          </div>
+        </div>
+      </div>
+      
+    </ngx-slick-carousel>
+      
+    </div>
+  </div>
+    </div>
+    <app-footer [pageName]="pageName"></app-footer>
+</body>    

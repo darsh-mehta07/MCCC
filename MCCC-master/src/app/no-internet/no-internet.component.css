@@ -1,0 +1,10 @@
+    
+.no-int { height: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column;text-align: center;  line-height: 10;}
+.no-int h4 { font-size: 15px;}
+.no-int h2 { font-size: 23px; margin: 10px 0;}
+.no-int-btn { height: 50px;  background: #ff6e61;display: flex;align-items: center; justify-content: center;  padding: 15px 20px; border-radius: 3px; position: relative;}
+.no-int-btn a { height: 50px;display: flex; align-items: center;  justify-content: center; color: #000; font-size: 22px;}
+.no-int-btn {height: 50px; border: 1px solid #000;background: #fff; display: flex; align-items: center;justify-content: center;padding: 15px 20px; border-radius: 3px; margin-top: 60px;}
+.no-int-btn:hover a {color: #000; text-decoration: none;}
+/*.no-int-btn a { text-decoration: none;}
+.no-int-btn:hover {  background: #fff; border: 1px solid #000;}*/
