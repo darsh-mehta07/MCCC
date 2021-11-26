@@ -19,6 +19,22 @@ import { NotificationService } from 'src/app/_service/notification.service';
 export class ProfileFirstStepComponent implements OnInit {
 
   form: FormGroup | any;
+  display = 'none';
+  ulpoadedFiles: any = [];
+  imgId: any=0;
+  target: any = {};
+  files: any = {};
+  event: any = {};
+  developer: any = {};
+  frontEndLanguages: any = [];
+  backEndLanguages: any = [];
+  selectedBackEndItems: any = [];
+  selectedFrontEndItems: any = [];
+  imageChangedEvent: any = '';
+  croppedImage: any = '';
+  currentProcessingImg: any = 0;
+
+  finalImageList: any = [];
   submitted = false;
   images : string[] = [];
   format : any;
@@ -27,19 +43,17 @@ export class ProfileFirstStepComponent implements OnInit {
   cropImgPreview: any = '';  
   responseData :any;
   imagenotload : boolean = false;
-  imageChangedEvent: any = '';
-    croppedImage: any = '';
-    canvasRotation = 0;
-    rotation = 0;
-    scale = 1;
-    showCropper = false;
-    containWithinAspectRatio = false;
-    transform: ImageTransform = {};
-    cropedfile  :any;
-    uploading:boolean = false;
-    cropperbutton:boolean = false;
-    cropperarea : boolean = true;
-    fileTypes = ['png','jpg','jpeg'];  //acceptable file types
+  canvasRotation = 0;
+  rotation = 0;
+  scale = 1;
+  showCropper = false;
+  containWithinAspectRatio = false;
+  transform: ImageTransform = {};
+  cropedfile  :any;
+  uploading:boolean = false;
+  cropperbutton:boolean = false;
+  cropperarea : boolean = true;
+  fileTypes = ['png','jpg','jpeg'];  //acceptable file types
   constructor(
     private formBuilder: FormBuilder,
     private route : Router,
@@ -64,108 +78,104 @@ export class ProfileFirstStepComponent implements OnInit {
       }
     }
   } 
+  openModal() {
+    this.display = 'block';
+  }
 
+  onCloseHandled() {
+    this.imageChangedEvent = null;
+    this.display = 'none';
+  }
   fileChangeEvent(event: any): void {
-    var extension = event.target.files[0].name.split('.').pop().toLowerCase();
-    var isSuccess = this.fileTypes.indexOf(extension) > -1;
-    if (isSuccess) { 
-    this.imagenotload = false;
-    this.imageChangedEvent = event;
-    }else{
-      this.notification.showInfo('  Select image (jpg,jpeg,png) only.','');
+    //Processing selected Images 
+    for (var i = 0; i < event.target.files.length; i++) {
+      this.imageProcess(event, event.target.files[i]);
     }
-}
+  }
 
-imageCropped(event: ImageCroppedEvent) {
-    this.croppedImage = event.base64;    
-    this.cropedfile = base64ToFile(this.croppedImage);   
-}
-
-imageLoaded() {
-  this.imagenotload = false;
-    this.showCropper = true;
-    console.log('Image loaded');    
-}
-
-cropperReady(sourceImageDimensions: Dimensions) {  
-    this.cropperbutton = true;
-    console.log('Cropper ready : ', sourceImageDimensions);
-}
-
-loadImageFailed() {
-  this.imagenotload = true;
-  this.notification.showInfo('Load failed.','');
-    console.log('Load failed');
-}
-
-rotateLeft() {
-    this.canvasRotation--;
-    this.flipAfterRotate();
-}
-
-rotateRight() {
-    this.canvasRotation++;
-    this.flipAfterRotate();
-}
-
-private flipAfterRotate() {
-    const flippedH = this.transform.flipH;
-    const flippedV = this.transform.flipV;
-    this.transform = {
-        ...this.transform,
-        flipH: flippedV,
-        flipV: flippedH
+  imageProcess(event: any, file: any) {
+    //Setting images in our required format
+    let reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = (e) => {
+      this.imgId = this.imgId + 1;
+      if(this.ulpoadedFiles.length < 3){
+        this.ulpoadedFiles.push({ imgId: this.imgId, imgBase64: reader.result, imgFile: file });
+         
+      }
     };
-}
+  }
 
-
-flipHorizontal() {
-    this.transform = {
-        ...this.transform,
-        flipH: !this.transform.flipH
+  //get a Image using Image Id to crop
+  //cropping process done here 
+  cropImage(imgId: any) {
+    this.currentProcessingImg = imgId;
+    var imgObj = this.ulpoadedFiles.find((x: { imgId: any; }) => x.imgId === imgId);
+    //created dummy event Object and set as imageChangedEvent so it will set cropper on this image 
+    var event = {
+      target: {
+        files: [imgObj.imgFile]
+      }
     };
-}
+    this.imageChangedEvent = event;
+    this.openModal();
+  }
 
-flipVertical() {
-    this.transform = {
-        ...this.transform,
-        flipV: !this.transform.flipV
-    };
-}
+  SaveCropedImage() {
+    var imgObj = this.ulpoadedFiles.find((x: { imgId: any; }) => x.imgId === this.currentProcessingImg);
+    imgObj.imgBase64 = this.croppedImage;
+    this.onCloseHandled();
+  }
 
-resetImage() {
-    this.scale = 1;
-    this.rotation = 0;
-    this.canvasRotation = 0;
-    this.transform = {};
-}
+  SaveAllImages() {
+    // this.finalImageList = null;
+    this.ulpoadedFiles.forEach((imgObject: { imgBase64: any; }) => {
+      console.log(imgObject);
+      this.finalImageList.push(imgObject.imgBase64);
+      this.patchValues();
+      
+    })
+  }
+  imageCropped(event: ImageCroppedEvent) {
+    this.croppedImage = event.base64;
+  }
+  imageLoaded() {
+    // show cropper
+  }
+  cropperReady() {
+    // cropper ready
+  }
+  loadImageFailed() {
+    // show message
+  }
+//   fileChangeEvent(event: any): void {
+//     var extension = event.target.files[0].name.split('.').pop().toLowerCase();
+//     var isSuccess = this.fileTypes.indexOf(extension) > -1;
+//     if (isSuccess) { 
+//     this.imagenotload = false;
+//     this.imageChangedEvent = event;
+//     }else{
+//       this.notification.showInfo('  Select image (jpg,jpeg,png) only.','');
+//     }
+// }
 
-zoomOut() {
-    this.scale -= .1;
-    this.transform = {
-        ...this.transform,
-        scale: this.scale
-    };
-}
+// imageCropped(event: ImageCroppedEvent) {
+//     this.croppedImage = event.base64;    
+//     this.cropedfile = base64ToFile(this.croppedImage);   
+// }
 
-zoomIn() {
-    this.scale += .1;
-    this.transform = {
-        ...this.transform,
-        scale: this.scale
-    };
-}
+// imageLoaded() {
+//   this.imagenotload = false;
+//     this.showCropper = true;
+//     console.log('Image loaded');    
+// }
 
-toggleContainWithinAspectRatio() {
-    this.containWithinAspectRatio = !this.containWithinAspectRatio;
-}
+// cropperReady(sourceImageDimensions: Dimensions) {  
+//     this.cropperbutton = true;
+//     console.log('Cropper ready : ', sourceImageDimensions);
+// }
 
-updateRotation() {
-    this.transform = {
-        ...this.transform,
-        rotate: this.rotation
-    };
-}
+
 saveImage(){
   const file = this.cropedfile;
     var filesAmount = 1;
@@ -203,49 +213,34 @@ saveImage(){
   get f(): { [key: string]: AbstractControl } {
     return this.form.controls;
   }
-  // onFileChange(event:any): void {
-  //   this.imgChangeEvt = event;
-  //   if (event.target.files && event.target.files[0]) {
-  //     const file = event.target.files && event.target.files[0];
-  //       var filesAmount = event.target.files.length;
-  //       for (let i = 0; i < filesAmount; i++) {
-  //               var reader = new FileReader();  
-  //               if(file.type.indexOf('image')> -1){
-  //                 this.format = 'image';
-  //               } else if(file.type.indexOf('video')> -1){
-  //                   this.alertService.error('please select image',true);
-  //                 this.format = 'video';
-  //               } 
-  //               reader.onload = (event:any) => {
-  //                 this.url = (<FileReader>event.target).result;
-  //                  this.images.push(event.target.result);    
-  //                  this.patchValues();
-  //               }  
-  //               reader.readAsDataURL(event.target.files[i]);
-  //       }
-  //   }
-  // }
+  
   // Patch form Values
   patchValues(){
     this.form.patchValue({
-       fileSource: this.images
+       fileSource: this.finalImageList
     });
   }
   // Remove Image
   removeImage(url:any){
-    // console.log(this.images,url);    
-    this.images = this.images.filter(img => (img != url));
-    if(this.images.length < 3){
-      this.cropperbutton = true;  
-      this.cropperarea = true; 
-      } 
+    console.log(url);   
+    // const index: number = this.ulpoadedFiles.indexOf(url);
+    
+    // this.ulpoadedFiles.splice(index, 1);
+    console.log(this.ulpoadedFiles); 
+    this.ulpoadedFiles = this.ulpoadedFiles.filter((id: any) => (id.imgId != url));
+    // if(this.ulpoadedFiles.length < 3){
+    //   this.cropperbutton = true;  
+    //   this.cropperarea = true; 
+    //   } 
     // this.patchValues();
   }
 
   submit(){
     this.uploading = true;
     this.submitted = true;
+    console.log(this.form);
     if (this.form.invalid) {
+      console.log('Invalid');
       return;
     }else{      
       this.userService.upload_image(this.form.value).pipe(first()).subscribe(res => { 
