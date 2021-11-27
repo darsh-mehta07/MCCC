@@ -32,7 +32,7 @@
                           <span (click)="cropImage(item.imgId)">
                             <img [src]="item.imgBase64" style="max-width:300px;max-height:100px ;border:2px solid gray" />
                           </span>
-                          <div class="close_btn" (click)="removeImage(item.imgId)"><span>+</span></div>
+                          <div class="close_btn" (click)="removeImage(item.imgId)"><span>-</span></div>
                         </div>
                   
                       </div>
@@ -81,4 +81,5 @@
             </div>
         </div>
     </div>
+    <div class="loader_screen" *ngIf="uploading"></div>
 </div>
