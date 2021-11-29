@@ -30,7 +30,7 @@
                     <div style="display:flex;max-width:600px;overflow: auto;">
                         <div *ngFor="let item of ulpoadedFiles" style="margin:5px">
                           <span (click)="cropImage(item.imgId)">
-                            <img [src]="item.imgBase64" style="max-width:300px;max-height:100px ;border:2px solid gray" />
+                            <img [src]="item.imgBase64" style="max-width:300px;max-height:300px ;border:2px solid gray" />
                           </span>
                           <div class="close_btn" (click)="removeImage(item.imgId)"><span>-</span></div>
                         </div>
@@ -63,7 +63,7 @@
                               <image-cropper [imageChangedEvent]="imageChangedEvent"
                                              [maintainAspectRatio]="true"
                                              [aspectRatio]="4 / 3"
-                                             [resizeToWidth]="128"
+                                             [resizeToWidth]="500"
                                              format="png"
                                              (imageCropped)="imageCropped($event)"
                                              (imageLoaded)="imageLoaded()"
