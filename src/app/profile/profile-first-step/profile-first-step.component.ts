@@ -89,7 +89,13 @@ export class ProfileFirstStepComponent implements OnInit {
   fileChangeEvent(event: any): void {
     //Processing selected Images 
     for (var i = 0; i < event.target.files.length; i++) {
-      this.imageProcess(event, event.target.files[i]);
+      var extension = event.target.files[i].name.split('.').pop().toLowerCase();
+      var isSuccess = this.fileTypes.indexOf(extension) > -1;
+      if (isSuccess) { 
+        this.imageProcess(event, event.target.files[i]);
+      }else{
+        this.notification.showInfo('Select image (jpg,jpeg,png) only.','');
+      }
     }
   }
 
