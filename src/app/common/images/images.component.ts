@@ -20,6 +20,7 @@ export class ImagesComponent implements OnInit {
   fileTypes = ['png','jpg','jpeg'];  //acceptable file types
   imagenotload : boolean = false;
   pageName="images";
+  finalImageList: any = [];
   currentUser: User;
   loading:boolean = true;
   datas : any;
@@ -31,11 +32,14 @@ export class ImagesComponent implements OnInit {
   baseUrl :string = Config.Host+'backend2/';
   imagePath = this.baseUrl+'public/uploads/UserImages/';
   imgArray:any;
-  cropimages : string[] = [];
-  savedimages : string[] = [];
+  cropimages : any[] = [];
+  savedimages : any[] = [];
   imageChangedEvent: any = '';
+  imgId = 0;
+  currentProcessingImg: any = 0;
     croppedImage: any = '';
     canvasRotation = 0;
+    display = 'none';
     rotation = 0;
     scale = 1;
     showCropper = false;
@@ -64,6 +68,7 @@ export class ImagesComponent implements OnInit {
         this.resData = res;   
         this.datas = this.resData.data;
         this.imgArray =  this.datas;
+        console.log(this.imgArray);
       },error=>{
         this.loading = false;
       });      
@@ -95,7 +100,13 @@ export class ImagesComponent implements OnInit {
         this.loading = false;
         let totalimg = this.imgArray.length+this.cropimages.length;
          
-        if(totalimg > 0 ){         
+        if(totalimg > 0 ){    
+          this.cropimages.forEach((imgObject: { imgBase64: any; }) => {
+            console.log(imgObject);
+            this.finalImageList.push(imgObject.imgBase64);
+            this.patchValues();
+            
+          })     
           this.patchOldImageValues();
           this.uploading = true;
           this.active=1;
@@ -131,7 +142,7 @@ export class ImagesComponent implements OnInit {
     }
     patchValues(){
       this.form.patchValue({
-         newfileSource: this.cropimages,
+         newfileSource: this.finalImageList,
       });
     }
     saveimgmodel(content:any) {
@@ -171,15 +182,66 @@ export class ImagesComponent implements OnInit {
     }
  //--------image crop--------------//
  fileChangeEvent(event: any): void {
+  this.modalService.dismissAll('save');
   var extension = event.target.files[0].name.split('.').pop().toLowerCase();
     var isSuccess = this.fileTypes.indexOf(extension) > -1;
     if (isSuccess) { 
     this.imagenotload = false;
-    this.imageChangedEvent = event;
+    // this.imageChangedEvent = event;
     }else{
       this.notification.showInfo('Select image (jpg,jpeg,png) only.','');
     }
+    var cnt = 3 - this.imgArray.length;
+    console.log(cnt);
+    for (var i = 0; i < event.target.files.length; i++) {
+      if(i < cnt){
+      this.imageProcess(event, event.target.files[i]);
+    }
+  }
 }
+
+imageProcess(event: any, file: any) {
+    //Setting images in our required format
+    let reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = (e) => {
+      this.imgId = this.imgId + 1;
+      // if(this.ulpoadedFiles.length < 3){
+        this.cropimages.push({ imgId: this.imgId, imgBase64: reader.result, imgFile: file });
+      // }
+    };
+    console.log(this.cropimages);
+  }
+  cropImage(imgId: any) {
+    console.log('dd');
+    this.currentProcessingImg = imgId;
+    console.log(imgId);
+    console.log(this.cropimages);
+    var imgObj = this.cropimages.find((x: { imgId: any; }) => x.imgId === imgId);
+    //created dummy event Object and set as imageChangedEvent so it will set cropper on this image 
+    var event = {
+      target: {
+        files: [imgObj.imgFile]
+      }
+    };
+    this.imageChangedEvent = event;
+    this.openModal();
+  }
+  SaveCropedImage() {
+    var imgObj = this.cropimages.find((x: { imgId: any; }) => x.imgId === this.currentProcessingImg);
+    imgObj.imgBase64 = this.croppedImage;
+    // this.finalImageList.push(imgObj.imgBase64);
+    // this.patchValues();
+    this.onCloseHandled();
+  }
+  openModal() {
+    this.display = 'block';
+  }
+
+  onCloseHandled() {
+    this.imageChangedEvent = null;
+    this.display = 'none';
+  }
 imageCropped(event: ImageCroppedEvent) {
   this.croppedImage = event.base64;    
   this.cropedfile = base64ToFile(this.croppedImage);   
@@ -199,43 +261,46 @@ saveImage(){
   // this.imageChangedEvent = null; //reset the image changes event
   // this.cropedfile = null; // reset the croped file               
 }
-cropImage(){
-const file = this.cropedfile;
-  var filesAmount = 1;
-        for (let i = 0; i < filesAmount; i++) {
-                var reader = new FileReader();  
-                // if(file.type.indexOf('image')> -1){
-                //   this.format = 'image';
-                // } else if(file.type.indexOf('video')> -1){
-                //     this.alertService.error('please select image',true);
-                //   this.format = 'video';
-                // } 
-                reader.onload = (event:any) => {
-                  this.url = (<FileReader>event.target).result;
-                  if(this.savedimages.length < 3){
-                  //  this.cropimages.push(event.target.result); 
-                   this.savedimages.push(event.target.result);   
-                   console.log("savedimages : ",this.savedimages);
-                   this.patchValues();
-                   this.saveCropImage = true;
-                   if(this.savedimages.length == 3){
-                    // this.saveimgmodel('save');
-                    this.imageChangedEvent ='';                     
-                   }
-                  }
-                }  
-                reader.readAsDataURL(this.cropedfile);
-        }
-        this.imageChangedEvent = null;
-        this.cropedfile = null;
-}
+// cropImage(){
+// const file = this.cropedfile;
+//   var filesAmount = 1;
+//         for (let i = 0; i < filesAmount; i++) {
+//                 var reader = new FileReader();  
+//                 // if(file.type.indexOf('image')> -1){
+//                 //   this.format = 'image';
+//                 // } else if(file.type.indexOf('video')> -1){
+//                 //     this.alertService.error('please select image',true);
+//                 //   this.format = 'video';
+//                 // } 
+//                 reader.onload = (event:any) => {
+//                   this.url = (<FileReader>event.target).result;
+//                   if(this.savedimages.length < 3){
+//                   //  this.cropimages.push(event.target.result); 
+//                    this.savedimages.push(event.target.result);   
+//                    console.log("savedimages : ",this.savedimages);
+//                    this.patchValues();
+//                    this.saveCropImage = true;
+//                    if(this.savedimages.length == 3){
+//                     // this.saveimgmodel('save');
+//                     this.imageChangedEvent ='';                     
+//                    }
+//                   }
+//                 }  
+//                 reader.readAsDataURL(this.cropedfile);
+//         }
+//         this.imageChangedEvent = null;
+//         this.cropedfile = null;
+// }
 imageLoaded() {
   this.imagenotload = false;
     this.showCropper = true;
     console.log('Image loaded');    
 }
-cropperReady(sourceImageDimensions: Dimensions) {  
-  console.log('Cropper ready', sourceImageDimensions);
+// cropperReady(sourceImageDimensions: Dimensions) {  
+//   console.log('Cropper ready', sourceImageDimensions);
+// }
+cropperReady() {
+  // cropper ready
 }
 loadImageFailed() {
   this.imagenotload = true;

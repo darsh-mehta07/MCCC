@@ -112,6 +112,10 @@ import { TooltipModule } from 'ng2-tooltip-directive';
 import { CubicCardComponent } from './cubic-card/cubic-card.component';
 import { GameComponent } from './game/game.component';
 import { HeaderWithLogoComponent } from './header-with-logo/header-with-logo.component';
+import {VgCoreModule} from '@videogular/ngx-videogular/core';
+import {VgControlsModule} from '@videogular/ngx-videogular/controls';
+import {VgOverlayPlayModule} from '@videogular/ngx-videogular/overlay-play';
+import {VgBufferingModule} from '@videogular/ngx-videogular/buffering';
 // import { CustomReuseStrategy, Routing } from './shared/routing';
 
 @NgModule({
@@ -221,6 +225,10 @@ import { HeaderWithLogoComponent } from './header-with-logo/header-with-logo.com
     MatIconModule,
     MatDialogModule,
     TooltipModule,
+    VgCoreModule,
+    VgControlsModule,
+    VgOverlayPlayModule,
+    VgBufferingModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
       // Register the ServiceWorker as soon as the app is stable

@@ -39,3 +39,14 @@ button.btn.btn-secondary {
     bottom: 110px;
     position: relative;
 }
+.backdrop {
+    background-color: rgba(0,0,0,0.6);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+  }
+  .profile-dtl .modal:before {
+    z-index: 0 !important;
+  }
