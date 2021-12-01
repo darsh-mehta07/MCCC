@@ -46,7 +46,7 @@
                         </vg-controls>
                     
                         <video [vgMedia]="$any(media)"  #media id="singleVideo" preload="auto" >
-                          <source src="https://www.youtube.com/watch?v=AG8_4UKdQ_Q" type="video/mp4">
+                          <source src="{{videoPath+video.videos}}" type="video/mp4">
                     
                           <!-- <track kind="subtitles" label="English" src="http://static.videogular.com/assets/subs/pale-blue-dot.vtt"
                             srclang="en" default>
@@ -151,15 +151,45 @@
     <hr>
     <div class="upload-video">
     <div class="box" *ngFor='let url of videosaved'>
-      <video class="js--image-preview" width="30%" height="110px" controls>
+      <!-- <video class="js--image-preview" width="30%" height="110px" controls>
         <source src="{{url}}" type="video/mp4">
         Your browser does not support the video tag.
-      </video>
-      <!-- <div class="upload-options">
-        <div class='multi-field'>
-          <button type="button" class="close" (click)="removeSelectedVideo(url)">X</button>
-        </div>
-      </div> -->
+      </video> -->
+      <div class="video-player-wrapper">
+    
+        <vg-player>
+          <vg-overlay-play></vg-overlay-play>
+          <vg-buffering></vg-buffering>
+      
+          <vg-scrub-bar>
+            <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+            <vg-scrub-bar-buffering-time></vg-scrub-bar-buffering-time>
+          </vg-scrub-bar>
+      
+          <vg-controls>
+            <vg-play-pause></vg-play-pause>
+            <vg-playback-button></vg-playback-button>
+      
+            <vg-time-display vgProperty="current" vgFormat="mm:ss"></vg-time-display>
+      
+            <vg-scrub-bar style="pointer-events: none;"></vg-scrub-bar>
+      
+            <vg-time-display vgProperty="total" vgFormat="mm:ss"></vg-time-display>
+    
+            <vg-mute></vg-mute>
+            <vg-volume></vg-volume>
+      
+            <vg-fullscreen></vg-fullscreen>
+          </vg-controls>
+      
+          <video [vgMedia]="$any(media)"  #media id="singleVideo" preload="auto" >
+            <source src="{{url}}" type="video/mp4">
+      
+          </video>
+        </vg-player>
+      
+      </div>
+ 
     </div>
   </div>
   </div>
