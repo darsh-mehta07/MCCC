@@ -1,0 +1,79 @@
+.wrrpperSingUp{
+    width: 85%;
+    margin: 0 auto;
+     .logos {
+        width: 40%;
+        margin: 0 auto;
+        img{
+            width: 100%;
+            padding-top: 50px;
+        }
+    }
+    .contentDetails{
+        margin-top: 80px;
+        text-align: center;
+        p{
+            line-height: normal;
+            font-size: 16px;
+            color: #ff6454;
+            margin-bottom: 10px;
+        }
+    }
+    .signUpButtons{
+        margin-top: 50px;
+        .signUp{
+            width: 100%;
+            border:none;
+            background: #ff6454;
+            color: #fff;
+            font-size: 16px;
+            text-align: center;
+            border-radius: 50px;
+            margin-bottom: 60px;
+            padding: 8px 0;
+            display: block;
+        }
+        .signUpFacbook{
+            width: 100%;
+            border:none;
+            background: #3A5896;
+            color: #fff;
+            font-size: 16px;
+            text-align: center;
+            border-radius: 50px;
+            margin-bottom: 15px;
+            padding: 8px 0;
+            i{
+                padding-right: 8px;
+            }
+        }
+        .signUpGoogle{
+            width: 100%;
+            border:none;
+            background: #80CCF2;
+            color: #000;
+            font-size: 16px;
+            text-align: center;
+            border-radius: 50px;
+            margin-bottom: 60px;
+            padding: 8px 0;
+            img{
+                width: 16px;
+                margin-right: 5px;
+            }
+        }
+    }
+    .signIn{
+        button{
+            width: 100%;
+            border: none;
+            background: #ff6454;
+            font-size: 16px;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            color: #fff;
+            line-height: 55px;
+        }
+    }
+}

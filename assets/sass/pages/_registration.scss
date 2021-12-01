@@ -1,0 +1,107 @@
+.wrrpperRegisterForm{
+    width: 85%;
+    margin:  0 auto;
+    .heading {
+        text-align: center;
+        position: relative;
+        padding-top: 25px;
+        .arrowLeft{
+            position: absolute;
+            left: -18px;
+            ion-icon{
+                font-size: 25px;
+                color: #ff6454;
+            }
+        }
+        p{
+            font-size: 17px;
+            color: #000;
+            line-height: normal;
+        }
+    }
+    .forms{
+      .formGroup{
+          margin-bottom: 40px;
+          margin-top:20px;
+          label{
+              font-size: 17px;
+              color: #000;
+              padding-bottom:5px;
+          }
+          .inputs{
+              input{
+                width: 100%;
+                border: 2px solid #ff6454;
+                background: transparent;
+                border-radius: 5px;
+                line-height: 40px;
+                padding: 0 20px;
+                font-size: 16px;
+                &:focus-visible{
+                    outline: none;
+                }
+              }
+          }
+          .select{
+              position: relative;
+            select{
+                width: 100%;
+                border: 2px solid #ff6454;
+                background: transparent;
+                border-radius: 5px;
+                line-height: 45px;
+                height: 45px;
+                appearance: none;
+                padding: 0 20px;
+                font-size: 16px;
+                font-weight: 600;
+            }
+            &::after{
+                content: url('../img/img/downArrow.webp');
+                pointer-events: none;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                right: 25px;
+            }
+          }
+          .dateBirth{
+              position: relative;
+            input[type="date"]{
+                width: 100%;
+                border: 2px solid #ff6454;
+                background: transparent;
+                border-radius: 5px;
+                line-height: 45px;
+                height: 45px;
+                padding: 0 20px;
+                font-size: 16px;
+                font-weight: 600;
+                text-transform: uppercase;
+            }
+            &::after{
+                content: url('../img/img/calender.webp');
+                pointer-events: none;
+                position: absolute;
+                top: 57%;
+                transform: translateY(-50%);
+                right: 20px;
+            }
+          }
+      }  
+      .enchilada::-webkit-calendar-picker-indicator{
+          opacity:0;
+      }
+      button.next{
+        width: 100%;
+        border: none;
+        background: #ff6454;
+        color: #fff;
+        font-size: 16px;
+        text-align: center;
+        border-radius: 50px;
+        padding: 8px 0;
+        margin-bottom: 40px;
+      }
+    }
+}
