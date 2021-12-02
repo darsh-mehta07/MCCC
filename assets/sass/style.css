@@ -8726,6 +8726,10 @@ body.dark-mode-active .wrrpperHomeScreen .bottomContent a {
   font-weight: 600;
 }
 
+.wrrpperRegisterForm .forms .formGroup .select select:focus-visible {
+  outline: none;
+}
+
 .wrrpperRegisterForm .forms .formGroup .select::after {
   content: url("../img/img/downArrow.webp");
   pointer-events: none;
@@ -8738,29 +8742,78 @@ body.dark-mode-active .wrrpperHomeScreen .bottomContent a {
 
 .wrrpperRegisterForm .forms .formGroup .dateBirth {
   position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
-.wrrpperRegisterForm .forms .formGroup .dateBirth input[type="date"] {
+.wrrpperRegisterForm .forms .formGroup .dateBirth .select {
+  width: 30%;
+}
+
+.wrrpperRegisterForm .forms .formGroup .dateBirth .select select {
+  padding: 0 8px;
+}
+
+.wrrpperRegisterForm .forms .formGroup .dateBirth .select::after {
+  content: url("../img/img/downArrow.webp");
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  right: 10px;
+}
+
+.wrrpperRegisterForm .forms .formGroup .mobileNumer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.wrrpperRegisterForm .forms .formGroup .mobileNumer .selects {
+  position: relative;
+  width: 20%;
+}
+
+.wrrpperRegisterForm .forms .formGroup .mobileNumer .selects::after {
+  content: url(../img/img/arrow_down.webp);
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  right: 10px;
+}
+
+.wrrpperRegisterForm .forms .formGroup .mobileNumer .selects select {
   width: 100%;
   border: 2px solid #ff6454;
   background: transparent;
   border-radius: 5px;
   line-height: 45px;
   height: 45px;
-  padding: 0 20px;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  padding-left: 8px;
   font-size: 16px;
   font-weight: 600;
-  text-transform: uppercase;
 }
 
-.wrrpperRegisterForm .forms .formGroup .dateBirth::after {
-  content: url("../img/img/calender.webp");
-  pointer-events: none;
-  position: absolute;
-  top: 57%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-  right: 20px;
+.wrrpperRegisterForm .forms .formGroup .mobileNumer .selects select:focus-visible {
+  outline: none;
+}
+
+.wrrpperRegisterForm .forms .formGroup .mobileNumer .inputs {
+  width: 75%;
 }
 
 .wrrpperRegisterForm .forms .enchilada::-webkit-calendar-picker-indicator {
@@ -8798,6 +8851,11 @@ body.dark-mode-active .wrrpperHomeScreen .bottomContent a {
   width: 100%;
 }
 
+.passwords .forms .formGroup .instructions ul li {
+  font-size: 15px;
+  color: #000;
+}
+
 .passwords .forms .formGroup .instructions ul li i.fa-circle {
   padding-right: 5px;
   color: #ff6454;
@@ -8806,6 +8864,309 @@ body.dark-mode-active .wrrpperHomeScreen .bottomContent a {
 .passwords .forms .formGroup .instructions ul li i.fa-check-circle {
   padding-right: 5px;
   color: #34C759;
+}
+
+.passwords .forms .formGroup .otpInputs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.passwords .forms .formGroup .otpInputs input {
+  width: 20%;
+  border: 2px solid #ff6454;
+  background: transparent;
+  border-radius: 5px;
+  line-height: 40px;
+  padding: 0 20px;
+  font-size: 16px;
+}
+
+.passwords .forms .formGroup .otpInputs input:focus-visible {
+  outline: none;
+}
+
+.passwords .forms .formGroup .otp_para {
+  font-size: 12px;
+  color: #000;
+  line-height: normal;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  margin-bottom: 0;
+}
+
+.passwords .forms .cantReceiveCode {
+  text-align: center;
+  font-size: 15px;
+  color: #000;
+  font-weight: 600;
+  margin-bottom: 50px;
+}
+
+.passwords .forms .cantReceiveCode a {
+  text-decoration: underline;
+}
+
+.passwords .forms .termConditions .term__conditions {
+  color: #000;
+  text-decoration: underline;
+}
+
+.passwords .forms .termConditions input[type="checkbox"] {
+  display: none;
+}
+
+.passwords .forms .termConditions input[type="checkbox"] + label {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 20px;
+  font-size: 15px;
+  color: #000;
+  cursor: pointer;
+  margin-bottom: 60px;
+  -webkit-user-select: none;
+}
+
+.passwords .forms .termConditions input[type="checkbox"] + label::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 24px;
+  border: 2px solid #ff6454;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 1;
+  -webkit-transition: all .12s, border-color .08s;
+  transition: all .12s, border-color .08s;
+}
+
+.passwords .forms .termConditions input[type="checkbox"]:checked + label:before {
+  width: 10px;
+  top: -5px;
+  left: 5px;
+  border-radius: 0;
+  opacity: 1;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.passwords .forms .termConditions .term_conditons {
+  height: 80vh;
+  top: initial;
+  bottom: 0;
+}
+
+.passwords .forms .termConditions .term_conditons .modal-dialog {
+  height: 80vh;
+  top: initial;
+  bottom: 0;
+}
+
+.passwords .forms .termConditions .term_conditons .modal-dialog .modal-content {
+  padding-top: 100px;
+}
+
+.passwords .forms .termConditions .term_conditons .modal-dialog .modal-content .modal-header {
+  border: none;
+  width: 85%;
+  margin: 5px auto 0;
+  padding: 0;
+  border-top: 2px solid #ff6454;
+}
+
+.passwords .forms .termConditions .term_conditons .modal-dialog .modal-content .modal-header .modal-title {
+  margin-top: 50px;
+  font-size: 17px;
+  color: #000;
+}
+
+.passwords .forms .termConditions .term_conditons .modal-dialog .modal-content .modal-body {
+  width: 85%;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.passwords .forms .termConditions .term_conditons .modal-dialog .modal-content .modal-body .termConditionsData .text {
+  color: #000;
+  font-weight: 600;
+}
+
+.passwords .forms .termConditions .term_conditons .modal-dialog .modal-content .modal-body .termConditionsData .text label {
+  font-size: 14px;
+}
+
+.passwords .forms .termConditions .term_conditons .modal-dialog .modal-content .modal-body .termConditionsData .text p {
+  font-size: 12px;
+}
+
+.successs .imgContent {
+  height: 80vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.successs .imgContent .ctnt h4 {
+  font-size: 24px;
+  text-align: center;
+  padding-top: 40px;
+  padding-bottom: 5px;
+}
+
+.successs .imgContent .ctnt P {
+  font-size: 15px;
+  color: #000;
+  text-align: center;
+  line-height: normal;
+}
+
+.successs .btnArea .btn_ctnt {
+  font-size: 12px;
+  color: #000;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.successs .btnArea .next {
+  width: 100%;
+  border: none;
+  background: #ff6454;
+  color: #fff;
+  font-size: 16px;
+  text-align: center;
+  border-radius: 50px;
+  padding: 8px 0;
+  font-weight: 600;
+  display: block;
+}
+
+.profilePhoto .heading {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+.profilePhoto .heading .arrowLeft {
+  left: 10px;
+}
+
+.profilePhoto .imgContent {
+  height: 80vh;
+}
+
+.profilePhoto .imgContent .imgs {
+  position: relative;
+}
+
+.profilePhoto .imgContent .imgs input {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.profilePhoto .btnArea span {
+  display: block;
+  text-align: center;
+  margin-top: 25px;
+  font-size: 14px;
+  color: #000;
+  text-decoration: underline;
+}
+
+.completeProfile .forms_input .formGroup {
+  margin-bottom: 40px;
+  margin-top: 20px;
+}
+
+.completeProfile .forms_input .formGroup label {
+  font-size: 17px;
+  color: #000;
+  padding-bottom: 5px;
+}
+
+.completeProfile .forms_input .formGroup label span {
+  font-size: 10px;
+  color: #000;
+  font-weight: 600;
+}
+
+.completeProfile .forms_input .formGroup label img {
+  margin-right: 5px;
+}
+
+.completeProfile .forms_input .formGroup .inputs input {
+  width: 100%;
+  border: 2px solid #ff6454;
+  background: transparent;
+  border-radius: 5px;
+  line-height: 40px;
+  padding: 0 20px;
+  font-size: 16px;
+}
+
+.completeProfile .forms_input .addRemoveDivs .formGroup .withIcon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.completeProfile .forms_input .addRemoveDivs .formGroup .withIcon .inputs {
+  width: 85%;
+}
+
+.completeProfile .forms_input .addRemoveDivs .formGroup .withIcon .plus_icon {
+  width: 15%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.completeProfile .btnArea button.next {
+  width: 100%;
+  border: none;
+  background: #ff6454;
+  color: #fff;
+  font-size: 16px;
+  text-align: center;
+  border-radius: 50px;
+  padding: 8px 0;
+  margin-bottom: 40px;
 }
 
 html[dir="rtl"],

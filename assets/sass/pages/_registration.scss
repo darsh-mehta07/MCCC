@@ -55,6 +55,9 @@
                 padding: 0 20px;
                 font-size: 16px;
                 font-weight: 600;
+                &:focus-visible{
+                    outline: none;
+                }
             }
             &::after{
                 content: url('../img/img/downArrow.webp');
@@ -67,26 +70,58 @@
           }
           .dateBirth{
               position: relative;
-            input[type="date"]{
-                width: 100%;
-                border: 2px solid #ff6454;
-                background: transparent;
-                border-radius: 5px;
-                line-height: 45px;
-                height: 45px;
-                padding: 0 20px;
-                font-size: 16px;
-                font-weight: 600;
-                text-transform: uppercase;
+              display: flex;
+              justify-content: space-between;
+              .select{
+                  width: 30%;
+                  select{
+                      padding: 0 8px;
+                  }
+                  &::after{
+                    content: url('../img/img/downArrow.webp');
+                    pointer-events: none;
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    right: 10px;
+                }
+              }
+          }
+          .mobileNumer{
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            .selects{
+                position: relative;
+                width: 20%;
+                &::after{
+                    content: url(../img/img/arrow_down.webp);
+                    pointer-events: none;
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    right: 10px;
+                }
+                select{
+                    width: 100%;
+                    border: 2px solid #ff6454;
+                    background: transparent;
+                    border-radius: 5px;
+                    line-height: 45px;
+                    height: 45px;
+                    appearance: none;
+                    padding-left:8px;
+                    font-size: 16px;
+                    font-weight: 600;
+                    &:focus-visible{
+                        outline: none;
+                    }
+                }
             }
-            &::after{
-                content: url('../img/img/calender.webp');
-                pointer-events: none;
-                position: absolute;
-                top: 57%;
-                transform: translateY(-50%);
-                right: 20px;
+            .inputs{
+                width: 75%;
             }
+
           }
       }  
       .enchilada::-webkit-calendar-picker-indicator{
