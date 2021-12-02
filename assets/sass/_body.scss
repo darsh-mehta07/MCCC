@@ -44,6 +44,25 @@ button {
     outline: 0 !important;
   }
 }
+.heading.sticky{
+  position: fixed!important;
+  left: 0;
+  width: 100%;
+  padding-top: 0!important;
+  top: 0px;
+  background: #fff;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  .arrowLeft{
+      left: 15px!important;
+  }
+  p{
+    margin: 0;
+  }
+}
 
 // Safearea
 $safeBottom: env(safe-area-inset-bottom);

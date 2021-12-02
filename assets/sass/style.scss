@@ -32,6 +32,11 @@
 // Layout
 //-------------------------------------------------------------
 // Body - General Settings
+select,input{
+    &:focus-visible{
+        outline: none;
+    }
+}
 @import 'body';
 // Header
 @import 'section/header';

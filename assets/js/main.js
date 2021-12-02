@@ -218,3 +218,32 @@ function getCodeBoxElement(index) {
        }
     }
   }
+
+  $(document).ready(function(){
+    $(".plus_icon_workWxperince").on('click',function () {
+      $(".work_experince").append(' <div class="formGroup addRemoveDivss workExperince"><label><img src="assets/img/img/work.webp" alt="">  Work Experince</label><div class="withIcon"><div class="inputs"><input type="text" placeholder="" class=""></div><div class="minus_iconWorkficatuons"><img src="assets/img/img/downArrow.webp" alt=""></div></div></div>');
+
+      $('.minus_iconWorkficatuons').on('click',function(){
+        $(this).closest('.workExperince').remove();
+      });
+    });
+
+    $(".plus_icon_qualificationsPlus").on('click',function () {
+      $(".qaulifications").append(' <div class="formGroup addRemoveDivss qaulificationss"><label><img src="assets/img/img/qualification.webp" =""> Qaulifications</label><div class="withIcon"><div class="inputs"><input type="text" placeholder="" class=""></div><div class="minusQuakifiactions"><img src="assets/img/img/downArrow.webp" alt=""></div></div></div>');
+
+      $('.minusQuakifiactions').on('click',function(){
+        $(this).closest('.qaulificationss').remove();
+      });
+    });
+
+    $(".plus_icon_SocailLinks").on('click',function () {
+      $(".SocailLinks").append(' <div class="formGroup addRemoveDivss SocailLinkss"><label><img src="assets/img/img/languages.webp" alt="">  Social links /  Video links</label><div class="withIcon"><div class="inputs"><input type="text" placeholder="" class=""></div><div class="minus_SocailLinks"><img src="assets/img/img/downArrow.webp" alt=""></div></div></div>');
+
+      $('.minus_SocailLinks').on('click',function(){
+        $(this).closest('.SocailLinkss').remove();
+      });
+    });
+    // $('#nav-icon4').on('click',function(){
+    //   $(this).toggleClass('open');
+    // });
+  });

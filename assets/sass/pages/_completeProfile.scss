@@ -1,7 +1,9 @@
 .completeProfile{
     .forms_input{
+        min-height: 81vh;
+        margin-top: 80px;
         .formGroup{
-            margin-bottom: 40px;
+            margin-bottom: 25px;
             margin-top: 20px;
             label {
                 font-size: 17px;
@@ -35,13 +37,37 @@
                     .inputs{
                         width: 85%;
                     }
-                    .plus_icon{
+                    .plus_icon_workWxperince, .minus_iconWorkficatuons, .plus_icon_qualificationsPlus,.minusQuakifiactions,.plus_icon_SocailLinks,.minus_SocailLinks{
                         width: 15%;
                         display: flex;
                         align-items: center;
                         justify-content: center;
+                        // height: 44px;
                     }
                 }
+            }
+        }
+        .select {
+            position: relative;
+            select {
+                width: 100%;
+                border: 2px solid #ff6454;
+                background: transparent;
+                border-radius: 5px;
+                line-height: 45px;
+                height: 45px;
+                appearance: none;
+                padding: 0 20px;
+                font-size: 16px;
+                font-weight: 600;
+            }
+            &::after {
+                content: url(../img/img/downArrow.webp);
+                pointer-events: none;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                right: 25px;
             }
         }
     }

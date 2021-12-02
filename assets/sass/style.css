@@ -5,6 +5,10 @@
 @import url("inc/slick/slick-theme.min.css");
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,300&family=Source+Sans+Pro:wght@200;300;400;600;700;900&display=swap");
+select:focus-visible, input:focus-visible {
+  outline: none;
+}
+
 body {
   font-family: "Source Sans Pro", sans-serif;
   font-size: 15px;
@@ -51,6 +55,34 @@ button {
 
 button:hover, button:active, button:focus {
   outline: 0 !important;
+}
+
+.heading.sticky {
+  position: fixed !important;
+  left: 0;
+  width: 100%;
+  padding-top: 0 !important;
+  top: 0px;
+  background: #fff;
+  height: 70px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  z-index: 9999;
+}
+
+.heading.sticky .arrowLeft {
+  left: 15px !important;
+}
+
+.heading.sticky p {
+  margin: 0;
 }
 
 .appHeader {
@@ -8682,6 +8714,10 @@ body.dark-mode-active .wrrpperHomeScreen .bottomContent a {
   line-height: normal;
 }
 
+.wrrpperRegisterForm .forms {
+  margin-top: 80px;
+}
+
 .wrrpperRegisterForm .forms .formGroup {
   margin-bottom: 40px;
   margin-top: 20px;
@@ -9097,8 +9133,13 @@ body.dark-mode-active .wrrpperHomeScreen .bottomContent a {
   text-decoration: underline;
 }
 
+.completeProfile .forms_input {
+  min-height: 81vh;
+  margin-top: 80px;
+}
+
 .completeProfile .forms_input .formGroup {
-  margin-bottom: 40px;
+  margin-bottom: 25px;
   margin-top: 20px;
 }
 
@@ -9144,7 +9185,7 @@ body.dark-mode-active .wrrpperHomeScreen .bottomContent a {
   width: 85%;
 }
 
-.completeProfile .forms_input .addRemoveDivs .formGroup .withIcon .plus_icon {
+.completeProfile .forms_input .addRemoveDivs .formGroup .withIcon .plus_icon_workWxperince, .completeProfile .forms_input .addRemoveDivs .formGroup .withIcon .minus_iconWorkficatuons, .completeProfile .forms_input .addRemoveDivs .formGroup .withIcon .plus_icon_qualificationsPlus, .completeProfile .forms_input .addRemoveDivs .formGroup .withIcon .minusQuakifiactions, .completeProfile .forms_input .addRemoveDivs .formGroup .withIcon .plus_icon_SocailLinks, .completeProfile .forms_input .addRemoveDivs .formGroup .withIcon .minus_SocailLinks {
   width: 15%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -9157,6 +9198,35 @@ body.dark-mode-active .wrrpperHomeScreen .bottomContent a {
           justify-content: center;
 }
 
+.completeProfile .forms_input .select {
+  position: relative;
+}
+
+.completeProfile .forms_input .select select {
+  width: 100%;
+  border: 2px solid #ff6454;
+  background: transparent;
+  border-radius: 5px;
+  line-height: 45px;
+  height: 45px;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  padding: 0 20px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.completeProfile .forms_input .select::after {
+  content: url(../img/img/downArrow.webp);
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  right: 25px;
+}
+
 .completeProfile .btnArea button.next {
   width: 100%;
   border: none;
@@ -9167,6 +9237,214 @@ body.dark-mode-active .wrrpperHomeScreen .bottomContent a {
   border-radius: 50px;
   padding: 8px 0;
   margin-bottom: 40px;
+}
+
+.finalSuccess .imgContent {
+  height: 88vh;
+}
+
+#nav-icon4 {
+  width: 35px;
+  height: 25px;
+  position: relative;
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: .5s ease-in-out;
+  transition: .5s ease-in-out;
+  cursor: pointer;
+  text-align: center;
+}
+
+#nav-icon4 span {
+  display: block;
+  position: absolute;
+  height: 4px;
+  width: 100%;
+  background: #ff6454;
+  border-radius: 9px;
+  opacity: 1;
+  left: 0;
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: .25s ease-in-out;
+  transition: .25s ease-in-out;
+}
+
+/* Icon 4 */
+#nav-icon4 span:nth-child(1) {
+  top: 0px;
+  -webkit-transform-origin: left center;
+  transform-origin: left center;
+}
+
+#nav-icon4 span:nth-child(2) {
+  top: 10px;
+  -webkit-transform-origin: left center;
+  transform-origin: left center;
+  width: 80%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+#nav-icon4 span:nth-child(3) {
+  top: 20px;
+  -webkit-transform-origin: left center;
+  transform-origin: left center;
+  width: 60%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+#sidebarPanel .offcanvas-body {
+  margin-top: 0px;
+  padding-top: 80px;
+  background: linear-gradient(131deg, #d5eef2, #ddbdda);
+}
+
+.profileBox {
+  background: #d5eef2;
+}
+
+.profileBox .image-wrapper {
+  margin-right: 5px;
+}
+
+.profileBox .image-wrapper .imaged {
+  width: 64px;
+  height: 64px;
+}
+
+.profileBox .in {
+  font-size: 16px;
+  color: #000;
+}
+
+.profileBox .in strong {
+  color: #000;
+  font-size: 16px;
+}
+
+.profileBox .close-sidebar-button ion-icon {
+  font-size: 30px;
+  color: #fff;
+}
+
+.listview a.item .in {
+  font-size: 16px;
+  color: #000;
+}
+
+.listview a.item::after {
+  background-image: none !important;
+}
+
+.image-listview > li:last-child a.item {
+  padding-right: 20px;
+}
+
+.main {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.main .mainHeader {
+  position: fixed;
+  width: 90%;
+  top: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.main .mainHeader .top_header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 60px;
+}
+
+.main .mainHeader .top_header .lats_side {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.main .mainHeader .top_header .lats_side .notification {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-right: 10px;
+  position: relative;
+}
+
+.main .mainHeader .top_header .lats_side .notification ion-icon {
+  font-size: 30px;
+  color: #ff6454;
+  -webkit-transform: rotate(-7deg);
+          transform: rotate(-7deg);
+}
+
+.main .mainHeader .top_header .lats_side .notification .notificationsCount {
+  position: absolute;
+  top: -5px;
+  right: 5px;
+  width: 14px;
+  height: 14px;
+  background: #ff6454;
+  border-radius: 50%;
+  color: #fff;
+  text-align: center;
+  line-height: 14px;
+  font-size: 11px;
+}
+
+.main .mainHeader .top_header .avtars .avatar {
+  width: 34px;
+  height: 34px;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  overflow: hidden;
+  -webkit-box-shadow: 0px 3px 6px 1px #0004;
+          box-shadow: 0px 3px 6px 1px #0004;
+}
+
+.main .mainHeader .bottomHeader {
+  padding-top: 15px;
+}
+
+.main .mainHeader .bottomHeader .tabs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.main .mainHeader .bottomHeader .tabs .box {
+  text-align: center;
+}
+
+.main .mainHeader .bottomHeader .tabs .box .label {
+  font-size: 14px;
+  color: #000;
 }
 
 html[dir="rtl"],
