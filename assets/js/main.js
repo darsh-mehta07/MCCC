@@ -21,6 +21,24 @@ slider.on('afterChange', function(event, slick, currentSlide, nextSlide){
     slider.slickSetOption("dots",false,false)
   };
 });
+$('.moresliderVideos').slick({
+  fade:false,
+  dots:false,
+  arrows:false,
+  initialSlides: 0.5,
+  slidesToShow:3,
+  slidesToScroll:1
+});
+
+$('.bts_popular_slider').slick({
+  fade:false,
+  dots:false,
+  arrows:false,
+  centerMode: false,
+  initialSlide: 0.5,
+  slidesToShow:2.5,
+  slidesToScroll:1
+});
 
 $('#password').keyup(function() {
   var password = $('#password').val();

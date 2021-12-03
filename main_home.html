@@ -8,7 +8,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="theme-color" content="#000000">
-    <title>Mobilekit Mobile UI Kit</title>
+    <title>home</title>
     <meta name="description" content="Mobilekit HTML Mobile UI Kit">
     <meta name="keywords" content="bootstrap 5, mobile template, cordova, phonegap, mobile, html" />
     <link rel="icon" type="image/png" href="assets/img/favicon.png" sizes="32x32">
@@ -149,12 +149,27 @@
             </ul>
         </div>
     </div>
+    <!-- circleMenu-start -->
+    <div class="circleMenu">
+        <div id="circularMenu" class="circular-menu">
 
-
-
-
-
-
+            <a class="floating-btn" onclick="document.getElementById('circularMenu').classList.toggle('active');">
+              <div class="logoMenuImg">
+                <img src="assets/img/img/mneuIcon.webp" class="logo__Menu" alt="">
+                <!-- <img src="assets/img/img/menuCross.webp"  alt=""> -->
+                <ion-icon name="close" class="cross__Menu"></ion-icon>
+              </div>
+            </a>
+          
+            <menu class="items-wrapper">
+              <a href="#" class="menu-item"><img src="assets/img/img/profile.webp" alt=""><label>Profile</label></a>
+              <a href="#" class="menu-item"><img src="assets/img/img/games.webp" alt=""><label>Games</label></a>
+              <a href="#" class="menu-item"><img src="assets/img/img/application.webp" alt=""><label>Application</label></a>
+              <a href="main_home.html" class="menu-item"><img src="assets/img/img/home.webp" alt=""><label>Home</label></a>
+            </menu>
+          </div>
+    </div>
+    <!-- circleMenu-end -->
     <div class="main">
         <div class="mainHeader">
             <div class="top_header">
@@ -185,21 +200,235 @@
             <div class="bottomHeader">
                 <div class="tabs">
                     <div class="box">
-                        <img src="assets/img/img/casting.webp" alt="">
-                        <div class="label">Cating</div>
+                       <a href="casting.html">
+                            <img src="assets/img/img/casting.webp" alt="">
+                            <div class="label">Cating</div>
+                       </a>
                     </div>
                     <div class="box">
+                       <a href="workShop.html">
                         <img src="assets/img/img/workshop.webp" alt="">
                         <div class="label">Workshop</div>
+                       </a>
                     </div>
                     <div class="box">
-                        <img src="assets/img/img/bts.webp" alt="">
-                        <div class="label">BTS</div>
+                       <a href="bts.html">
+                            <img src="assets/img/img/bts.webp" alt="">
+                            <div class="label">BTS</div>
+                       </a>
                     </div>
                     <div class="box">
-                        <img src="assets/img/img/training.webp" alt="">
-                        <div class="label">Training</div>
+                        <a href="traning.html">
+                            <img src="assets/img/img/training.webp" alt="">
+                            <div class="label">Training</div>
+                        </a>
                     </div>
+                </div>
+            </div>
+        </div>
+        <div class="main_wrppers">
+            <div class="banner main_banner">
+                <img src="assets/img/img/homeBanner.webp" alt="">
+                <div class="banner_content">
+                    <h5>Casting Call</h5>
+                    <p>Lorem ipsum dolor sit<br>
+                        adipiscing elit, sed....</p>
+                </div>
+            </div>
+            <div class="casingCalls">
+                <div class="casingCallHeader">
+                    <p class="classinghead">New Casing Call</p>
+                    <span><a href="casting.html">View All</a></span>
+                </div>
+                <div class="boxs">
+                   <div class="boxHead">
+                    <h5><a href="#">Looking for a Foreigner</a></h5>
+                    <div class="shaveIcon">
+                        <i class="far fa-bookmark"></i>
+                    </div>
+                   </div>
+                   <p><a href="">Lorem ipsum dolor sit amet, consectetuer 
+                    adipiscing elit, sed....</a></p>
+                    <ul class="userDetails">
+                        <li><i class="fas fa-transgender-alt"></i>Male</li>
+                        <li><i class="far fa-calendar-alt"></i>Nov 30, 2021</li>
+                        <li><ion-icon name="location-outline"></ion-icon>Mumbai</li>
+                    </ul>
+                    <div class="labelBtns">
+                        <label>Male</label>
+                        <label>Foreigner</label>
+                        <label>Add Film</label>
+                        <label>30-50 years</label>
+                    </div>
+                </div>
+            </div>
+            <div class="casingCalls">
+                <div class="casingCallHeader">
+                    <p class="classinghead recomded">Recommended Calls</p>
+                    <span><a>View All</a></span>
+                </div>
+                <div class="boxs">
+                   <div class="boxHead">
+                    <h5><a href="#">Looking for a Foreigner</a></h5>
+                    <div class="shaveIcon">
+                        <i class="far fa-bookmark"></i>
+                    </div>
+                   </div>
+                   <p><a href="">Lorem ipsum dolor sit amet, consectetuer 
+                    adipiscing elit, sed....</a></p>
+                    <ul class="userDetails">
+                        <li><i class="fas fa-transgender-alt"></i>Male</li>
+                        <li><i class="far fa-calendar-alt"></i>Nov 30, 2021</li>
+                        <li><ion-icon name="location-outline"></ion-icon>Mumbai</li>
+                    </ul>
+                    <div class="labelBtns">
+                        <label>Male</label>
+                        <label>Foreigner</label>
+                        <label>Add Film</label>
+                        <label>30-50 years</label>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="casingCalls">
+                <div class="casingCallHeader">
+                    <p class="classinghead">Upcoming Workshop</p>
+                    <span><a>View All</a></span>
+                </div>
+    
+                <div class="banner mb-5">
+                    <img src="assets/img/img/homeBanner.webp" alt="">
+                </div>
+    
+                <div class="boxs">
+                   <div class="boxHead">
+                    <h5><a href="#">Looking for a Foreigner</a></h5>
+                    <div class="shaveIcon">
+                        <i class="far fa-bookmark"></i>
+                    </div>
+                   </div>
+                   <p><a href="">Lorem ipsum dolor sit amet, consectetuer 
+                    adipiscing elit, sed....</a></p>
+                    <ul class="userDetails">
+                        <li><i class="fas fa-transgender-alt"></i>Male</li>
+                        <li><i class="far fa-calendar-alt"></i>Nov 30, 2021</li>
+                        <li><ion-icon name="location-outline"></ion-icon>Mumbai</li>
+                    </ul>
+                    <div class="labelBtns">
+                        <label>Male</label>
+                        <label>Foreigner</label>
+                        <label>Add Film</label>
+                        <label>30-50 years</label>
+                    </div>
+                </div>
+            </div>
+            <div class="casingCalls">
+                <div class="casingCallHeader">
+                    <p class="classinghead recomded">Workshop for you</p>
+                    <span><a>View All</a></span>
+                </div>
+                <div class="boxs">
+                   <div class="boxHead">
+                    <h5><a href="#">Looking for a Foreigner</a></h5>
+                    <div class="shaveIcon">
+                        <i class="far fa-bookmark"></i>
+                    </div>
+                   </div>
+                   <p><a href="">Lorem ipsum dolor sit amet, consectetuer 
+                    adipiscing elit, sed....</a></p>
+                    <ul class="userDetails">
+                        <li><i class="fas fa-transgender-alt"></i>Male</li>
+                        <li><i class="far fa-calendar-alt"></i>Nov 30, 2021</li>
+                        <li><ion-icon name="location-outline"></ion-icon>Mumbai</li>
+                    </ul>
+                    <div class="labelBtns">
+                        <label>Male</label>
+                        <label>Foreigner</label>
+                        <label>Add Film</label>
+                        <label>30-50 years</label>
+                    </div>
+                </div>
+            </div>
+            <div class="casingCalls">
+                <div class="casingCallHeader">
+                    <p class="classinghead recomded">Behind The Scene</p>
+                    <span><a>View All</a></span>
+                </div>
+                <div class="videoPlay">
+                    <a href="#">
+                        <img src="assets/img/img/homeBanner.webp" alt="">
+                        <div class="play__ionc">
+                            <img src="assets/img/img/play_icon.webp" alt="">
+                       </a>
+                    </div>
+                </div>
+            </div>
+            <div class="casingCalls">
+                <div class="casingCallHeader">
+                    <p class="classinghead recomded">Popular BTS</p>
+                    <span><a href="bts.html">View All</a></span>
+                </div>
+                <div class="bts_popular_slider">
+                    <div class="btsSlioder">
+                       <a href="#">
+                            <img src="assets/img/img/homeBanner.webp" alt="">
+                            <div class="btsPlay_icon">
+                                <img src="assets/img/img/play_icon.webp" alt="">
+                            </div>
+                       </a>
+                    </div>
+                    <div class="btsSlioder">
+                       <a href="#">
+                            <img src="assets/img/img/homeBanner.webp" alt="">
+                            <div class="btsPlay_icon">
+                                <img src="assets/img/img/play_icon.webp" alt="">
+                            </div>
+                       </a>
+                    </div>
+                    <div class="btsSlioder">
+                        <a href="#">
+                            <img src="assets/img/img/homeBanner.webp" alt="">
+                            <div class="btsPlay_icon">
+                                <img src="assets/img/img/play_icon.webp" alt="">
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="casingCalls">
+                <div class="casingCallHeader">
+                    <p class="classinghead recomded">Watch more videos</p>
+                    <span><a>View All</a></span>
+                </div>
+                <div class="moresliderVideos">
+                    <div class="moreSlider">
+                        <a href="#">
+                            <div class="more_V_box">
+                                <span>Movie</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="moreSlider">
+                        <a href="#">
+                            <div class="more_V_box primaryColor">
+                                <span>Web<br>Series</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="moreSlider">
+                       <a href="#">
+                        <div class="more_V_box">
+                            <span>Celebrity<br>Video</span>
+                        </div>
+                       </a>
+                    </div>
+                    <div class="moreSlider">
+                       <a href="#">
+                            <div class="more_V_box primaryColor">
+                                <span>Short<br>Film</span>
+                            </div>
+                       </a>
+                    </div> 
                 </div>
             </div>
         </div>
@@ -215,6 +444,7 @@
     <script src="assets/js/plugins/splide/splide.min.js"></script>
     <script src="assets/js/plugins/slick/slick.min.js"></script>
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/font_awesome.js"></script>
     <!-- ProgressBar js -->
     <script src="assets/js/plugins/progressbar-js/progressbar.min.js"></script>
     <!-- Base Js File -->

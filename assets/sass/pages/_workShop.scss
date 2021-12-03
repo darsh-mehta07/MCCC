@@ -1,0 +1,20 @@
+.workShop{
+    .mainHeader{
+        .bottomHeader{
+            .tabs{
+                .box{
+                    &:nth-child(1){
+                        .label{
+                            color:#000;
+                        }
+                    }
+                    &:nth-child(2){
+                        .label{
+                            color:#49b3dd;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
