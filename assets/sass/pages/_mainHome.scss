@@ -15,6 +15,9 @@
     cursor: pointer;
     text-align:center;
   }
+  .nav-tabs.lined .nav-item .nav-link{
+    font-size: 12px;
+  }
   
   #nav-icon4 span {
     display: block;
@@ -421,6 +424,11 @@
                 background: linear-gradient(160deg, #f6857a69, #ff6454);
               }
             }
+            &.secondary__color{
+              &::before{
+                background: linear-gradient(160deg, #c18c2c63, #c18c2c);
+              }
+            }
           }
           span{
             a{
@@ -503,6 +511,12 @@
          }
        }
        .bts_popular_slider{
+        &.bts_popular_sliderSecond{
+          padding-left: 0px!important; // half partial
+          .slick-list{
+              padding-left: 0px!important; // half partial
+          }
+      }
          .btsSlioder{
            position: relative;
           //  width: 150px!important;

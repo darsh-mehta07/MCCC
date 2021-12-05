@@ -1,0 +1,61 @@
+.faq{
+    .faqWrapper{
+        label{
+            font-size: 16px;
+            color: #000;
+            line-height: normal;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            padding-left: 16px;
+        }
+    }
+    .accordion{
+        border-top: inherit;
+        border-bottom: inherit;
+        background: inherit;
+        .accordion-item{
+            background: initial;
+            position: relative;
+            &::after{
+                content: "";
+                display: block;
+                height: 1px;
+                background: transparent;
+                position: absolute;
+                left: 0px;
+                bottom: 1px;
+                right: 0;
+                background: #ff6454;
+                width: 92%;
+                margin: 0 auto;
+            }
+            .accordion-header{
+                button{
+                    &::before{
+                        background: none;
+                    }
+                    &::after{
+                        background: url(../img/img/rightArrow.webp) no-repeat center center !important;
+                        opacity: 1;
+                    }
+                    &.accordion-button{
+                        padding-bottom: 0;
+                        padding-top: 0;
+                        min-height: 40px;
+                        font-size: 14px;
+                        color: #4e4e4e;
+                        font-weight: 600;
+                    }
+                }
+            }
+        }
+        .accordion-collapse{
+            .accordion-body{
+                padding-top: 0;
+                color: #4e4e4e;
+                font-size: 12px;
+                line-height: normal;
+            }
+        }
+    }
+}

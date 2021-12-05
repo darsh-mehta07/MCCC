@@ -1,0 +1,7 @@
+.faq .accordion .accordion-item .accordion-header button.accordion-button{
+    padding-left: 45px;
+}
+.faq .accordion .accordion-item .accordion-header button::after{
+    right: inherit;
+    left: 20px;
+}

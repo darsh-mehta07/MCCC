@@ -1,4 +1,7 @@
 .bts{
+    .main_wrppers{
+        margin-top: 120px;
+    }
     .mainHeader{
         .bottomHeader{
             .tabs{
@@ -20,6 +23,12 @@
                     }
                 }
             }
+        }
+    }
+    .bts_popular_sliderSecond{
+        padding-left: 0px!important; // half partial
+        .slick-list{
+            padding-left: 0px!important; // half partial
         }
     }
 }

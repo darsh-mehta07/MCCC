@@ -1,0 +1,57 @@
+.gameWrpper{
+    padding: 0 5%;
+    .gamesArea{
+        .gameHeader{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 30px;
+            padding-bottom: 20px;
+            p{
+                font-size: 16px;
+                color: #000;
+                margin: 0;
+                position: relative;
+                padding-left: 10px;
+                &::before{
+                    content: '';
+                    width: 4px;
+                    height: 100%;
+                    background: linear-gradient(160deg, #79caf1, #0e517b);
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                }
+            }
+        }
+    }
+    .gameArea{
+        position: relative;
+        img{
+            width: 100%;
+        }
+        .gamesBtmTxtArrow{
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(0deg, #ff6454,#ff6454, transparent);
+            height: 50px;
+            justify-content: center;
+            .gmeImgContnt{
+                display: flex;
+            }
+            p{
+                font-size: 16px;
+                color: #fff;
+                line-height: normal;
+                margin: 0;
+            }
+            img{
+                width: auto;
+            }
+        }
+    }
+}

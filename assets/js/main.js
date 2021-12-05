@@ -25,20 +25,56 @@ $('.moresliderVideos').slick({
   fade:false,
   dots:false,
   arrows:false,
-  initialSlides: 0.5,
+  // initialSlides: 0.5,
   slidesToShow:3,
   slidesToScroll:1
 });
 
-$('.bts_popular_slider').slick({
-  fade:false,
-  dots:false,
-  arrows:false,
-  centerMode: false,
-  initialSlide: 0.5,
-  slidesToShow:2.5,
-  slidesToScroll:1
+
+
+var $carousel = $('.bts_popular_sliderSecond');
+
+var settings = {
+  dots: false,
+  arrows: false,
+  slide: '.btsSlioder',
+  // initialsSlide: 0.5,
+  slidesToShow: 2,
+  centerMode: true,
+  centerPadding: '60px',
+};
+
+function setSlideVisibility() {
+  //Find the visible slides i.e. where aria-hidden="false"
+  var visibleSlides = $carousel.find('.slick-btsSlioder[aria-hidden="false"]');
+  //Make sure all of the visible slides have an opacity of 1
+  $(visibleSlides).each(function() {
+    $(this).css('opacity', 1);
+  });
+
+  //Set the opacity of the first and last partial slides.
+  $(visibleSlides).first().prev().css('opacity', 0);
+}
+
+$carousel.slick(settings);
+$carousel.slick('slickGoTo', 1);
+// setSlideVisibility();
+
+$carousel.on('afterChange', function() {
+  setSlideVisibility();
 });
+
+
+// $('.bts_popular_sliderFirst').slick({
+//   fade:false,
+//   dots:false,
+//   arrows:false,
+//   centerMode: false,
+//   initialSlide: 0.5,
+//   slidesToShow:2.5,
+//   slidesToScroll:1
+// });
+
 
 $('#password').keyup(function() {
   var password = $('#password').val();
@@ -264,4 +300,13 @@ function getCodeBoxElement(index) {
     // $('#nav-icon4').on('click',function(){
     //   $(this).toggleClass('open');
     // });
+  });
+
+  $('.trainngSlider').slick({
+    fade:false,
+    dots:false,
+    arrows:false,
+    // initialSlides: 0.5,
+    slidesToShow:2,
+    slidesToScroll:1
   });

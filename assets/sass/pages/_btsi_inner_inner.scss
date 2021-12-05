@@ -1,0 +1,96 @@
+.casting_inner.bts_inner_inner{
+    .main_wrppers{
+        margin-top: 60px;
+        .bts__inner_inner{
+            position: fixed;
+            .youtubeVideos{
+                position: relative;
+                .shaveIcon{
+                    position: absolute;
+                    bottom: 10px;
+                    right: 20px;
+                    color: #fff;
+                }
+            }
+            .videosTopPart{
+                min-height: 315px;
+                // margin-top: 170px;
+            }
+            .youtubeContent{
+                // padding: 0 5% 20px;
+                p{
+                    font-size: 16px;
+                    margin: 0;
+                    line-height: normal;
+                    a{
+                        color: #000;
+                        float: right;
+                        clear: both;
+                    }
+                }
+                span{
+                    font-size: 16px;
+                    margin: 0;
+                    line-height: normal;
+                }
+            }
+            .upNext{
+                padding: 0 5%;
+                max-height: calc(100vh - 315px);
+                overflow-y: scroll;
+                overflow-x: hidden;
+                padding-bottom: 115px;
+                label{
+                    font-size: 16px;
+                    color: #000;
+                    line-height: normal;
+                    padding-bottom: 15px;
+                }
+                .upNextVideos{
+                    display: flex;
+                    align-items: flex-start;
+                    padding-bottom: 20px;
+                    .vLeft{
+                        position: relative;
+                        width: 35%;
+                        img{
+                            width: 100%;
+                            object-fit: contain;
+                            border-radius: 5px;
+                        }
+                        .play__ionc{
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%,-50%);
+                        }
+                    }
+                    .vright{
+                        width: 65%;
+                        padding: 0 5%;
+                        p{
+                            font-size: 16px;
+                            color: #000;
+                            line-height: normal;
+                            margin: 0;
+                            padding-bottom: 5px;
+                        }
+                        span{
+                            font-size: 14px;
+                            line-height: normal;
+                            display: block;
+                        }
+                        a{
+                            font-size: 10px;
+                            color: #000;
+                            margin: 0;
+                            padding: 0;
+                            line-height: normal;
+                            display: block;
+                        }
+                    }
+                }
+            }
+        }
+    }
+} 

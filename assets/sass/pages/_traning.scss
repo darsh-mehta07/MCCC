@@ -1,4 +1,7 @@
 .training{
+    .main_wrppers{
+        margin-top: 150px;
+    }
     .mainHeader{
         .bottomHeader{
             .tabs{
@@ -22,6 +25,70 @@
                         .label{
                             color:#49b3dd;
                         }
+                    }
+                }
+            }
+        }
+    }
+    .trainingWrapper{
+        .trainngSlider{
+            .traning_slide{
+                margin-right: 10px;
+                img{
+                    width: 100%;
+                }
+            }
+        }
+        .otherTrainingVid{
+            .trainingCallHeader{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding-top: 30px;
+                padding-bottom: 20px;
+                p{
+                    font-size: 16px;
+                    color: #000;
+                    margin: 0;
+                    position: relative;
+                    padding-left: 10px;
+                    &::before{
+                        content: '';
+                        width: 4px;
+                        height: 100%;
+                        background: linear-gradient(160deg, #79caf1, #0e517b);
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                    }
+                    &.primary__color{
+                        &::before{
+                            background: linear-gradient(
+                                160deg, #f6857a69, #ff6454);
+                        }
+                    }
+                }
+            }
+            .videosWithContnt{
+                margin-bottom: 20px;
+                p{
+                    font-size: 16px;
+                    color: #000;
+                    line-height: normal;
+                    margin: 0;
+                    padding-bottom: 10px;
+                }
+                .imgPlayIcon{
+                    position: relative;
+                    img{
+                        width: 100%;
+                        border-radius: 15px;
+                    }
+                    .btsPlay_icon{
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%,-50%);
                     }
                 }
             }

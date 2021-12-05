@@ -1,0 +1,124 @@
+.casting__profiles{
+    .castingProfile{
+        h2{
+            font-size: 26px;
+            color: #ff6454;
+            margin: 0;
+            padding-bottom: 15px;
+            line-height: normal;
+            font-weight: 400;
+        }
+        h3{
+            font-size: 16px;
+            color: #000;
+            margin: 0;
+            // padding: 0;
+            line-height: normal;
+            font-weight: 400;
+        }
+        h4{
+            font-size: 12px;
+            color: #000;
+            margin: 0;
+            // padding: 0;
+            line-height: normal;
+            font-weight: 400;
+        }
+        p{
+            font-size: 10px;
+            color: #000;
+            margin: 0;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            line-height: normal;
+            // font-weight: 400;
+            span{
+                color: #ff6454;
+            }
+        }
+        .profileDetailsWrpper{
+            .profileDiv{
+                padding-bottom: 20px;
+                label{
+                    font-size: 12px;
+                    color: #ff6454;
+                }
+                p.innerDetail{
+                    font-size: 17px;
+                    padding: 0;
+                    padding-bottom: 8px;
+                    // border-bottom: 1px solid #000;
+                    position: relative;
+                    &::after{
+                        content: '';
+                        position: absolute;
+                        left: 0;
+                        width: 50%;
+                        bottom: 0;
+                        border-bottom: 2px solid #ff6454;
+                    }
+                }
+            }
+        }
+        .profilePhotos{
+            padding-top: 50px;
+            label{
+                padding-bottom: 15px;
+                font-size: 17px;
+                color: #000;
+            }
+            .imgsArea{
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                grid-gap: 20px;
+                img{
+                    border-radius: 5px;
+                    object-fit: cover;
+                }
+                p{
+                    font-size: 10px;
+                }
+            }
+        }
+        .profileVideos{
+            padding-top: 30px;
+            label{
+                padding-bottom: 15px;
+                font-size: 17px;
+                color: #000;
+            }
+            .videosArea{
+                position: relative;
+                a{
+                    display: block;
+                    img{
+                        border-radius: 5px;
+                        object-fit: cover;
+                        width: 100%;
+                    }
+                    .play__ionc{
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%,-50%);
+                    }
+
+                }
+                p{
+                    font-size: 10px;
+                }
+            }
+        }
+    }
+}
+.btnss{
+    width: 100%;
+    border: none;
+    background: #ff6454;
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 50px;
+    padding: 8px 0;
+    margin-bottom: 50px;
+}

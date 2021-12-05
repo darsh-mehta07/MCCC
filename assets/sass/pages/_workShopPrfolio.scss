@@ -1,0 +1,42 @@
+.workshop_innerProfile{
+    .casting__profiles{
+        .workShopInner{
+            font-size: 16px;
+        }
+    }
+    .profileDetailsWrpper{
+        .profileDiv{
+            .inputFile{
+                position: relative;
+                #upkoadAdhPan{
+                    opacity: 0;
+                    height: 43px;
+                }
+                label{
+                    width: 100%;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    height: 43px;
+                    border: 1px solid #ff6454;
+                    border-radius: 8px;
+                    padding: 0 20px;
+                    color: #000;
+                    font-size: 16px;
+                    display: flex;
+                    line-height: 43px;                
+                }
+                .fileUpIcon{
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    right: 20px;
+
+                }
+            }
+            &.uploadPan{
+                margin-bottom: 20px;
+            }
+        }
+    }
+}

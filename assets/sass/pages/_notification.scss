@@ -1,3 +1,55 @@
 .notifications{
-    
+  .mainHeader{
+    .top_header{
+      .logo.middle{
+        label{
+          font-size: 16px;
+          color: #000;
+          font-weight: 400;
+        }
+      }
+    }
+  }
+    .notification_area{
+        padding-top: 1px;
+      .notificationDiv{
+        max-width: calc(100% - 30px);
+        position: relative;
+        padding-bottom: 30px;
+        margin-top: 30px;
+        &::after{
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            content: '';
+            border-bottom: 2px solid #000;
+            width: 70%;
+        }
+          p{
+            display: block;
+            display: -webkit-box;
+            line-height:normal;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 100%;
+            font-size: 15px;
+            margin: 0;
+            color: #000;
+            &::before{
+                content: url(../img/img/downArrow.webp);
+                pointer-events: none;
+                position: absolute;
+                top: 0%;
+                transform:rotate(270deg);
+                right: -25px;
+            }
+          }
+          span{
+              font-size: 12px;
+              color: #000;
+          }
+      }  
+    }
 }

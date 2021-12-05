@@ -1,0 +1,102 @@
+.inviteFrnds{
+    .mainHeader{
+        .top_header{
+            .logo.middle{
+                label{
+                    font-size: 16px;
+                    color: #000;
+                    font-weight: 400;
+                    }
+                }
+            }
+        }
+        
+    .topImg{
+        text-align: center;
+        padding-top: 30px;
+        // padding-bottom: 80px;
+        h4{
+            font-size: 25px;
+            line-height: 25px;
+            margin: 0;
+            color: #000;
+            padding-top: 80px;
+            padding-bottom: 30px;
+        }
+        p{
+            color: #000;
+            font-size: 16px;
+            line-height: normal;
+        }
+    }
+    .socialLinks{
+        width: 70%;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        padding-top: 80px;
+        .icons{
+            width: 50px;
+            height: 50px;
+            background: red;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            margin-bottom: 30px;
+            i{
+                font-size: 32px;
+                color: #fff;
+            }
+            &.fcbk{
+                background: none;
+                i{
+                    color: #465aa8;
+                    font-size: 50px;
+                }
+            }
+            &.insta{
+                background: linear-gradient(
+                    45deg, #ffe187,#ef4b82,#5e5da9);
+            }
+            &.whatsapp{
+                background: #15b05a;
+            }
+            &.goglepls{
+                background: none;
+                padding-left: 15px;
+                i{
+                    color: #e04b3a;
+                    font-size: 50px;
+                }
+            }
+            &.mesngr{
+                background: none;
+                i{
+                    color: #3c92cf;
+                    font-size: 50px;
+                }
+            }
+            &.twtr{
+                background: linear-gradient(
+                    55deg, #2285c6,#00aee4);
+            }
+            
+        }
+        .share{
+            width: 100%;
+            border: none;
+            background: #ff6454;
+            color: #fff;
+            font-size: 16px;
+            text-align: center;
+            border-radius: 50px;
+            padding: 8px 0;
+            margin-bottom: 30px;
+            margin-top: 80px;
+        }
+    }
+}

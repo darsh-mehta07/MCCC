@@ -1,0 +1,22 @@
+.workshop_inner{
+    .main_wrppers{
+        .castingContent{
+          .cating_details{
+              column-count: initial;
+              li{
+                  padding-bottom: 5px;
+                  .head{
+                      line-height: normal;
+                      i{
+                          font-size: 12px;
+                      }
+                  }
+                  label{
+                      line-height: normal;
+                  }
+
+              }
+          }  
+        }
+    }
+}
