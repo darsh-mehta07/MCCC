@@ -18,25 +18,53 @@
 </head>
 
 <body>
-    <div class="wrrpperSingUp">
-        <div class="logos">
-            <img src="assets/img/black_logo.webp" class="lightMode" alt="">
-            <img src="assets/img/white_logo.webp" class="darkMode" alt="">
+
+    <div class=" main wrrpperRegisterForm successs profilePhoto imges_wrpper">
+        <div class="mainHeader">
+            <div class="top_header">
+                <div class="arrowLeft">
+                    <ion-icon name="chevron-back-outline"></ion-icon>
+                </div>
+                <div class="logo middle">
+                    <label>Images</label>
+                </div>
+                <div class="lats_side">
+                    <div class="avtars">
+                            <a href="main_home.html">
+                                <img src="assets/img/img/homeIcon.webp" alt="avatar" class="rounded">
+                            </a>
+                        <!-- </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>  
+        <div class="imgContent">
+            <div class="imgPrevw">
+                <div class="prvwImg">
+                    <img src="assets/img/img/galleryImg1.webp" alt="">
+                </div>
+                <div class="prvwImg">
+                    <img src="assets/img/img/galleryImg1.webp" alt="">
+                </div>
+                <div class="prvwImg">
+                    <img src="assets/img/img/galleryImg1.webp" alt="">
+                </div>
+            </div>
+            <div class="imgs">
+                <input type="file" name="files[]" id="files" multiple accept="image/jpeg, image/png, image/gif,">
+                <img src="assets/img/img/photoUpload.webp" alt="" for="photo">
+            </div>
+            <div class="ctnt">
+                <p>Take a photo or choose From <br>your vilibrary</p>
+                <span>(You can add only 3 Photos)</span>
+            </div>
         </div>
-        <div class="contentDetails">
-            <p>Welcome too MCCC, Your gateway to big Screen.</p>
-            <p>Sign up and Explore the whole new world<br>
-                of Indian Cinema.</p>
-        </div>
-        <div class="signUpButtons">
-            <a href='resgistraionForm.html' class="signUp">SIGN UP</a>
-            <button class="signUpFacbook"> <i class="fab fa-facebook-f"></i> Login with Facebook</button>
-            <button class="signUpGoogle"> <img src="assets/img/img/googleIcon.webp" alt="">   Login with Google</button>
-        </div>
-        <div class="signIn">
-            <button>SIGN IN</button>
+        <div class="btnArea">
+            <button class="next">Save</button>
+            <button class="next outline">Cancel</button>
         </div>
     </div>
+
 
     <!-- ============== Js Files ==============  -->
     <!-- Bootstrap -->

@@ -1,0 +1,19 @@
+.videosPrfile{
+    .imgContent{
+        .imgPrevw{
+            grid:initial;
+            position: relative;
+            .play__ionc{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+            }
+            .prvwImg{
+                img{
+
+                }
+            }
+        }
+    }
+}

@@ -77,3 +77,36 @@
         }
     }
 }
+.darkMode{
+    display: none;
+}
+
+body.dark-mode-active{
+    background: #000!important;
+    color: #fff;
+    .darkMode{
+        display: block;
+    }
+    .lightMode{
+        display: none;
+    }
+    .heading.sticky{
+        background: #000;
+        p{
+            color: #fff;
+        }
+    }
+    .wrrpperSingUp{
+        .contentDetails{
+            p{
+                color: #fff;
+            }
+        }
+        .signUpButtons{
+            .signUpGoogle{
+                background: #fff;
+                color: #000;
+            }
+        }
+    }
+}

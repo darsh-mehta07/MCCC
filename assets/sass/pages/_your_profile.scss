@@ -1,0 +1,61 @@
+.profile{
+    .profileWrpper{
+        .profiles{
+            .profileDiv{
+                // padding-bottom: 20px;
+                label{
+                    font-size: 12px;
+                    color: #ff6454;
+                }
+                p{
+                    font-size: 17px;
+                    padding: 0;
+                    padding-bottom: 8px;
+                    position: relative;
+                    &::after{
+                        content: '';
+                        position: absolute;
+                        left: 0;
+                        width: 100%;
+                        bottom: 0;
+                        border-bottom: 2px solid #ff6454;
+                    }
+                    &.dob{
+                        position: relative;
+                        &::before{
+                            content: '';
+                            background: url(../img/img/calender.webp) no-repeat;
+                            position: absolute;
+                            top: 0;
+                            right: 15px;
+                            width: 20px;
+                            height: 20px;
+                        }
+                    }
+                }
+            }
+            .submit{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-top: 50px;
+                .btns{
+                    width: 44%;
+                    border: none;
+                    background: #ff6454;
+                    color: #fff;
+                    font-size: 16px;
+                    text-align: center;
+                    border-radius: 50px;
+                    padding: 8px 0;
+                    margin-bottom: 50px;
+                    &.outline{
+                        background: transparent;
+                        color: #000;
+                        border:1px solid #ff6454;
+                    }
+                }
+            }
+        }
+    }
+}

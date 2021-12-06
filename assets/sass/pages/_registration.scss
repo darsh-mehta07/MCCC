@@ -124,6 +124,21 @@
             }
 
           }
+          textarea{
+            width: 100%;
+            border: 2px solid #ff6454;
+            background: transparent;
+            border-radius: 5px;
+            line-height: 25px;
+            height: 75px;
+            padding: 0 20px;
+            font-size: 16px;
+            font-weight: 400;
+            resize: none;
+            &:focus-visible{
+                outline: none;
+            }
+          }
       }  
       .enchilada::-webkit-calendar-picker-indicator{
           opacity:0;
@@ -139,5 +154,17 @@
         padding: 8px 0;
         margin-bottom: 40px;
       }
+    }
+}
+
+body.dark-mode-active{
+    .wrrpperRegisterForm{
+        .forms{
+            .formGroup{
+                label,input,select{
+                    color: #fff;
+                }
+            }
+        }
     }
 }

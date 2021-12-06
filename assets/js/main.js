@@ -1,5 +1,5 @@
-var item_length = $('.wrrpperHomeSlider > .homeSliders').length - 1;
-var slider = $('.wrrpperHomeSlider').slick({
+var item_length = $('.sliderss > .homeSliders').length - 1;
+var slider = $('.sliderss').slick({
     fade:true,
     dots:true,
     autoplay: true,

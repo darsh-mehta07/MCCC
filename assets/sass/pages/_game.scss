@@ -27,6 +27,9 @@
     }
     .gameArea{
         position: relative;
+        border-radius: 20px;
+        margin-bottom: 20px;
+        overflow: hidden;
         img{
             width: 100%;
         }
@@ -38,19 +41,23 @@
             display: flex;
             align-items: center;
             background: linear-gradient(0deg, #ff6454,#ff6454, transparent);
-            height: 50px;
+            height: auto;
             justify-content: center;
             .gmeImgContnt{
                 display: flex;
-            }
-            p{
-                font-size: 16px;
-                color: #fff;
-                line-height: normal;
-                margin: 0;
-            }
-            img{
-                width: auto;
+                padding-top: 20px;
+                align-items: center;
+                p{
+                    font-size: 16px;
+                    color: #fff;
+                    line-height: normal;
+                    margin: 0;
+                    line-height: 50px;
+                    margin-right: 25px;
+                }
+                img{
+                    width: auto;
+                }
             }
         }
     }

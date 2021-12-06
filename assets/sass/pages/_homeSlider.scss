@@ -1,97 +1,108 @@
 .wrrpperHomeSlider{
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
-    .logos{
-        width: 40%;
-        margin: 0 auto;
-        img{
-            // padding-bottom: 70px;
-            padding-top: 50px;
-            width: 100%;
-        }
-    }
-    .girlImg{
-        margin-top: 70px;
-        margin-bottom: 20px;
-        img{
+    background: #000;
+    height: 100vh;
+    overflow: hidden;
+    .sliderss{
+        padding: 0 10%;
+        .logos{
+            width: 40%;
             margin: 0 auto;
+            img{
+                // padding-bottom: 70px;
+                padding-top: 50px;
+                width: 100%;
+            }
         }
-    }
-    .bottomContent{
-        h2{
-            font-size: 26px;
-            color: #ff6454;
+        .girlImg{
+            margin-top: 70px;
+            margin-bottom: 20px;
+            img{
+                margin: 0 auto;
+            }
         }
-        p{
-            font-size: 16px;
-            line-height:normal;
-            color: #000;
-            height: 80px;
-        }
-        button{
-            background: none;
-            border: none;
-            color: #ff6454;
-            font-size: 16px;
-            // font-style: italic;
-            border:none;
-            border-radius: 79px;
-            padding: 0;
-            display: flex;
-            align-items: center;
-            margin-top: 8px;
-            span{
-                position: relative;
-                &::before{
-                    position: absolute;
-                    top: 50%;
-                    right: -10px;
-                    width: 2px;
-                    height: 90%;
-                    transform: translateY(-50%);
-                    content: '';
-                    background: #ff6454;
+        .bottomContent{
+            h2{
+                font-size: 26px;
+                color: #ff6454;
+            }
+            p{
+                font-size: 16px;
+                line-height:normal;
+                color: #fff;
+                height: 80px;
+            }
+            .btns{
+                display: flex;
+                justify-content:space-between;
+                a{
+                    margin-right: 5px;
                 }
             }
-            ion-icon.md.hydrated {
-                padding-left: 12px;
-                font-size: 20px;
+            button{
+                background: none;
+                border: none;
+                color: #ff6454;
+                font-size: 16px;
+                // font-style: italic;
+                border:none;
+                border-radius: 79px;
+                padding: 0;
+                display: flex;
+                align-items: center;
+                margin-top: 8px;
+                span{
+                    position: relative;
+                    &::before{
+                        position: absolute;
+                        top: 50%;
+                        right: -10px;
+                        width: 2px;
+                        height: 90%;
+                        transform: translateY(-50%);
+                        content: '';
+                        background: #ff6454;
+                    }
+                }
+                ion-icon.md.hydrated {
+                    padding-left: 12px;
+                    font-size: 20px;
+                }
             }
         }
-    }
-    .slick-dots {
-        bottom: -42px;
-        li {
-            border: 1px solid #000;
-            width: 15px;
-            height: 15px;
-            line-height: 15px;
-            border-radius: 50%;
-            button{
+        .slick-dots {
+            bottom: -42px;
+            left: 0;
+            li {
+                border: 1px solid #fff;
                 width: 15px;
                 height: 15px;
                 line-height: 15px;
-                &:before{
-                    font-size: 35px!important;
-                    opacity: 0;
+                border-radius: 50%;
+                button{
                     width: 15px;
                     height: 15px;
                     line-height: 15px;
+                    &:before{
+                        font-size: 35px!important;
+                        opacity: 0;
+                        width: 15px;
+                        height: 15px;
+                        line-height: 15px;
+                    }
                 }
             }
         }
+        .slick-dots li.slick-active button:before{
+            opacity: 1;
+            transform: translate(-50%,-50%);
+            top: 50%;
+            left: 50%;
+            color: #ff6454;
+        }
     }
-    .slick-dots li.slick-active button:before{
-        opacity: 1;
-        transform: translate(-50%,-50%);
-        top: 50%;
-        left: 50%;
-        color: #ff6454;
-    }
-    
-}
-body.dark-mode-active{
-    .wrrpperHomeScreen{
-
+    .slick-dotted.slick-slider{
+        margin-bottom: 0;
     }
 }
