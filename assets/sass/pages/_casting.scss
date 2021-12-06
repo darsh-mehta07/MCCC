@@ -29,5 +29,11 @@
                 }
             }
         }
+        .notFoundData{
+            height: calc(100vh - 180px);
+            position: fixed;
+            width: 100%;
+            left: 0;
+        }
     }
 }

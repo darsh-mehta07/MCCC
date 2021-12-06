@@ -2,6 +2,7 @@
 @import url("inc/bootstrap/bootstrap.min.css");
 @import url("inc/splide/splide.min.css");
 @import url("inc/slick/slick.min.css");
+@import url("inc/slick/slick-theme.min.css");
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,300&family=Source+Sans+Pro:wght@200;300;400;600;700;900&display=swap");
 select:focus-visible, input:focus-visible {
@@ -10886,7 +10887,7 @@ body.dark-mode-active .wrrpperSingUp .signUpButtons .signUpGoogle {
   opacity: 0;
 }
 
-.wrrpperRegisterForm .forms button.next {
+.wrrpperRegisterForm .forms a.next {
   width: 100%;
   border: none;
   background: #ff6454;
@@ -10896,6 +10897,7 @@ body.dark-mode-active .wrrpperSingUp .signUpButtons .signUpGoogle {
   border-radius: 50px;
   padding: 8px 0;
   margin-bottom: 40px;
+  display: block;
 }
 
 body.dark-mode-active .wrrpperRegisterForm .forms .formGroup label, body.dark-mode-active .wrrpperRegisterForm .forms .formGroup input, body.dark-mode-active .wrrpperRegisterForm .forms .formGroup select {
@@ -11281,7 +11283,7 @@ body.dark-mode-active .passwords .forms .termConditions input[type="checkbox"] +
   right: 25px;
 }
 
-.completeProfile .btnArea button.next {
+.completeProfile .btnArea a.next {
   width: 100%;
   border: none;
   background: #ff6454;
@@ -11291,6 +11293,7 @@ body.dark-mode-active .passwords .forms .termConditions input[type="checkbox"] +
   border-radius: 50px;
   padding: 8px 0;
   margin-bottom: 40px;
+  display: block;
 }
 
 .finalSuccess .imgContent {
@@ -11461,6 +11464,12 @@ body.dark-mode-active .passwords .forms .termConditions input[type="checkbox"] +
   display: flex;
   margin-right: 10px;
   position: relative;
+}
+
+.main .mainHeader .top_header .lats_side .notification a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .main .mainHeader .top_header .lats_side .notification ion-icon {
@@ -11973,6 +11982,13 @@ body.dark-mode-active .passwords .forms .termConditions input[type="checkbox"] +
 
 .casting #appCapsule .tab-pane .casingCalls .boxs {
   margin-bottom: 30px;
+}
+
+.casting #appCapsule .notFoundData {
+  height: calc(100vh - 180px);
+  position: fixed;
+  width: 100%;
+  left: 0;
 }
 
 .workShop .mainHeader .bottomHeader .tabs .box:nth-child(1) .label {

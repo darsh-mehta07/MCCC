@@ -72,7 +72,7 @@
         }
     }
     .btnArea{
-        button.next{
+        a.next{
             width: 100%;
             border: none;
             background: #ff6454;
@@ -82,6 +82,7 @@
             border-radius: 50px;
             padding: 8px 0;
             margin-bottom: 40px;
+            display: block;
         }
     }
 }
