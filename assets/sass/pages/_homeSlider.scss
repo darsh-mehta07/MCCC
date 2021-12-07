@@ -5,24 +5,57 @@
     height: 100vh;
     overflow: hidden;
     .sliderss{
-        padding: 0 10%;
+        // padding: 0 10%;
+        height: 100vh;
+        .homeSliders{
+            height: 100vh;
+            // padding: 0 10%;
+            &.first{
+                background: url('../../assets/img/img/slider1.webp');
+                background-position: top center;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+            &.second{
+                background: url('../../assets/img/img/slider2.webp');
+                background-position: top center;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+            &.third{
+                background: url('../../assets/img/img/slider3.webp');
+                background-position: top center;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+            &.fourth{
+                background: url('../../assets/img/img/slider4.webp');
+                background-position: top center;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+        }
         .logos{
             width: 40%;
             margin: 0 auto;
             img{
                 // padding-bottom: 70px;
-                padding-top: 50px;
+                padding-top: 40px;
                 width: 100%;
             }
         }
-        .girlImg{
-            margin-top: 70px;
-            margin-bottom: 20px;
-            img{
-                margin: 0 auto;
-            }
-        }
+        // .girlImg{
+        //     margin-top: 70px;
+        //     margin-bottom: 20px;
+        //     img{
+        //         margin: 0 auto;
+        //     }
+        // }
         .bottomContent{
+            position: absolute;
+            bottom: 60px;
+            padding: 0 10%;
+            font-style: italic;
             h2{
                 font-size: 26px;
                 color: #ff6454;
@@ -32,12 +65,17 @@
                 line-height:normal;
                 color: #fff;
                 height: 80px;
+                font-weight: 400;
+                letter-spacing: normal;
             }
             .btns{
                 display: flex;
                 justify-content:space-between;
+                align-items: center;
                 a{
                     margin-right: 5px;
+                    margin-top: 8px;
+                    display: flex;
                 }
             }
             button{
@@ -72,7 +110,7 @@
             }
         }
         .slick-dots {
-            bottom: -42px;
+            bottom: 15px;
             left: 0;
             li {
                 border: 1px solid #fff;
@@ -89,7 +127,7 @@
                         opacity: 0;
                         width: 15px;
                         height: 15px;
-                        line-height: 15px;
+                        line-height: 18px;
                     }
                 }
             }

@@ -52,6 +52,7 @@
                     margin: 0;
                     position: relative;
                     padding-left: 10px;
+                    font-weight: 600;
                     &::before{
                         content: '';
                         width: 4px;
@@ -94,4 +95,52 @@
             }
         }
     }
+}
+
+
+body.dark-mode-active{
+  .training{
+    .mainHeader{
+        .bottomHeader{
+            .tabs{
+                .box{
+                    &:nth-child(1){
+                        .label{
+                            color:#fff;
+                        }
+                    }
+                    &:nth-child(2){
+                        .label{
+                            color:#fff;
+                        }
+                    }
+                    &:nth-child(3){
+                        .label{
+                            color:#fff;
+                        }
+                    }
+                    &:nth-child(4){
+                        .label{
+                            color:#49b3dd;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .trainingWrapper{
+        .otherTrainingVid{
+            .trainingCallHeader{
+                p{
+                    color: #fff;
+                }
+            }
+            .videosWithContnt{
+                p{
+                    color: #fff;
+                }
+            }
+        }
+    }
+  }
 }

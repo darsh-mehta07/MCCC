@@ -39,4 +39,22 @@
             }
         }
     }
+    .btnss{
+        margin-bottom: 75px;
+    }
+}
+body.dark-mode-active{
+    .workshop_innerProfile{
+        .casting__profiles{
+            .profileDetailsWrpper{
+                .profileDiv{
+                    .inputFile{
+                        label{
+                            color: #fff;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

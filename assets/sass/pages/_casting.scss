@@ -37,3 +37,31 @@
         }
     }
 }
+body.dark-mode-active{
+    .mainHeader{
+        .extraHeader{
+            background: #000;
+            border-bottom-color: #000;
+        }
+        .nav-tabs.lined .nav-item .nav-link{
+            color: #fff;
+            &.active{
+                background: transparent;
+                color: #ff6454;
+            }
+        }
+    }
+    .casting{
+        .mainHeader{
+            .bottomHeader{
+                .tabs{
+                    .box{
+                        label{
+                            color: #fff;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -7,6 +7,7 @@
             padding-top: 20px;
             padding-bottom: 20px;
             padding-left: 16px;
+            font-weight: 600;
         }
     }
     .accordion{
@@ -55,6 +56,38 @@
                 color: #4e4e4e;
                 font-size: 12px;
                 line-height: normal;
+            }
+        }
+    }
+}
+body.dark-mode-active{
+    .faq{
+        .faqWrapper{
+            label{
+                color: #fff;
+            }
+            .accordion{
+                background: #000!important;
+                .accordion-item{
+                    .accordion-header{
+                        button.accordion-button{
+                            background: #000!important;
+                            color: #fff;
+                            &::before{
+                                background: #000 !important;
+                            }
+                            &::after{
+                                background: url(../img/img/white_rightArrow.webp) no-repeat center center !important;
+                            }
+                        }
+                    } 
+                    .accordion-collapse{
+                        .accordion-body {
+                            background: #000;
+                            color: #fff;
+                        }
+                    }
+                } 
             }
         }
     }

@@ -76,7 +76,7 @@
               .select{
                   width: 30%;
                   select{
-                      padding: 0 8px;
+                      padding: 0 15px;
                   }
                   &::after{
                     content: url('../img/img/downArrow.webp');
@@ -84,7 +84,7 @@
                     position: absolute;
                     top: 50%;
                     transform: translateY(-50%);
-                    right: 10px;
+                    right: 20px;
                 }
               }
           }
@@ -96,7 +96,7 @@
                 position: relative;
                 width: 20%;
                 &::after{
-                    content: url(../img/img/arrow_down.webp);
+                    content: url('../img/img/arrow_down.webp');
                     pointer-events: none;
                     position: absolute;
                     top: 50%;
@@ -165,7 +165,20 @@ body.dark-mode-active{
                 label,input,select{
                     color: #fff;
                 }
+            .select{
+                &::after{
+                    content: url('../img/img/white_arrow_down.webp');
+                }
             }
+            .mobileNumer{
+                .selects{
+                    &::after{
+                        content: url('../img/img/white__arrow_down.webp');
+                    }
+                }
+            }
+            }
+
         }
     }
 }

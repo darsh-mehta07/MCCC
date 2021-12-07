@@ -1,0 +1,46 @@
+#sidebarPanel{
+    .profileBox{
+        .in{
+            strong{
+                font-weight: 600;
+            }
+        }
+    }
+}
+.rightSidebaars{
+    .offcanvas-header{
+        .profileBox{
+            
+        }
+    }
+}
+body.dark-mode-active{
+    .form-switch .form-check-input:checked ~ .form-check-label:after{
+        background-color: #000;
+        border-color: #000 !important;
+    }
+    .listview{
+        color: #000;
+    }
+    #sidebarPanel .profileBox{
+        .in strong{
+            color: #000;
+            .listview.transparent{
+                li{
+                    a{
+                        .in{
+                            color: #000;
+                        }
+                    }
+                    &.item{
+                        .in{
+                            div{
+                                color: #000;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

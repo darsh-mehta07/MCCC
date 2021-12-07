@@ -17,6 +17,7 @@
             font-size: 16px;
             color: #ff6454;
             margin-bottom: 10px;
+            font-weight: 600;
         }
     }
     .signUpButtons{
@@ -32,6 +33,7 @@
             margin-bottom: 60px;
             padding: 8px 0;
             display: block;
+            font-weight: 600;
         }
         .signUpFacbook{
             width: 100%;
@@ -43,6 +45,7 @@
             border-radius: 50px;
             margin-bottom: 15px;
             padding: 8px 0;
+            font-weight: 600;
             i{
                 padding-right: 8px;
             }
@@ -57,6 +60,7 @@
             border-radius: 50px;
             margin-bottom: 60px;
             padding: 8px 0;
+            font-weight: 600;
             img{
                 width: 16px;
                 margin-right: 5px;
@@ -64,7 +68,7 @@
         }
     }
     .signIn{
-        button{
+        a{
             width: 100%;
             border: none;
             background: #ff6454;
@@ -73,7 +77,10 @@
             left: 0;
             bottom: 0;
             color: #fff;
+            font-weight: 600;
             line-height: 55px;
+            display: block;
+            text-align: center;
         }
     }
 }

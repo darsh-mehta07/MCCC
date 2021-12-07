@@ -53,3 +53,32 @@
       }  
     }
 }
+body.dark-mode-active{
+ .notifications{
+   .mainHeader{
+     .top_header{
+       .middle{
+         label{
+           color: #fff;
+         }
+       }
+     }
+   }
+   .notification_area{
+     .notificationDiv{
+       p{
+         color: #fff;
+         &::before{
+           content: url(../img/img/white_arrow_down.webp);
+         }
+       }
+       span{
+         color: #fff;
+       }
+       &::after{
+        border-bottom: 2px solid #ff6454;
+       }
+     }
+   }
+ } 
+}

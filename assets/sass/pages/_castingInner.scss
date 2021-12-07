@@ -37,6 +37,7 @@
             h5{
                 font-size: 17px;
                 color: #000;
+                font-weight: 600;
             }
             p{
                 font-size: 14px;
@@ -72,8 +73,31 @@
                 border-radius: 50px;
                 padding: 8px 0;
                 margin-bottom: 50px;
+                display: block;
             }
         }
        
+    }
+}
+body.dark-mode-active{
+    .casting_inner{
+        .castingContent{
+            h5{
+                color: #ff6454;
+            }
+            p{
+                color: #fff;
+            }
+            .cating_details{
+                li{
+                    .head{
+                        color: #fff;
+                        i{
+                            color: #fff;
+                        }
+                    }
+                }
+            }
+        }
     }
 }

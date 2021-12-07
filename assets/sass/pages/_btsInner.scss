@@ -61,3 +61,23 @@
         }
     }
 }
+body.dark-mode-active{
+    .bts_inner{
+        .bts_inners{
+            .bts__inner{
+                .head{
+                    label{
+                        color: #fff;
+                    }
+                }
+                .moviesArea{
+                    .moviesContent{
+                        p,span,label{
+                            color: #fff;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

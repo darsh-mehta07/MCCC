@@ -4,3 +4,17 @@
         margin-top: 150px;
     }
 }
+body.dark-mode-active{
+    .bookemark_main{
+        .bookmarke{
+            .bookmaerkWrapper{
+                .extraHeader{
+                    background: #000;
+                }
+            }
+        }
+    }
+  .nav-tabs.lined .nav-item .nav-link{
+      color: #fff;
+  }
+}

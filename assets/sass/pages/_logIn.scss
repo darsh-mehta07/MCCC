@@ -1,0 +1,20 @@
+.login_wrpper{
+    .contentDetails{
+        margin-top: 30px;
+    }
+    .forms{
+        margin-top: 30px;
+        .formGroup{
+            .passwrd{
+                position: relative;
+                .eye{
+                    position: absolute;
+                    top: 50%;
+                    right: 20px;
+                    transform: translateY(-50%);
+                }
+            }
+        }
+    }
+}
+

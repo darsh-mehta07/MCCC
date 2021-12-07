@@ -23,6 +23,14 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+select {
+  color: #000;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: none;
+}
+
 ::-webkit-scrollbar {
   width: 0;
 }
@@ -10453,7 +10461,39 @@ body.dark-mode-active .wrrpperHomeScreen .bottomContent a {
 }
 
 .wrrpperHomeSlider .sliderss {
-  padding: 0 10%;
+  height: 100vh;
+}
+
+.wrrpperHomeSlider .sliderss .homeSliders {
+  height: 100vh;
+}
+
+.wrrpperHomeSlider .sliderss .homeSliders.first {
+  background: url("../../assets/img/img/slider1.webp");
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.wrrpperHomeSlider .sliderss .homeSliders.second {
+  background: url("../../assets/img/img/slider2.webp");
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.wrrpperHomeSlider .sliderss .homeSliders.third {
+  background: url("../../assets/img/img/slider3.webp");
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.wrrpperHomeSlider .sliderss .homeSliders.fourth {
+  background: url("../../assets/img/img/slider4.webp");
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .wrrpperHomeSlider .sliderss .logos {
@@ -10462,17 +10502,15 @@ body.dark-mode-active .wrrpperHomeScreen .bottomContent a {
 }
 
 .wrrpperHomeSlider .sliderss .logos img {
-  padding-top: 50px;
+  padding-top: 40px;
   width: 100%;
 }
 
-.wrrpperHomeSlider .sliderss .girlImg {
-  margin-top: 70px;
-  margin-bottom: 20px;
-}
-
-.wrrpperHomeSlider .sliderss .girlImg img {
-  margin: 0 auto;
+.wrrpperHomeSlider .sliderss .bottomContent {
+  position: absolute;
+  bottom: 60px;
+  padding: 0 10%;
+  font-style: italic;
 }
 
 .wrrpperHomeSlider .sliderss .bottomContent h2 {
@@ -10485,6 +10523,8 @@ body.dark-mode-active .wrrpperHomeScreen .bottomContent a {
   line-height: normal;
   color: #fff;
   height: 80px;
+  font-weight: 400;
+  letter-spacing: normal;
 }
 
 .wrrpperHomeSlider .sliderss .bottomContent .btns {
@@ -10494,10 +10534,17 @@ body.dark-mode-active .wrrpperHomeScreen .bottomContent a {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .wrrpperHomeSlider .sliderss .bottomContent .btns a {
   margin-right: 5px;
+  margin-top: 8px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .wrrpperHomeSlider .sliderss .bottomContent button {
@@ -10539,7 +10586,7 @@ body.dark-mode-active .wrrpperHomeScreen .bottomContent a {
 }
 
 .wrrpperHomeSlider .sliderss .slick-dots {
-  bottom: -42px;
+  bottom: 15px;
   left: 0;
 }
 
@@ -10562,7 +10609,7 @@ body.dark-mode-active .wrrpperHomeScreen .bottomContent a {
   opacity: 0;
   width: 15px;
   height: 15px;
-  line-height: 15px;
+  line-height: 18px;
 }
 
 .wrrpperHomeSlider .sliderss .slick-dots li.slick-active button:before {
@@ -10603,6 +10650,7 @@ body.dark-mode-active .wrrpperHomeScreen .bottomContent a {
   font-size: 16px;
   color: #ff6454;
   margin-bottom: 10px;
+  font-weight: 600;
 }
 
 .wrrpperSingUp .signUpButtons {
@@ -10620,6 +10668,7 @@ body.dark-mode-active .wrrpperHomeScreen .bottomContent a {
   margin-bottom: 60px;
   padding: 8px 0;
   display: block;
+  font-weight: 600;
 }
 
 .wrrpperSingUp .signUpButtons .signUpFacbook {
@@ -10632,6 +10681,7 @@ body.dark-mode-active .wrrpperHomeScreen .bottomContent a {
   border-radius: 50px;
   margin-bottom: 15px;
   padding: 8px 0;
+  font-weight: 600;
 }
 
 .wrrpperSingUp .signUpButtons .signUpFacbook i {
@@ -10648,6 +10698,7 @@ body.dark-mode-active .wrrpperHomeScreen .bottomContent a {
   border-radius: 50px;
   margin-bottom: 60px;
   padding: 8px 0;
+  font-weight: 600;
 }
 
 .wrrpperSingUp .signUpButtons .signUpGoogle img {
@@ -10655,7 +10706,7 @@ body.dark-mode-active .wrrpperHomeScreen .bottomContent a {
   margin-right: 5px;
 }
 
-.wrrpperSingUp .signIn button {
+.wrrpperSingUp .signIn a {
   width: 100%;
   border: none;
   background: #ff6454;
@@ -10664,7 +10715,10 @@ body.dark-mode-active .wrrpperHomeScreen .bottomContent a {
   left: 0;
   bottom: 0;
   color: #fff;
+  font-weight: 600;
   line-height: 55px;
+  display: block;
+  text-align: center;
 }
 
 .darkMode {
@@ -10805,7 +10859,7 @@ body.dark-mode-active .wrrpperSingUp .signUpButtons .signUpGoogle {
 }
 
 .wrrpperRegisterForm .forms .formGroup .dateBirth .select select {
-  padding: 0 8px;
+  padding: 0 15px;
 }
 
 .wrrpperRegisterForm .forms .formGroup .dateBirth .select::after {
@@ -10815,7 +10869,7 @@ body.dark-mode-active .wrrpperSingUp .signUpButtons .signUpGoogle {
   top: 50%;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
-  right: 10px;
+  right: 20px;
 }
 
 .wrrpperRegisterForm .forms .formGroup .mobileNumer {
@@ -10834,7 +10888,7 @@ body.dark-mode-active .wrrpperSingUp .signUpButtons .signUpGoogle {
 }
 
 .wrrpperRegisterForm .forms .formGroup .mobileNumer .selects::after {
-  content: url(../img/img/arrow_down.webp);
+  content: url("../img/img/arrow_down.webp");
   pointer-events: none;
   position: absolute;
   top: 50%;
@@ -10902,6 +10956,26 @@ body.dark-mode-active .wrrpperSingUp .signUpButtons .signUpGoogle {
 
 body.dark-mode-active .wrrpperRegisterForm .forms .formGroup label, body.dark-mode-active .wrrpperRegisterForm .forms .formGroup input, body.dark-mode-active .wrrpperRegisterForm .forms .formGroup select {
   color: #fff;
+}
+
+body.dark-mode-active .wrrpperRegisterForm .forms .formGroup .select::after {
+  content: url("../img/img/white_arrow_down.webp");
+}
+
+body.dark-mode-active .wrrpperRegisterForm .forms .formGroup .mobileNumer .selects::after {
+  content: url("../img/img/white__arrow_down.webp");
+}
+
+.passwords .forms .formGroup .passwrd {
+  position: relative;
+}
+
+.passwords .forms .formGroup .passwrd .eye {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
 }
 
 .passwords .forms .formGroup .instructions {
@@ -11089,6 +11163,26 @@ body.dark-mode-active .wrrpperRegisterForm.passwords .forms .formGroup p {
   color: #fff;
 }
 
+body.dark-mode-active .wrrpperRegisterForm.passwords .forms .termConditions .term_conditons .modal-dialog {
+  background: #000;
+}
+
+body.dark-mode-active .wrrpperRegisterForm.passwords .forms .termConditions .term_conditons .modal-dialog .modal-content {
+  background: #000;
+}
+
+body.dark-mode-active .wrrpperRegisterForm.passwords .forms .termConditions .term_conditons .modal-dialog .modal-content .modal-header {
+  background: #000;
+}
+
+body.dark-mode-active .wrrpperRegisterForm.passwords .forms .termConditions .term_conditons .modal-dialog .modal-content .modal-body .termConditionsData .text {
+  color: #fff;
+}
+
+body.dark-mode-active .wrrpperRegisterForm.passwords .forms .termConditions .term_conditons .modal-dialog .modal-content .modal-body .termConditionsData .text p {
+  font-weight: 400;
+}
+
 body.dark-mode-active .passwords .forms .cantReceiveCode {
   color: #fff;
 }
@@ -11102,7 +11196,7 @@ body.dark-mode-active .passwords .forms .termConditions input[type="checkbox"] +
 }
 
 .successs .imgContent {
-  height: 80vh;
+  height: calc(80vh - 25px);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -11132,6 +11226,10 @@ body.dark-mode-active .passwords .forms .termConditions input[type="checkbox"] +
   line-height: normal;
 }
 
+.successs .btnArea {
+  height: calc(100vh - 80vh);
+}
+
 .successs .btnArea .btn_ctnt {
   font-size: 12px;
   color: #000;
@@ -11152,6 +11250,14 @@ body.dark-mode-active .passwords .forms .termConditions input[type="checkbox"] +
   display: block;
 }
 
+body.dark-mode-active .imgContent .ctnt p {
+  color: #fff;
+}
+
+body.dark-mode-active .btnArea .btn_ctnt {
+  color: #fff;
+}
+
 .profilePhoto .heading {
   position: fixed;
   width: 100%;
@@ -11165,6 +11271,13 @@ body.dark-mode-active .passwords .forms .termConditions input[type="checkbox"] +
 
 .profilePhoto .imgContent {
   height: 80vh;
+}
+
+.profilePhoto .imgContent .ctnt span {
+  font-size: 12px;
+  color: #000;
+  text-align: center;
+  display: block;
 }
 
 .profilePhoto .imgContent .imgs {
@@ -11187,6 +11300,22 @@ body.dark-mode-active .passwords .forms .termConditions input[type="checkbox"] +
   font-size: 14px;
   color: #000;
   text-decoration: underline;
+}
+
+body.dark-mode-active .wrrpperRegisterForm .heading p {
+  color: #fff;
+}
+
+body.dark-mode-active .profilePhoto .imgContent .ctnt span {
+  color: #fff;
+}
+
+body.dark-mode-active .profilePhoto .btnArea span {
+  color: #fff;
+}
+
+.videosPrfile .btnArea {
+  height: initial;
 }
 
 .completeProfile .forms_input {
@@ -11238,20 +11367,20 @@ body.dark-mode-active .passwords .forms .termConditions input[type="checkbox"] +
 }
 
 .completeProfile .forms_input .addRemoveDivs .formGroup .withIcon .inputs {
-  width: 85%;
+  width: 90%;
 }
 
 .completeProfile .forms_input .addRemoveDivs .formGroup .withIcon .plus_icon_workWxperince, .completeProfile .forms_input .addRemoveDivs .formGroup .withIcon .minus_iconWorkficatuons, .completeProfile .forms_input .addRemoveDivs .formGroup .withIcon .plus_icon_qualificationsPlus, .completeProfile .forms_input .addRemoveDivs .formGroup .withIcon .minusQuakifiactions, .completeProfile .forms_input .addRemoveDivs .formGroup .withIcon .plus_icon_SocailLinks, .completeProfile .forms_input .addRemoveDivs .formGroup .withIcon .minus_SocailLinks {
-  width: 15%;
+  width: 10%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
 }
 
 .completeProfile .forms_input .select {
@@ -11296,8 +11425,40 @@ body.dark-mode-active .passwords .forms .termConditions input[type="checkbox"] +
   display: block;
 }
 
+body.dark-mode-active .mainHeader {
+  background: #000;
+}
+
+body.dark-mode-active .mainHeader .bottomHeader .tabs .box img.darkMode {
+  margin: 0 auto;
+}
+
+body.dark-mode-active .mainHeader .bottomHeader .tabs .box .label {
+  color: #fff;
+}
+
+body.dark-mode-active .completeProfile .forms_input .formGroup label {
+  color: #fff;
+}
+
+body.dark-mode-active .completeProfile .forms_input .formGroup label span {
+  color: #fff;
+}
+
+body.dark-mode-active .completeProfile .forms_input .formGroup .inputs input {
+  color: #fff;
+}
+
+body.dark-mode-active .completeProfile .forms_input .formGroup .select select option {
+  background: #000;
+}
+
 .finalSuccess .imgContent {
   height: 88vh;
+}
+
+.finalSuccess .btnArea {
+  height: calc(100vh - 88vh);
 }
 
 #nav-icon4 {
@@ -11783,6 +11944,7 @@ body.dark-mode-active .passwords .forms .termConditions input[type="checkbox"] +
   margin: 0;
   position: relative;
   padding-left: 10px;
+  font-weight: 600;
 }
 
 .main_wrppers .casingCalls .casingCallHeader p::before {
@@ -11829,6 +11991,7 @@ body.dark-mode-active .passwords .forms .termConditions input[type="checkbox"] +
 .main_wrppers .casingCalls .boxs .boxHead h5 a {
   font-size: 17px;
   color: #ff6454;
+  font-weight: 600;
 }
 
 .main_wrppers .casingCalls .boxs p {
@@ -11842,6 +12005,12 @@ body.dark-mode-active .passwords .forms .termConditions input[type="checkbox"] +
   font-size: 16px;
 }
 
+.main_wrppers .casingCalls .boxs p a span {
+  font-size: 12px;
+  color: #ff6454;
+  text-decoration: underline;
+}
+
 .main_wrppers .casingCalls .boxs ul.userDetails {
   padding: 0;
   margin: 0;
@@ -11851,7 +12020,7 @@ body.dark-mode-active .passwords .forms .termConditions input[type="checkbox"] +
 
 .main_wrppers .casingCalls .boxs ul.userDetails li {
   position: relative;
-  padding-left: 15px;
+  padding-left: 20px;
   font-size: 12px;
   color: #000;
 }
@@ -11866,12 +12035,13 @@ body.dark-mode-active .passwords .forms .termConditions input[type="checkbox"] +
 }
 
 .main_wrppers .casingCalls .boxs .labelBtns label {
-  font-size: 14px;
+  font-size: 12px;
   color: #fff;
   padding: 0 8px;
   border-radius: 15px;
   background: #ff6454;
   line-height: 20px;
+  margin-right: 5px;
 }
 
 .main_wrppers .casingCalls .videoPlay {
@@ -11961,6 +12131,33 @@ body.dark-mode-active .passwords .forms .termConditions input[type="checkbox"] +
   background: #ea5d49;
 }
 
+body.dark-mode-active .main_wrppers .casingCalls .boxs {
+  border: 1px solid #ea5d49;
+  padding: 20px;
+  border-radius: 25px;
+}
+
+body.dark-mode-active .main_wrppers .casingCalls .boxs p a {
+  color: #fff;
+}
+
+body.dark-mode-active .main_wrppers .casingCalls .boxs .userDetails li {
+  color: #fff;
+}
+
+body.dark-mode-active .main_wrppers .casingCalls .boxs .userDetails li i {
+  color: #fff;
+}
+
+body.dark-mode-active .main_wrppers .casingCalls .boxs .labelBtns label {
+  background: transparent;
+  border: 1px solid #ff6454;
+}
+
+body.dark-mode-active .main_wrppers .casingCalls .casingCallHeader p, body.dark-mode-active .main_wrppers .casingCalls .casingCallHeader span > a {
+  color: #fff;
+}
+
 .casting .mainHeader .bottomHeader .tabs .box:first-child .label {
   color: #49b3dd;
 }
@@ -11991,11 +12188,37 @@ body.dark-mode-active .passwords .forms .termConditions input[type="checkbox"] +
   left: 0;
 }
 
+body.dark-mode-active .mainHeader .extraHeader {
+  background: #000;
+  border-bottom-color: #000;
+}
+
+body.dark-mode-active .mainHeader .nav-tabs.lined .nav-item .nav-link {
+  color: #fff;
+}
+
+body.dark-mode-active .mainHeader .nav-tabs.lined .nav-item .nav-link.active {
+  background: transparent;
+  color: #ff6454;
+}
+
+body.dark-mode-active .casting .mainHeader .bottomHeader .tabs .box label {
+  color: #fff;
+}
+
 .workShop .mainHeader .bottomHeader .tabs .box:nth-child(1) .label {
   color: #000;
 }
 
 .workShop .mainHeader .bottomHeader .tabs .box:nth-child(2) .label {
+  color: #49b3dd;
+}
+
+body.dark-mode-active .workShop .mainHeader .bottomHeader .tabs .box:nth-child(1) .label {
+  color: #fff;
+}
+
+body.dark-mode-active .workShop .mainHeader .bottomHeader .tabs .box:nth-child(2) .label {
   color: #49b3dd;
 }
 
@@ -12021,6 +12244,32 @@ body.dark-mode-active .passwords .forms .termConditions input[type="checkbox"] +
 
 .bts .bts_popular_sliderSecond .slick-list {
   padding-left: 0px !important;
+}
+
+.bts .moresliderVideos .moreSlider .more_V_box span {
+  line-height: normal;
+}
+
+.bts .moresliderVideos .moreSlider .more_V_box span p {
+  line-height: normal;
+  margin: 0;
+  padding: 0;
+}
+
+body.dark-mode-active .bts .mainHeader .bottomHeader .tabs .box:nth-child(1) .label {
+  color: #fff;
+}
+
+body.dark-mode-active .bts .mainHeader .bottomHeader .tabs .box:nth-child(2) .label {
+  color: #fff;
+}
+
+body.dark-mode-active .bts .mainHeader .bottomHeader .tabs .box:nth-child(3) .label {
+  color: #49b3dd;
+}
+
+body.dark-mode-active .bts .mainHeader .bottomHeader .tabs .box:nth-child(4) .label {
+  color: #fff;
 }
 
 .training .main_wrppers {
@@ -12071,6 +12320,7 @@ body.dark-mode-active .passwords .forms .termConditions input[type="checkbox"] +
   margin: 0;
   position: relative;
   padding-left: 10px;
+  font-weight: 600;
 }
 
 .training .trainingWrapper .otherTrainingVid .trainingCallHeader p::before {
@@ -12116,9 +12366,34 @@ body.dark-mode-active .passwords .forms .termConditions input[type="checkbox"] +
           transform: translate(-50%, -50%);
 }
 
-.forgot_password .forms button.next {
+body.dark-mode-active .training .mainHeader .bottomHeader .tabs .box:nth-child(1) .label {
+  color: #fff;
+}
+
+body.dark-mode-active .training .mainHeader .bottomHeader .tabs .box:nth-child(2) .label {
+  color: #fff;
+}
+
+body.dark-mode-active .training .mainHeader .bottomHeader .tabs .box:nth-child(3) .label {
+  color: #fff;
+}
+
+body.dark-mode-active .training .mainHeader .bottomHeader .tabs .box:nth-child(4) .label {
+  color: #49b3dd;
+}
+
+body.dark-mode-active .training .trainingWrapper .otherTrainingVid .trainingCallHeader p {
+  color: #fff;
+}
+
+body.dark-mode-active .training .trainingWrapper .otherTrainingVid .videosWithContnt p {
+  color: #fff;
+}
+
+.forgot_password .forms .next {
   margin-top: 40px;
   margin-bottom: 40px;
+  display: block;
 }
 
 .main.sidePaading0 {
@@ -12167,6 +12442,7 @@ body.dark-mode-active .passwords .forms .termConditions input[type="checkbox"] +
 .casting_inner .main_wrppers .castingContent h5 {
   font-size: 17px;
   color: #000;
+  font-weight: 600;
 }
 
 .casting_inner .main_wrppers .castingContent p {
@@ -12209,6 +12485,23 @@ body.dark-mode-active .passwords .forms .termConditions input[type="checkbox"] +
   border-radius: 50px;
   padding: 8px 0;
   margin-bottom: 50px;
+  display: block;
+}
+
+body.dark-mode-active .casting_inner .castingContent h5 {
+  color: #ff6454;
+}
+
+body.dark-mode-active .casting_inner .castingContent p {
+  color: #fff;
+}
+
+body.dark-mode-active .casting_inner .castingContent .cating_details li .head {
+  color: #fff;
+}
+
+body.dark-mode-active .casting_inner .castingContent .cating_details li .head i {
+  color: #fff;
 }
 
 .casting__profiles .castingProfile h2 {
@@ -12349,6 +12642,19 @@ body.dark-mode-active .passwords .forms .termConditions input[type="checkbox"] +
   border-radius: 50px;
   padding: 8px 0;
   margin-bottom: 50px;
+  display: block;
+}
+
+body.dark-mode-active .casting_inner .casting__profiles .castingProfile h2 {
+  color: #ff6454;
+}
+
+body.dark-mode-active .casting_inner .casting__profiles .castingProfile h3, body.dark-mode-active .casting_inner .casting__profiles .castingProfile h4, body.dark-mode-active .casting_inner .casting__profiles .castingProfile p {
+  color: #fff;
+}
+
+body.dark-mode-active .casting_inner .casting__profiles .castingProfile .profilePhotos label, body.dark-mode-active .casting_inner .casting__profiles .castingProfile .profileVideos label {
+  color: #fff;
 }
 
 .notifications .mainHeader .top_header .logo.middle label {
@@ -12406,6 +12712,26 @@ body.dark-mode-active .passwords .forms .termConditions input[type="checkbox"] +
   color: #000;
 }
 
+body.dark-mode-active .notifications .mainHeader .top_header .middle label {
+  color: #fff;
+}
+
+body.dark-mode-active .notifications .notification_area .notificationDiv p {
+  color: #fff;
+}
+
+body.dark-mode-active .notifications .notification_area .notificationDiv p::before {
+  content: url(../img/img/white_arrow_down.webp);
+}
+
+body.dark-mode-active .notifications .notification_area .notificationDiv span {
+  color: #fff;
+}
+
+body.dark-mode-active .notifications .notification_area .notificationDiv::after {
+  border-bottom: 2px solid #ff6454;
+}
+
 .thankyou_casting .imgContent .btn_ctnt {
   font-size: 12px;
   color: #000;
@@ -12413,6 +12739,10 @@ body.dark-mode-active .passwords .forms .termConditions input[type="checkbox"] +
   margin-bottom: 30px;
   padding-top: 50px;
   line-height: normal;
+}
+
+body.dark-mode-active .thankyou_casting .imgContent .btn_ctnt {
+  color: #fff;
 }
 
 .workshop_inner .main_wrppers .castingContent .cating_details {
@@ -12476,6 +12806,14 @@ body.dark-mode-active .passwords .forms .termConditions input[type="checkbox"] +
 
 .workshop_innerProfile .profileDetailsWrpper .profileDiv.uploadPan {
   margin-bottom: 20px;
+}
+
+.workshop_innerProfile .btnss {
+  margin-bottom: 75px;
+}
+
+body.dark-mode-active .workshop_innerProfile .casting__profiles .profileDetailsWrpper .profileDiv .inputFile label {
+  color: #fff;
 }
 
 .bts_inners .bts__inner .head {
@@ -12550,6 +12888,14 @@ body.dark-mode-active .passwords .forms .termConditions input[type="checkbox"] +
   line-height: normal;
 }
 
+body.dark-mode-active .bts_inner .bts_inners .bts__inner .head label {
+  color: #fff;
+}
+
+body.dark-mode-active .bts_inner .bts_inners .bts__inner .moviesArea .moviesContent p, body.dark-mode-active .bts_inner .bts_inners .bts__inner .moviesArea .moviesContent span, body.dark-mode-active .bts_inner .bts_inners .bts__inner .moviesArea .moviesContent label {
+  color: #fff;
+}
+
 .casting_inner.bts_inner_inner .main_wrppers {
   margin-top: 60px;
 }
@@ -12604,6 +12950,7 @@ body.dark-mode-active .passwords .forms .termConditions input[type="checkbox"] +
   color: #000;
   line-height: normal;
   padding-bottom: 15px;
+  font-weight: 600;
 }
 
 .casting_inner.bts_inner_inner .main_wrppers .bts__inner_inner .upNext .upNextVideos {
@@ -12647,21 +12994,33 @@ body.dark-mode-active .passwords .forms .termConditions input[type="checkbox"] +
   line-height: normal;
   margin: 0;
   padding-bottom: 5px;
+  font-weight: 600;
 }
 
 .casting_inner.bts_inner_inner .main_wrppers .bts__inner_inner .upNext .upNextVideos .vright span {
   font-size: 14px;
   line-height: normal;
   display: block;
+  padding-bottom: 5px;
+  font-weight: normal;
 }
 
 .casting_inner.bts_inner_inner .main_wrppers .bts__inner_inner .upNext .upNextVideos .vright a {
-  font-size: 10px;
+  font-size: 12px;
   color: #000;
   margin: 0;
   padding: 0;
   line-height: normal;
   display: block;
+  font-weight: normal;
+}
+
+body.dark-mode-active .casting_inner.bts_inner_inner .main_wrppers .bts__inner_inner .upNext label {
+  color: #fff;
+}
+
+body.dark-mode-active .casting_inner.bts_inner_inner .main_wrppers .bts__inner_inner .upNext .upNextVideos .vright p, body.dark-mode-active .casting_inner.bts_inner_inner .main_wrppers .bts__inner_inner .upNext .upNextVideos .vright span, body.dark-mode-active .casting_inner.bts_inner_inner .main_wrppers .bts__inner_inner .upNext .upNextVideos .vright a {
+  color: #fff;
 }
 
 .my_application .bts_inners .bts__inner .head {
@@ -12670,6 +13029,10 @@ body.dark-mode-active .passwords .forms .termConditions input[type="checkbox"] +
 
 .my_application .bts_inners .bts__inner .casingCalls {
   padding-bottom: 20px;
+}
+
+body.dark-mode-active .bts_inners .bts__inner .head label {
+  color: #fff;
 }
 
 .wrrpperNoInternet {
@@ -12682,7 +13045,7 @@ body.dark-mode-active .passwords .forms .termConditions input[type="checkbox"] +
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  height: 100vh;
+  height: calc(100vh - 90px);
   width: 100%;
 }
 
@@ -12726,6 +13089,10 @@ body.dark-mode-active .passwords .forms .termConditions input[type="checkbox"] +
 
 .wrrpperNoInternet.notFound .imgContent .btnArea a {
   display: block;
+}
+
+body.dark-mode-active .wrrpperNoInternet .imgContent .ctnt h4 {
+  color: #fff;
 }
 
 .inviteFrnds .mainHeader .top_header .logo.middle label {
@@ -12834,7 +13201,7 @@ body.dark-mode-active .passwords .forms .termConditions input[type="checkbox"] +
   background: linear-gradient(55deg, #2285c6, #00aee4);
 }
 
-.inviteFrnds .socialLinks .share {
+.inviteFrnds .share {
   width: 100%;
   border: none;
   background: #ff6454;
@@ -12847,12 +13214,60 @@ body.dark-mode-active .passwords .forms .termConditions input[type="checkbox"] +
   margin-top: 80px;
 }
 
+body.dark-mode-active .inviteFrnds .mainHeader .top_header .logo.middle label {
+  color: #fff;
+}
+
+body.dark-mode-active .inviteFrnds .topImg h4, body.dark-mode-active .inviteFrnds .topImg p {
+  color: #fff;
+}
+
+body.dark-mode-active .inviteFrnds .socialLinks .icons.fcbk {
+  position: relative;
+}
+
+body.dark-mode-active .inviteFrnds .socialLinks .icons.fcbk::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 45px;
+  height: 47px;
+  background: #fff;
+  content: '';
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: -1;
+  border-radius: 50%;
+}
+
+body.dark-mode-active .inviteFrnds .socialLinks .icons.mesngr {
+  position: relative;
+}
+
+body.dark-mode-active .inviteFrnds .socialLinks .icons.mesngr::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 45px;
+  height: 45px;
+  background: #fff;
+  content: '';
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: -1;
+  border-radius: 50%;
+}
+
 .about p {
   font-size: 14px;
   line-height: 25px;
   color: #000;
   font-weight: 400;
   padding-top: 20px;
+}
+
+body.dark-mode-active .about p {
+  color: #fff;
 }
 
 .faq .faqWrapper label {
@@ -12862,6 +13277,7 @@ body.dark-mode-active .passwords .forms .termConditions input[type="checkbox"] +
   padding-top: 20px;
   padding-bottom: 20px;
   padding-left: 16px;
+  font-weight: 600;
 }
 
 .faq .accordion {
@@ -12914,17 +13330,51 @@ body.dark-mode-active .passwords .forms .termConditions input[type="checkbox"] +
   line-height: normal;
 }
 
-.faq .accordion .accordion-item .accordion-header button.accordion-button {
+body.dark-mode-active .faq .faqWrapper label {
+  color: #fff;
+}
+
+body.dark-mode-active .faq .faqWrapper .accordion {
+  background: #000 !important;
+}
+
+body.dark-mode-active .faq .faqWrapper .accordion .accordion-item .accordion-header button.accordion-button {
+  background: #000 !important;
+  color: #fff;
+}
+
+body.dark-mode-active .faq .faqWrapper .accordion .accordion-item .accordion-header button.accordion-button::before {
+  background: #000 !important;
+}
+
+body.dark-mode-active .faq .faqWrapper .accordion .accordion-item .accordion-header button.accordion-button::after {
+  background: url(../img/img/white_rightArrow.webp) no-repeat center center !important;
+}
+
+body.dark-mode-active .faq .faqWrapper .accordion .accordion-item .accordion-collapse .accordion-body {
+  background: #000;
+  color: #fff;
+}
+
+.term__Conditions .accordion .accordion-item .accordion-header button.accordion-button {
   padding-left: 45px;
 }
 
-.faq .accordion .accordion-item .accordion-header button::after {
+.term__Conditions .accordion .accordion-item .accordion-header button::after {
   right: inherit;
   left: 20px;
 }
 
 .bookemark_main .main_wrppers {
   margin-top: 150px;
+}
+
+body.dark-mode-active .bookemark_main .bookmarke .bookmaerkWrapper .extraHeader {
+  background: #000;
+}
+
+body.dark-mode-active .nav-tabs.lined .nav-item .nav-link {
+  color: #fff;
 }
 
 .gameWrpper {
@@ -12951,6 +13401,7 @@ body.dark-mode-active .passwords .forms .termConditions input[type="checkbox"] +
   margin: 0;
   position: relative;
   padding-left: 10px;
+  font-weight: 600;
 }
 
 .gameWrpper .gamesArea .gameHeader p::before {
@@ -12993,7 +13444,7 @@ body.dark-mode-active .passwords .forms .termConditions input[type="checkbox"] +
           justify-content: center;
 }
 
-.gameWrpper .gameArea .gamesBtmTxtArrow .gmeImgContnt {
+.gameWrpper .gameArea .gamesBtmTxtArrow .gmeImgContnt a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -13014,6 +13465,10 @@ body.dark-mode-active .passwords .forms .termConditions input[type="checkbox"] +
 
 .gameWrpper .gameArea .gamesBtmTxtArrow .gmeImgContnt img {
   width: auto;
+}
+
+body.dark-mode-active .gameWrpper .gameHeader .classinghead {
+  color: #fff;
 }
 
 .galleryWrpper .main_wrppers {
@@ -13105,6 +13560,19 @@ body.dark-mode-active .passwords .forms .termConditions input[type="checkbox"] +
   border: 1px solid #ff6454;
 }
 
+body.dark-mode-active .profile .profileWrpper .profiles .profileDiv p.dob {
+  position: relative;
+}
+
+body.dark-mode-active .profile .profileWrpper .profiles .profileDiv p.dob::before {
+  background: url("../img/img/white_calender.webp") no-repeat;
+}
+
+body.dark-mode-active .profile .profileWrpper .profiles .submit .btns.outline {
+  color: #fff;
+  font-weight: 600;
+}
+
 .main {
   margin-top: 70px;
   margin-bottom: 20px;
@@ -13124,6 +13592,11 @@ body.dark-mode-active .passwords .forms .termConditions input[type="checkbox"] +
   -ms-grid-columns: (1fr)[3];
       grid-template-columns: repeat(3, 1fr);
   grid-gap: 20px;
+}
+
+.imges_wrpper .imgContent .imgPrevw .prvwImg {
+  border-radius: 5px;
+  overflow: hidden;
 }
 
 .imges_wrpper .imgContent .imgPrevw .prvwImg img {
@@ -13147,6 +13620,7 @@ body.dark-mode-active .passwords .forms .termConditions input[type="checkbox"] +
           justify-content: space-between;
   margin-top: 30px;
   margin-bottom: 30px;
+  height: initial;
 }
 
 .imges_wrpper .btnArea .next {
@@ -13157,6 +13631,10 @@ body.dark-mode-active .passwords .forms .termConditions input[type="checkbox"] +
   background: transparent;
   color: #000;
   border: 1px solid #ff6454;
+}
+
+body.dark-mode-active .imges_wrpper .btnArea .next.outline {
+  color: #fff;
 }
 
 .videosPrfile .imgContent .imgPrevw {
@@ -13170,5 +13648,50 @@ body.dark-mode-active .passwords .forms .termConditions input[type="checkbox"] +
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
+}
+
+#sidebarPanel .profileBox .in strong {
+  font-weight: 600;
+}
+
+body.dark-mode-active .form-switch .form-check-input:checked ~ .form-check-label:after {
+  background-color: #000;
+  border-color: #000 !important;
+}
+
+body.dark-mode-active .listview {
+  color: #000;
+}
+
+body.dark-mode-active #sidebarPanel .profileBox .in strong {
+  color: #000;
+}
+
+body.dark-mode-active #sidebarPanel .profileBox .in strong .listview.transparent li a .in {
+  color: #000;
+}
+
+body.dark-mode-active #sidebarPanel .profileBox .in strong .listview.transparent li.item .in div {
+  color: #000;
+}
+
+.login_wrpper .contentDetails {
+  margin-top: 30px;
+}
+
+.login_wrpper .forms {
+  margin-top: 30px;
+}
+
+.login_wrpper .forms .formGroup .passwrd {
+  position: relative;
+}
+
+.login_wrpper .forms .formGroup .passwrd .eye {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
 }
 /*# sourceMappingURL=style.css.map */

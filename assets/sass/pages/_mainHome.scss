@@ -413,6 +413,7 @@
             margin: 0;
             position: relative;
             padding-left: 10px;
+            font-weight: 600;
             &::before{
               content: '';
               width: 4px;
@@ -452,6 +453,7 @@
              a{
                font-size: 17px;
                color: #ff6454;
+               font-weight: 600;
              }
            }
          }
@@ -462,6 +464,11 @@
             display: block;
             color: #000;
             font-size: 16px;
+           span{
+            font-size: 12px;
+            color: #ff6454;
+            text-decoration: underline;
+           }
            }
          }
          ul.userDetails{
@@ -469,9 +476,10 @@
            margin: 0;
            list-style: none;
            padding: 10px 0;
+          //  column-count: 2;
            li{
              position: relative;
-             padding-left: 15px;
+             padding-left: 20px;
              i,ion-icon {
                 font-size: 12px;
                 position: absolute;
@@ -484,13 +492,17 @@
            }
          }
          .labelBtns{
+          //  display: flex;
+          //  align-items: center;
+          //  justify-content: space-between;
            label{
-            font-size: 14px;
+            font-size: 12px;
             color: #fff;
             padding: 0 8px;
             border-radius: 15px;
             background: #ff6454;
             line-height: 20px;
+            margin-right: 5px;
            }
          }
        }
@@ -567,3 +579,39 @@
        }
       }
     }
+
+body.dark-mode-active{
+  .main_wrppers{
+    .casingCalls{
+      .boxs{
+        border: 1px solid #ea5d49;
+        padding: 20px;
+        border-radius: 25px;
+        p{
+          a{
+            color: #fff;
+          }
+        }
+        .userDetails{
+          li {
+            color: #fff;
+            i{
+              color: #fff;
+            }
+          }
+        }
+        .labelBtns{
+          label{
+            background: transparent;
+            border: 1px solid #ff6454;
+          }
+        }
+      }
+      .casingCallHeader{
+        p,span>a{
+          color: #fff;
+        }
+      }
+    }
+  }
+}

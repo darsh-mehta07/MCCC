@@ -7,3 +7,10 @@
         padding-top: 20px;
     }
 }
+body.dark-mode-active{
+    .about{
+        p{
+            color: #fff;
+        }
+    }
+}

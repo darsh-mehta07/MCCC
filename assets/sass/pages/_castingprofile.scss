@@ -121,4 +121,24 @@
     border-radius: 50px;
     padding: 8px 0;
     margin-bottom: 50px;
+    display: block;
+}
+body.dark-mode-active{
+    .casting_inner{
+        .casting__profiles{
+            .castingProfile{
+                h2{
+                    color: #ff6454;
+                }
+                h3, h4,p{
+                    color: #fff;
+                }
+                .profilePhotos, .profileVideos{
+                    label{
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }
 }

@@ -31,4 +31,51 @@
             padding-left: 0px!important; // half partial
         }
     }
+    .moresliderVideos{
+        .moreSlider{
+            .more_V_box{
+                span{
+                    line-height: normal;
+                    p{
+                        line-height: normal;
+                        margin: 0;
+                        padding: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+body.dark-mode-active{
+    .bts{
+        .mainHeader{
+            .bottomHeader{
+                .tabs{
+                    .box{
+                        &:nth-child(1){
+                            .label{
+                                color:#fff;
+                            }
+                        }
+                        &:nth-child(2){
+                            .label{
+                                color:#fff;
+                            }
+                        }
+                        &:nth-child(3){
+                            .label{
+                                color:#49b3dd;
+                            }
+                        }
+                        &:nth-child(4){
+                            .label{
+                                color:#fff;
+                            }
+                        }
+    
+                    }
+                }
+            }
+        }
+    }
 }

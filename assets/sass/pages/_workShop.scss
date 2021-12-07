@@ -18,3 +18,26 @@
         }
     }
 }
+
+body.dark-mode-active{
+   .workShop{
+    .mainHeader{
+        .bottomHeader{
+            .tabs{
+                .box{
+                    &:nth-child(1){
+                        .label{
+                            color:#fff;
+                        }
+                    }
+                    &:nth-child(2){
+                        .label{
+                            color:#49b3dd;
+                        }
+                    }
+                }
+            }
+        }
+    }
+   }
+}

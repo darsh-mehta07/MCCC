@@ -11,6 +11,14 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+select{
+  color: #000;
+}
+input,select,textarea{
+  &:focus{
+    outline: none;
+  }
+}
 
 // close all the scroll bars
 ::-webkit-scrollbar {

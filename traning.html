@@ -149,29 +149,6 @@
             </ul>
         </div>
     </div>
-    <!-- circleMenu-start -->
-    <div class="circleMenu">
-        <div id="circularMenu" class="circular-menu">
-
-            <a class="floating-btn" onclick="document.getElementById('circularMenu').classList.toggle('active');">
-              <div class="logoMenuImg">
-                <img src="assets/img/img/mneuIcon.webp" class="logo__Menu" alt="">
-                <!-- <img src="assets/img/img/menuCross.webp"  alt=""> -->
-                <ion-icon name="close" class="cross__Menu"></ion-icon>
-              </div>
-            </a>
-          
-            <menu class="items-wrapper">
-              <a href="#" class="menu-item"><img src="assets/img/img/profile.webp" alt=""><label>Profile</label></a>
-              <a href="#" class="menu-item"><img src="assets/img/img/games.webp" alt=""><label>Games</label></a>
-              <a href="#" class="menu-item"><img src="assets/img/img/application.webp" alt=""><label>Application</label></a>
-              <a href="main_home.html" class="menu-item"><img src="assets/img/img/home.webp" alt=""><label>Home</label></a>
-            </menu>
-          </div>
-    </div>
-    <!-- circleMenu-end -->
-
-
     <div class="main casting training">
         <div class="mainHeader">
             <div class="top_header">
@@ -183,14 +160,19 @@
                     </div>
                 </div>
                 <div class="logo middle">
-                    <img src="assets/img/img/black_logo.webp" alt="">
+                    <a href="main_home.html">
+                        <img src="assets/img/img/black_logo.webp" class="lightMode" alt="">
+                        <img src="assets/img/img/white_logo.webp" class="darkMode" alt="">
+                    </a>
                 </div>
                 <div class="lats_side">
                     <div class="notification">
-                        <ion-icon name="notifications-outline"></ion-icon>
-                        <div class="notificationsCount">
-                            <span>5</span>
-                        </div>
+                        <a href="notification.html">
+                            <ion-icon name="notifications-outline"></ion-icon>
+                            <div class="notificationsCount">
+                                <span>5</span>
+                            </div>
+                        </a>
                     </div>
                     <div class="avtars">
                         <div class="avatar">
@@ -203,25 +185,29 @@
                 <div class="tabs">
                     <div class="box">
                        <a href="casting.html">
-                            <img src="assets/img/img/casting.webp" alt="">
-                            <div class="label">Cating</div>
+                            <img src="assets/img/img/casting.webp" alt="" class="lightMode">
+                            <img src="assets/img/img/white_casting.webp" class="darkMode" alt="">
+                            <div class="label">Casting</div>
                        </a>
                     </div>
                     <div class="box">
                        <a href="workShop.html">
-                        <img src="assets/img/img/workshop.webp" alt="">
+                        <img src="assets/img/img/workshop.webp" alt="" class="lightMode">
+                        <img src="assets/img/img/white_workshop.webp" alt="" class="darkMode">
                         <div class="label">Workshop</div>
                        </a>
                     </div>
                     <div class="box">
                        <a href="bts.html">
-                            <img src="assets/img/img/bts.webp" alt="">
+                            <img src="assets/img/img/bts.webp" alt="" class="lightMode">
+                            <img src="assets/img/img/white_bts.webp" alt="" class="darkMode">
                             <div class="label">BTS</div>
                        </a>
                     </div>
                     <div class="box">
                         <a href="traning.html">
-                            <img src="assets/img/img/training.webp" alt="">
+                            <img src="assets/img/img/training.webp" alt="" class="lightMode">
+                            <img src="assets/img/img/white_training.webp" alt="" class="darkMode">
                             <div class="label">Training</div>
                         </a>
                     </div>
@@ -231,13 +217,13 @@
         <div class="main_wrppers trainingWrapper">
             <div class="trainngSlider">
                 <div class="traning_slide">
-                    <img src="assets/img/img/trainingSlideImg.webp" alt="">
+                   <a href="trainingInner.html"> <img src="assets/img/img/trainingSlideImg.webp" alt=""></a>
                 </div>
                 <div class="traning_slide">
-                    <img src="assets/img/img/trainingSlideImg.webp" alt="">
+                   <a href="trainingInner.html"> <img src="assets/img/img/trainingSlideImg.webp" alt=""></a>
                 </div>
                 <div class="traning_slide">
-                    <img src="assets/img/img/trainingSlideImg.webp" alt="">
+                   <a href="trainingInner.html"> <img src="assets/img/img/trainingSlideImg.webp" alt=""></a>
                 </div>
             </div>
             <div class="otherTrainingVid">
@@ -247,10 +233,12 @@
                 <div class="videosWithContnt">
                     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit</p>
                     <div class="imgPlayIcon">
-                        <img src="assets/img/img/trainingVideImg.webp" alt="">
-                        <div class="btsPlay_icon">
-                            <img src="assets/img/img/play_icon.webp" alt="">
-                        </div>
+                        <a href="trainingInner.html">
+                            <img src="assets/img/img/trainingVideImg.webp" alt="">
+                            <div class="btsPlay_icon">
+                                <img src="assets/img/img/play_icon.webp" alt="">
+                            </div>
+                        </a>
                     </div>
                 </div>
                 <div class="videosWithContnt">

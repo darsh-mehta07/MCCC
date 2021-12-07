@@ -10,6 +10,14 @@
     }
     .imgContent{
         height: 80vh;
+        .ctnt{
+            span{
+                font-size: 12px;
+                color: #000;
+                text-align: center;
+                display: block;
+            }
+        }
         .imgs{
             position: relative;
             input{
@@ -30,6 +38,23 @@
             font-size: 14px;
             color: #000;
             text-decoration: underline;
+        }
+    }
+}
+body.dark-mode-active{
+    .wrrpperRegisterForm .heading p{
+        color: #fff;
+    }
+    .profilePhoto{
+        .imgContent{
+            .ctnt{
+                span{
+                    color: #fff;
+                }
+            }
+        }
+        .btnArea span{
+            color: #fff;
         }
     }
 }
