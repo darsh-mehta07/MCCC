@@ -2,34 +2,127 @@
     .profileWrpper{
         .profiles{
             .profileDiv{
-                // padding-bottom: 20px;
+                margin-bottom: 20px;
                 label{
                     font-size: 12px;
                     color: #ff6454;
+                    display: block;
                 }
-                p{
+                .select{
+                    position: relative;
+                    select{
+                        padding: 0 15px;
+                        border: none;
+                        width: 100%;
+                        border-bottom: 2px solid #ff6454;
+                        background: transparent;
+                        border-radius: 0;
+                        line-height: 45px;
+                        height: 45px;
+                        appearance: none;
+                        padding: 0;
+                        font-size: 16px;
+                    }
+                    &::after{
+                        content: url(../img/img/downArrow.webp);
+                        pointer-events: none;
+                        position: absolute;
+                        top: 50%;
+                        -webkit-transform: translateY(-50%);
+                        transform: translateY(-50%);
+                        right: 25px;
+                    }
+                }
+                
+                .mobileNumer{
+                    display: flex;
+                    width: 100%;
+                    justify-content: space-between;
+                    .selects{
+                        position: relative;
+                        width: 20%; 
+                        select{
+                            width: 100%;
+                            border: none;
+                            border-bottom: 2px solid #ff6454;
+                            background: transparent;
+                            border-radius: 0px;
+                            line-height: 45px;
+                            height: 45px;
+                            appearance: none;
+                            padding-left: 8px;
+                            font-size: 16px;
+                            font-weight: 600;
+                        }                   
+                        &::after{
+                            content: url(../img/img/arrow_down.webp);
+                            pointer-events: none;
+                            position: absolute;
+                            top: 50%;
+                            transform: translateY(-50%);
+                            right: 10px;
+                        }
+                    }
+                    .inputs{
+                        width: 75%;
+                        input{
+                            font-size: 17px;
+                            padding: 0;
+                            padding-bottom: 8px;
+                            position: relative;
+                            border: none;
+                            background: transparent;
+                            border-bottom: 2px solid #ff6454;
+                            width: 100%;
+                            position: relative;
+                            height: 44px;
+                            &:focus-visible{
+                                outline: none;
+                            }
+                        }
+                    }
+                }
+                .innerDetail{
                     font-size: 17px;
                     padding: 0;
                     padding-bottom: 8px;
                     position: relative;
-                    &::after{
-                        content: '';
-                        position: absolute;
-                        left: 0;
-                        width: 100%;
-                        bottom: 0;
-                        border-bottom: 2px solid #ff6454;
-                    }
-                    &.dob{
+                    border: none;
+                    background: transparent;
+                    border-bottom: 2px solid #ff6454;
+                    width: 100%;
+                    position: relative;
+                }
+                .dateBirth{
+                    position: relative;
+                    display: flex;
+                    justify-content: space-between;
+                    .select{
+                        width: 25%;
                         position: relative;
-                        &::before{
-                            content: '';
-                            background: url(../img/img/calender.webp) no-repeat;
+                        select{
+                            padding: 0 15px;
+                            width: 100%;
+                            border: none;
+                            border-bottom: 2px solid #ff6454;
+                            background: transparent;
+                            border-radius: 0px;
+                            line-height: 45px;
+                            height: 45px;
+                            appearance: none;
+                            padding: 0 0px;
+                            font-size: 16px;
+                            // font-weight: 600;
+
+                        }
+                        &::after{
+                            content: url(../img/img/downArrow.webp);
+                            pointer-events: none;
                             position: absolute;
-                            top: 0;
-                            right: 15px;
-                            width: 20px;
-                            height: 20px;
+                            top: 50%;
+                            -webkit-transform: translateY(-50%);
+                            transform: translateY(-50%);
+                            right: 20px;
                         }
                     }
                 }
@@ -70,6 +163,22 @@ body.dark-mode-active{
                             &::before{
                                 background: url('../img/img/white_calender.webp') no-repeat;
                             }
+                        }
+                    }
+                    input{
+                        color: #fff;
+                    }
+                    select{
+                        color: #fff;
+                    }
+                    .selects{
+                        &::after{
+                            content: url(../img/img/white__arrow_down.webp)!important;
+                        }
+                    }
+                    .select{
+                        &::after{
+                            content: url(../img/img/white__arrow_down.webp)!important;
                         }
                     }
                 }

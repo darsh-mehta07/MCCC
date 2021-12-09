@@ -15,7 +15,7 @@ body {
   line-height: 1.55rem;
   letter-spacing: -0.015rem;
   color: #4F5050;
-  background: #F9F9F9;
+  background: #fff;
   width: 100%;
   height: 100%;
   overflow-x: hidden;
@@ -82,7 +82,9 @@ button:hover, button:active, button:focus {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  z-index: 9999;
+  z-index: 999;
+  -webkit-box-shadow: 0px 0px 5px 2px #0002;
+          box-shadow: 0px 0px 5px 2px #0002;
 }
 
 .heading.sticky .arrowLeft {
@@ -1954,7 +1956,7 @@ a.badge-dark {
 }
 
 .listview-title.sticky-title {
-  background: #F9F9F9;
+  background: #fff;
   position: -webkit-sticky;
   position: -moz-sticky;
   position: -o-sticky;
@@ -10596,6 +10598,7 @@ body.dark-mode-active .wrrpperHomeScreen .bottomContent a {
   height: 15px;
   line-height: 15px;
   border-radius: 50%;
+  background: #fff;
 }
 
 .wrrpperHomeSlider .sliderss .slick-dots li button {
@@ -11031,6 +11034,7 @@ body.dark-mode-active .wrrpperRegisterForm .forms .formGroup .mobileNumer .selec
   border-radius: 5px;
   line-height: 40px;
   padding: 0 20px;
+  text-align: center;
   font-size: 16px;
 }
 
@@ -11131,7 +11135,7 @@ body.dark-mode-active .wrrpperRegisterForm .forms .formGroup .mobileNumer .selec
 }
 
 .passwords .forms .termConditions .term_conditons .modal-dialog .modal-content .modal-header .modal-title {
-  margin-top: 50px;
+  margin-top: 40px;
   font-size: 17px;
   color: #000;
 }
@@ -11140,6 +11144,16 @@ body.dark-mode-active .wrrpperRegisterForm .forms .formGroup .mobileNumer .selec
   width: 85%;
   margin: 0 auto;
   padding: 0;
+  padding-right: 10px;
+}
+
+.passwords .forms .termConditions .term_conditons .modal-dialog .modal-content .modal-body::-webkit-scrollbar {
+  width: 4px;
+}
+
+.passwords .forms .termConditions .term_conditons .modal-dialog .modal-content .modal-body::-webkit-scrollbar-thumb {
+  width: 4px;
+  background: #ff6454;
 }
 
 .passwords .forms .termConditions .term_conditons .modal-dialog .modal-content .modal-body .termConditionsData .text {
@@ -11423,6 +11437,7 @@ body.dark-mode-active .profilePhoto .btnArea span {
   padding: 8px 0;
   margin-bottom: 40px;
   display: block;
+  margin-top: 40px;
 }
 
 body.dark-mode-active .mainHeader {
@@ -12416,6 +12431,7 @@ body.dark-mode-active .training .trainingWrapper .otherTrainingVid .videosWithCo
 
 .casting_inner .main_wrppers .castingImg {
   position: relative;
+  min-height: 303px;
 }
 
 .casting_inner .main_wrppers .castingImg img {
@@ -13494,39 +13510,159 @@ body.dark-mode-active .gameWrpper .gameHeader .classinghead {
   width: 100%;
 }
 
+.profile .profileWrpper .profiles .profileDiv {
+  margin-bottom: 20px;
+}
+
 .profile .profileWrpper .profiles .profileDiv label {
   font-size: 12px;
   color: #ff6454;
+  display: block;
 }
 
-.profile .profileWrpper .profiles .profileDiv p {
+.profile .profileWrpper .profiles .profileDiv .select {
+  position: relative;
+}
+
+.profile .profileWrpper .profiles .profileDiv .select select {
+  padding: 0 15px;
+  border: none;
+  width: 100%;
+  border-bottom: 2px solid #ff6454;
+  background: transparent;
+  border-radius: 0;
+  line-height: 45px;
+  height: 45px;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  padding: 0;
+  font-size: 16px;
+}
+
+.profile .profileWrpper .profiles .profileDiv .select::after {
+  content: url(../img/img/downArrow.webp);
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  right: 25px;
+}
+
+.profile .profileWrpper .profiles .profileDiv .mobileNumer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.profile .profileWrpper .profiles .profileDiv .mobileNumer .selects {
+  position: relative;
+  width: 20%;
+}
+
+.profile .profileWrpper .profiles .profileDiv .mobileNumer .selects select {
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid #ff6454;
+  background: transparent;
+  border-radius: 0px;
+  line-height: 45px;
+  height: 45px;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  padding-left: 8px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.profile .profileWrpper .profiles .profileDiv .mobileNumer .selects::after {
+  content: url(../img/img/arrow_down.webp);
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  right: 10px;
+}
+
+.profile .profileWrpper .profiles .profileDiv .mobileNumer .inputs {
+  width: 75%;
+}
+
+.profile .profileWrpper .profiles .profileDiv .mobileNumer .inputs input {
   font-size: 17px;
   padding: 0;
   padding-bottom: 8px;
   position: relative;
-}
-
-.profile .profileWrpper .profiles .profileDiv p::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  width: 100%;
-  bottom: 0;
+  border: none;
+  background: transparent;
   border-bottom: 2px solid #ff6454;
+  width: 100%;
+  position: relative;
+  height: 44px;
 }
 
-.profile .profileWrpper .profiles .profileDiv p.dob {
+.profile .profileWrpper .profiles .profileDiv .mobileNumer .inputs input:focus-visible {
+  outline: none;
+}
+
+.profile .profileWrpper .profiles .profileDiv .innerDetail {
+  font-size: 17px;
+  padding: 0;
+  padding-bottom: 8px;
+  position: relative;
+  border: none;
+  background: transparent;
+  border-bottom: 2px solid #ff6454;
+  width: 100%;
   position: relative;
 }
 
-.profile .profileWrpper .profiles .profileDiv p.dob::before {
-  content: '';
-  background: url(../img/img/calender.webp) no-repeat;
+.profile .profileWrpper .profiles .profileDiv .dateBirth {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.profile .profileWrpper .profiles .profileDiv .dateBirth .select {
+  width: 25%;
+  position: relative;
+}
+
+.profile .profileWrpper .profiles .profileDiv .dateBirth .select select {
+  padding: 0 15px;
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid #ff6454;
+  background: transparent;
+  border-radius: 0px;
+  line-height: 45px;
+  height: 45px;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  padding: 0 0px;
+  font-size: 16px;
+}
+
+.profile .profileWrpper .profiles .profileDiv .dateBirth .select::after {
+  content: url(../img/img/downArrow.webp);
+  pointer-events: none;
   position: absolute;
-  top: 0;
-  right: 15px;
-  width: 20px;
-  height: 20px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  right: 20px;
 }
 
 .profile .profileWrpper .profiles .submit {
@@ -13566,6 +13702,22 @@ body.dark-mode-active .profile .profileWrpper .profiles .profileDiv p.dob {
 
 body.dark-mode-active .profile .profileWrpper .profiles .profileDiv p.dob::before {
   background: url("../img/img/white_calender.webp") no-repeat;
+}
+
+body.dark-mode-active .profile .profileWrpper .profiles .profileDiv input {
+  color: #fff;
+}
+
+body.dark-mode-active .profile .profileWrpper .profiles .profileDiv select {
+  color: #fff;
+}
+
+body.dark-mode-active .profile .profileWrpper .profiles .profileDiv .selects::after {
+  content: url(../img/img/white__arrow_down.webp) !important;
+}
+
+body.dark-mode-active .profile .profileWrpper .profiles .profileDiv .select::after {
+  content: url(../img/img/white__arrow_down.webp) !important;
 }
 
 body.dark-mode-active .profile .profileWrpper .profiles .submit .btns.outline {
@@ -13654,6 +13806,15 @@ body.dark-mode-active .imges_wrpper .btnArea .next.outline {
   font-weight: 600;
 }
 
+.rightSidebaars {
+  background: linear-gradient(131deg, #d5eef2, #ddbdda);
+}
+
+.rightSidebaars .offcanvas-header .profileBox {
+  left: inherit;
+  right: 0;
+}
+
 body.dark-mode-active .form-switch .form-check-input:checked ~ .form-check-label:after {
   background-color: #000;
   border-color: #000 !important;
@@ -13693,5 +13854,72 @@ body.dark-mode-active #sidebarPanel .profileBox .in strong .listview.transparent
   right: 20px;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
+}
+
+.main_wrppers.main_Second .casingCalls .boxs .userDetails {
+  -webkit-column-count: 2;
+          column-count: 2;
+}
+
+body.dark-mode-active .main_wrppers .casingCalls .boxs {
+  border: 1px solid #ea5d49;
+  padding: 20px;
+  border-radius: 25px;
+}
+
+body.dark-mode-active .main_wrppers .casingCalls .boxs p a {
+  color: #fff;
+}
+
+body.dark-mode-active .main_wrppers .casingCalls .boxs .userDetails li {
+  color: #fff;
+}
+
+body.dark-mode-active .main_wrppers .casingCalls .boxs .userDetails li i {
+  color: #fff;
+}
+
+body.dark-mode-active .main_wrppers .casingCalls .boxs .labelBtns label {
+  background: transparent;
+  border: 1px solid #ff6454;
+}
+
+body.dark-mode-active .main_wrppers .casingCalls .casingCallHeader p, body.dark-mode-active .main_wrppers .casingCalls .casingCallHeader span > a {
+  color: #fff;
+}
+
+.main.sidePaading0 {
+  padding: 0;
+}
+
+.casting_inner.casting_inner_second .main_wrppers .castingContent .cating_details {
+  margin-bottom: 30px;
+}
+
+.casting_inner.casting_inner_second .main_wrppers .castingContent .labelBtns label {
+  font-size: 12px;
+  color: #fff;
+  padding: 0 8px;
+  border-radius: 15px;
+  background: #ff6454;
+  line-height: 20px;
+  margin-right: 5px;
+  margin-bottom: 30px;
+}
+
+body.dark-mode-active .casting_inner .castingContent h5 {
+  color: #ff6454;
+}
+
+body.dark-mode-active .casting_inner .castingContent p {
+  color: #fff;
+}
+
+body.dark-mode-active .casting_inner .castingContent .cating_details li .head {
+  color: #fff;
+}
+
+body.dark-mode-active .casting_inner .castingContent .cating_details li .head i {
+  color: #fff;
 }
 /*# sourceMappingURL=style.css.map */

@@ -1,0 +1,48 @@
+.main.sidePaading0{
+    padding: 0;
+}
+.casting_inner{
+    &.casting_inner_second{
+        .main_wrppers{
+           .castingContent{
+               .cating_details{
+                   margin-bottom: 30px;
+               }
+               .labelBtns{
+                   label{
+                       font-size: 12px;
+                       color: #fff;
+                       padding: 0 8px;
+                       border-radius: 15px;
+                       background: #ff6454;
+                       line-height: 20px;
+                       margin-right: 5px;
+                       margin-bottom: 30px;
+                   }
+               }
+           } 
+        }
+    }
+}
+body.dark-mode-active{
+    .casting_inner{
+        .castingContent{
+            h5{
+                color: #ff6454;
+            }
+            p{
+                color: #fff;
+            }
+            .cating_details{
+                li{
+                    .head{
+                        color: #fff;
+                        i{
+                            color: #fff;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

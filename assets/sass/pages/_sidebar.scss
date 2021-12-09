@@ -8,11 +8,14 @@
     }
 }
 .rightSidebaars{
+    background: linear-gradient(131deg, #d5eef2, #ddbdda);
     .offcanvas-header{
         .profileBox{
-            
+            left: inherit;
+            right: 0;
         }
     }
+    
 }
 body.dark-mode-active{
     .form-switch .form-check-input:checked ~ .form-check-label:after{

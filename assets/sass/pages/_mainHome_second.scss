@@ -1,0 +1,48 @@
+ // menucss-end
+    .main_wrppers{
+      &.main_Second{
+        .casingCalls{
+          .boxs{
+            .userDetails{
+              column-count: 2;
+            }
+          }
+        }
+      }
+    }
+
+body.dark-mode-active{
+  .main_wrppers{
+    .casingCalls{
+      .boxs{
+        border: 1px solid #ea5d49;
+        padding: 20px;
+        border-radius: 25px;
+        p{
+          a{
+            color: #fff;
+          }
+        }
+        .userDetails{
+          li {
+            color: #fff;
+            i{
+              color: #fff;
+            }
+          }
+        }
+        .labelBtns{
+          label{
+            background: transparent;
+            border: 1px solid #ff6454;
+          }
+        }
+      }
+      .casingCallHeader{
+        p,span>a{
+          color: #fff;
+        }
+      }
+    }
+  }
+}

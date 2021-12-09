@@ -63,7 +63,8 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 9999;
+  z-index: 999;
+  box-shadow: 0px 0px 5px 2px #0002;
   .arrowLeft{
       left: 15px!important;
   }
